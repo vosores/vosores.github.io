@@ -182,7 +182,3 @@ This sentence has five words. Here are five more words. Five-word sentences are 
 <p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <b>- Gary Provost</b> <i>(100 Ways to Improve Your Writing, 1985)</i>
 </p></span>
 </div>
-
-```
-Prueba 2
-```
