@@ -7,7 +7,7 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+<!-- {% include base_path %} -->
 
 
 <style>
@@ -107,7 +107,7 @@ Raimund Bürger, Víctor Osores.</p></li>
 
 <p><span><strong>Cargos</strong></span></p>
 <ul>
-<li>Académico e investigador en Universidad Católica del Maule <a href="www.ucm.cl">[Actual]</a>.</li>
+<li>Académico e investigador en Universidad Católica del Maule <a href="www.ucm.cl" target="_blank" rel="noopener noreferrer">[Actual]</a>.</li>
 <li>Docente Part-time Universidad de Concepción.</li>
 <li>Docente Part-time Universidad Católica de la Santísima Concepción.</li>
 <li>Postdoctorando en Departamento de Ingeniería Informática y Ciencias de la Computación, Unidad data science, Universidad de Concepción. Modelamiento matemático y simulación numérica del SARS-Cov-2.</li>
@@ -304,7 +304,7 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 <ul>
 <li><p><span><strong>Sistemas operativos:</strong></span><span> Linux, Windows.</span></p></li>
 <li><p><span><strong>Estructura de documentos:</strong></span><span> LaTeX, Tikz.</span></p></li>
-<li><p><span><strong>Lenguaje de programación:</strong></span><span>Matlab, Paraview, Fortran 90, Python, CUDA, R.</span></p></li>
+<li><p><span><strong>Lenguaje de programación:</strong></span><span> Matlab, Paraview, Fortran 90, Python, CUDA, R.</span></p></li>
 <li><p><span><strong>Desarrollo colaborativo:</strong></span><span> Git, GitHub, GitKraken.</span></p></li>
 </ul>
 
