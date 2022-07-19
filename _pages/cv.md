@@ -10,20 +10,20 @@ redirect_from:
 {% include base_path %}
 
 
-<!-- <style>
-body{
+<style>
+/* body{
 max-width: 1180px;
 width: 98%;
 margin: 0px auto;
 text-align: justify;
-}
+} */
 h1{
 text-align: center;
 }
-</style> -->
+</style>
 
 
-<div><h1 text-align: center>CURRICULUM VITAE</h1></div>
+<div><h1>CURRICULUM VITAE</h1></div>
 <p><span><strong>Antecedentes personales</strong></span></p>
 <p>Nombre: Víctor Andrés Osores Escalona<br />
 <span>Fecha de Nacimiento: 10 de Agosto de 1988</span><br />
