@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 
 
-<style>
+<!-- <style>
 body{
 max-width: 1180px;
 width: 98%;
@@ -20,7 +20,7 @@ text-align: justify;
 h1{
 text-align: center;
 }
-</style>
+</style> -->
 
 
 <div><h1 >CURRICULUM VITAE</h1></div>
