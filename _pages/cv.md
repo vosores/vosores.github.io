@@ -22,7 +22,7 @@ text-align: center;
 }
 </style>
 
-<body>
+
 <div><h1 >CURRICULUM VITAE</h1></div>
 <ol>
 <li>
@@ -302,7 +302,7 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 <span>Concepción-Chile</span></p></li>
 </ul></li>
 </ol>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
 
 <object data="https://vosores.github.io/CV/Osores.pdf" type="application/pdf" width="700px" height="700px">
