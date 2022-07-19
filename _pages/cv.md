@@ -302,10 +302,10 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 
 <p><span><strong>Conocimientos de computación</strong></span></p>
 <ul>
-<li><p><span><strong>Sistemas operativos:</strong></span><span> Linux, Windows.</span></p></li>
-<li><p><span><strong>Estructura de documentos:</strong></span><span> LaTeX, Tikz.</span></p></li>
-<li><p><span><strong>Lenguaje de programación:</strong></span><span> Matlab, Paraview, Fortran 90, Python, CUDA, R.</span></p></li>
-<li><p><span><strong>Desarrollo colaborativo:</strong></span><span> Git, GitHub, GitKraken.</span></p></li>
+<li><span><strong>Sistemas operativos:</strong></span><span> Linux, Windows.</span></li>
+<li><span><strong>Estructura de documentos:</strong></span><span> LaTeX, Tikz.</span></li>
+<li><span><strong>Lenguaje de programación:</strong></span><span> Matlab, Paraview, Fortran 90, Python, CUDA, R.</span></li>
+<li><span><strong>Desarrollo colaborativo:</strong></span><span> Git, GitHub, GitKraken.</span></li>
 </ul>
 
 <p><span><strong>Formación Académica</strong></span></p>
