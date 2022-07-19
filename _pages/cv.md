@@ -49,15 +49,15 @@ Universidad de Concepción.</p></li>
 Universidad de Concepción.</p></li>
 </ol></li>
 <li><p><span><strong>Líneas de Especialización</strong></span></p>
-<ol>
+<ul>
 <li><p>Análisis numérico de ecuaciones diferenciales parciales.</p></li>
 <li><p>Modelamiento matemático de procesos de sedimentación polidispersa.</p></li>
 <li><p>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</p></li>
 <li><p>Métodos numéricos para sistemas de EDP’s hiperbólicas con productos no conservativos.</p></li>
 <li><p>Modelos shallow water multicapa para sedimentación polidispersa.</p></li>
-</ol></li>
+</ul></li>
 <li><p><span><strong>Líneas de Investigación</strong></span></p>
-<ol>
+<ul>
 <li><p>Análisis numérico de ecuaciones diferenciales parciales.</p></li>
 <li><p>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</p></li>
 <li><p>Modelos matemáticos para enfermedades infecciosas provocadas por virus (SARS-CoV-2).</p></li>
@@ -70,7 +70,7 @@ Universidad de Concepción.</p></li>
 <li><p>Desarrollo de la herramienta SRT (South Rivers Toolbox). Modelo predictor de cambios morfodiná- micos en ríos para ayudar a la gestión de cauces (Proyecto Innova Chile CORFO 19BP-117424).</p></li>
 <li><p>Diseño de herramientas para QGIS (Sistema de Información Geográfica open source) y Análisis de imágenes satelitales.</p></li>
 <li><p>Modelos lluvia-escorrentía.</p></li>
-</ol></li>
+</ul></li>
 <li><p><span><strong>Publicaciones</strong></span></p>
 <ol>
 <li><p><span><strong>Calibration and validation of three hydrological models of daily rainfall applied in four small watersheds in south-central chile.</strong> </span><br />
