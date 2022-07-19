@@ -223,8 +223,8 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <span><em>Docente Part-time en el Departamento de Matemática y Física Aplicadas.</em></span><br />
 <span>Concepción-Chile</span></p></li>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
-<span><em>Tesista Doctorado en cs. Aplicadas con mención en Ingeniería Matemática.</em></span></p>
-<p><span>Concepción-Chile</span><br />
+<span><em>Tesista Doctorado en cs. Aplicadas con mención en Ingeniería Matemática.</em></span><br />
+<span>Concepción-Chile</span><br />
 <span>CI<sup>2</sup>MA and Departamento de Ingenierı́a Matemática, Facultad de Ciencias Físicas y Matemáticas.</span></p></li>
 <li><p><span><strong>Universidad de Sevilla</strong></span><br />
 <span><em>Estadía de colaboración en trabajos de investigación.</em></span><br />
@@ -248,13 +248,12 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <span>Concepción-Chile</span><br />
 <span>Álgebra, Álgebra lineal, Cálculo I, Cálculo II, Ecuaciones diferenciales ordinarias. Departamento de Ingeniería Matemática.</span></p></li>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
-<span><em>Consultor en sala de estudios de la Facultad de Ciencias Físicas y Matemáticas.</em></span></p>
-<p><span>Concepción-Chile</span><br />
+<span><em>Consultor en sala de estudios de la Facultad de Ciencias Físicas y Matemáticas.</em></span><br />
+<span>Concepción-Chile</span><br />
 <span>Dar respuesta a consultas de los estudiantes de la Facultad en asignaturas de los primeros tres años de carrera. Álgebra, Álgebra lineal, Cálculo I, Cálculo II, Calculo III, Ecuaciones diferenciales (EDO, EDP), Análisis numérico, entre otras. Departamento de Ingeniería Matemática.</span></p></li>
 </ol>
 
-<!-- 
-<li><p><span><strong>Cursos</strong></span></p>
+<p><span><strong>Cursos</strong></span></p>
 <ol>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span><em>Comunidad de aprendizaje IDEClab: Instalación y primeros pasos en MANIM (Mathematical ANIMation)</em></span><br />
@@ -275,13 +274,15 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <span><em>Version Control Systems for Mathematical Researchers.</em></span><br />
 <span>Sevilla-España</span><br />
 <span>Instituto de Matemáticas Universidad de Sevilla Antonio de Castro Brzezicki (IMUS).</span></p></li>
-</ol></li>
-<li><p><span><strong>Premios y Distinciones</strong></span></p>
-<ol>
-<li><p>Beca de Doctorado nacional (CONICYT).</p></li>
-<li><p>Beca CRHIAM (Centro de Recursos Hídricos para la Agricultura y la Minería).</p></li>
-</ol></li>
-<li><p><span><strong>Experiencia laboral privada y social</strong></span></p>
+</ol>
+
+<p><span><strong>Premios y Distinciones</strong></span></p>
+<ul>
+<li>Beca de Doctorado nacional (CONICYT).</li>
+<li>Beca CRHIAM (Centro de Recursos Hídricos para la Agricultura y la Minería).</li>
+</ul>
+
+<p><span><strong>Experiencia laboral privada y social</strong></span></p>
 <ol>
 <li><p><span><strong>AES Gener S.A</strong></span><br />
 <span><em>Práctica Profesional</em></span><br />
@@ -291,20 +292,23 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 <li><p><span><strong>Preuniversitario rural</strong></span><br />
 <span><em>Profesor de matemáticas en preuniversitario en Quillón</em></span><br />
 <span>Quillón-Chile</span></p></li>
-</ol></li>
-<li><p><span><strong>Idiomas</strong></span></p>
+</ol>
+
+<p><span><strong>Idiomas</strong></span></p>
 <ul>
-<li><p><span><strong>Inglés</strong></span>.</p></li>
-<li><p><span><strong>Español</strong></span>.</p></li>
-</ul></li>
-<li><p><span><strong>Conocimientos de computación</strong></span></p>
+<li><span><strong>Inglés</strong></span>.</li>
+<li><span><strong>Español</strong></span>.</li>
+</ul>
+
+<p><span><strong>Conocimientos de computación</strong></span></p>
 <ul>
 <li><p><span><strong>Sistemas operativos:</strong></span><span> Linux, Windows.</span></p></li>
 <li><p><span><strong>Estructura de documentos:</strong></span><span> LaTeX, Tikz.</span></p></li>
 <li><p><span><strong>Lenguaje de programación:</strong></span><span>Matlab, Paraview, Fortran 90, Python, CUDA, R.</span></p></li>
 <li><p><span><strong>Desarrollo colaborativo:</strong></span><span> Git, GitHub, GitKraken.</span></p></li>
-</ul></li>
-<li><p><span><strong>Formación Académica</strong></span></p>
+</ul>
+
+<p><span><strong>Formación Académica</strong></span></p>
 <ul>
 <li><p><span><strong>Educación Básica</strong></span></p></li>
 <li><p><span><strong>Escuela Silvestre Paiva Manríquez</strong></span><br />
@@ -324,13 +328,11 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span>Doctorado en ciencias aplicadas con mención en ingeniería matemática</span><br />
 <span>Concepción-Chile</span></p></li>
-</ul></li>
 </ul>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
 
 <object data="https://vosores.github.io/CV/Osores.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="https://vosores.github.io/CV/Osores.pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://vosores.github.io/files/UCM_2022.pdf">Download PDF</a>.</p>
     </embed>
-</object> -->
+</object>
