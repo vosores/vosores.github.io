@@ -102,20 +102,19 @@ Escuela de Primavera de Análisis Numérico (EPANUM 2019), Universidad de Concep
 Raimund Bürger, Julio Careaga, Stefan Diehl, Víctor Osores, Luis M. Villada.</p></li>
 <li><p><span><strong>On the mathematical and numerical treatment of polydisperse sedimentation. <strong>[2018]</strong></strong></span><br />
 Proceedings of the International Conference on Numerical Analysis, Computing and Applications in Science, Engineering and Technology (ICNumACA’18).<br />
-Raimund Bürger, Víctor Osores.</p>
+Raimund Bürger, Víctor Osores.</p></li>
 </ol>
 
 <p><span><strong>Cargos</strong></span></p>
-<ol>
+<ul>
 <li>Académico e investigador en Universidad Católica del Maule.</li>
 <li>Docente Part-time Universidad de Concepción.</li>
 <li>Docente Part-time Universidad Católica de la Santísima Concepción.</li>
 <li>Postdoctorando en Departamento de Ingeniería Informática y Ciencias de la Computación, Unidad data science, Universidad de Concepción. Modelamiento matemático y simulación numérica del SARS-Cov-2.</li>
 <li>Investigador y desarrollador de la herramienta South Rivers Toolbox bajo el proyecto CORFO código 19BP-117424.</li>
-</ol>
+</ul>
 
-<!-- 
-<li><p><span><strong>Participación en proyectos de investigación</strong></span></p>
+<p><span><strong>Participación en proyectos de investigación</strong></span></p>
 <ol>
 <li><p>Proyecto Innova Chile – CORFO Bienes Públicos Adaptación al Cambio Climático. 19BP-117424 – South Rivers Toolbox: Modelo predictor de la morfodinámica fluvial para apoyar la gestión de cauces.</p>
 <p><br />
@@ -128,7 +127,9 @@ Participación: Colaborador en investigación.</p></li>
 Participación: Ayudante de investigación.</p></li>
 <li><p>Proyecto UCO 1124, Dirección de Docencia de la Universidad de Concepción.<br />
 Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estudiante (CADE)</p></li>
-</ol></li>
+</ol>
+
+<!-- 
 <li><p><span><strong>Charlas en universidades</strong></span></p>
 <ol>
 <li><p><span><strong>Universidad de Tarapacá</strong></span><br />
