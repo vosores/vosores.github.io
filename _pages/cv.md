@@ -9,41 +9,48 @@ redirect_from:
 
 {% include base_path %}
 
+
+<style>
+body{
+max-width: 1180px;
+width: 98%;
+margin: 0px auto;
+text-align: justify;
+}
+</style>
+
 <body>
 <div class="center">
 <p><span><strong>CURRICULUM VITAE</strong></span></p>
 </div>
 <ol>
-<li><p><span><strong>Antecedentes personales</strong></span></p>
+<li>
+<p><span><strong>Antecedentes personales</strong></span></p>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left">Nombre</td>
-<td align="left">:</td>
+<td align="left">Nombre:</td>
 <td align="left"><span>Víctor Andrés Osores Escalona</span></td>
 </tr>
 <tr class="odd">
-<td align="left"><span>Fecha de Nacimiento</span></td>
-<td align="left">:</td>
+<td align="left"><span>Fecha de Nacimiento:</span></td>
 <td align="left"><span>10 de Agosto de 1988</span></td>
 </tr>
 <tr class="even">
-<td align="left"><span>Nacionalidad</span></td>
-<td align="left">:</td>
+<td align="left"><span>Nacionalidad:</span></td>
 <td align="left"><span>Chilena</span></td>
 </tr>
 <tr class="even">
-<td align="left">Email</td>
-<td align="left">:</td>
+<td align="left">Email:</td>
 <td align="left"><span>vosores@ucm.cl</span></td>
 </tr>
 <tr class="odd">
-<td align="left">Página personal</td>
-<td align="left">:</td>
+<td align="left">Página personal:</td>
 <td align="left"><a href="https://vosores.github.io">https://vosores.github.io</a></td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 <li><p><span><strong>Afiliación</strong></span></p>
 <p>Académico e investigador<br />
 <span>Departamento de Matemática, Física y Estadística</span><br />
