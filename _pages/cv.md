@@ -107,7 +107,7 @@ Raimund Bürger, Víctor Osores.</p></li>
 
 <p><span><strong>Cargos</strong></span></p>
 <ul>
-<li>Académico e investigador en Universidad Católica del Maule <a href="www.ucm.cl" target="_blank" rel="noopener noreferrer">[Actual]</a>.</li>
+<li>Académico e investigador en Universidad Católica del Maule <a href="https://portal.ucm.cl/" target="_blank" rel="noopener noreferrer">[Actual]</a>.</li>
 <li>Docente Part-time Universidad de Concepción.</li>
 <li>Docente Part-time Universidad Católica de la Santísima Concepción.</li>
 <li>Postdoctorando en Departamento de Ingeniería Informática y Ciencias de la Computación, Unidad data science, Universidad de Concepción. Modelamiento matemático y simulación numérica del SARS-Cov-2.</li>
