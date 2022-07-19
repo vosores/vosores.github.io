@@ -55,10 +55,10 @@ Universidad de Concepción.</p></li>
 <li><p>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</p></li>
 <li><p>Métodos numéricos para sistemas de EDP’s hiperbólicas con productos no conservativos.</p></li>
 <li><p>Modelos shallow water multicapa para sedimentación polidispersa.</p></li>
-</ul></li>
+</ul>
 
-<ul>
-<li><p><span><strong>Líneas de Investigación</strong></span></p>
+
+<p><span><strong>Líneas de Investigación</strong></span></p>
 <ul>
 <li><p>Análisis numérico de ecuaciones diferenciales parciales.</p></li>
 <li><p>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</p></li>
@@ -72,8 +72,9 @@ Universidad de Concepción.</p></li>
 <li><p>Desarrollo de la herramienta SRT (South Rivers Toolbox). Modelo predictor de cambios morfodiná- micos en ríos para ayudar a la gestión de cauces (Proyecto Innova Chile CORFO 19BP-117424).</p></li>
 <li><p>Diseño de herramientas para QGIS (Sistema de Información Geográfica open source) y Análisis de imágenes satelitales.</p></li>
 <li><p>Modelos lluvia-escorrentía.</p></li>
-</ul></li>
-<li><p><span><strong>Publicaciones</strong></span></p>
+</ul>
+<!-- 
+<p><span><strong>Publicaciones</strong></span></p>
 <ol>
 <li><p><span><strong>Calibration and validation of three hydrological models of daily rainfall applied in four small watersheds in south-central chile.</strong> </span><br />
 Water; <span>Cuartíl:</span> <span class="math inline"><em>Q</em><sub>1</sub></span>, <span>Factor de impacto:</span> 3.103.<br />
@@ -311,4 +312,4 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
     <embed src="https://vosores.github.io/CV/Osores.pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://vosores.github.io/files/UCM_2022.pdf">Download PDF</a>.</p>
     </embed>
-</object>
+</object> -->
