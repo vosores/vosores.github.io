@@ -92,8 +92,10 @@ Raimund Bürger, Enrique D. Fernández-Nieto, Víctor Osores.</p></li>
 <li><p><span><strong>A dynamic multilayer shallow water model for polydisperse sedimentation. <strong>[2019]</strong></strong> </span><br />
 <span>ESAIM: Mathematical Modelling and Numerical Analysis; <span>Cuartíl:</span> <span class="math inline"><em>Q</em><sub>1</sub></span>, <span>Factor de impacto:</span> 1.988.</span><br />
 Raimund Bürger, Enrique D. Fernández-Nieto, Víctor Osores.</p></li>
-</ol></li>
-<li><p><span><strong>Reportes y Proceedings</strong></span></p>
+</ol>
+
+
+<p><span><strong>Reportes y Proceedings</strong></span></p>
 <ol>
 <li><p><span><strong>Mathematical Modelling in Sedimentation. Lecture Notes. <strong>[2021]</strong></strong></span><br />
 Escuela de Primavera de Análisis Numérico (EPANUM 2019), Universidad de Concepción, 21-25 October 2019 (57 pp).<br />
@@ -103,14 +105,16 @@ Proceedings of the International Conference on Numerical Analysis, Computing and
 Raimund Bürger, Víctor Osores.</p>
 </ol>
 
-<!-- 
-<li><p><span><strong>Cargos</strong></span></p>
+<p><span><strong>Cargos</strong></span></p>
 <ol>
-<li><p>Docente Part-time Universidad de Concepción.</p></li>
-<li><p>Docente Part-time Universidad Católica de la Santísima Concepción.</p></li>
-<li><p>Postdoctorando en Departamento de Ingeniería Informática y Ciencias de la Computación, Unidad data science, Universidad de Concepción. Modelamiento matemático y simulación numérica del SARS-Cov-2.</p></li>
-<li><p>Investigador y desarrollador de la herramienta South Rivers Toolbox bajo el proyecto CORFO código 19BP-117424.</p></li>
-</ol></li>
+<li>Académico e investigador en Universidad Católica del Maule.</li>
+<li>Docente Part-time Universidad de Concepción.</li>
+<li>Docente Part-time Universidad Católica de la Santísima Concepción.</li>
+<li>Postdoctorando en Departamento de Ingeniería Informática y Ciencias de la Computación, Unidad data science, Universidad de Concepción. Modelamiento matemático y simulación numérica del SARS-Cov-2.</li>
+<li>Investigador y desarrollador de la herramienta South Rivers Toolbox bajo el proyecto CORFO código 19BP-117424.</li>
+</ol>
+
+<!-- 
 <li><p><span><strong>Participación en proyectos de investigación</strong></span></p>
 <ol>
 <li><p>Proyecto Innova Chile – CORFO Bienes Públicos Adaptación al Cambio Climático. 19BP-117424 – South Rivers Toolbox: Modelo predictor de la morfodinámica fluvial para apoyar la gestión de cauces.</p>
