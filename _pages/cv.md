@@ -30,14 +30,15 @@ text-align: center;
 <span>Nacionalidad: Chilena</span><br />
 <span>Email: vosores@ucm.cl</span><br />
 <span>Página personal: <a href="https://vosores.github.io">https://vosores.github.io</a></span></p>
-<ul>
-<li><p><span><strong>Afiliación</strong></span></p>
+
+<p><span><strong>Afiliación</strong></span></p>
 <p>Académico e investigador<br />
 <span>Departamento de Matemática, Física y Estadística</span><br />
 <span>Facultad de Ciencias Básicas</span><br />
 <span>Universidad Católica del Maule</span><br />
-<span>Talca, Chile.</span></p></li>
-<li><p><span><strong>Títulos y grados</strong></span></p>
+<span>Talca, Chile.</span></p>
+
+<p><span><strong>Títulos y grados</strong></span></p>
 <ol>
 <li><p>Doctor en ciencias aplicadas con mención en ingeniería matemática.<br />
 Universidad de Concepción.</p></li>
@@ -45,8 +46,9 @@ Universidad de Concepción.</p></li>
 Universidad de Concepción.</p></li>
 <li><p>Licenciado en ciencias de la ingeniería matemática<br />
 Universidad de Concepción.</p></li>
-</ol></li>
-<li><p><span><strong>Líneas de Especialización</strong></span></p>
+</ol>
+
+<p><span><strong>Líneas de Especialización</strong></span></p>
 <ul>
 <li><p>Análisis numérico de ecuaciones diferenciales parciales.</p></li>
 <li><p>Modelamiento matemático de procesos de sedimentación polidispersa.</p></li>
@@ -54,6 +56,8 @@ Universidad de Concepción.</p></li>
 <li><p>Métodos numéricos para sistemas de EDP’s hiperbólicas con productos no conservativos.</p></li>
 <li><p>Modelos shallow water multicapa para sedimentación polidispersa.</p></li>
 </ul></li>
+
+<ul>
 <li><p><span><strong>Líneas de Investigación</strong></span></p>
 <ul>
 <li><p>Análisis numérico de ecuaciones diferenciales parciales.</p></li>
