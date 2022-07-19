@@ -107,7 +107,7 @@ Raimund Bürger, Víctor Osores.</p></li>
 
 <p><span><strong>Cargos</strong></span></p>
 <ul>
-<li>Académico e investigador en Universidad Católica del Maule [Actual].</li>
+<li>Académico e investigador en Universidad Católica del Maule <a href="www.ucm.cl">[Actual]</a>.</li>
 <li>Docente Part-time Universidad de Concepción.</li>
 <li>Docente Part-time Universidad Católica de la Santísima Concepción.</li>
 <li>Postdoctorando en Departamento de Ingeniería Informática y Ciencias de la Computación, Unidad data science, Universidad de Concepción. Modelamiento matemático y simulación numérica del SARS-Cov-2.</li>
@@ -142,8 +142,9 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <span>Centre for Mathematical Sciences Lund</span><br />
 <span>Lund-Sweden</span><br />
 <span><span><u>Título:</u></span> A dynamic multilayer shallow water model for polydisperse sedimentation.</span></li>
-</ol></li>
-<li><p><span><strong>Congresos y seminarios (Expositor)</strong></span></p>
+</ol>
+
+<p><span><strong>Congresos y seminarios (Expositor)</strong></span></p>
 <ol>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span><em>WONAPDE 2019</em></span><br />
@@ -181,9 +182,7 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <span><span><u>Título:</u></span> Modelamiento matemático y simulación numérica de un sistema de shallow water multicapa con sedimentación polidispersa en dos dimensiones horizontales.</span></p></li>
 </ol>
 
-
-<!-- 
-<li><p><span><strong>Congresos y seminarios (Asistencia)</strong></span></p>
+<p><span><strong>Congresos y seminarios (Asistencia)</strong></span></p>
 <ol>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span><em>Fourth CI2MA Workshop</em></span><br />
@@ -213,8 +212,9 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <span><em>COMCA 2012</em></span><br />
 <span>Antofagasta-Chile</span><br />
 <span>Sesión de Análisis Numérico para resolución de Ecuaciones Diferenciales Parciales.</span></p></li>
-</ol></li>
-<li><p><span><strong>Experiencia académica e investigación</strong></span></p>
+</ol>
+
+<p><span><strong>Experiencia académica e investigación</strong></span></p>
 <ol>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span><em>Docente Part-time en el Departamento de Ingeniería Matemática, Facultad ciencias Físicas y Matemáticas.</em></span><br />
@@ -251,7 +251,9 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <span><em>Consultor en sala de estudios de la Facultad de Ciencias Físicas y Matemáticas.</em></span></p>
 <p><span>Concepción-Chile</span><br />
 <span>Dar respuesta a consultas de los estudiantes de la Facultad en asignaturas de los primeros tres años de carrera. Álgebra, Álgebra lineal, Cálculo I, Cálculo II, Calculo III, Ecuaciones diferenciales (EDO, EDP), Análisis numérico, entre otras. Departamento de Ingeniería Matemática.</span></p></li>
-</ol></li>
+</ol>
+
+<!-- 
 <li><p><span><strong>Cursos</strong></span></p>
 <ol>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
