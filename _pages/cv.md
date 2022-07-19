@@ -25,11 +25,13 @@ text-align: center;
 
 <div><h1>CURRICULUM VITAE</h1></div>
 <p><span><strong>Antecedentes personales</strong></span></p>
-<p>Nombre: Víctor Andrés Osores Escalona<br />
-<span>Fecha de Nacimiento: 10 de Agosto de 1988</span><br />
-<span>Nacionalidad: Chilena</span><br />
-<span>Email: vosores@ucm.cl</span><br />
-<span>Página personal: <a href="https://vosores.github.io">https://vosores.github.io</a></span></p>
+<ul style="list-style-type: none">
+<li>Nombre: Víctor Andrés Osores Escalona</li>
+<li>Fecha de Nacimiento: 10 de Agosto de 1988</li>
+<li>Nacionalidad: Chilena</li>
+<li>Email: vosores@ucm.cl</li>
+<li>Página personal: <a href="https://vosores.github.io">https://vosores.github.io</a></li>
+</ul>
 
 <p><span><strong>Afiliación</strong></span></p>
 <p>Académico e investigador<br />
