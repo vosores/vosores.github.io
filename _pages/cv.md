@@ -11,14 +11,20 @@ redirect_from:
 
 
 <style>
-/* body{
+body{
 max-width: 1180px;
 width: 98%;
 margin: 0px auto;
-text-align: justify;
-} */
+/* text-align: justify; */
+}
 h1{
 text-align: center;
+}
+ul{
+text-align: justify; 
+}
+ol{
+text-align: justify; 
 }
 </style>
 
@@ -34,21 +40,20 @@ text-align: center;
 </ul>
 
 <p><span><strong>Afiliación</strong></span></p>
+<ul style="list-style-type: none">
 <p>Académico e investigador<br />
 <span>Departamento de Matemática, Física y Estadística</span><br />
 <span>Facultad de Ciencias Básicas</span><br />
 <span>Universidad Católica del Maule</span><br />
 <span>Talca, Chile.</span></p>
+</ul>
 
 <p><span><strong>Títulos y grados</strong></span></p>
-<ol>
-<li><p>Doctor en ciencias aplicadas con mención en ingeniería matemática.<br />
-Universidad de Concepción.</p></li>
-<li><p>Ingeniero civil matemático.<br />
-Universidad de Concepción.</p></li>
-<li><p>Licenciado en ciencias de la ingeniería matemática<br />
-Universidad de Concepción.</p></li>
-</ol>
+<ul>
+<li>Doctor en ciencias aplicadas con mención en ingeniería matemática, Universidad de Concepción.</li>
+<li>Ingeniero civil matemático, Universidad de Concepción.</li>
+<li>Licenciado en ciencias de la ingeniería matemática, Universidad de Concepción.</li>
+</ul>
 
 <p><span><strong>Líneas de Especialización</strong></span></p>
 <ul>
@@ -95,7 +100,7 @@ Escuela de Primavera de Análisis Numérico (EPANUM 2019), Universidad de Concep
 Raimund Bürger, Julio Careaga, Stefan Diehl, Víctor Osores, Luis M. Villada.</p></li>
 <li><p><span><strong>On the mathematical and numerical treatment of polydisperse sedimentation. <strong>[2018]</strong></strong></span><br />
 Proceedings of the International Conference on Numerical Analysis, Computing and Applications in Science, Engineering and Technology (ICNumACA’18).<br />
-Raimund Bürger, Víctor Osores.</p></li>
+Raimund Bürger, Víctor Osores.</p>
 </ol>
 
 <!-- 
