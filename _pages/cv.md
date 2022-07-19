@@ -60,18 +60,18 @@ Universidad de Concepción.</p></li>
 
 <p><span><strong>Líneas de Investigación</strong></span></p>
 <ul>
-<li><p>Análisis numérico de ecuaciones diferenciales parciales.</p></li>
-<li><p>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</p></li>
-<li><p>Modelos matemáticos para enfermedades infecciosas provocadas por virus (SARS-CoV-2).</p></li>
-<li><p>Modelamiento matemático de procesos de sedimentación polidispersa sobre ríos y estuarios.</p></li>
-<li><p>Modelos shallow water multicapa para sedimentación polidispersa.</p></li>
-<li><p>Diseño de métodos numéricos eficientes. Simulación numérica de procesos de sedimentación, arrastre de sedimento, tsunamis.</p></li>
-<li><p>Mecánica de fluidos. Teoría de mezclas. Separación sólido-fluido. Sedimentación.</p></li>
-<li><p>Modelos shallow water multicapa sobre canales inclinados.</p></li>
-<li><p>Computación científica (Fortran90, Python, Matlab, R).</p></li>
-<li><p>Desarrollo de la herramienta SRT (South Rivers Toolbox). Modelo predictor de cambios morfodiná- micos en ríos para ayudar a la gestión de cauces (Proyecto Innova Chile CORFO 19BP-117424).</p></li>
-<li><p>Diseño de herramientas para QGIS (Sistema de Información Geográfica open source) y Análisis de imágenes satelitales.</p></li>
-<li><p>Modelos lluvia-escorrentía.</p></li>
+<li>Análisis numérico de ecuaciones diferenciales parciales.</li>
+<li>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</li>
+<li>Modelos matemáticos para enfermedades infecciosas provocadas por virus (SARS-CoV-2).</li>
+<li>Modelamiento matemático de procesos de sedimentación polidispersa sobre ríos y estuarios.</li>
+<li>Modelos shallow water multicapa para sedimentación polidispersa.</li>
+<li>Diseño de métodos numéricos eficientes. Simulación numérica de procesos de sedimentación, arrastre de sedimento, tsunamis.</li>
+<li>Mecánica de fluidos. Teoría de mezclas. Separación sólido-fluido. Sedimentación.</li>
+<li>Modelos shallow water multicapa sobre canales inclinados.</li>
+<li>Computación científica (Fortran90, Python, Matlab, R).</li>
+<li>Desarrollo de la herramienta SRT (South Rivers Toolbox). Modelo predictor de cambios morfodiná- micos en ríos para ayudar a la gestión de cauces (Proyecto Innova Chile CORFO 19BP-117424).</li>
+<li>Diseño de herramientas para QGIS (Sistema de Información Geográfica open source) y Análisis de imágenes satelitales.</li>
+<li>Modelos lluvia-escorrentía.</li>
 </ul>
 <!-- 
 <p><span><strong>Publicaciones</strong></span></p>
