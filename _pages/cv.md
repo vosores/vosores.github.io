@@ -22,11 +22,6 @@ redirect_from:
 <td align="left">:</td>
 <td align="left"><span>Víctor Andrés Osores Escalona</span></td>
 </tr>
-<tr class="even">
-<td align="left"><span>Rut</span></td>
-<td align="left">:</td>
-<td align="left"><span>16.953.172-2</span></td>
-</tr>
 <tr class="odd">
 <td align="left"><span>Fecha de Nacimiento</span></td>
 <td align="left">:</td>
@@ -37,20 +32,15 @@ redirect_from:
 <td align="left">:</td>
 <td align="left"><span>Chilena</span></td>
 </tr>
-<tr class="odd">
-<td align="left">Teléfono</td>
-<td align="left">:</td>
-<td align="left">+56984041298</td>
-</tr>
 <tr class="even">
 <td align="left">Email</td>
 <td align="left">:</td>
-<td align="left"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="691f000a1d061b061a061b0c1a291c0d0c0a470a05">[email&#160;protected]</a>, <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="85f3ece6f1eaf7abeaf6eaf7e0f6c5f0e6f6e6abe6e9">[email&#160;protected]</a></td>
+<td align="left"><span>vosores@ucm.cl</span></td>
 </tr>
 <tr class="odd">
 <td align="left">Página personal</td>
 <td align="left">:</td>
-<td align="left"><a href="https://vosores.github.io/CV/Osores.pdf">https://vosores.github.io/CV/Osores.pdf</a></td>
+<td align="left"><a href="https://vosores.github.io">https://vosores.github.io</a></td>
 </tr>
 </tbody>
 </table></li>
