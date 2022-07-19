@@ -17,12 +17,13 @@ width: 98%;
 margin: 0px auto;
 text-align: justify;
 }
+h1{
+text-align: center;
+}
 </style>
 
 <body>
-<div class="center">
-<p><span><strong>CURRICULUM VITAE</strong></span></p>
-</div>
+<div><h1 >CURRICULUM VITAE</h1></div>
 <ol>
 <li>
 <p><span><strong>Antecedentes personales</strong></span></p>
