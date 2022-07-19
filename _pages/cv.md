@@ -116,8 +116,7 @@ Raimund Bürger, Víctor Osores.</p></li>
 
 <p><span><strong>Participación en proyectos de investigación</strong></span></p>
 <ol>
-<li><p>Proyecto Innova Chile – CORFO Bienes Públicos Adaptación al Cambio Climático. 19BP-117424 – South Rivers Toolbox: Modelo predictor de la morfodinámica fluvial para apoyar la gestión de cauces.</p>
-<p><br />
+<li><p>Proyecto Innova Chile – CORFO Bienes Públicos Adaptación al Cambio Climático. 19BP-117424 – South Rivers Toolbox: Modelo predictor de la morfodinámica fluvial para apoyar la gestión de cauces.<br />
 Participación: Investigador y programador software South Rivers Toolbox.</p></li>
 <li><p>CONICYT/PIA/Concurso Apoyo a Centros Científicos y Tecnológicos de Excelencia con Financiamiento Basal (AFB170001).<br />
 Participación: Investigador Postdoctoral.</p></li>
