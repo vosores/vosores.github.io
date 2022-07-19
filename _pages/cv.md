@@ -107,7 +107,7 @@ Raimund Bürger, Víctor Osores.</p></li>
 
 <p><span><strong>Cargos</strong></span></p>
 <ul>
-<li>Académico e investigador en Universidad Católica del Maule.</li>
+<li>Académico e investigador en Universidad Católica del Maule [Actual].</li>
 <li>Docente Part-time Universidad de Concepción.</li>
 <li>Docente Part-time Universidad Católica de la Santísima Concepción.</li>
 <li>Postdoctorando en Departamento de Ingeniería Informática y Ciencias de la Computación, Unidad data science, Universidad de Concepción. Modelamiento matemático y simulación numérica del SARS-Cov-2.</li>
@@ -128,17 +128,20 @@ Participación: Ayudante de investigación.</p></li>
 Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estudiante (CADE)</p></li>
 </ol>
 
-<!-- 
-<li><p><span><strong>Charlas en universidades</strong></span></p>
+<p><span><strong>Charlas en universidades</strong></span></p>
 <ol>
-<li><p><span><strong>Universidad de Tarapacá</strong></span><br />
+<li><span><strong>Universidad Católica del Maule</strong></span><br />
+<span>Departamento de Matemática, Física y Estadística</span><br />
+<span>Talca-Chile</span><br />
+<span><span><u>Título:</u></span> Modelos matemáticos: importancia y como enfrentarlos.</span></li>
+<li><span><strong>Universidad de Tarapacá</strong></span><br />
 <span>Departamento de Matemática</span><br />
 <span>Arica-Chile</span><br />
-<span><span><u>Título:</u></span> Sistemas shallow water multicapa para sedimentación polidispersa.</span></p></li>
-<li><p><span><strong>Lund University</strong></span><br />
+<span><span><u>Título:</u></span> Sistemas shallow water multicapa para sedimentación polidispersa.</span></li>
+<li><span><strong>Lund University</strong></span><br />
 <span>Centre for Mathematical Sciences Lund</span><br />
 <span>Lund-Sweden</span><br />
-<span><span><u>Título:</u></span> A dynamic multilayer shallow water model for polydisperse sedimentation.</span></p></li>
+<span><span><u>Título:</u></span> A dynamic multilayer shallow water model for polydisperse sedimentation.</span></li>
 </ol></li>
 <li><p><span><strong>Congresos y seminarios (Expositor)</strong></span></p>
 <ol>
@@ -176,7 +179,10 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <span>Iquique-Chile</span><br />
 <span>Sesión de Análisis Numérico para resolución de Ecuaciones Diferenciales Parciales.</span><br />
 <span><span><u>Título:</u></span> Modelamiento matemático y simulación numérica de un sistema de shallow water multicapa con sedimentación polidispersa en dos dimensiones horizontales.</span></p></li>
-</ol></li>
+</ol>
+
+
+<!-- 
 <li><p><span><strong>Congresos y seminarios (Asistencia)</strong></span></p>
 <ol>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
