@@ -296,8 +296,8 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 
 <p><span><strong>Idiomas</strong></span></p>
 <ul>
-<li><span><strong>Inglés</strong></span>.</li>
-<li><span><strong>Español</strong></span>.</li>
+<li><span>Inglés</span>.</li>
+<li><span>Español</span>.</li>
 </ul>
 
 <p><span><strong>Conocimientos de computación</strong></span></p>
@@ -309,15 +309,19 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 </ul>
 
 <p><span><strong>Formación Académica</strong></span></p>
-<ul>
+<ul style="list-style-type: none">
 <li><p><span><strong>Educación Básica</strong></span></p></li>
+<ul>
 <li><p><span><strong>Escuela Silvestre Paiva Manríquez</strong></span><br />
 <span><span class="math inline">1<sup><em>s</em><em>t</em></sup></span>–<span class="math inline">6<sup><em>t</em><em>h</em></sup></span></span><br />
 <span>Cauquenes-Chile</span></p></li>
 <li><p><span><strong>Escuela Dr. Francisco Meza</strong></span><br />
 <span><span class="math inline">7<sup><em>t</em><em>h</em></sup></span>–<span class="math inline">8<sup><em>t</em><em>h</em></sup></span></span><br />
 <span>Cauquenes-Chile</span></p></li>
+</ul>
 <li><p><span><strong>Educación Media</strong></span></p></li>
+</ul>
+<ul>
 <li><p><span><strong>Liceo Claudina Urrutia de Lavín</strong></span><br />
 <span><span class="math inline">1<sup><em>s</em><em>t</em></sup></span>–<span class="math inline">4<sup><em>t</em><em>h</em></sup></span></span><br />
 <span>Cauquenes-Chile</span></p></li>
