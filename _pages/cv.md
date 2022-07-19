@@ -52,11 +52,11 @@ Universidad de Concepción.</p></li>
 
 <p><span><strong>Líneas de Especialización</strong></span></p>
 <ul>
-<li><p>Análisis numérico de ecuaciones diferenciales parciales.</p></li>
-<li><p>Modelamiento matemático de procesos de sedimentación polidispersa.</p></li>
-<li><p>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</p></li>
-<li><p>Métodos numéricos para sistemas de EDP’s hiperbólicas con productos no conservativos.</p></li>
-<li><p>Modelos shallow water multicapa para sedimentación polidispersa.</p></li>
+<li>Análisis numérico de ecuaciones diferenciales parciales.</li>
+<li>Modelamiento matemático de procesos de sedimentación polidispersa.</li>
+<li>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</li>
+<li>Métodos numéricos para sistemas de EDP’s hiperbólicas con productos no conservativos.</li>
+<li>Modelos shallow water multicapa para sedimentación polidispersa.</li>
 </ul>
 
 
@@ -75,7 +75,7 @@ Universidad de Concepción.</p></li>
 <li>Diseño de herramientas para QGIS (Sistema de Información Geográfica open source) y Análisis de imágenes satelitales.</li>
 <li>Modelos lluvia-escorrentía.</li>
 </ul>
-<!-- 
+
 <p><span><strong>Publicaciones</strong></span></p>
 <ol>
 <li><p><span><strong>Calibration and validation of three hydrological models of daily rainfall applied in four small watersheds in south-central chile.</strong> </span><br />
@@ -96,7 +96,9 @@ Raimund Bürger, Julio Careaga, Stefan Diehl, Víctor Osores, Luis M. Villada.</
 <li><p><span><strong>On the mathematical and numerical treatment of polydisperse sedimentation. <strong>[2018]</strong></strong></span><br />
 Proceedings of the International Conference on Numerical Analysis, Computing and Applications in Science, Engineering and Technology (ICNumACA’18).<br />
 Raimund Bürger, Víctor Osores.</p></li>
-</ol></li>
+</ol>
+
+<!-- 
 <li><p><span><strong>Cargos</strong></span></p>
 <ol>
 <li><p>Docente Part-time Universidad de Concepción.</p></li>
