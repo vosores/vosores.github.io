@@ -320,12 +320,13 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 <span>Cauquenes-Chile</span></p></li>
 </ul>
 <li><p><span><strong>Educación Media</strong></span></p></li>
-</ul>
 <ul>
 <li><p><span><strong>Liceo Claudina Urrutia de Lavín</strong></span><br />
 <span><span class="math inline">1<sup><em>s</em><em>t</em></sup></span>–<span class="math inline">4<sup><em>t</em><em>h</em></sup></span></span><br />
 <span>Cauquenes-Chile</span></p></li>
+</ul>
 <li><p><span><strong>Educación Superior</strong></span></p></li>
+<ul>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span>Ingeniería civil matemática</span><br />
 <span>Concepción-Chile</span></p></li>
@@ -333,10 +334,10 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 <span>Doctorado en ciencias aplicadas con mención en ingeniería matemática</span><br />
 <span>Concepción-Chile</span></p></li>
 </ul>
+</ul>
 
-
-<object data="https://vosores.github.io/CV/Osores.pdf" type="application/pdf" width="700px" height="700px">
+<!-- <object data="https://vosores.github.io/CV/Osores.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="https://vosores.github.io/CV/Osores.pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://vosores.github.io/files/UCM_2022.pdf">Download PDF</a>.</p>
     </embed>
-</object>
+</object> -->
