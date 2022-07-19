@@ -24,7 +24,7 @@ text-align: center;
 
 
 <div><h1 >CURRICULUM VITAE</h1></div>
-<ol>
+<ul>
 <li>
 <p><span><strong>Antecedentes personales</strong></span></p>
 <p>Nombre: Víctor Andrés Osores Escalona<br />
@@ -301,7 +301,7 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 <span>Doctorado en ciencias aplicadas con mención en ingeniería matemática</span><br />
 <span>Concepción-Chile</span></p></li>
 </ul></li>
-</ol>
+</ul>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
 
