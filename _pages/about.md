@@ -193,8 +193,8 @@ margin: 0px auto;
 <div class="ws_bullets">
 <div>
 <a href="#" title="ICM_IMA"><img src="/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
-<a href="#" title="HYP2018"><img src="/images/hyp_128.png" alt="Hawkb" />slider for bootstrap </a>
-<a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="/images/sn3_128.png" />bootstrap range slider </a>
+<a href="#" title="HYP2018"><img src="/images/hyp2018_128.png" alt="Hawkb" />slider for bootstrap </a>
+<a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="hawkc" />bootstrap range slider </a>
 <a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/svl_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
 </div>
 </div>
