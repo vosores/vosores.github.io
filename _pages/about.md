@@ -171,14 +171,48 @@ function showSlides(n) {
 }
 </script>
 
-<!-- <div class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
+<div align="justify" class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
 <span>
 <p style='margin-top:1em; text-align:center'>
-<b>On the importance of sentence length</b></p>
+<b>Educación</b></p>
 <p style='margin-left:1em;'>
-This sentence has five words. Here are five more words. Five-word sentences are fine. But several together bocome monotonous. Listen to what is happening. The writing is getting boring. The sound of it drones. It's like a stuck record. The ear demands some variety.<br><br>
-    Now listen. I vary the sentence length, and I create music. Music. The writing sings. It has a pleasent rhythm, a lilt, a harmony. I use short sentences. And I use sentences of medium length. And sometimes when I am certain the reader is rested, I will engage him with a sentence of considerable length, a sentence that burns with energy and builds with all the impetus of a crescendo, the roll of the drums, the crash of the cymbals -- sounds that say listen to this, it is important.
+Doctor en Ciencias Aplicadas c/m Ingeniería Matemática
+(Ph.D in Applied Mathematics)
+Universidad de Concepción, Concepción, Chile, Noviembre 2019.
+<br>
+Ingeniero Civil Matemático
+(Mathematical Engineer)
+Universidad de Concepción, Concepción, Chile, Abril 2015.<br>
+Licenciado en Ciencias de la Ingeniería Matemática
+(Bachelor of Sciences in Mathematical Engineering)
+Universidad de Concepción, Concepción, Chile, Julio 2013.
 </p>
-<p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <b>- Gary Provost</b> <i>(100 Ways to Improve Your Writing, 1985)</i>
+
+
+<p style='margin-top:1em; text-align:center'>
+<b>Intereses de investigación (Research Interests)</b></p>
+<p style='margin-left:1em;'>
+<ul>
+<li>Análisis numérico de ecuaciones diferenciales parciales.</li>
+<li>Modelamiento matemático de procesos de sedimentación polidispersa.</li>
+<li>Sistemas de ecuaciones diferenciales hiperbólicos con productos no conservativos.</li>
+<li>Métodos numéricos para sistemas de EDP’s hiperbólicas con productos no conservativos.</li>
+<li>Modelos shallow water multicapa para sedimentación polidispersa.</li>
+</ul>
+</p>
+
+<p style='margin-top:1em; text-align:center'>
+<b>Contacto (Contact)</b></p>
+<p style='margin-left:1em;'>
+Facultad de Ciencias Básicas<br>
+Departamento de Matemática, Física y Estadística<br>
+Universidad Católica del Maule<br>
+Campus San Miguel, Avenida San Miguel 3605<br>
+Talca, Chile<br>
+email: vosores@ucm.cl
+</p>
+
+
+<p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <b>- Víctor Andrés Osores Escalona</b>
 </p></span>
-</div> -->
+</div>
