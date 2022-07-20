@@ -202,10 +202,10 @@ margin: 0px auto;
 </div>
 
 <script type="text/javascript" src="https://wowslider.com/images/demo/wowslider.js"></script>
-<script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script> -->
+<script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
 
-<!-- <div id="effbuttons" class="control-buttons"></div>
-
+<div id="effbuttons" class="control-buttons"></div>
+ -->
 
 
 <div align="justify" class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
@@ -252,4 +252,4 @@ email: vosores@ucm.cl
 
 <p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <b>- Víctor Andrés Osores Escalona</b>
 </p></span>
-</div> -->
+</div>
