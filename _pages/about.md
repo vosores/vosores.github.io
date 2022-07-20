@@ -190,7 +190,7 @@ margin: 0px auto;
 </ul>
 </div>
 
-<div class="ws_bullets">
+<!-- <div class="ws_bullets">
 <div>
 <a href="#" title="ICM_IMA"><img src="/images/ucm_ima_128.png" alt="Universidad Católica del Maule" />slider for bootstrap </a>
 <a href="#" title="HYP2018"><img src="/images/hyp2018_128.png" alt="Asistentes CI2MA al HYP2018" />slider for bootstrap </a>
@@ -202,7 +202,7 @@ margin: 0px auto;
 </div>
 
 <script type="text/javascript" src="https://wowslider.com/images/demo/wowslider.js"></script>
-<script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
+<script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script> -->
 
 <!-- <div id="effbuttons" class="control-buttons"></div>
 
