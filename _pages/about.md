@@ -14,7 +14,7 @@ redirect_from:
 <div>
 <link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-81/engine1/style.css" />
 <div id="wowslider-container1" style='border-radius: 4px'>
-<div class="ws_images">
+<div class="ws_images" style='border-radius: 4px'>
 <ul>
 <li><img src="/images/ucm_ima_960_259.png" title="Talca-Chile" id="wows1_0" />Universidad Católica del Maule</li>
 <li><img src="/images/hyp2018_960_259.png" title="Pennsylvania-EE.UU" id="wows1_1" />Asistentes CI2MA al HYP2018</li>
