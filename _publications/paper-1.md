@@ -6,7 +6,7 @@ abstract: 'A multilayer shallow water approach for the approximate description o
 date: 2019-07-11
 venue: 'ESAIM Mathematical Modelling and Numerical Analysis'
 paperurl: 
-citation: 'R. Bürger, E. D. Fernández-Nieto, and V. Osores, A dynamic multilayer shallow water model for polydisperse sedimentation, ESAIM: Math. Model. Numer. Anal., 53 (2019), pp. 1391–1432.'
+# citation: 'R. Bürger, E. D. Fernández-Nieto, and V. Osores, A dynamic multilayer shallow water model for polydisperse sedimentation, ESAIM: Math. Model. Numer. Anal., 53 (2019), pp. 1391–1432.'
 ---
 [See paper here](https://www.esaim-m2an.org/articles/m2an/abs/2019/04/m2an180072/m2an180072.html)
 
