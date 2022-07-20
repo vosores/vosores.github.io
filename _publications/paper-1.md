@@ -24,7 +24,7 @@ margin: 0px auto;
 <a name="Osores_Burger_FernandezNieto"></a>
 <pre>
 @article{Osores_Burger_FernandezNieto,
-	author = {{Bürger, Raimund} and {Fern\'andez-Nieto, Enrique D.} and {Osores, V\'{\i}ctor}},
+	author = {Raimund Bürger, Enrique Fern\'andez-Nieto and V\'{\i}ctor Osores},
 	title = {A dynamic multilayer shallow water model for polydisperse sedimentation},
 	DOI= "10.1051/m2an/2019032",
 	url= "https://doi.org/10.1051/m2an/2019032",
