@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-<head>
+<!-- <head>
 <style>
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
@@ -169,7 +169,37 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
-</script>
+</script> -->
+
+<body>
+
+<meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″ />
+<link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-81/engine1/style.css" />
+<div id="wowslider-container1">
+
+<div class="ws_images">
+<ul>
+<li><img src="https:/vosores.github.io/images/sn3.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_0" />Santiago Numérico III</li>
+<li><img src="https:/vosores.github.io/images/svl_960_259.png" alt="bootstrap slider" title="Yo y mi hijo en Sevilla" id="wows1_1" />Yo y mi hijo en Sevilla</li>
+<li><img src="https:/vosores.github.io/images/ucm_ima_960_259.png" alt="Hawk : slider bootstrap " title="Universidad Católica del Maule" id="wows1_2" />Universidad Católica del Maule</li>
+</ul>
+</div>
+
+<div class="ws_bullets">
+<div>
+<a href="#" title="Santiago Numérico III"><img src="https:/vosores.github.io/images/sn3.png" alt="https:/vosores.github.io/images/sn3.png" />bootstrap range slider </a>
+<a href="#" title="Yo y mi hijo en Sevilla"><img src="https:/vosores.github.io/images/ucm_ima_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
+<a href="#" title="Hawk"><img src="https:/vosores.github.io/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
+</div>
+</div>
+<div class="ws_shadow"></div>
+</div>
+
+<script type="text/javascript" src="https://wowslider.com/images/demo/wowslider.js"></script>
+<script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
+<br />
+</div>
+</body>
 
 <div align="justify" class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
 <span>
