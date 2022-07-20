@@ -171,9 +171,7 @@ function showSlides(n) {
 }
 </script> -->
 
-<body>
 
-<meta http-equiv=”Content-Type” content=”text/html; charset=ISO-8859-1″ />
 <link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-81/engine1/style.css" />
 <div id="wowslider-container1">
 
@@ -199,7 +197,7 @@ function showSlides(n) {
 <script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
 <br />
 </div>
-</body>
+
 
 <div align="justify" class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
 <span>
