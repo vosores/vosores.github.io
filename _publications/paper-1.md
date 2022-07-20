@@ -11,6 +11,7 @@ citation: 'R. Bürger, E. D. Fernández-Nieto, and V. Osores, A dynamic multilay
 [See paper here](https://www.esaim-m2an.org/articles/m2an/abs/2019/04/m2an180072/m2an180072.html)
 
 Recommended citation:
+<div>
 <a name="Osores_Burger_FernandezNieto"></a>
 <pre>
 @article{Osores_Burger_FernandezNieto,
@@ -25,3 +26,4 @@ Recommended citation:
 	pages = "1391-1432",
 }
 </pre>
+</div>
