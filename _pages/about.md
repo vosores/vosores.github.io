@@ -9,16 +9,16 @@ redirect_from:
 ---
 
 <script type="text/javascript" src="https://wowslider.com/images/demo/jquery.js"></script>
-<div class="container" style='border-radius: 4px'>
+<div class="container">
 
 <div>
 <link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-81/engine1/style.css" />
-<div id="wowslider-container1">
+<div id="wowslider-container1" style='border-radius: 4px'>
 <div class="ws_images">
 <ul>
 <li><img src="/images/ucm_ima_960_259.png" title="Talca-Chile" id="wows1_0" />Universidad Católica del Maule</li>
 <li><img src="/images/hyp2018_960_259.png" title="Pennsylvania-EE.UU" id="wows1_1" />Asistentes CI2MA al HYP2018</li>
-<li><img src="/images/svl_960_259.png" title="Sevilla-España" id="wows1_2" /></a>Mi hijo y yo en sevilla</li>
+<li><img src="/images/svl_960_259.png" title="Sevilla-España" id="wows1_2" />Mi hijo y yo en sevilla</li>
 <li><img src="/images/sn3_960_259.png" title="Santiago-Chile" id="wows1_3" />Santiago Numérico III, PUC</li>
 </ul>
 </div>
