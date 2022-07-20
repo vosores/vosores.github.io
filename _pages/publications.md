@@ -4,6 +4,13 @@ title: "Publicaciones"
 permalink: /publications/
 author_profile: true
 ---
+<style>
+body{
+max-width: 1180px;
+width: 98%;
+margin: 0px auto;
+}
+</style>
 
 {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
