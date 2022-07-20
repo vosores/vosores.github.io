@@ -16,7 +16,7 @@ main:
     url: /cv/
 
   - title: "ResearchGate"
-    url: https://www.researchgate.net/profile/Victor-Osores
+    url: <a href="https://www.researchgate.net/profile/Victor-Osores" target="_blank" rel="noopener noreferrer">ResearchGate<a>
     
 #  - title: "Guide"
 #    url: /markdown/
