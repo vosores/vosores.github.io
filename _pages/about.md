@@ -185,8 +185,8 @@ margin: 0px auto;
 <ul>
 <li><img src="/images/ucm_ima_960_259.png" alt="Hawk : slider bootstrap " title="Universidad Católica del Maule" id="wows1_2" />Universidad Católica del Maule</li>
 <li><img src="/images/hyp2018_960_259.png" alt="Hawkb : slider bootstrap " title="Asistentes CI2MA al HYP2018" id="wows1_2" />Asistentes CI2MA al HYP2018</li>
-<li><img src="/images/sn3_960_259.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_0" />Santiago Numérico III</li>
 <li><img src="/images/svl_960_259.png" alt="bootstrap slider" title="Yo y mi hijo en Sevilla" id="wows1_1" />Yo y mi hijo en Sevilla</li>
+<li><img src="/images/sn3_960_259.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_0" />Santiago Numérico III</li>
 </ul>
 </div>
 
