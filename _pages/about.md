@@ -177,7 +177,7 @@ function showSlides(n) {
 
 <div class="ws_images">
 <ul>
-<li><img src="/images/sn3.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_0" />Santiago Numérico III</li>
+<li><img src="/images/sn3_960_259.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_0" />Santiago Numérico III</li>
 <li><img src="/images/svl_960_259.png" alt="bootstrap slider" title="Yo y mi hijo en Sevilla" id="wows1_1" />Yo y mi hijo en Sevilla</li>
 <li><img src="/images/ucm_ima_960_259.png" alt="Hawk : slider bootstrap " title="Universidad Católica del Maule" id="wows1_2" />Universidad Católica del Maule</li>
 </ul>
@@ -185,7 +185,7 @@ function showSlides(n) {
 
 <div class="ws_bullets">
 <div>
-<a href="#" title="Santiago Numérico III"><img src="/images/sn3.png" alt="/images/sn3.png" />bootstrap range slider </a>
+<a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="/images/sn3.png" />bootstrap range slider </a>
 <a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/ucm_ima_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
 <a href="#" title="Hawk"><img src="/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
 </div>
@@ -195,7 +195,7 @@ function showSlides(n) {
 
 <script type="text/javascript" src="https://wowslider.com/images/demo/wowslider.js"></script>
 <script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
-</div>
+
 
 
 <div align="justify" class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
