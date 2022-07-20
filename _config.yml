@@ -83,8 +83,8 @@ author:
   name             : "Víctor Osores" #OK
   avatar           : "profile.png" 
   bio              : "Profesor de planta, Departamento de Matemática, Física y Estadística, Facultad de Ciencias Básicas, Universidad Católica del Maule, Talca, CHILE"
-  location         : "www.ucm.cl" #OK
-  employer         : "Universidad Católica del Maule"
+  location         : "Universidad Católica del Maule (www.ucm.cl)" #OK
+  employer         : 
   pubmed           : 
   googlescholar    : 
   email            : "vosores@ucm.cl" #OK
