@@ -170,6 +170,14 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 </script> -->
+<style>
+body{
+max-width: 1200px;
+width: 98%;
+margin: 0px auto;
+}
+</style>
+
 <script type="text/javascript" src="https://wowslider.com/images/demo/jquery.js"></script>
 <div class="container">
 
