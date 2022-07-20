@@ -177,17 +177,17 @@ function showSlides(n) {
 
 <div class="ws_images">
 <ul>
-<li><img src="https:/vosores.github.io/images/sn3.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_0" />Santiago Numérico III</li>
-<li><img src="https:/vosores.github.io/images/svl_960_259.png" alt="bootstrap slider" title="Yo y mi hijo en Sevilla" id="wows1_1" />Yo y mi hijo en Sevilla</li>
-<li><img src="https:/vosores.github.io/images/ucm_ima_960_259.png" alt="Hawk : slider bootstrap " title="Universidad Católica del Maule" id="wows1_2" />Universidad Católica del Maule</li>
+<li><img src="/images/sn3.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_0" />Santiago Numérico III</li>
+<li><img src="/images/svl_960_259.png" alt="bootstrap slider" title="Yo y mi hijo en Sevilla" id="wows1_1" />Yo y mi hijo en Sevilla</li>
+<li><img src="/images/ucm_ima_960_259.png" alt="Hawk : slider bootstrap " title="Universidad Católica del Maule" id="wows1_2" />Universidad Católica del Maule</li>
 </ul>
 </div>
 
 <div class="ws_bullets">
 <div>
-<a href="#" title="Santiago Numérico III"><img src="https:/vosores.github.io/images/sn3.png" alt="https:/vosores.github.io/images/sn3.png" />bootstrap range slider </a>
-<a href="#" title="Yo y mi hijo en Sevilla"><img src="https:/vosores.github.io/images/ucm_ima_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
-<a href="#" title="Hawk"><img src="https:/vosores.github.io/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
+<a href="#" title="Santiago Numérico III"><img src="/images/sn3.png" alt="/images/sn3.png" />bootstrap range slider </a>
+<a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/ucm_ima_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
+<a href="#" title="Hawk"><img src="/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
 </div>
 </div>
 <div class="ws_shadow"></div>
@@ -195,7 +195,6 @@ function showSlides(n) {
 
 <script type="text/javascript" src="https://wowslider.com/images/demo/wowslider.js"></script>
 <script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
-<br />
 </div>
 
 
