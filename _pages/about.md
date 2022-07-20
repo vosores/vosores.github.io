@@ -172,7 +172,7 @@ function showSlides(n) {
 </script> -->
 <style>
 body{
-max-width: 1000px;
+max-width: 1200px;
 width: 98%;
 margin: 0px auto;
 }
@@ -192,10 +192,10 @@ margin: 0px auto;
 
 <div class="ws_bullets">
 <div>
-<a href="#" title="ICM_IMA"><img src="/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
-<a href="#" title="HYP2018"><img src="/images/hyp2018_128.png" alt="Hawkb" />slider for bootstrap </a>
-<a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/svl_128.png" alt="Bald Eagle" />bootstrap 4 slider </a>
-<a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="hawkc" />bootstrap range slider </a>
+<a href="#" title="ICM_IMA"><img src="/images/ucm_ima_128.png" alt="Universidad Católica del Maule" />slider for bootstrap </a>
+<a href="#" title="HYP2018"><img src="/images/hyp2018_128.png" alt="Asistentes CI2MA al HYP2018" />slider for bootstrap </a>
+<a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/svl_128.png" alt="Yo y mi hijo en Sevilla" />bootstrap 4 slider </a>
+<a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="Santiago Numérico III" />bootstrap range slider </a>
 </div>
 </div>
 <div class="ws_shadow"></div>
@@ -203,6 +203,8 @@ margin: 0px auto;
 
 <script type="text/javascript" src="https://wowslider.com/images/demo/wowslider.js"></script>
 <script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
+
+<div id="effbuttons" class="control-buttons"></div>
 
 
 
