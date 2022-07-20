@@ -170,7 +170,13 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 </script> -->
-
+<style>
+body{
+max-width: 1180px;
+width: 98%;
+margin: 0px auto;
+}
+</style>
 
 <link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-81/engine1/style.css" />
 <div id="wowslider-container1">
@@ -185,9 +191,9 @@ function showSlides(n) {
 
 <div class="ws_bullets">
 <div>
-<a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="/images/sn3.png" />bootstrap range slider </a>
-<a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/ucm_ima_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
-<a href="#" title="Hawk"><img src="/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
+<a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="/images/sn3_128.png" />bootstrap range slider </a>
+<a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/svl_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
+<a href="#" title="ICM_IMA"><img src="/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
 </div>
 </div>
 <div class="ws_shadow"></div>
