@@ -11,4 +11,17 @@ citation: 'R. Bürger, E. D. Fernández-Nieto, and V. Osores, A dynamic multilay
 [See paper here](https://www.esaim-m2an.org/articles/m2an/abs/2019/04/m2an180072/m2an180072.html)
 
 Recommended citation:
-
+<a name="Osores_Burger_FernandezNieto"></a>
+<pre>
+@article{Osores_Burger_FernandezNieto,
+	author = {{B\"urger, Raimund} and {Fern\'andez-Nieto, Enrique D.} and {Osores, V\'{\i}ctor}},
+	title = {A dynamic multilayer shallow water model for polydisperse sedimentation},
+	DOI= "10.1051/m2an/2019032",
+	url= "https://doi.org/10.1051/m2an/2019032",
+	journal = {ESAIM: M2AN},
+	year = 2019,
+	volume = 53,
+	number = 4,
+	pages = "1391-1432",
+}
+</pre>

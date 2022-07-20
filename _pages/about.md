@@ -171,7 +171,7 @@ function showSlides(n) {
 }
 </script>
 
-<div class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
+<!-- <div class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
 <span>
 <p style='margin-top:1em; text-align:center'>
 <b>On the importance of sentence length</b></p>
@@ -181,4 +181,4 @@ This sentence has five words. Here are five more words. Five-word sentences are 
 </p>
 <p style='margin-bottom:1em; margin-right:1em; text-align:right; font-family:Georgia'> <b>- Gary Provost</b> <i>(100 Ways to Improve Your Writing, 1985)</i>
 </p></span>
-</div>
+</div> -->
