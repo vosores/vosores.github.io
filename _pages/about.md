@@ -172,7 +172,7 @@ function showSlides(n) {
 </script> -->
 <style>
 body{
-max-width: 1180px;
+max-width: 1000px;
 width: 98%;
 margin: 0px auto;
 }
@@ -184,7 +184,7 @@ margin: 0px auto;
 <div class="ws_images">
 <ul>
 <li><img src="/images/ucm_ima_960_259.png" alt="Hawk : slider bootstrap " title="Universidad Católica del Maule" id="wows1_2" />Universidad Católica del Maule</li>
-<li><img src="/images/hyp2018_960_259.png" alt="Hawk : slider bootstrap " title="Asistentes CI2MA al HYP2018" id="wows1_2" />Asistentes CI2MA al HYP2018</li>
+<li><img src="/images/hyp2018_960_259.png" alt="Hawkb : slider bootstrap " title="Asistentes CI2MA al HYP2018" id="wows1_2" />Asistentes CI2MA al HYP2018</li>
 <li><img src="/images/sn3_960_259.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_0" />Santiago Numérico III</li>
 <li><img src="/images/svl_960_259.png" alt="bootstrap slider" title="Yo y mi hijo en Sevilla" id="wows1_1" />Yo y mi hijo en Sevilla</li>
 </ul>
@@ -193,7 +193,7 @@ margin: 0px auto;
 <div class="ws_bullets">
 <div>
 <a href="#" title="ICM_IMA"><img src="/images/ucm_ima_128.png" alt="Hawk" />slider for bootstrap </a>
-<a href="#" title="HYP2018"><img src="/images/hyp_128.png" alt="Hawk" />slider for bootstrap </a>
+<a href="#" title="HYP2018"><img src="/images/hyp_128.png" alt="Hawkb" />slider for bootstrap </a>
 <a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="/images/sn3_128.png" />bootstrap range slider </a>
 <a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/svl_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
 </div>
