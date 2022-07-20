@@ -170,42 +170,34 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 </script> -->
-<style>
-body{
-max-width: 1200px;
-width: 98%;
-margin: 0px auto;
-}
-</style>
+<script type="text/javascript" src="https://wowslider.com/images/demo/jquery.js"></script>
+<div class="container">
 
+<div>
 <link rel="stylesheet" type="text/css" href="https://wowslider.com/sliders/demo-81/engine1/style.css" />
 <div id="wowslider-container1">
-
 <div class="ws_images">
 <ul>
-<li><img src="/images/ucm_ima_960_259.png" alt="Hawk : slider bootstrap " title="Universidad Católica del Maule" id="wows1_1" />Universidad Católica del Maule</li>
-<li><img src="/images/hyp2018_960_259.png" alt="Hawkb : slider bootstrap " title="Asistentes CI2MA al HYP2018" id="wows1_2" />Asistentes CI2MA al HYP2018</li>
-<li><img src="/images/svl_960_259.png" alt="bootstrap slider" title="Yo y mi hijo en Sevilla" id="wows1_3" />Yo y mi hijo en Sevilla</li>
-<li><img src="/images/sn3_960_259.png" alt="Red Kite : bootstrap image slider " title="Santiago Numérico III" id="wows1_4" />Santiago Numérico III</li>
+<li><img src="https:/vosores.github.io/images/ucm_ima_960_259.png" title="Talca-Chile" id="wows1_0" />Universidad Católica del Maule</li>
+<li><img src="https:/vosores.github.io/images/hyp2018_960_259.png" title="Pennsylvania-EE.UU" id="wows1_1" />Asistentes CI2MA al HYP2018</li>
+<li><img src="https:/vosores.github.io/images/svl_960_259.png" title="Sevilla-España" id="wows1_2" /></a>Mi hijo y yo en sevilla</li>
+<li><img src="https:/vosores.github.io/images/sn3_960_259.png" title="Santiago-Chile" id="wows1_3" />Santiago Numérico III, PUC</li>
 </ul>
 </div>
 
-<!-- <div class="ws_bullets">
-<div>
-<a href="#" title="ICM_IMA"><img src="/images/ucm_ima_128.png" alt="Universidad Católica del Maule" />slider for bootstrap </a>
-<a href="#" title="HYP2018"><img src="/images/hyp2018_128.png" alt="Asistentes CI2MA al HYP2018" />slider for bootstrap </a>
-<a href="#" title="Yo y mi hijo en Sevilla"><img src="/images/svl_128.png" alt="Yo y mi hijo en Sevilla" />bootstrap 4 slider </a>
-<a href="#" title="Santiago Numérico III"><img src="/images/sn3_128.png" alt="Santiago Numérico III" />bootstrap range slider </a>
+<div class="ws_bullets"><div>
+<a href="#" title="Talca-Chile"><img src="https:/vosores.github.io/images/ucm_ima_128.png" alt="Universidad Católica del Maule" />slider for bootstrap </a>
+<a href="#" title="Pennsylvania-EE.UU"><img src="https:/vosores.github.io/images/hyp2018_128.png" alt="Red Kite" />bootstrap range slider </a>
+<a href="#" title="Sevilla-España"><img src="https:/vosores.github.io/images/svl_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
+<a href="#" title="Santiago-Chile"><img src="https:/vosores.github.io/images/hyp2018_128.png" alt="Hawk" />slider for bootstrap </a>
 </div>
 </div>
-<div class="ws_shadow"></div>
 </div>
 
 <script type="text/javascript" src="https://wowslider.com/images/demo/wowslider.js"></script>
 <script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
 
-<div id="effbuttons" class="control-buttons"></div>
- -->
+</div>
 
 
 <div align="justify" class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
