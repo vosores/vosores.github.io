@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-<body>
+
 <script type="text/javascript" src="https://wowslider.com/images/demo/jquery.js"></script>
 <div class="container">
 
@@ -16,18 +16,18 @@ redirect_from:
 <div id="wowslider-container1">
 <div class="ws_images">
 <ul>
-<li><img src="https:/vosores.github.io/images/ucm_ima_960_259.png" title="Talca-Chile" id="wows1_0" />Universidad Católica del Maule</li>
-<li><img src="https:/vosores.github.io/images/hyp2018_960_259.png" title="Pennsylvania-EE.UU" id="wows1_1" />Asistentes CI2MA al HYP2018</li>
-<li><img src="https:/vosores.github.io/images/svl_960_259.png" title="Sevilla-España" id="wows1_2" /></a>Mi hijo y yo en sevilla</li>
-<li><img src="https:/vosores.github.io/images/sn3_960_259.png" title="Santiago-Chile" id="wows1_3" />Santiago Numérico III, PUC</li>
+<li><img src="/images/ucm_ima_960_259.png" title="Talca-Chile" id="wows1_0" />Universidad Católica del Maule</li>
+<li><img src="/images/hyp2018_960_259.png" title="Pennsylvania-EE.UU" id="wows1_1" />Asistentes CI2MA al HYP2018</li>
+<li><img src="/images/svl_960_259.png" title="Sevilla-España" id="wows1_2" /></a>Mi hijo y yo en sevilla</li>
+<li><img src="/images/sn3_960_259.png" title="Santiago-Chile" id="wows1_3" />Santiago Numérico III, PUC</li>
 </ul>
 </div>
 
 <div class="ws_bullets"><div>
-<a href="#" title="Talca-Chile"><img src="https:/vosores.github.io/images/ucm_ima_128.png" alt="Universidad Católica del Maule" />slider for bootstrap </a>
-<a href="#" title="Pennsylvania-EE.UU"><img src="https:/vosores.github.io/images/hyp2018_128.png" alt="Red Kite" />bootstrap range slider </a>
-<a href="#" title="Sevilla-España"><img src="https:/vosores.github.io/images/svl_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
-<a href="#" title="Santiago-Chile"><img src="https:/vosores.github.io/images/hyp2018_128.png" alt="Hawk" />slider for bootstrap </a>
+<a href="#" title="Talca-Chile"><img src="/images/ucm_ima_128.png" alt="Universidad Católica del Maule" />slider for bootstrap </a>
+<a href="#" title="Pennsylvania-EE.UU"><img src="/images/hyp2018_128.png" alt="Red Kite" />bootstrap range slider </a>
+<a href="#" title="Sevilla-España"><img src="/images/svl_128.png" alt="Bald Eagle" />bootstrap 3 slider </a>
+<a href="#" title="Santiago-Chile"><img src="/images/hyp2018_128.png" alt="Hawk" />slider for bootstrap </a>
 </div>
 </div>
 </div>
@@ -36,7 +36,7 @@ redirect_from:
 <script type="text/javascript" src="https://wowslider.com/sliders/demo-81/engine1/script.js"></script>
 
 </div>
-</body>
+
 
 
 <div align="justify" class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 4px; border-radius: 4px; padding:0.7em;'>
