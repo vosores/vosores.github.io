@@ -28,8 +28,11 @@ text-align: justify;
 ol{
 text-align: justify; 
 }
+.button {
+background-color:#9ec3e8;
+}
 </style>
-<meta name="theme-color" content="#9ec3e8">
+
 
 <div class="warning" style='background-color:#e8c39e; color: #000000; border-left: solid #00003d 4px; border-radius: 4px; padding:0.7em;'>
 <div><h1>CURRICULUM VITAE</h1></div>
