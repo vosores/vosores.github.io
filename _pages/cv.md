@@ -192,6 +192,10 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <p><span><strong>Congresos y seminarios (Asistencia)</strong></span></p>
 <ol>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
+<span><em>5th CI²MA workshop</em></span><br />
+<span>Concepción-Chile</span><br />
+<span>Mathematical modelling and simulation for bioprocesses, wastewater treatment and mineral processing.</span></p></li>
+<li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span><em>Fourth CI2MA Workshop</em></span><br />
 <span>Concepción-Chile</span><br />
 <span>Mathematical Models in Epidemiology.</span></p></li>
