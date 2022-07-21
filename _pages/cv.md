@@ -34,7 +34,8 @@ background-color:#9ec3e8;
 </style>
 
 
-<div class="warning" style='background-color:#f3dbc3; color: #7a8288; border-left: solid #d4e5fd 4px; border-radius: 4px; padding:0.7em;'>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><span class="c1">
+<!-- <div class="warning" style='background-color:#f3dbc3; color: #7a8288; border-left: solid #d4e5fd 4px; border-radius: 4px; padding:0.7em;'> -->
 <div><h1>CURRICULUM VITAE</h1></div>
 <p><span><strong>Antecedentes personales</strong></span></p>
 <ul style="list-style-type: none">
@@ -341,7 +342,8 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 <span>Concepción-Chile</span></p></li>
 </ul>
 </ul>
-</div>
+</span></pre></div></div>
+<!-- </div> -->
 
 <!-- <object data="https://vosores.github.io/CV/Osores.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="https://vosores.github.io/CV/Osores.pdf">
