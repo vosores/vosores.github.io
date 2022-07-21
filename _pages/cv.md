@@ -26,10 +26,10 @@ ul{
 text-align: justify; 
 }
 ol{
-text-align: justify; 
-}
+text-align: justify;
 .button {
 background-color:#9ec3e8;
+} 
 }
 </style>
 
