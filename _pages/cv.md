@@ -15,7 +15,7 @@ body{
 max-width: 1180px;
 width: 98%;
 margin: 0px auto;
-background-color: #9ec3e8; /*Complementario/#e8c39e*/
+/* background-color: #9ec3e8; Complementario/#e8c39e */
 border-radius: 4px;
 /* text-align: justify; */
 }
@@ -27,9 +27,9 @@ text-align: justify;
 }
 ol{
 text-align: justify;
-.button {
+/* .button {
 background-color:#9ec3e8;
-} 
+}  */
 }
 </style>
 
