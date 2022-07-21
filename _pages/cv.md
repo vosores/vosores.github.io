@@ -15,6 +15,7 @@ body{
 max-width: 1180px;
 width: 98%;
 margin: 0px auto;
+background-color: #9ec3e8;
 /* text-align: justify; */
 }
 h1{
