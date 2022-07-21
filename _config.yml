@@ -9,7 +9,7 @@
 locale                   : "es-CL"
 title                    : "Víctor Andrés Osores Escalona"
 title_separator          : "-"
-name                     : &name "Dr. Víctor Osores"
+name                     : &name "Víctor Osores"
 description              : &description "personal description"
 url                      : https://vosores.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
