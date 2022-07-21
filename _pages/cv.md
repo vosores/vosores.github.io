@@ -34,7 +34,7 @@ background-color:#9ec3e8;
 </style>
 
 
-<div class="warning" style='background-color:#e8c39e; color: #000000; border-left: solid #d4e5fd 4px; border-radius: 4px; padding:0.7em;'>
+<div class="warning" style='background-color:#f3dbc3; color: #7a8288; border-left: solid #d4e5fd 4px; border-radius: 4px; padding:0.7em;'>
 <div><h1>CURRICULUM VITAE</h1></div>
 <p><span><strong>Antecedentes personales</strong></span></p>
 <ul style="list-style-type: none">
