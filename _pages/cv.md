@@ -31,19 +31,13 @@ text-align: justify;
 background-color:#9ec3e8;
 }  */
 }
-.descripcion {
-  background: inherit;
-  display: inline;
-  z-index: 1;
-  padding-right: .2rem;
-}
 </style>
 
 
 
 <div class="warning" style='background-color:#eeeeee; color: #888B8D; border-left: solid #888B8D 4px;border-top: solid #888B8D 1px;border-right: solid #888B8D 1px;border-bottom: solid #888B8D 1px; border-radius: 4px; padding:0.7em;'>
 <div><h1>CURRICULUM VITAE</h1></div>
-<p><span class='descripcion'><strong>Antecedentes personales</strong></span></p>
+<p><span><strong>Antecedentes personales</strong></span></p>
 <ul style="list-style-type: none">
 <p>Nombre: Víctor Andrés Osores Escalona<br />
 <span>Fecha de Nacimiento: 10 de Agosto de 1988</span><br />
@@ -141,7 +135,7 @@ Participación: Ayudante de investigación.</p></li>
 Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estudiante (CADE)</p></li>
 </ol>
 
-<p><span><strong>Charlas en universidades &ldots;</strong></span></p>
+<p><span><strong>Charlas en universidades</strong></span></p>
 <ol>
 <li><span><strong>Universidad Católica del Maule</strong></span><span style="float:right;"><b>[Abril 2022]</b></span><br />
 <span>Departamento de Matemática, Física y Estadística</span><br />
