@@ -31,13 +31,19 @@ text-align: justify;
 background-color:#9ec3e8;
 }  */
 }
+.descripcion {
+  background: inherit;
+  display: inline;
+  z-index: 1;
+  padding-right: .2rem;
+}
 </style>
 
 
 
 <div class="warning" style='background-color:#eeeeee; color: #888B8D; border-left: solid #888B8D 4px;border-top: solid #888B8D 1px;border-right: solid #888B8D 1px;border-bottom: solid #888B8D 1px; border-radius: 4px; padding:0.7em;'>
 <div><h1>CURRICULUM VITAE</h1></div>
-<p><span><strong>Antecedentes personales</strong></span></p>
+<p><span class='descripcion'><strong>Antecedentes personales</strong></span></p>
 <ul style="list-style-type: none">
 <p>Nombre: Víctor Andrés Osores Escalona<br />
 <span>Fecha de Nacimiento: 10 de Agosto de 1988</span><br />
@@ -135,9 +141,9 @@ Participación: Ayudante de investigación.</p></li>
 Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estudiante (CADE)</p></li>
 </ol>
 
-<p><span><strong>Charlas en universidades</strong></span></p>
+<p><span><strong>Charlas en universidades &ldots;</strong></span></p>
 <ol>
-<li><span><strong>Universidad Católica del Maule</strong></span><br />
+<li><span><strong>Universidad Católica del Maule</strong></span><span style="float:right;"><b>[Abril 2022]</b></span><br />
 <span>Departamento de Matemática, Física y Estadística</span><br />
 <span>Talca-Chile</span><br />
 <span><span><u>Título:</u></span> Modelos matemáticos: importancia y como enfrentarlos.</span></li>
@@ -191,13 +197,11 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 
 <p><span><strong>Congresos y seminarios (Asistencia)</strong></span></p>
 <ol>
-<li><p><span><strong>Universidad de Concepción</strong></span><br />
+<li><p><span><strong>Universidad de Concepción</strong></span>
+<span style="float:right;"><b>[Julio 2022]</b></span><br />
 <span><em>5th CI²MA workshop</em></span><br />
 <span>Concepción-Chile</span><br />
-<span>Mathematical modelling and simulation for bioprocesses, wastewater treatment and mineral processing.</span></p>
-<p style='margin-bottom:1em; margin-right:0em; text-align:right; font-family:Georgia'> <b>
-[Julio 2022]</b>
-</li>
+<span>Mathematical modelling and simulation for bioprocesses, wastewater treatment and mineral processing.</span></p></li>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span><em>Fourth CI2MA Workshop</em></span><br />
 <span>Concepción-Chile</span><br />
