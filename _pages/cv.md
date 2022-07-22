@@ -194,7 +194,10 @@ Participación: Tutor de matemáticas en Centro de Apoyo al Desarrollo del Estud
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span><em>5th CI²MA workshop</em></span><br />
 <span>Concepción-Chile</span><br />
-<span>Mathematical modelling and simulation for bioprocesses, wastewater treatment and mineral processing.</span></p></li>
+<span>Mathematical modelling and simulation for bioprocesses, wastewater treatment and mineral processing.</span></p>
+<p style='margin-bottom:1em; margin-right:0em; text-align:right; font-family:Georgia'> <b>
+[Julio 2022]</b>
+</li>
 <li><p><span><strong>Universidad de Concepción</strong></span><br />
 <span><em>Fourth CI2MA Workshop</em></span><br />
 <span>Concepción-Chile</span><br />
