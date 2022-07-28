@@ -349,6 +349,10 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 </ul>
 </div>
 
+
+<iframe src"https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_es.html" frameborder="0"></iframe>
+</iframe>
+
 <!-- <object data="https://vosores.github.io/CV/Osores.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="https://vosores.github.io/CV/Osores.pdf">
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://vosores.github.io/files/UCM_2022.pdf">Download PDF</a>.</p>
