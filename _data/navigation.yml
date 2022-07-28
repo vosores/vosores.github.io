@@ -17,6 +17,9 @@ main:
 
   - title: "ResearchGate"
     url: https://www.researchgate.net/profile/Victor-Osores
+
+  - title: "Divulgación IMA"
+    url: /divulgacion/
     
 #  - title: "Guide"
 #    url: /markdown/
