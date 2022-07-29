@@ -348,5 +348,3 @@ Predicción de la cantidad de sedimento a través de rodetes en turbinas de gene
 </ul>
 </ul>
 </div>
-
-<iframe width="560" height="315" src="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_es.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
