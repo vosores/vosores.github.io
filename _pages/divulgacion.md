@@ -31,7 +31,7 @@ text-align: justify;
 background-color:#9ec3e8;
 }  */
 }
-.center {margin:0 auto;}
+.center {margin:0 auto; text-align:center;}
 </style>
 
 
