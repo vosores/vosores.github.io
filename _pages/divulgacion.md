@@ -31,9 +31,11 @@ text-align: justify;
 background-color:#9ec3e8;
 }  */
 }
+.center {margin:0 auto;}
 </style>
 
 
 
-
-<iframe src="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_es.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="center">
+<iframe width="560" height="315" src="https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_es.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
