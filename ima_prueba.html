@@ -1,9 +1,42 @@
 <!DOCTYPE html>
 <html>
+  <style>
+    body{
+    color:rgb(36, 35, 35);
+    max-width: 1180px;
+    width: 75%;
+    margin: 0px auto;
+    /* background-color: #9ec3e8; Complementario/#e8c39e */
+    border-radius: 4px;
+    /* text-align: justify; */
+    background-color: #d2d8dd;
+    /* background-image: url('bg.png'); */
+/* text-align: justify; */
+    }
+    h1{
+    text-align: center;
+    }
+    ul{
+    text-align: justify; 
+    }
+    ol{
+    text-align: justify;
+    /* .button {
+    background-color:#9ec3e8;
+    }  */
+    }
+    figure {
+  /* border: 1px #cccccc solid; */
+  padding: 4px;
+  margin: auto;
+}
+    .center {margin:0 auto; text-align:center;}
+    .justificado{text-align: justify;}
+  </style>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>MathJax example</title>
+  <title>Divulgación IMA</title>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
           src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -18,7 +51,10 @@
 
 <h1>Modelamiento matemático</h1>
 <h2>Modelo depredador-presa (Lotka–Volterra)</h2>
-<p class="justificado">Las siguientes ecuaciones describen la dinámica de un sistema biológico en el cual dos especies interacúan, una como presa y la otra como depredador. Las ecuaciones de Lotka-Volterra, con capacidad de carga del ambiente ($k$) vienen dadas por:</p>
+<p class="justificado">Las siguientes ecuaciones describen la dinámica de un sistema 
+  biológico en el cual dos especies interacúan, una como presa y la otra como depredador. 
+  Las ecuaciones de Lotka-Volterra, con capacidad de carga del ambiente (\(k\)) vienen 
+  dadas por:</p>
 
 <p>
   \[
@@ -28,5 +64,11 @@
   \end{align*}
   \]
 </p>
+
+<p class="justificado">donde \(r_1, r_2, a_1, a_2\) son parámetros (positivos) que representan las interacciones de las dos especies.</p>
+
+<div class="center">
+<iframe width="560" height="315" src="https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_es.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 </body>
 </html>
