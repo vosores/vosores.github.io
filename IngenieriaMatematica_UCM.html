@@ -62,8 +62,8 @@ display: inline-block;
 <p>
   \[
   \begin{align*}
-  \frac{\partial P}{\partial t}&=r_1 P \left(1-\frac{P}{k}\right)-a_1PD\\
-  \frac{\partial D}{\partial t}&=a_2 PD - r_2D,
+  \frac{dP}{dt}&=r_1 P \left(1-\frac{P}{k}\right)-a_1PD\\
+  \frac{dD}{d t}&=a_2 PD - r_2D,
   \end{align*}
   \]
 </p>
@@ -71,7 +71,7 @@ display: inline-block;
 <p class="justificado">donde \(r_1, r_2, a_1, a_2\) son parámetros (positivos) que representan las interacciones de las dos especies.</p>
 
 <div class="center">
-<iframe width="560" height="315" src="https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_es.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_es.html" title="Depredador presa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <p class="justificado"><strong>Ejemplo</strong> del modelo presentado con condición inicial 
@@ -103,9 +103,82 @@ tierra e inundaciones que han dejado bajo el agua y lodo ciudades enteras.
 </p>
 <p class="justificado">
   Desde el punto de vista físico-matemático, flujos viscosos como agua o aire se modelan 
-  mediante las <strong>ecuaciones de aguas someras (shallow water)</strong>.
+  mediante las <strong>ecuaciones de aguas someras (shallow water)</strong>. En el caso de un 
+  fondo plano (horizontal), con fuerzas de Coriolis, fuerzas de fricción y viscosas despreciables, 
+  las ecuaciones de aguas poco profundas vienen dadas por:
+</p>
+<p>
+  \[
+  \begin{align*}
+  \frac{\partial (\rho \eta)}{\partial t}+\frac{\partial (\rho \eta u)}{\partial x}+\frac{\partial (\rho \eta v)}{\partial y}&=0,\\
+  \frac{\partial (\rho \eta u)}{\partial t}+\frac{\partial}{\partial x}\left(\rho \eta u^2+\frac{1}{2}\rho g \eta^2\right)
++\frac{\partial (\rho \eta u v)}{\partial y}&=0,\\
+\frac{\partial (\rho \eta v)}{\partial t}+\frac{\partial (\rho \eta u v)}{\partial x}+
+\frac{\partial}{\partial y}\left(\rho \eta v^2+\frac{1}{2}\rho g \eta^2\right)&=0,\\
+  \end{align*}
+  \]
+</p>
+<p class="justificado">\(\eta\) es la altura total de la columna de fluido (profundidad instantánea del fluido en función de \(x\), \(y\) y \(t\)), 
+  y el vector \(2D\) \((u,v)\) es el campo de velocidad horizontal del fluido. Además, \(g\) es la aceleración de la gravedad y \(\rho\) 
+  es la densidad del fluido.</p>
+
+<div class="center">
+<iframe width="560" height="315" src="https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_es.html" title="ondas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<p><strong>Importancia:</strong>
+<ul>
+  <li>
+    Simulación del rompimiento de represas.
+  </li>
+  <li>
+    Predicción de zonas de innundación.
+  </li>
+  <li>
+    Predicción y simulación de tsunamis en zonas costeras.
+  </li>
+  <li>
+    Simulación de avalanchas y aluviones.
+  </li>
+  <li>
+    Evolución de lava tras una erupción volcánica.
+  </li>
+</ul>
+</p>
+<div align="center";>
+  <img src ="images/juanpabloii.jpg" style="max-width: 70%;">
+  <figcaption>Fig.2 Inundación río Bio-Bio, Concepción.</figcaption>
+</div>
+
+<h2>Oscilaciones amortiguadas de un péndulo simple</h2>
+
+<p class="justificado">Un  movimiento  de  tipo  armónico  simple, sin roce  está  regido  por la siguiente ecuación diferencial ordinaria:
+\[\frac{dx}{dt}+\omega_0^2x=0, \tag{1}
+\]
+donde \(x\) representa la elongación o desplazamiento respecto al punto de equilibrio, \(\omega_0=\sqrt{g/l}\) es la frecuencia  natural de las 
+oscilaciones armónicas.  La solución  de  la  ecuación (1), viene dada por:
+\[x(t) = A\sin(\omega_0t+\psi).
+\]
+Donde \(A\), es la amplitud del movimiento, \(\omega_0\) es la frecuencia angular, \(\psi\) es la fase inicial e indica el estado de 
+oscilación o vibración (o fase) en el instante de tiempo \(t = 0\) de la partícula que oscila.
 </p>
 
+<p class="justificado">
+  <strong>Péndulo simple con fricción:</strong> La fuerza de amortiguamiento por fricción de la velocidad del cuerpo oscilante, un tipo de 
+  fuerza retardadora muy común, y actúa en la dirección opuesta a la velocidad. En el caso del péndulo, esta fuerza es directamente 
+  proporcional a la velocidad, por lo que lo expresamos como \(f_r=-b v_t\). Así, las ecuaciones que describen las 
+  <strong>Oscilaciones amortiguadas de un péndulo simple</strong> vienen dadas por:
+  \[\frac{d^2x}{dt^2}+\frac{b}{m}\frac{dx}{dt}+\frac{g}{l}x=0,\quad(\text{pequeñas oscilaciones.})
+\]
+La solución de la ecuación del movimiento viene dada por:
+\[
+x(t)=x_0e^{-\gamma t}\cos(\omega t + \psi_0),
+\]
+con \(\gamma=b/2m\), \(w=\sqrt{\omega_0^2-\gamma^2}\).
+</p>
+<div class="center">
+  <iframe width="560" height="315" src="https://phet.colorado.edu/sims/html/pendulum-lab/latest/pendulum-lab_es.html" title="Movimiento armónico" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 
 <div class="flex-viewport" style="overflow: hidden; position: relative;">
   <ul aria-live="polite" class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(-1349px, 0px, 0px);">
