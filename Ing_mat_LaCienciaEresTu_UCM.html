@@ -53,6 +53,90 @@ display: inline-block;
 
 
 <h1>Modelamiento matemático</h1>
+<p class="justificado">¿Qué es el modelamiento matemático? ¿Qué nos permite saber o conocer como sociedad?.
+  En pocas palabras, podríamos definir modelamiento matemático como la capacidad de identificar
+  una problematica real y diseñar un modelo matemático (ecuaciones o sistema de ecuaciones) que 
+  describe de buena manera lo observado. El modelamiento matemático nos permite entender de mejor
+  manera fenómenos geofísicos (tsunamis, avalanchas, aluviones, etc), biológicos (evolución temporal de enfermedades infecciosas), 
+  económicos, así como también aportar en el entendimiento de problemáticas provenientes de la 
+  industria pesquera, minera, de los bancos, retails entre muchas otras.
+</p>
+<p class="justificado">A continuación encontrarás algunos modelos matemáticos que permiten 
+  simular y entender el comportamiento de ciertos fenómenos bajo cambios en las condiciones 
+  iniciales.
+</p>
+
+<h2>Lanzamiento de un proyectil</h2>
+<div class="center">
+  <iframe width="650" height="365.62" src="https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_es.html" title="Lanzamiento de un proyectil" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<h3>A continuación te presentamos el modelo matemático que describe este movimiento.</h3>
+<p>
+  La segunda ley de Newton que puede enunciarse como: <q>La aceleración de un objeto es directamente proporcional a la suma de todas las fuerzas que actúan sobre él e inversamente propocional a la masa del objeto</q>
+  ser enunciada matemáticamente como
+  \[
+\sum F=m a.
+\]
+Sea \(r(t)=(x(t),y(t))\) el vector posición del objeto lanzado y \(t\) el tiempo. Luego 
+\(v(t)=r'(t)\) y \(a(t)=r''(t)\) es la función la velocidad y aceleración del objeto, respectivamente. Las fuerzas 
+que consideraremos son: El peso \(F=m g\) y la fuerza de rozamiento \(F_r\), la cual se opone
+al sentido del vector velocidad (tangente a la trayectoria) la cual viene dada por \(F_r=-mbr'(t)\). \(m\) es la masa 
+del objeto \(g\) es la gravedad y \(b\) es el coeficiente de fricción.
+</p>
+<p class="justificado">
+  <strong>Caso 1:</strong> Movimiento sin roce \(b=0\).
+</p>
+<p>La segunda ley de Newton se enuncia como
+  \[\cancel{m} (x''(t),y''(t))=(0,-\cancel{m}g),\tag{1}\]
+  sujeto a \((x(0),y(0))=(x_0,y_0)\) (posición inicial) y \((x'(0),y'(0))=(v_{x0},v_{y0})\) es la velocidad inicial (\(t=0\)). 
+  La solución del sistema de ecuaciones diferenciales \((1)\) viene dada por 
+  \[\begin{align}x(t)&=x_0+v_{x0}t,\\y(t)&=y_0+v_{y0}t-\frac{1}{2}gt^2.\end{align}\]
+</p>
+<p class="justificado">
+  <strong>Caso 2:</strong> Movimiento con roce \(b\neq 0\).
+</p>
+<p>La segunda ley de Newton se enuncia como
+  \[\cancel{m} (x''(t),y''(t))=-\cancel{m}(0,g)-\cancel{m}b(x'(t),y'(t)),\tag{1}\]
+  sujeto a \((x(0),y(0))=(x_0,y_0)\) (posición inicial) y \((x'(0),y'(0))=(v_{x0},v_{y0})\) es la velocidad inicial (\(t=0\)). 
+  La solución del sistema de ecuaciones diferenciales \((1)\) viene dada por 
+  \[\left\{\begin{align}x(t)&=x_0+\frac{v_{x0}}{b}(1-e^{-bt}),\\y(t)&=y_0+\frac{1}{b}\left(v_{y0}+
+  \frac{g}{b}\right)(1-e^{-bt})-\frac{g}{b}t.\end{align}\right.\]
+</p>
+<h2>Oscilaciones amortiguadas de un péndulo simple</h2>
+
+<div class="center">
+  <iframe width="650" height="365.62" src="https://phet.colorado.edu/sims/html/pendulum-lab/latest/pendulum-lab_es.html" title="Movimiento armónico" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<h3>A continuación te presentamos el modelo matemático que describe este movimiento.</h3>
+<p class="justificado">Un  movimiento  de  tipo  armónico  simple, sin roce  está  regido  por la siguiente ecuación diferencial ordinaria:
+\[\frac{dx}{dt}+\omega_0^2x=0, \tag{1}
+\]
+donde \(x\) representa la elongación o desplazamiento respecto al punto de equilibrio, \(\omega_0=\sqrt{g/l}\) es la frecuencia  natural de las 
+oscilaciones armónicas.  La solución  de  la  ecuación (1), viene dada por:
+\[x(t) = A\sin(\omega_0t+\psi).
+\]
+Donde \(A\), es la amplitud del movimiento, \(\omega_0\) es la frecuencia angular, \(\psi\) es la fase inicial e indica el estado de 
+oscilación o vibración (o fase) en el instante de tiempo \(t = 0\) de la partícula que oscila.
+</p>
+
+<p class="justificado">
+  <strong>Péndulo simple con fricción:</strong> La fuerza de amortiguamiento por fricción de la velocidad del cuerpo oscilante, un tipo de 
+  fuerza retardadora muy común, y actúa en la dirección opuesta a la velocidad. En el caso del péndulo, esta fuerza es directamente 
+  proporcional a la velocidad, por lo que lo expresamos como \(f_r=-b v_t\). Así, las ecuaciones que describen las 
+  <strong>Oscilaciones amortiguadas de un péndulo simple</strong> vienen dadas por:
+  \[\frac{d^2x}{dt^2}+\frac{b}{m}\frac{dx}{dt}+\frac{g}{l}x=0,\quad(\text{pequeñas oscilaciones.})
+\]
+La solución de la ecuación del movimiento viene dada por:
+\[
+x(t)=x_0e^{-\gamma t}\cos(\omega t + \psi_0),
+\]
+con \(\gamma=b/2m\), \(w=\sqrt{\omega_0^2-\gamma^2}\).
+</p>
+
+
+
 <h2>Modelo depredador-presa (Lotka–Volterra)</h2>
 <p class="justificado">Las siguientes ecuaciones describen la dinámica de un sistema 
   biológico en el cual dos especies interacúan, una como presa y la otra como depredador. 
@@ -82,7 +166,8 @@ display: inline-block;
       <img src ="predator_prey.png" style="max-width: 50%;"><img src ="predator_vs_prey.png" style="max-width: 50%;">
   </div>
 <!-- </div> -->
-<h2>Ecuaciones de aguas someras (Shallow water equations)</h2>
+
+<!-- <h2>Ecuaciones de aguas someras (Shallow water equations)</h2>
 <p class="justificado"> 
   En la actualidad, científicos de todo el mundo intentan continuamente utilizar métodos numéricos para
 predecir la evolución de eventos geofísicos e industriales de alto impacto social, 
@@ -148,37 +233,9 @@ tierra e inundaciones que han dejado bajo el agua y lodo ciudades enteras.
 <div align="center";>
   <img src ="images/juanpabloii.jpg" style="max-width: 70%;">
   <figcaption>Fig.2 Inundación río Bio-Bio, Concepción.</figcaption>
-</div>
+</div> -->
 
-<h2>Oscilaciones amortiguadas de un péndulo simple</h2>
 
-<p class="justificado">Un  movimiento  de  tipo  armónico  simple, sin roce  está  regido  por la siguiente ecuación diferencial ordinaria:
-\[\frac{dx}{dt}+\omega_0^2x=0, \tag{1}
-\]
-donde \(x\) representa la elongación o desplazamiento respecto al punto de equilibrio, \(\omega_0=\sqrt{g/l}\) es la frecuencia  natural de las 
-oscilaciones armónicas.  La solución  de  la  ecuación (1), viene dada por:
-\[x(t) = A\sin(\omega_0t+\psi).
-\]
-Donde \(A\), es la amplitud del movimiento, \(\omega_0\) es la frecuencia angular, \(\psi\) es la fase inicial e indica el estado de 
-oscilación o vibración (o fase) en el instante de tiempo \(t = 0\) de la partícula que oscila.
-</p>
-
-<p class="justificado">
-  <strong>Péndulo simple con fricción:</strong> La fuerza de amortiguamiento por fricción de la velocidad del cuerpo oscilante, un tipo de 
-  fuerza retardadora muy común, y actúa en la dirección opuesta a la velocidad. En el caso del péndulo, esta fuerza es directamente 
-  proporcional a la velocidad, por lo que lo expresamos como \(f_r=-b v_t\). Así, las ecuaciones que describen las 
-  <strong>Oscilaciones amortiguadas de un péndulo simple</strong> vienen dadas por:
-  \[\frac{d^2x}{dt^2}+\frac{b}{m}\frac{dx}{dt}+\frac{g}{l}x=0,\quad(\text{pequeñas oscilaciones.})
-\]
-La solución de la ecuación del movimiento viene dada por:
-\[
-x(t)=x_0e^{-\gamma t}\cos(\omega t + \psi_0),
-\]
-con \(\gamma=b/2m\), \(w=\sqrt{\omega_0^2-\gamma^2}\).
-</p>
-<div class="center">
-  <iframe width="560" height="315" src="https://phet.colorado.edu/sims/html/pendulum-lab/latest/pendulum-lab_es.html" title="Movimiento armónico" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
 
 <div class="flex-viewport" style="overflow: hidden; position: relative;">
   <ul aria-live="polite" class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(-1349px, 0px, 0px);">
