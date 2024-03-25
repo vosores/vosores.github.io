@@ -4,7 +4,7 @@ collection: publications
 permalink: 
 abstract: 
 date: 2023-03-29
-venue: 'IAHS2022–Variability and change across space, time, extremes, and interfaces.'
+venue: 'IAHS2022–Variability and change across space, time, extremes, and interfaces'
 paperurl: 
 citation: 
 ---
