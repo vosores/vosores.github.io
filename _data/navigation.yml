@@ -1,0 +1,25 @@
+# main links links
+main:
+  - title: "Publicaciones"
+    url: /publications/
+
+  - title: "Charlas"
+    url: /talks/    
+
+  - title: "Teaching"
+    url: /teaching/    
+        
+#  - title: "Blog Posts"
+#    url: /year-archive/
+    
+  - title: "CV"
+    url: /cv/
+
+  - title: "ResearchGate"
+    url: https://www.researchgate.net/profile/Victor-Osores
+
+  - title: "Divulgación IMA"
+    url: https://vosores.github.io/IngenieriaMatematica_UCM.html
+    
+#  - title: "Guide"
+#    url: /markdown/
