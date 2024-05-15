@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>    
+    <meta name="google-site-verification" content="UtBQXaaKqY6KYEk1SldtSO5XVEy9SmoUfqJ5as0603Y" />
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    
+    <meta charset="UTF-8">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171312398-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171312398-1');
+    </script>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Ejercicios resueltos. Cálculo en varias variable | Dr. Víctor Osores</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Ejercicios resueltos. Cálculo en varias variable" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule." />
+<meta property="og:description" content="Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule." />
+<link rel="canonical" href="http://localhost:4000/varias_var.html" />
+<meta property="og:url" content="http://localhost:4000/varias_var.html" />
+<meta property="og:site_name" content="Dr. Víctor Osores" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ejercicios resueltos. Cálculo en varias variable" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule.","headline":"Ejercicios resueltos. Cálculo en varias variable","url":"http://localhost:4000/varias_var.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Ejercicios resueltos. Cálculo en varias variable</h1>
+      
+      
+      
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h2 id="antes-de-comenzar">Antes de comenzar</h2>
+<p>En caso de identificar errores en la resolución o si quieres proponer una solución más elegante, escríbeme a vosores@ucm.cl</p>
+<h2 id="límite-y-continuidad">Límite y continuidad</h2>
+<div style="text-align: justify;">
+<ol>
+  <li>Estudie la continuidad de la función en $(0,0)$:
+
+    $$
+    f(x, y)=\left\{\begin{array}{cc}
+    \dfrac{x^{2} y}{x^{2}+y^{2}} &amp; (x, y) \neq(0,0) \\
+    0 &amp; (x, y)=(0,0)
+    \end{array}\right.
+    $$  
+    
+    Sol: Planteamos el estudio del límite en el origen realizando un cambio a coordenadas polares:
+    $$
+    \left\{\begin{array}{l}
+    x=\rho \cos (\theta) \\
+    y=\rho \operatorname{sen}(\theta)
+    \end{array}\right.
+    $$
+    Así:
+    $$
+    l=\lim _{(x, y) \rightarrow(0,0)} f(x, y)=\lim _{\rho \rightarrow 0} \dfrac{\rho^{3} \cos ^{2}(\theta) \operatorname{sen}(\theta)}{\rho^{2}}=\lim _{\rho \rightarrow 0} \rho \cos ^{2}(\theta) \operatorname{sen}(\theta)=0
+    $$
+    de donde se sigue que la función dada es continua en el origen, ya que
+    $$
+    \lim _{(x, y) \rightarrow(0,0)} f(x, y)=f(0,0)=0 .
+    $$
+  </li>
+  <li>Estudie la continuidad de la función en $(0,0)$:  <br />
+
+Sol:
+$$
+f(x, y)=\left\{\begin{array}{cc}
+\dfrac{x+y}{x-y} &amp; (x, y) \neq(0,0) \\
+0 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+
+Planteamos el estudio del límite en el origen realizando un cambio a coordenadas polares:
+
+$$
+\left\{\begin{array}{l}
+x=\rho \cos (\theta) \\
+y=\rho \operatorname{sen}(\theta)
+\end{array}\right.
+$$
+
+Así:
+
+$$
+l=\lim _{(x, y) \rightarrow(0,0)} f(x, y)=\lim _{\rho \rightarrow 0} \dfrac{\rho \cos (\theta)+\rho \operatorname{sen}(\theta)}{\rho \cos (\theta)-\rho \operatorname{sen}(\theta)}=\dfrac{\cos (\theta)+\operatorname{sen}(\theta)}{\cos (\theta)-\operatorname{sen}(\theta)}
+$$
+
+Por tanto, el límite depende de $\theta$, de donde se sigue que no existe límite y que la función dada no es continua en el origen.
+  </li>
+  <li>Estudie la continuidad de la función en $(0,0)$:
+
+$$
+f(x, y)=\left\{\begin{array}{cc}
+\dfrac{x^{2} y^{2}}{x^{2} y^{2}+(x-y)^{2}} &amp; (x, y) \neq(0,0) \\
+0 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+
+Sol:
+
+El origen es el punto en el que la definición de la función cambia, por tanto, es en ese punto donde debemos estudiar si se pierde la continuidad o no. Para ello, estudiamos la existencia del límite de $f(x, y)$ sobre trayectorias distintas en dicho punto.
+
+Si construimos la curva paramétrica
+
+$$
+\left\{\begin{array}{l}
+x=t \\
+y=t h(t)
+\end{array}\right.
+$$
+
+donde $\lim _{t \rightarrow 0} t h(t)=0$, entonces:
+
+$$
+l=\lim _{(x, y) \rightarrow(0,0)} f(x, y)=\lim _{t \rightarrow 0} \dfrac{t^{2} t^{2} h^{2}(t)}{t^{2} t^{2} h^{2}(t)+(t-t h(t))^{2}}=\lim _{t \rightarrow 0} \dfrac{t^{2} h^{2}(t)}{t^{2} h^{2}(t)+(1-h(t))^{2}}
+$$
+
+por ello,
+
+$$
+\begin{array}{ll}
+\text { si } &amp; h(t) \rightarrow 0 \Rightarrow l=\dfrac{0}{1}=0 \\
+\text { si } &amp; h(t)\rightarrow\infty \Rightarrow l=0 \\
+\text { si } &amp; h(t)\rightarrow k \neq 0 \Rightarrow l=\dfrac{0}{(1-k)^{2}}
+\end{array}
+$$
+
+Nos encontramos con la duda sobre el valor del límite $l$ cuando $h(t)$ es una función tal que $\lim _{t \rightarrow 0} h(t)=1$. Para solventar este problema estudiamos algún caso particular de función $h(t)$, por ejemplo, tomando $h(t)=(1-t)$. En tal caso,
+
+$$
+l=\lim _{t \rightarrow 0} \dfrac{t^{2}(1-t)^{2}}{t^{2}(1-t)^{2}+t^{2}}=\lim _{t \rightarrow 0} \dfrac{(1-t)^{2}}{(1-t)^{2}+1}=\dfrac{1}{2} \neq 0 .
+$$
+
+Del resultado obtenido deducimos que no existe el límite de $f(x, y)$ en el origen y, por tanto, la función dada no es continua en $(0,0)$.
+  </li>
+  <li>Estudie la continuidad de la función:
+
+$$
+f(x, y)=\left\{\begin{array}{cc}
+\dfrac{y^{2}}{x^{2}+y^{2}} &amp; (x, y) \neq(0,0) \\
+0 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+
+Sol:
+Planteamos el estudio del límite en el origen realizando un cambio a coordenadas polares:
+
+$$
+\left\{\begin{array}{l}
+x=\rho \cos (\theta) \\
+y=\rho \operatorname{sen}(\theta)
+\end{array}\right.
+$$
+
+Así:
+
+$$
+l=\lim _{(x, y) \rightarrow(0,0)} f(x, y)=\lim _{\rho \rightarrow 0} \dfrac{\rho^{2} \operatorname{sen}^{2}(\theta)}{\rho^{2}}=\operatorname{sen}^{2}(\theta)
+$$
+
+Por tanto, el límite depende de $\theta$, de donde se sigue que no existe límite y que la función dada no es continua en el origen. ¿Es continua en $\mathbb{R}^2-{(0,0)}$?
+  </li>
+  <li>Estudie la continuidad de la función en el origen:
+
+$$
+f(x, y)=\left\{\begin{array}{cc}
+y \operatorname{sen}\left(\dfrac{1}{x^{2}+y^{2}}\right) &amp; (x, y) \neq(0,0) \\
+0 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+
+Sol:
+Estudiamos la existencia de límite en el origen. Para ello utilizamos coordenadas polares,
+
+$$
+\left\{\begin{array}{l}
+x=\rho \cos (\theta) \\
+y=\rho \operatorname{sen}(\theta)
+\end{array}\right.
+$$
+
+Así:
+
+$$
+l=\lim _{(x, y) \rightarrow(0,0)} f(x, y)=\lim _{\rho \rightarrow 0} \rho \operatorname{sen}(\theta) \operatorname{sen}\left(\dfrac{1}{\rho^{2}}\right)=0=f(0,0)
+$$
+
+Por tanto, el límite vale $0$ y la función dada es continua en el origen.
+  </li>
+  <li>
+  Estudie la continuidad de la función en el origen:
+
+$$
+f(x, y)=\left\{\begin{array}{cc}
+\dfrac{x y}{x^{2}+y^{2}} &amp; (x, y) \neq(0,0) \\
+0 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+
+Sol: Planteamos el estudio del límite en el origen realizando un cambio a coordenadas polares:
+
+$$
+\left\{\begin{array}{l}
+x=\rho \cos (\theta) \\
+y=\rho \operatorname{sen}(\theta)
+\end{array}\right.
+$$
+
+Así:
+
+$$
+l=\lim _{(x, y) \rightarrow(0,0)} f(x, y)=\lim _{\rho \rightarrow 0} \dfrac{\rho^{2} \cos (\theta) \operatorname{sen}(\theta)}{\rho^{2}}=\cos (\theta) \operatorname{sen}(\theta)
+$$
+
+por tanto, el valor de $l$ depende de $\theta$, de donde se sigue que no existe límite y que la función dada no es continua en el origen.
+  </li>
+<li>
+Sea la función $f(x, y)=\left\{\begin{array}{lll}\dfrac{x^{6}}{\left(x^{2}-y\right)+x^{6}} &amp; \text{,si}&amp;(x, y) \neq(0,0) \\ 0 &amp; \text {,si}&amp;(x, y)=(0,0)\end{array}\right.$. Probar que:
+<ol type="a">
+    <li>Existen las derivadas parciales de $f$ en $(0,0)$.
+
+    $f_{x}(0,0)=\dfrac{\partial f}{\partial x}(0,0)=\displaystyle\lim _{h \rightarrow 0} \dfrac{f(h, 0)-f(0,0)}{h}=\lim _{h \rightarrow 0} \dfrac{\dfrac{h^{6}}{\left(h^{2}-0\right)+h^{6}}-0}{h}=\lim _{h \rightarrow 0} \dfrac{h^{5}}{1+h^{4}}=0$.
+
+    $
+    f_{y}(0,0)=\dfrac{\partial f}{\partial y}(0,0)=\displaystyle\lim _{k \rightarrow 0} \dfrac{f(0, k)-f(0,0)}{k}=\lim _{k \rightarrow 0} \dfrac{\dfrac{0}{(0-k)+0}-0}{k}=\lim _{k \rightarrow 0} 0=0 .
+    $
+    </li>
+    <li> $f$ no es continua en $(0,0)$.<br />
+
+    $f$ no es continua en $(0,0)$ pues no existe el $\lim _{(x, y) \rightarrow(0,0)} f(x, y)$. Y es que los límites a través de las rectas $y=mx$ son todos nulos, en cambio, el límite a lo largo de la parábola ${y}={x}^{2}$ es $1$.
+
+    Límites a traves de $y=mx$:
+
+    $$
+    \lim _{\substack{(x, y) \rightarrow(0,0) \\ y=m x}} f(x, y)=\lim _{x \rightarrow 0} \dfrac{x^{6}}{\left(x^{2}-m x\right)+x^{6}}=\lim _{x \rightarrow 0} \dfrac{x^{5}}{(x-m)+x^{5}}=\dfrac{0}{-m}=0
+    $$
+
+    Límite a lo largo de la parábola $y=x^{2}$:
+
+    $$
+    \lim _{\substack{(x, y) \rightarrow(0,0) \\ y=x^{2}}} f(x, y)=\lim _{x \rightarrow 0} \dfrac{x^{6}}{\left(x^{2}-x^{2}\right)+x^{6}}=\lim _{x \rightarrow 0} 1=1
+    $$
+
+    Por lo tanto, el límite $\lim _{(x, y) \rightarrow(0,0)} f(x, y)$ no existe, luego $f$ no es continua en $(0,0)$.
+    </li>
+</ol>
+</li>
+<li>Sea la función $f(x, y)= \begin{cases}(x+y) \text { sen } \dfrac{1}{x+y} &amp; \text { si } x+y \neq 0 \\ 0 &amp; \text { si } x+y=0\end{cases}$
+<ol type="a">
+<li>Probar que $f$ es continua en $(0,0)$.<br />
+
+Notar que,
+
+$$0\leq\left|(r \cos \alpha+r \operatorname{sen} \alpha) \operatorname{sen} \dfrac{1}{r \cos \alpha+r \operatorname{sen} \alpha}\right| \leq|r \cos \alpha+r \operatorname{sen} \alpha|=r|\cos \alpha+\operatorname{sen} \alpha| \leq 2 r=g(r),$$
+con $\lim _{r \rightarrow 0} g(r)=0$ y $\lim _{r \rightarrow 0} 0=0$. Por teorema del sandwich concluimos que $\lim _{(x, y) \rightarrow(0,0)} f(x, y)=0$ y dado que $f(0,0)=0$, $f$ es continua en $({0}, {0})$.
+</li>
+<li>¿Es $f$ diferenciable en $(0,0)$?<br />
+
+$$
+\dfrac{\partial f}{\partial x}(0,0)=\lim _{h \rightarrow 0} \dfrac{f(h, 0)-f(0,0)}{h}=\lim _{h \rightarrow 0} \dfrac{(h+0) \operatorname{sen} \dfrac{1}{h+0}-0}{h}=\lim _{h \rightarrow 0} \operatorname{sen} \dfrac{1}{h} \text { No existe. }
+$$
+
+Luego, ${f}$ no es diferenciable en $(0,0)$, ya que si lo fuera existirían las derivadas parciales de ${f}$ en dicho punto.
+</li>
+</ol>
+</li>
+
+<li>Estudie la continuidad, existencia de las derivadas parciales y la diferenciabilidad de la función:
+$$
+f(x, y)=\left\{\begin{array}{cc}
+\dfrac{x y^{2}}{x^{3}+y^{3}} &amp; (x, y) \neq(0,0) \\
+0 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+<br />
+Sol:
+Comenzamos estudiando la continuidad de la función dada en el origen (en el resto de puntos se tiene que la función dada es diferenciable, probar). En primer lugar planteamos el estudio del límite realizando un cambio a coordenadas polares:
+
+$$
+\left\{\begin{array}{l}
+x=\rho \cos (\theta) \\
+y=\rho \operatorname{sen}(\theta)
+\end{array}\right.
+$$
+
+Así:
+
+$$
+l=\lim _{\rho \rightarrow 0} \dfrac{\rho^{3} \cos (\theta) \operatorname{sen}(\theta)}{\rho^{3}\left(\cos ^{3}(\theta)+\operatorname{sen}^{3}(\theta)\right)}=\lim _{\rho \rightarrow 0} \dfrac{\cos (\theta) \operatorname{sen}(\theta)}{\left(\cos ^{3}(\theta)+\operatorname{sen}^{3}(\theta)\right)}=\dfrac{\cos (\theta) \operatorname{sen}(\theta)}{\left(\cos ^{3}(\theta)+\operatorname{sen}^{3}(\theta)\right)}
+$$
+
+por lo que $l$ depende de $\theta$, de donde se deduce que no existe el límite de $f$ en el origen. De esta manera se tiene que $f$ no es continua en el origen y, como consecuencia, tampoco es diferenciable en dicho punto.
+
+Con respecto a las derivadas parciales se tiene que:
+
+$$
+\begin{aligned}
+&amp; \dfrac{\partial f}{\partial x}(0,0)=\lim _{h \rightarrow 0} \dfrac{f(h, 0)-f(0,0)}{h}=\lim _{h \rightarrow 0} \dfrac{\left(\dfrac{h \cdot 0^{2}}{(h)^{3}}\right)}{h}=0 \\
+&amp; \dfrac{\partial f}{\partial y}(0,0)=\lim _{k \rightarrow 0} \dfrac{f(0, k)-f(0,0)}{k}=\lim _{k \rightarrow 0} \dfrac{\left(\dfrac{0 \cdot(k)^{2}}{(k)^{3}}\right)}{k}=0
+\end{aligned}
+$$
+
+Por tanto, se tiene que $f$ es una función que admite derivadas parciales en el origen y no es diferenciable en dicho punto.
+</li>
+
+<li>
+Estudiar la continuidad y la existencia de derivadas parciales de la función,
+
+$$
+f(x, y)=\left\{\begin{array}{ccc}
+\dfrac{x^{6}}{\left(x^{2}-y\right)^{2}+x^{6}} &amp; \text { si }(x, y) \neq(0,0) \\
+0 &amp; \text { si }(x, y)=(0,0)
+\end{array}\right.
+$$
+
+en el punto $(0,0)$.
+<br />
+Sol: La función no es continua en $(0,0)$, ya que los límites según la recta $y=x$ y la parábola $y=x^{2}$ son, respectivamente
+
+$$
+\begin{aligned}
+&amp; \lim _{x \rightarrow 0} \dfrac{x^{6}}{\left(x^{2}-x\right)^{2}+x^{6}}=\lim _{x \rightarrow 0} \dfrac{x^{6}}{x^{2}-2 x^{3}+x^{4}+x^{6}}=0 \\
+&amp; \lim _{x \rightarrow 0} \dfrac{x^{6}}{\left(x^{2}-x^{2}\right)^{2}+x^{6}}=\lim _{x \rightarrow 0} \dfrac{x^{6}}{x^{6}}=1
+\end{aligned}
+$$
+
+Al ser distintos los valores obtenidos, la función no tiene límite en $(0,0)$, y por lo tanto no es continua.
+
+Analicemos la existencia de derivadas parciales en el origen,
+
+$$
+\begin{aligned}
+&amp; f_{x}(0,0)=\lim _{h \rightarrow 0} \dfrac{f(h, 0)-f(0,0)}{h}=\lim _{h \rightarrow 0} \dfrac{\dfrac{h^{6}}{h^{4}+h^{6}}-0}{h}=\lim _{h \rightarrow 0} \dfrac{h}{1+h^{2}}=0 \\
+&amp; f_{y}(0,0)=\lim _{k \rightarrow 0} \dfrac{f(0, k)-f(0,0)}{k}=\lim _{k \rightarrow 0} \dfrac{0-0}{k}=0
+\end{aligned}
+$$
+
+luego $f(x, y)$ admite derivadas parciales en $(0,0)$ sin ser continua en dicho punto.
+</li>
+
+<li>
+Dada la función:
+
+$$
+f(x, y)=\left\{\begin{array}{cc}
+\dfrac{y x^{2}-y^{3}}{x^{2}+y^{2}} &amp; (x, y) \neq(0,0) \\
+0 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+
+Se pide:
+<ol type="a">
+<li> Determinar la continuidad de $f$.
+</li>
+<li>Estudiar la continuidad de las derivadas parciales de $f$. ¿De los resultados obtenidos puede deducirse la diferenciabilidad de $f$ en el origen?.</li>
+</ol>
+Sol:
+<ol type="a">
+<li>$f(0,0)=0$.<br />
+$\lim_{(x,y)\rightarrow (0,0)}f(x,y)=\lim_{(x,y)\rightarrow (0,0)}\dfrac{yx^2-y^3}{x^2+y^2}_{\left\{\begin{array}{l}
+x=\rho \cos \theta\\ y=\rho\sin\theta
+ \end{array}\right.}=\lim_{\rho \rightarrow 0}\dfrac{\rho^3\sin\theta\cos^2\theta-\rho^3\sin^3}{\rho^2}$
+
+ $$
+=\lim _{\rho \rightarrow 0} \dfrac{\rho^{3}\left(\cos ^{2} \theta \operatorname{sen} \theta-\operatorname{sen}^{3} \theta\right)}{\rho^{2}}=\lim _{\rho \rightarrow 0} \rho\left(\cos ^{2} \theta-\operatorname{sen}^{2} \theta\right) \operatorname{sen} \theta
+=\lim _{\rho \rightarrow0} \rho \cos 2 \theta \operatorname{sen} \theta=0.
+$$
+
+Por lo tanto $f(0,0)=\lim _{(x, y) \rightarrow(0,0)} f(x, y)$. Luego $f(x, y)$ es continua en $(0,0)$.
+</li>
+<li>
+Analicemos la continuidad de la derivada parcial con respecto a $x$, en el origen
+
+$$
+\left\{\begin{array}{l}
+\dfrac{\partial f(0,0)}{\partial x}=\lim _{h \rightarrow 0} \dfrac{f(h, 0)-f(0,0)}{h}=\lim _{h \rightarrow 0} \dfrac{\dfrac{0}{h^{2}}-0}{h}=\lim _{h \rightarrow 0} \dfrac{0}{h}=0 \\
+\dfrac{\partial f(x, y)}{\partial x}=\dfrac{2 x y\left(x^{2}+y^{2}\right)-\left(y x^{2}-y^{3}\right) 2 x}{\left(x^{2}+y^{2}\right)^{2}}=\dfrac{4 x y^{3}}{\left(x^{2}+y^{2}\right)^{2}}
+\end{array}\right.
+$$
+
+entonces podemos escribir,
+
+$$
+\dfrac{\partial f}{\partial x}=\left\{\begin{array}{cc}
+\dfrac{4 x y^{3}}{\left(x^{2}+y^{2}\right)^{2}} &amp; (x, y) \neq(0,0) \\
+0 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+
+analicemos su continuidad en el origen,
+<ol type="a">
+<li>$\dfrac{\partial f(0,0)}{\partial x}=0$</li>
+<li>$\lim _{(x, y) \rightarrow(0,0)} \dfrac{\partial f(x, y)}{\partial x}=\lim _{(x, y) \rightarrow(0,0)} \dfrac{4 x y^{3}}{\left(x^{2}+y^{2}\right)^{2}}=\lim _{\rho \rightarrow 0} \dfrac{4 \rho^{4} \cos \theta \operatorname{sen}^{3} \theta}{\rho^{4}}=4 \cos \theta \operatorname{sen}^{3} \theta$
+luego $\lim _{(x, y) \rightarrow(0,0)} \dfrac{\partial f(x, y)}{\partial x}$ no existe, de lo que se deduce que $\dfrac{\partial f(x, y)}{\partial x}$ no es continua en $(0,0)$
+</li>
+</ol>
+Analicemos la continuidad de la derivada parcial con respecto a $y$, en el origen:
+$$
+\left\{\begin{array}{l}
+\dfrac{\partial f(0,0)}{\partial y}=\lim _{k \rightarrow 0} \dfrac{f(0, k)-f(0,0)}{k}=\lim _{h \rightarrow 0} \dfrac{\dfrac{-k^{3}}{k^{2}}-0}{k}=\lim _{h \rightarrow 0} \dfrac{-k^{3}}{k^{3}}=-1 \\
+\dfrac{\partial f(x, y)}{\partial y}=\dfrac{\left(x^{2}-3 y^{2}\right)\left(x^{2}+y^{2}\right)-\left(y x^{2}-y^{3}\right) 2 y}{\left(x^{2}+y^{2}\right)^{2}}=\dfrac{x^{4}-y^{4}-4 x^{2} y^{2}}{\left(x^{2}+y^{2}\right)^{2}}
+\end{array}\right.
+$$
+resulta que,
+$$
+\dfrac{\partial f}{\partial y}=\left\{\begin{array}{cc}
+\dfrac{x^{4}-y^{4}-4 x^{2} y^{2}}{\left(x^{2}+y^{2}\right)^{2}} &amp; (x, y) \neq(0,0) \\
+-1 &amp; (x, y)=(0,0)
+\end{array}\right.
+$$
+analicemos su continuidad en el origen,
+<ol type="a">
+<li>$\dfrac{\partial f(0,0)}{\partial y}=-1$
+</li>
+<li>$\lim _{(x, y) \rightarrow(0,0)} \dfrac{\partial f(x, y)}{\partial x}=\lim _{(x, y) \rightarrow(0,0)} \dfrac{x^{4}-y^{4}-4 x^{2} y^{2}}{\left(x^{2}+y^{2}\right)^{2}}=\lim _{\rho \rightarrow 0} \dfrac{\rho^{4} \cos ^{4} \theta-\rho^{4} \operatorname{sen}^{4} \theta-4 \rho^{4} \cos ^{2} \theta \operatorname{sen}^{2} \theta}{\rho^{4}}$
+$$
+=\cos ^{4} \theta-\operatorname{sen}^{4} \theta-4 \cos ^{2} \theta \operatorname{sen}^{2} \theta
+$$
+luego $\lim _{(x, y) \rightarrow(0,0)} \dfrac{\partial f(x, y)}{\partial y}$ no existe, de lo que se deduce que $\dfrac{\partial f(x, y)}{\partial y}$ no es continua en $(0,0)$
+</li>
+</ol>
+Por lo tanto, de los resultados obtenidos no puede deducirse la diferenciabilidad de $f(x, y)$ en el origen, (ninguna de las parciales es continua en el origen).
+</li>
+</ol>
+</li>
+
+
+<li> Hallar la derivada direccional de $z=\left\{\begin{array}{ll}\dfrac{x^{3}}{x^{2}+y^{2}} &amp; \text{ si }(x, y) \neq(0,0) \\ 0 &amp; \text{ si }(x, y)=(0,0)\end{array}\right.$ en el punto $(0,0)$, según la dirección del vector $\vec{u}=(1,2)$.
+
+<ol type="a">
+<li>Mediante la definición de derivada direccional,
+$$
+\begin{gathered}
+\dfrac{\vec{u}}{||\vec{u}||}=\dfrac{(1,2)}{\sqrt{1+4}}=\left(\dfrac{1}{\sqrt{5}}, \dfrac{2}{\sqrt{5}}\right) \\
+\dfrac{\partial f}{\partial \vec{u}}(0,0)=\lim_{h \rightarrow 0} \dfrac{f\left(\dfrac{h}{\sqrt{5}}, \dfrac{2 h}{\sqrt{5}}\right)-f(0,0)}{h}
+=\lim_{h \rightarrow 0} \dfrac{\dfrac{h^{3}}{(\sqrt{5})^{3}}}{h\left(\dfrac{h^{2}}{5}+\dfrac{4h^{2}}{5}\right)}=
+\lim_{h \rightarrow 0} \dfrac{1}{(\sqrt{5})^{3}}=\dfrac{1}{5 \sqrt{5}}
+\end{gathered}
+$$
+</li>
+<li>Mediante la fórmula para calcular derivadas direccionales de funciones diferenciables.
+
+$$
+\dfrac{\partial {f}}{\partial \vec{u}}(0,0)=\overrightarrow{\nabla {f}}(0,0) \cdot \dfrac{\vec{u}}{||\vec{u}||}=(1,0) \cdot\left(\dfrac{1}{\sqrt{5}}, \dfrac{2}{\sqrt{5}}\right)=\dfrac{1}{\sqrt{5}}
+$$
+
+A la vista del apartado anterior, ¿es $f$ diferenciable en $(0,0)$?
+
+$f$ no es diferenciable en $(0,0)$, ya que si lo fuera, deberíamos haber obtenido el mismo resultado por los dos métodos al calcular $\dfrac{\partial {f}}{\partial \vec{u}}(0,0)$. ¿Qué está ocurriendo?.
+</li>
+</ol>
+</li>
+
+
+<li> La superficie de una montaña puede ser modelada por:
+
+$$
+h(x, y)=5000-0.001 {x}^{2}-0.004 {y}^{2}
+$$
+
+Si un montañero se encuentra en el punto $(50, 300, 4390)$, ¿En qué dirección debe moverse si desea ascender con la mayor rapidez posible? <br />
+
+Sol: Debe tomar la dirección dada por el vector gradiente:
+
+$$
+\overrightarrow{\nabla {h}}(50,300)=\left(\dfrac{\partial {h}}{\partial {x}}(50,300), \dfrac{\partial {h}}{\partial {y}}(50,300)\right)=(-0.002 {x},-0.008 {y})_{(50,300)}=(-0.1,-2.4)
+$$
+
+Que es lo mismo que seguir la dirección del vector ${( - 1 , - 2 4 )}$.
+</li>
+
+
+<li>
+Si la temperatura de un depósito cilíndrico viene dada por la función
+
+$$
+T(x, y, z)=10\left(x e^{-y^{2}}+z e^{-x^{2}}\right)
+$$
+
+y nos situamos en el punto de coordenadas $(0,0,1)$, se pide:
+<ol type="a">
+<li>Determinar cuál es la razón de cambio de la temperatura al desplazarnos hacia el punto de coordenadas $(2,3,1)$.</li>
+<li>En qué dirección debemos movernos para que la temperatura disminuya lo más rápidamente posible. ¿Y para que aumente?</li>
+<li>Si no quisiéramos apreciar cambio alguno de temperatura ¿qué dirección debemos tomar?.</li>
+<li>Si nos movemos siguiendo el camino descrito por, $\vec{x}(t)=(\vec{x}(t), \vec{y}(t), \vec{z}(t))=\left(-\frac{3 \sqrt{2}}{2} t, 0,-\frac{3 \sqrt{2}}{2} t\right)$, determinar $\frac{d(T \circ \vec{x})}{d t}$.</li>
+</ol>
+
+Sol:
+$$
+T(x, y, z)=10\left(x e^{-y^{2}}+z e^{-x^{2}}\right)=&gt;\left\{\begin{array}{l}
+\frac{\partial T}{\partial x}=10\left(e^{-y^{2}}-2 z x e^{-x^{2}}\right)_{(0,0,1)}=10 \\
+\frac{\partial T}{\partial y}=10\left(-2 x y e^{-y^{2}}\right)_{(0,0,1)}=0 \\
+\frac{\partial T}{\partial z}=10\left(e^{-x^{2}}\right)_{(0,0,1)}=10
+\end{array}\right.
+$$
+<ol type="a">
+<li>$P(0,0,1)$ y $Q(2,3,1)$ consideramos el vector unitario,
+
+$$
+\vec{u}=\frac{P Q}{|P Q|}=\left(\frac{2-0}{\sqrt{13}}, \frac{3-0}{\sqrt{13}}, \frac{1-1}{\sqrt{13}}\right)=\left(\frac{2}{\sqrt{13}}, \frac{3}{\sqrt{13}}, 0\right)
+$$
+
+entonces,
+
+$$
+d_{\vec{u}} T(0,0,1)=(10,0,10)\left(\frac{2}{\sqrt{13}}, \frac{2}{\sqrt{13}}, 0\right)=\frac{20}{\sqrt{13}}
+$$
+</li>
+<li>Para que disminuya lo más rápido, nos debemos mover en la dirección,
+
+$$
+-\nabla T(0,0,1)=(-10,0,-10)
+$$
+
+Para que aumente lo más rápido, nos debemos mover en la dirección,
+
+$$
+\nabla T(0,0,1)=(10,0,10)
+$$
+
+</li>
+
+<li>
+Para que no haya cambio de temperatura buscamos el vector tal que,
+
+$$
+d_{\vec{v}} T(0,0,1)=0 \Rightarrow(10,0,10)\left(v_{1}, v_{2}, v_{3}\right)=0 \Rightarrow v_{1}=-v_{3}
+$$
+
+entonces, $\vec{v}=\left(v_{1}, v_{2},-v_{1}\right)$ siendo $|v|=1$. Por ejemplo, en la dirección del vector $(0,1,0)$.
+</li> 
+<li>Calculemos
+
+$$
+\begin{aligned}
+(T \circ \vec{x})(t)=T(\vec{x}(t))=T\left(-\frac{3 \sqrt{2}}{2} t, 0,-\frac{3 \sqrt{2}}{2} t\right) &amp; =10\left(-\frac{3 \sqrt{2}}{2} t-\frac{3 \sqrt{2}}{2} t e^{-\frac{9}{2} t^{2}}\right)= \\
+&amp; =-15 \sqrt{2} t\left(1+e^{-\frac{9}{2} t^{2}}\right)
+\end{aligned}
+$$
+
+cuya derivada con respecto de $\mathrm{t}$ es,
+
+$$
+\begin{aligned}
+&amp; \frac{d(T \circ \vec{x})}{d t}=-15 \sqrt{2}\left(1+e^{-\frac{9}{2} t}\right)+15 \sqrt{2} t e^{-\frac{9}{2} t} 9 t \\
+&amp; \frac{d(T \circ \vec{x})}{d t}=-15 \sqrt{2}\left[\frac{e^{\frac{9}{2} t^{2}}+1-9 t^{2}}{e^{\frac{9}{2} t}}\right]
+\end{aligned}
+$$
+</li>
+
+</ol>
+</li>
+
+
+<li>La temperatura entorno al origen viene dada por una función de la forma ${T}(x, y)={T}_{0}+{e}^{y}\sin{x}$. Hallar la trayectoria seguida por una partícula, originada en el origen, que huye del calor. Hallar la variación de temperatura que experimentaría la partícula si tomase la dirección del vector $\vec{u}=(1,-2)$.
+<br />
+Sol: Representemos la trayectoria paramétricamente:
+$\vec{r}'({t})=({x}({t}), {y}({t}))$. Un vector tangente a dicha trayectoria en cada punto $({x}({t}), {y}({t}))$ viene dado por
+
+$$
+\vec{r}'(t)=\left(\dfrac{dx}{dt}, \dfrac{dy}{dt}\right)
+$$
+
+Como la partícula huye del calor, tomará la dirección de máximo descenso de temperatura, que viene dada por el vector:
+
+$$
+-\vec{\nabla} T(x, y)=-\left(\dfrac{\partial T}{\partial x}, \dfrac{\partial T}{\partial y}\right)=-\left(e^{y} \cos {x}, e^{y} \operatorname{sen} {x}\right)
+$$
+
+Por tanto, las direcciones de $\vec{r}^{\prime}(t)$ y de $\left(-{e}^{y} \cos {x},-e^{y} \operatorname{sen} {x}\right)$ son la misma a lo largo de toda la trayectoria. Así pues,
+$-e^{y} \cos x=k \dfrac{d x}{d t}$, y $-e^{y} \operatorname{sen} x=k \dfrac{d y}{d t}$, donde $k$ depende de $t$.
+
+Despejando $\dfrac{dt}{k}$ en cada ecuación e igualando los resultados, se obtiene:
+$$
+\dfrac{dx}{\cos {x}}=\dfrac{dy}{\operatorname{sen} {x}} \Rightarrow \operatorname{tgx} dx=dy \Rightarrow y=\int \operatorname{tg} x {dx}=-\ln (\cos {x})+{C}
+$$
+Como sabemos que la partícula parte del origen, ha de ser: $0=-\ln (\cos 0)+C=C$. Por consiguiente, la trayectoria seguida por la partícula será:
+
+$$
+y=-\ln (\cos x).
+$$
+
+La variación de temperatura que experimentaría la partícula si tomase la dirección del vector ${\vec{u}}=(1,-2)$ sería la derivada direccional de ${T}$ en el $(0,0)$ en la dirección de dicho vector:
+$$\dfrac{\partial {T}}{\partial \vec{u}}(0,0)=\overrightarrow{\nabla {T}}(0,0) \cdot \dfrac{\vec{u}}{||\vec{u}||}=(-1,0) \cdot\left(\dfrac{1}{\sqrt{5}}, \dfrac{-2}{\sqrt{5}}\right)=\dfrac{1}{\sqrt{5}}=\dfrac{\sqrt{5}}{5}.$$
+</li>
+
+<li>Dada la función $f(x, y)=x \cdot \operatorname{tg} y$, se pide:
+<ol type="a">
+<li>Hallar el dominio de $f$.</li>
+<li>Dar las direcciones de máximo y nulo crecimiento de f en el punto $P\left(2, \dfrac{\pi}{4}\right)$.</li>
+<li>Calcular la derivada direccional $h(\alpha)$ de $f$ en $P$ en la dirección que forma un ángulo $\alpha$ con el eje de abscisas.</li>
+<li>Hallar la aproximación lineal (plano tangente) de $f(x, y)$ en $P$.</li>
+<li>Calcula la derivada de $f$ respecto de $t$ en la circunferencia $\left\{\begin{array}{l}x=\cos t \\ y=\operatorname{sen} t\end{array}\right.$.</li>
+</ol>
+Sol:
+<ol type="a">
+<li>$Dom(f)=\mathbb{R}^{2}-\{(x, y): y=k \pi / 2, k \in \mathbb{R}\}$.</li>
+<li>La dirección de máximo crecimiento es la del gradiente:
+
+$$\vec{\nabla} f(P)=\left(\tan {y}, \dfrac{x}{\cos ^{2} y}\right)_{P}=(\mathbf{1 , 4})$$.
+
+Análogamente una dirección de nulo crecimiento puede ser $\vec{u} \perp \vec{\nabla} {f}({P})$, luego $\vec{u}=(\mathbf{4 , - 1})$.</li>
+<li>Un vector en la dirección indicada es $\vec{u}=(\cos \alpha$, $\operatorname{sen} \alpha)$, además $|\vec{u}|=1$, por tanto,
+$$h(\alpha)=\vec{\nabla} {f}({P})(\cos \alpha, \operatorname{sen} \alpha)=(1,4)(\cos \alpha, \operatorname{sen} \alpha)=\cos \alpha+4 \operatorname{sen} \alpha.$$
+\item La ecuación de la aproximación lineal es la del plano tangente en $P$:
+
+$$
+\begin{gathered}
+z=z_{0}+\left(\dfrac{\partial f}{\partial x}\right)_{P}\left(x-x_{0}\right)+\left(\dfrac{\partial f}{\partial y}\right)_{P}\left(y-y_{0}\right) \\
+z_{0}=f(2, \pi / 4)=2 \Rightarrow z=2+1(x-2)+4\left(y-\dfrac{\pi}{4}\right)
+\end{gathered}
+$$
+</li>
+<li>$$\dfrac{df}{dt}=\left(\dfrac{\partial f}{\partial x}\right) \dfrac{dx}{dt}+\left(\dfrac{\partial f}{\partial y}\right) \dfrac{dy}{dt}=\tan {y} \cos {t}+\dfrac{x}{\cos ^{2} y} \operatorname{sen} {t}=
+\tan (\operatorname{sen} t) \cos t+\dfrac{\cos t}{\cos ^{2}(\operatorname{sen} t)} \operatorname{sen} t.
+$$
+</li>
+</ol>
+</li>
+
+
+<li>
+Dada la función,
+
+$$
+f(x, y)=e^{-\left(x^{2}+y^{2}\right)}
+$$
+<ol type="a">
+ <li> Calcula la derivada direccional de $f(x, y)$ en el punto $(1,0)$ según la dirección del vector $(1,1)$. </li>
+<li> Detemina las direcciones de máximo y mínimo crecimiento de $f(x, y)$ en el punto $(1,0)$, así como el valor de las derivadas direccionales en dichas direcciones. </li>
+</ol>
+
+Sol:
+
+<ol type="a">
+<li> $$
+d_{\vec{v}} f(1,0)=\nabla f(1,0) \cdot \vec{v}=\left(\frac{\partial f}{\partial x}(1,0), \frac{\partial f}{\partial y}(1,0)\right) \cdot\left(v_{1}, v_{2}\right)
+$$
+
+El vector $\vec{v}$ tiene que ser un vector unitario en la dirección de $(1,1)$ :
+
+$$
+\vec{v} = \left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)=\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)
+$$
+
+Así,
+
+$$
+d_{\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)} f(1,0)=\left(\frac{-2}{e}, 0\right) \cdot\left(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right)=-\frac{2 \sqrt{2}}{2 e}=-\frac{\sqrt{2}}{e}
+$$</li>
+
+<li>Máximo crecimiento: $\vec{w}=\left(-\frac{2}{e}, 0\right)=\vec{\nabla} f(1,0)$
+
+Mínimo crecimiento: $\vec{m}=\left(\frac{2}{e}, 0\right)=-\vec{\nabla} f(1,0)$
+
+El valor de sus derivadas direccionales en estas direcciones,
+
+$$
+\begin{aligned}
+&amp; d_{\vec{\nabla} f(1,0)} f(1,0)=\frac{2}{e} \\
+&amp; d_{-\vec{\nabla} f(1,0)} f(1,0)=\frac{-2}{e}
+\end{aligned}
+$$
+</li>
+
+</ol>
+</li>
+
+
+<li>Estudiar la continuidad, la diferenciabilidad y la continuidad de las derivadas parciales, de los campos escalares $f, g, h: \mathbb{R}^{2} \rightarrow \mathbb{R}$ definidos de la siguiente forma, donde $\Omega=\mathbb{R}^{2} \backslash\{(0,0)\}$:
+<ol type="a">
+<li>$f(x, y)=\dfrac{x^{2} y}{x^{2}+y^{4}}$, $\forall(x, y) \in \Omega$, $f(0,0)=0$</li>
+<li>$g(x, y)=\dfrac{x^{2} y^{2}}{x^{2}+y^{4}}$, $\forall(x, y) \in \Omega$, $g(0,0)=0$</li>
+</ol>
+
+Sol:
+<ol type="a">
+<li>Tenemos claramente $\left.f\right|_{\Omega} \in C^{1}(\Omega)$, por tratarse de una función racional. Puesto que $\Omega$ es abierto, por el carácter local de la diferenciabilidad y de la continuidad, vemos que $f$ es diferenciable, luego continua, y sus derivadas parciales son continuas, en todo punto de $\Omega$. Concretamente, se tiene:
+
+$$
+\begin{aligned}
+&amp; \frac{\partial f}{\partial x}(x, y)=\frac{2 x y\left(x^{2}+y^{4}\right)-2 x^{3} y}{\left(x^{2}+y^{4}\right)^{2}}=\frac{2 x y^{5}}{\left(x^{2}+y^{4}\right)^{2}} \quad \forall(x, y) \in \Omega \quad y \\
+&amp; \frac{\partial f}{\partial y}(x, y)=\frac{x^{2}\left(x^{2}+y^{4}\right)-4 x^{2} y^{4}}{\left(x^{2}+y^{4}\right)^{2}}=\frac{x^{4}-3 x^{2} y^{4}}{\left(x^{2}+y^{4}\right)^{2}} \quad \forall(x, y) \in \Omega
+\end{aligned}
+$$
+Además $f$ es continua en el origen (pruebalo), luego pasamos a estudiar su diferenciabilidad.
+
+
+Para cualesquiera $x, y \in \mathbb{R}$ es claro que $f(x, 0)=f(0, y)=0$, luego $f$ es parcialmente derivable en el origen, con
+
+$$
+\frac{\partial f}{\partial x}(0,0)=\frac{\partial f}{\partial y}(0,0)=0
+$$
+
+Como $\nabla f(0,0)=(0,0)$, consideramos la función $\varphi: \Omega \rightarrow \mathbb{R}$ dada por
+
+$$
+\varphi(x, y)=\frac{x^{2} y}{\left(x^{2}+y^{4}\right) \sqrt{x^{2}+y^{2}}} \quad \forall(x, y) \in \Omega
+$$
+
+Para todo $x \in \mathbb{R}^{+}$tenemos
+
+$$
+\varphi(x, x)=\frac{x^{3}}{x^{3}+x^{5}}=\frac{1}{1+x^{2}}
+$$
+
+De donde $\lim _{x \rightarrow 0^{+}} \varphi(x, x)=1 \neq 0$. Como uno de los límites radiales de $\varphi$ en el origen no es 0 , no se cumple que $\lim _{(x, y) \rightarrow(0,0)} \varphi(x, y)=0$, luego $f$ no es diferenciable en el origen.
+\item Puesto que $f$ es parcialmente derivable en $\mathbb{R}^{2}$, si una de sus derivadas parciales fuese continua en $0, f$ sería diferenciable en 0 . Por tanto, ninguna de las dos derivadas parciales de $f$ es continua en el origen.
+
+En resumen, $f$ es continua y parcialmente derivable en $\mathbb{R}^{2}$, es diferenciable en $\Omega$, pero no es diferenciable en el origen. Sus derivadas parciales son continuas en $\Omega$ pero ninguna de ellas es continua en el origen.
+</li>
+
+<li>
+El mismo razonamiento usado para $f$ prueba que $g$ es diferenciable, luego continua, y sus derivadas parciales son continuas, en todo punto de $\Omega$. Esta vez,
+
+$$
+\begin{aligned}
+&amp; \frac{\partial g}{\partial x}(x, y)=\frac{2 x y^{2}\left(x^{2}+y^{4}\right)-2 x^{3} y^{2}}{\left(x^{2}+y^{4}\right)^{2}}=\frac{2 x y^{6}}{\left(x^{2}+y^{4}\right)^{2}} \quad \forall(x, y) \in \Omega \\
+&amp; \frac{\partial g}{\partial y}(x, y)=\frac{2 x^{2} y\left(x^{2}+y^{4}\right)-4 x^{2} y^{5}}{\left(x^{2}+y^{4}\right)^{2}}=\frac{2 x^{2} y\left(x^{2}-y^{4}\right)}{\left(x^{2}+y^{4}\right)^{2}} \quad \forall(x, y) \in \Omega
+\end{aligned}
+$$
+
+Igual que con $f$, vemos también que $g$ es parcialmente derivable en el origen, con
+
+$$
+\frac{\partial g}{\partial x}(0,0)=\frac{\partial g}{\partial y}(0,0)=0
+$$
+
+Como $\nabla g(0,0)=(0,0)$, consideramos la función $\varphi: \Omega \rightarrow \mathbb{R}$ dada por
+
+$$
+\varphi(x, y)=\frac{x^{2} y^{2}}{\left(x^{2}+y^{4}\right) \sqrt{x^{2}+y^{2}}} \quad \forall(x, y) \in \Omega
+$$
+
+Para todo $(x, y) \in \Omega$, usando que $x^{2} \leq x^{2}+y^{4}$, tenemos
+
+$$
+|\varphi(x, y)| \leq \frac{y^{2}}{\sqrt{x^{2}+y^{2}}} \leq \frac{x^{2}+y^{2}}{\sqrt{x^{2}+y^{2}}}=\sqrt{x^{2}+y^{2}}
+$$
+
+y deducimos que $\lim _{(x, y) \rightarrow(0,0)} \varphi(x, y)=0$. Por tanto, $f$ es diferenciable en el origen.
+
+Estudiemos la continuidad en el origen de las dos derivadas parciales de $g$. Para la primera, usamos el cambio de variable $(x, y)=\left(y^{2}, y\right)$ con $y \in \mathbb{R}$, teniendo en cuenta que $\left(y^{2}, y\right) \neq(0,0)$ para $y \neq 0$, y que $\left(y^{2}, y\right) \rightarrow 0$ cuando $y \rightarrow 0$. Como
+
+$$
+\frac{\partial g}{\partial x}\left(y^{2}, y\right)=\frac{2 y^{2} y^{6}}{\left(2 y^{4}\right)^{2}}=\frac{1}{2} \quad \forall y \in \mathbb{R}^{*}
+$$
+
+si fuese $\lim _{(x, y) \rightarrow(0,0)} \frac{\partial g}{\partial x}(x, y)=0$, el cambio de variable nos daría $\lim _{y \rightarrow 0} \frac{\partial g}{\partial x}\left(y^{2}, y\right)=0$, lo cual es falso, como acabamos de ver. Por tanto $\partial g / \partial x$ no es continua en el origen. Para la otra derivada parcial, usamos que $x^{2}\left|x^{2}-y^{4}\right| \leq\left(x^{2}+y^{4}\right)^{2}$, obteniendo
+
+$$
+\left|\frac{\partial g}{\partial y}(x, y)\right| \leq \frac{2 x^{2}|y|\left|x^{2}-y^{4}\right|}{\left(x^{2}+y^{4}\right)^{2}} \leq 2|y|
+$$
+
+Deducimos que $\lim _{(x, y) \rightarrow(0,0)} \frac{\partial g}{\partial y}(x, y)=0$, luego $\frac{\partial g}{\partial y}$ sí es continua en el origen. Nótese que, estudiando previamente la continuidad de las derivadas parciales, habríamos ahorrado trabajo: como $g$ es parcialmente derivable en $\mathbb{R}^{2}$ y una de sus derivadas parciales es continua en el origen, la condición suficiente para la diferenciabilidad nos dice directamente que $g$ es diferenciable en el origen, evitando el trabajo hecho en el apartado (b.2).
+
+En resumen, $g$ es diferenciable, y $\partial g / \partial y$ es continua, en $\mathbb{R}^{2}$, mientras $\partial g / \partial x$ es continua en $\Omega$ pero no en el origen.
+</li>
+</ol>
+</li>
+
+</ol>
+</div>
+
+<h2 id="agradecimientos">Agradecimientos</h2>
+<p>A Francisca Tapia-Donoso por las sugerencias sobre algunos de los problemas anteriores.</p>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits"> Built with Jekyll on Cayman. &copy; 2024 V. A. Osores  </span>
+        <span class="site-footer-credits">Link to <a href="/index">Home Page</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
