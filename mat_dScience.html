@@ -105,6 +105,585 @@ Sea $c=\left(r^2-a^2-b^2\right)$. Se trata de determinar los valores de $a, b$ y
 <span class="n">plt</span><span class="p">.</span><span class="nf">axis</span><span class="p">(</span><span class="sh">'</span><span class="s">equal</span><span class="sh">'</span><span class="p">)</span>
 </code></pre></div></div>
 
+<h2 id="aplicación-de-vectores-y-valores-propios-de-una-matriz">Aplicación de vectores y valores propios de una matriz</h2>
+<h3 id="análisis-de-componentes-principales">Análisis de componentes principales</h3>
+<div style="text-align: justify;">
+El análisis de componentes principales (PCA, del inglés principal component analysis) es un método simple y no paramétrico para extraer información relevante de conjuntos de datos que pueden ser confusos. Además, puede servir para dar argumentos o indicaciones sobre cómo reducir la dimensión de un conjunto complejo de datos y así revelar posibles estructuras escondidas o características interesantes.<br />
+
+Consideremos el siguiente ejemplo para ilustrar el PCA. Usaremos el set de datos llamado "Iris" el cuál proporciona las medidas en centímetros de las siguientes variables: Longitud del sépalo de una flor, anchura del sépalo de una flor, longitud del pétalo de una flor y anchura del pétalo de una flor, respectivamente. Lo anterior para cincuenta flores de las especies Iris setosa, Iris versicolor e Iris virginica.<br />
+
+Los datos fueron recopilados por Edgar Anderson en el año 1935 y publicados en el artículo "The irises of the Gaspe Peninsula", Bulletin of the American Iris Society, 59, págs. 2-5.
+</div>
+
+<p>Tabla 1. Datos iris: Longitud y anchura del sépalo y longitud y anchura del pétalo (en centímetros)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="n">sepal_length</span>  <span class="n">sepal_width</span>  <span class="n">petal_length</span>  <span class="n">petal_width</span>    <span class="n">species</span>
+<span class="mi">0</span>             <span class="mf">5.1</span>          <span class="mf">3.5</span>           <span class="mf">1.4</span>          <span class="mf">0.2</span>     <span class="n">setosa</span>
+<span class="mi">1</span>             <span class="mf">4.9</span>          <span class="mf">3.0</span>           <span class="mf">1.4</span>          <span class="mf">0.2</span>     <span class="n">setosa</span>
+<span class="mi">2</span>             <span class="mf">4.7</span>          <span class="mf">3.2</span>           <span class="mf">1.3</span>          <span class="mf">0.2</span>     <span class="n">setosa</span>
+<span class="mi">3</span>             <span class="mf">4.6</span>          <span class="mf">3.1</span>           <span class="mf">1.5</span>          <span class="mf">0.2</span>     <span class="n">setosa</span>
+<span class="mi">4</span>             <span class="mf">5.0</span>          <span class="mf">3.6</span>           <span class="mf">1.4</span>          <span class="mf">0.2</span>     <span class="n">setosa</span>
+<span class="p">..</span>            <span class="p">...</span>          <span class="p">...</span>           <span class="p">...</span>          <span class="p">...</span>        <span class="bp">...</span>
+<span class="mi">145</span>           <span class="mf">6.7</span>          <span class="mf">3.0</span>           <span class="mf">5.2</span>          <span class="mf">2.3</span>  <span class="n">virginica</span>
+<span class="mi">146</span>           <span class="mf">6.3</span>          <span class="mf">2.5</span>           <span class="mf">5.0</span>          <span class="mf">1.9</span>  <span class="n">virginica</span>
+<span class="mi">147</span>           <span class="mf">6.5</span>          <span class="mf">3.0</span>           <span class="mf">5.2</span>          <span class="mf">2.0</span>  <span class="n">virginica</span>
+<span class="mi">148</span>           <span class="mf">6.2</span>          <span class="mf">3.4</span>           <span class="mf">5.4</span>          <span class="mf">2.3</span>  <span class="n">virginica</span>
+<span class="mi">149</span>           <span class="mf">5.9</span>          <span class="mf">3.0</span>           <span class="mf">5.1</span>          <span class="mf">1.8</span>  <span class="n">virginica</span>
+
+<span class="p">[</span><span class="mi">150</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">columns</span><span class="p">]</span>
+</code></pre></div></div>
+<div style="text-align: justify;">
+En un caso general, podemos considerar que hay que medir $m$ variables de un total de $n$ elementos o experimentos y organizar toda esta información en una matriz $\mathbf{X}$ de $n$ filas y $m$ columnas:
+
+$$
+\mathbf{X}=\left[\begin{array}{cccccc}
+x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1 j} &amp; \cdots &amp; x_{1 m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{i 1} &amp; x_{i 2} &amp; \cdots &amp; x_{i j} &amp; \cdots &amp; x_{i m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{n 1} &amp; x_{n 2} &amp; \cdots &amp; x_{n j} &amp; \cdots &amp; x_{n m}
+\end{array}\right] \in \mathcal{M}_{n \times m}(\mathbb{R}).
+$$
+
+El $i$-ésimo vector fila de la matriz $\mathbf{X}$ viene dado por
+
+$$
+x_{i}^{T}=\left[\begin{array}{llllll}
+x_{i 1} &amp; x_{i 2} &amp; \cdots &amp; x_{i j} &amp; \cdots &amp; x_{i m}
+\end{array}\right]
+$$
+
+y representa los valores de todas las variables para uno de los elementos de la muestra (para una flor), mientras que el $j$-ésimo vector columna de $\mathbf{X}$
+
+$$
+v_{j}=\left[\begin{array}{c}
+x_{1 j} \\
+\vdots \\
+x_{i j} \\
+\vdots \\
+x_{n j}
+\end{array}\right],
+$$
+
+representa el valor de la $j$-ésima variable para todos los elementos de la muestra.
+
+En el caso de nuestro ejemplo,
+
+$$
+x_{1}^{T}=\left[\begin{array}{llll}
+5.1      &amp;    3.5    &amp;       1.4   &amp;       0.2
+\end{array}\right]\text{ y }
+x_{4}^{T}=\left[\begin{array}{llll}
+4.6     &amp;     3.1     &amp;      1.5     &amp;     0.2
+\end{array}\right],
+$$
+
+mientras que
+
+$$
+v_{1}=\left[\begin{array}{c}
+5.1\\
+4.9\\
+4.7\\
+4.6\\
+5.0\\
+\cdots\\
+6.7\\
+6.3\\
+6.5\\
+6.2\\
+5.9
+\end{array}\right] \text{ y }
+v_{4}=\left[\begin{array}{c}
+0.2\\
+0.2\\
+0.2\\
+0.2\\
+0.2\\
+\cdots\\
+2.3\\
+1.9\\
+2.0\\
+2.3\\
+1.8
+\end{array}\right].
+$$
+</div>
+
+<h3 id="preprocesamiento">Preprocesamiento</h3>
+<div style="text-align: justify;">
+Dado que las variables pueden tener diferentes escalas y magnitudes, hay que aplicar a la matriz de datos un preproceso para escalar las variables, de forma que todas tengan de media 0 y de desviación típica 1.<br />
+
+Denominamos $\mu_{j}$ a la media aritmética de la variable $j$-ésima, que se define así:
+
+$$
+\mu_{j}=\frac{1}{n} \sum_{i=1}^{n} x_{i j}=\frac{x_{1 j}+x_{2 j}+\cdots+x_{n j}}{n}.
+$$
+
+Del mismo modo, denominamos $\sigma_{j}^{2}$ a la varianza de la variable $j$-ésima, que se define así:
+
+$$
+\sigma_{j}^{2}=\frac{1}{n-1} \sum_{i=1}^{n}\left(x_{i j}-\mu_{j}\right)^{2}=\frac{\left(x_{1 j}-\mu_{j}\right)^{2}+\left(x_{2 j}-\mu_{j}\right)^{2}+\cdots+\left(x_{n j}-\mu_{j}\right)^{2}}{n-1}.
+$$
+
+Finalmente, cada elemento de la matriz $\mathbf{X}$ se normaliza de la manera siguiente:
+
+$$
+\check{x}_{i j}:=\frac{x_{i j}-\mu_{j}}{\sigma_{j}}, i=1, \ldots, n, j=1, \ldots, m.
+$$
+
+Una matriz en la que las columnas tienen media cero se llama matriz centrada.<br />
+
+En nuestro ejemplo, la media y la varianza de cada una de las columnas de la matriz vienen dados por:
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Promedios</span> <span class="n">por</span> <span class="n">columna</span><span class="p">:</span>
+<span class="n">sepal_length</span>    <span class="mf">5.843333</span>
+<span class="n">sepal_width</span>     <span class="mf">3.057333</span>
+<span class="n">petal_length</span>    <span class="mf">3.758000</span>
+<span class="n">petal_width</span>     <span class="mf">1.199333</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+
+<span class="n">Varianza</span> <span class="n">por</span> <span class="n">columna</span><span class="p">:</span>
+<span class="n">sepal_length</span>    <span class="mf">0.685694</span>
+<span class="n">sepal_width</span>     <span class="mf">0.189979</span>
+<span class="n">petal_length</span>    <span class="mf">3.116278</span>
+<span class="n">petal_width</span>     <span class="mf">0.581006</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</code></pre></div></div>
+<div style="text-align: justify;">
+Por lo tanto, al normalizar los datos de la matriz se obtiene la matriz normalizada
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="n">sepal_length</span>  <span class="n">sepal_width</span>  <span class="n">petal_length</span>  <span class="n">petal_width</span>
+<span class="mi">0</span>       <span class="o">-</span><span class="mf">0.897674</span>     <span class="mf">1.015602</span>     <span class="o">-</span><span class="mf">1.335752</span>    <span class="o">-</span><span class="mf">1.311052</span>
+<span class="mi">1</span>       <span class="o">-</span><span class="mf">1.139200</span>    <span class="o">-</span><span class="mf">0.131539</span>     <span class="o">-</span><span class="mf">1.335752</span>    <span class="o">-</span><span class="mf">1.311052</span>
+<span class="mi">2</span>       <span class="o">-</span><span class="mf">1.380727</span>     <span class="mf">0.327318</span>     <span class="o">-</span><span class="mf">1.392399</span>    <span class="o">-</span><span class="mf">1.311052</span>
+<span class="mi">3</span>       <span class="o">-</span><span class="mf">1.501490</span>     <span class="mf">0.097889</span>     <span class="o">-</span><span class="mf">1.279104</span>    <span class="o">-</span><span class="mf">1.311052</span>
+<span class="mi">4</span>       <span class="o">-</span><span class="mf">1.018437</span>     <span class="mf">1.245030</span>     <span class="o">-</span><span class="mf">1.335752</span>    <span class="o">-</span><span class="mf">1.311052</span>
+<span class="p">..</span>            <span class="p">...</span>          <span class="p">...</span>           <span class="p">...</span>          <span class="bp">...</span>
+<span class="mi">145</span>      <span class="mf">1.034539</span>    <span class="o">-</span><span class="mf">0.131539</span>      <span class="mf">0.816859</span>     <span class="mf">1.443994</span>
+<span class="mi">146</span>      <span class="mf">0.551486</span>    <span class="o">-</span><span class="mf">1.278680</span>      <span class="mf">0.703564</span>     <span class="mf">0.919223</span>
+<span class="mi">147</span>      <span class="mf">0.793012</span>    <span class="o">-</span><span class="mf">0.131539</span>      <span class="mf">0.816859</span>     <span class="mf">1.050416</span>
+<span class="mi">148</span>      <span class="mf">0.430722</span>     <span class="mf">0.786174</span>      <span class="mf">0.930154</span>     <span class="mf">1.443994</span>
+<span class="mi">149</span>      <span class="mf">0.068433</span>    <span class="o">-</span><span class="mf">0.131539</span>      <span class="mf">0.760211</span>     <span class="mf">0.788031</span>
+
+<span class="p">[</span><span class="mi">150</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">columns</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="diagrama-de-dispersión">Diagrama de dispersión</h3>
+
+<div style="text-align: justify;">
+Un diagrama de dispersión (en inglés, scatter plot) muestra gráficamente la relación entre dos variables cuantitativas. Los colores representan el tipo o especie de flor: setosa (azul), versicolor (verde) y virginica (naranjo).
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Diagrama de dispersión
+</span><span class="n">sns</span><span class="p">.</span><span class="nf">pairplot</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="nf">concat</span><span class="p">([</span><span class="n">XX</span><span class="p">,</span> <span class="n">Y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="sh">'</span><span class="s">species</span><span class="sh">'</span><span class="p">,</span><span class="n">palette</span><span class="o">=</span><span class="sh">'</span><span class="s">rainbow</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="image.png" alt="" /></p>
+
+<h3 id="matriz-de-covarianzas">Matriz de covarianzas</h3>
+
+<div style="text-align: justify;">
+Dada la matriz (normalizada)
+
+$$
+\begin{aligned}
+\mathbf{X} &amp; =\left[\begin{array}{cccccc}
+x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1 j} &amp; \cdots &amp; x_{1 m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{i 1} &amp; x_{i 2} &amp; \cdots &amp; x_{i j} &amp; \cdots &amp; x_{i m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{n 1} &amp; x_{n 2} &amp; \cdots &amp; x_{n j} &amp; \cdots &amp; x_{n m}
+\end{array}\right] \in \mathcal{M}_{n \times m}(\mathbb{R})\\
+&amp; =\left[\begin{array}{cccccc}
+v_{1} &amp; v_{2} &amp; \cdots &amp; v_{j} &amp; \cdots &amp; v_{m}
+\end{array}\right]
+\end{aligned}
+$$
+
+la matriz de covarianzas (matriz cuadrada) se define como:
+
+$$
+\mathbf{C}_{\mathbf{X}}=\frac{1}{n-1} \mathbf{X}^{T} \mathbf{X}=\frac{1}{n-1}\left[\begin{array}{cccccc}
+v_{1}^{T} v_{1} &amp; v_{1}^{T} v_{2} &amp; \cdots &amp; v_{1}^{T} v_{j} &amp; \cdots &amp; v_{1}^{T} v_{m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+v_{j}^{T} v_{1} &amp; v_{j}^{T} v_{2} &amp; \cdots &amp; v_{j}^{T} v_{j} &amp; \cdots &amp; v_{j}^{T} v_{m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+v_{m}^{T} v_{1} &amp; v_{m}^{T} v_{2} &amp; \cdots &amp; v_{m}^{T} v_{j} &amp; \cdots &amp; v_{m}^{T} v_{m}
+\end{array}\right] \in \mathcal{M}_{m \times m}(\mathbb{R}),
+$$
+
+y mide el grado de relación lineal del conjunto de datos entre cada uno de los pares de variables. Los términos de la diagonal principal corresponden a la varianza de cada una de las variables:
+
+$$
+\sigma_{j}^{2}=\frac{1}{n-1} v_{j}^{T} v_{j}=\frac{1}{n-1} \sum_{i=1}^{n} x_{i j}^{2}.
+$$
+
+Dado que nuestros datos están normalizados, todos los términos de la diagonal principal son 1. Los términos que no son de la diagonal principal representan la covarianza entre cada par de variables:
+
+$$
+\sigma_{j k}^{2}=\frac{1}{n-1} v_{j}^{T} v_{k}=\frac{1}{n-1} \sum_{i=1}^{n} x_{i j} x_{i k}.
+$$
+
+En nuestro ejemplo, la matriz de covarianzas es
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">(</span><span class="n">XX</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">XX</span><span class="p">.</span><span class="n">sepal_length</span>
+<span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">XX</span><span class="p">.</span><span class="n">sepal_width</span>
+<span class="n">X</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">XX</span><span class="p">.</span><span class="n">petal_length</span>
+<span class="n">X</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">XX</span><span class="p">.</span><span class="n">petal_width</span>
+<span class="nf">print</span><span class="p">((</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">n_datos</span><span class="o">-</span><span class="mf">1.0</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">dot</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">T</span><span class="p">,</span><span class="n">X</span><span class="p">))</span>
+
+
+<span class="p">[[</span> <span class="mf">1.</span>         <span class="o">-</span><span class="mf">0.11756978</span>  <span class="mf">0.87175378</span>  <span class="mf">0.81794113</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.11756978</span>  <span class="mf">1.</span>         <span class="o">-</span><span class="mf">0.4284401</span>  <span class="o">-</span><span class="mf">0.36612593</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.87175378</span> <span class="o">-</span><span class="mf">0.4284401</span>   <span class="mf">1.</span>          <span class="mf">0.96286543</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.81794113</span> <span class="o">-</span><span class="mf">0.36612593</span>  <span class="mf">0.96286543</span>  <span class="mf">1.</span>        <span class="p">]]</span>
+</code></pre></div></div>
+<div style="text-align: justify;">
+Se tienen las siguientes observaciones:
+
+<ol>
+  <li>Los elementos de la diagonal principal son todos igual a 1. Esto es así porque nuestros datos han sido normalizados y, por lo tanto, la varianza de 
+todos es 1.</li>
+  <li>La matriz de covarianzas es una matriz simétrica. Esto sucede porque la covarianza es simétrica, es decir,  
+
+$$
+\sigma_{j k}^{2}=\sigma_{k j}^{2}.  
+$$
+</li>
+  <li>Las variables 3 y 4, correspondientes a la longitud y anchura del pétalo, están altamente relacionadas, puesto que su covarianza es $0.96286543$. 
+Las variables 1 y 3 longitud del sépalo y del pétalo, respectivamente, también están significativamente relacionadas, a pesar de que en menor proporción, puesto que su covarianza es $0.87175378$. </li>
+<li>Por el contrario, las variables 1 y 2: longitud y anchura del sépalo, respectivamente, no están muy relacionadas. En efecto, su covarianza es $-0.11756978$.</li>
+</ol>
+</div>
+
+<h3 id="diagonalización-de-la-matriz-de-covarianzas">Diagonalización de la matriz de covarianzas</h3>
+
+<div style="text-align: justify;">
+El objetivo del análisis de componentes principales es encontrar una transformación (aplicación) lineal:
+
+$$
+\mathbf{P} \in \mathcal{M}_{m \times m}(\mathbb{R}),
+$$
+
+tal que los datos originales recogidos en $\mathbf{X}$ se transformen o se proyecten en un nuevo espacio mediante el producto:
+
+$$
+\mathbf{T}=\mathbf{X} \mathbf{P} \in \mathcal{M}_{n \times m}(\mathbb{R}),
+$$
+
+de forma que la matriz de covarianzas $\mathbf{C}_{\mathbf{T}}$ de los nuevos datos $\mathbf{T}$ sea diagonal.<br />
+
+Como $\mathbf{C}_\mathbf{X}$ es una matriz cuadrada y simétrica de dimensión $m \times m$, sabemos que existen $m$ valores propios $\lambda_i$ reales y $m$ vectores propios (ortonormales) $p_i$ que forman una base en el espacio vectorial euclídeo $\mathbb{R}^n$ tal que
+
+$$
+\mathbf{C}_{\mathbf{X}}=\mathbf{P D P}^{T},
+$$
+
+donde
+
+$$
+\begin{gathered}
+\mathbf{P}=\left[p_{1}\left|p_{2}\right| \ldots \mid p_{m}\right] \text{ y }
+\mathbf{D}=\operatorname{diag}\left(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{m}\right).
+\end{gathered}
+$$
+
+Los datos de la nueva matriz transformada $\mathbf{T}$ se calculan así:
+
+$$
+\mathbf{T}=\mathbf{X} \mathbf{P} \in \mathcal{M}_{n \times m}(\mathbb{R})
+$$
+
+donde $\mathbf{P}$ es la matriz en la que las columnas son los vectores propios de la matriz de covarianzas $\mathbf{C}_{\mathbf{X}}$.<br />
+
+Recuerde que bajo estas condiciones $\mathbf{P}^{T}=\mathbf{P}^{-1}$.
+</div>
+
+<h3 id="matriz-de-covarianzas-de-los-datos-transformados">Matriz de covarianzas de los datos transformados</h3>
+
+<div style="text-align: justify;">
+¿Cuál es la matriz de covarianzas de los datos transformados?
+
+$$
+\begin{aligned}
+\mathbf{C}_{\mathbf{T}} &amp; =\frac{1}{n-1} \mathbf{T}^{T} \mathbf{T}\\
+&amp;=\frac{1}{n-1} \mathbf{P}^{T} \mathbf{X}^{T} \mathbf{X} \mathbf{P}\\
+&amp;=\mathbf{P}^{T} \mathbf{C}_{\mathbf{X}} \mathbf{P} \\
+&amp; =\mathbf{P}^{T} \mathbf{P} \mathbf{D} \mathbf{P}^{T} \mathbf{P}\\
+&amp;=\mathbf{D}\\
+&amp;=\operatorname{diag}\left(\lambda_{1}, \ldots, \lambda_{m}\right).
+\end{aligned}
+$$
+
+Esto significa que la matriz de covarianzas de los datos transformados es diagonal. Por lo tanto, las nuevas variables están incorrelacionadas.<br />
+Es habitual ordenar los vectores propios en función del valor propio asociado, de mayor a menor. Es decir, si los valores propios son:
+
+$$
+\lambda_{1} \geq \lambda_{2} \geq \cdots \geq \lambda_{m},
+$$
+
+ubicaremos los vectores propios en la matriz $\mathbf{P}$ en este orden.<br />
+
+Volviendo al ejemplo del conjunto de datos Iris, los valores propios y los vectores propios de la matriz de covarianzas $\mathbf{C}_{\mathbf{X}}$ son:
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">D</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="nf">eig</span><span class="p">(</span><span class="n">Cov_X</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Valores propios:</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Matriz de vectores propios:</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+
+
+<span class="n">D</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="nf">eig</span><span class="p">(</span><span class="n">Cov_X</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Valores propios:</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Matriz de vectores propios:</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">Valores</span> <span class="n">propios</span><span class="p">:</span>
+<span class="p">[</span><span class="mf">2.91849782</span> <span class="mf">0.91403047</span> <span class="mf">0.14675688</span> <span class="mf">0.02071484</span><span class="p">]</span>
+<span class="n">Matriz</span> <span class="n">de</span> <span class="n">vectores</span> <span class="n">propios</span><span class="p">:</span>
+<span class="p">[[</span> <span class="mf">0.52106591</span> <span class="o">-</span><span class="mf">0.37741762</span> <span class="o">-</span><span class="mf">0.71956635</span>  <span class="mf">0.26128628</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.26934744</span> <span class="o">-</span><span class="mf">0.92329566</span>  <span class="mf">0.24438178</span> <span class="o">-</span><span class="mf">0.12350962</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.5804131</span>  <span class="o">-</span><span class="mf">0.02449161</span>  <span class="mf">0.14212637</span> <span class="o">-</span><span class="mf">0.80144925</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.56485654</span> <span class="o">-</span><span class="mf">0.06694199</span>  <span class="mf">0.63427274</span>  <span class="mf">0.52359713</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<div style="text-align: justify;">
+El vector propio (los vectores propios definen las direcciones de las componentes principales en el espacio de las variables originales) asociado al valor propio (representa la cantidad de varianza explicada por la respectiva componente principal) más grande es la dirección de la primera componente principal. El vector propio asociado al segundo valor propio más grande es la dirección de la segunda componente principal. Y así sucesivamente.
+</div>
+
+<h3 id="interpretación-de-los-resultados">Interpretación de los resultados</h3>
+
+<div style="text-align: justify;">
+Para obtener las Componentes Principales (nuevas variables creadas por proyecciones de los datos originales en los vectores propios) se debe multiplicar los datos originales de la matriz $\mathbf{X}$ (normalizada) por la matriz $\mathbf{P}$ de vectores propios de la matriz de covarianza. Note que cada componente principal es una combinación lineal de las variables originales, y la combinación está determinada por los coeficientes del vector propio correspondiente.
+
+$$
+\mathbf{T}=\mathbf{X P}=\left[\begin{array}{cccccc}
+t_{11} &amp; t_{12} &amp; \cdots &amp; t_{1 j} &amp; \cdots &amp; t_{1 m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+t_{i 1} &amp; t_{i 2} &amp; \cdots &amp; t_{i j} &amp; \cdots &amp; t_{i m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+t_{n 1} &amp; t_{n 2} &amp; \cdots &amp; t_{n j} &amp; \cdots &amp; t_{n m}
+\end{array}\right] \in \mathcal{M}_{n \times m}(\mathbb{R}).
+$$
+
+Denotemos el vector con la información de las cuatro variables que hemos considerado en el ejemplo de las flores como 
+
+$$\mathbf{x}_i = (x_{i 1}, x_{i 2}, x_{i 3}, x_{i4}),$$
+
+es decir
+
+<ol>
+  <li>$x_{i1}$ es la longitud del sépalo de la flor $i$;</li>
+  <li>$x_{i2}$ es la anchura del sépalo de la flor $i$;</li>
+  <li>$x_{i3}$ es la longitud del pétalo de la flor $i$, y</li>
+  <li>$x_{i4}$ es la anchura del pétalo de la flor $i$.</li>
+</ol>
+
+Las componentes de la primera componente principal $t_{i1}$ (la nueva variable que se genera con el vector propio $p_1$) se obtine
+
+$$
+t_{i1}=(x_{i1}, x_{i2}, x_{i3}, x_{i4})\cdot p_1
+$$
+
+En otras palabras, $t_{i1}$ representa una nueva variable, que es una combinación lineal de las cuatro variables originales. Debe notar que en esta nueva variable no todas las variables originales tienen el mismo peso (pues los elementos del valor propio $p_1$ son distintos). En efecto, si miramos el primer vector propio o primera dirección principal
+
+$$p_1 = (0.52106591, -0.26934744, 0.5804131, 0.56485654),$$
+
+la variable que tiene más peso es $x_{i3}$ (longitud del pétalo con peso $0.5804131$), seguida de la variable $x_{i4}$ (anchura del pétalo con peso $0.56485654$). Claramente, la que tiene menos influencia en la primera componente es la variable $x_{i2}$ (anchura del sépalo con peso $-0.26934744$).<br />
+
+¿Cuál es el valor de la nueva variable $t_{11}$ para la primera flor? <br />
+En este caso la primera fila de la matriz $\mathbf{X}$ es 
+$$\mathbf{x}_1=(-0.897674,1.015602,-1.335752,-1.311052),$$
+y la primera dirección principal 
+$$p_1=(0.52106591, -0.26934744, 0.5804131, 0.56485654),$$ luego
+
+$$t_{11}=\mathbf{x}_1\cdot p_1=-2.25714118.$$
+
+Si hacemos lo mismo con las otras direcciones (v.p), obtenemos
+
+$$
+\begin{aligned}
+&amp; t_{12}=-0.478423832 \\
+&amp; t_{13}=-0.127279624 \\
+&amp; t_{14}=0.0240875085
+\end{aligned}
+$$
+
+La matriz $T$ completa para el ejemplo de las flores es:
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">Nuevas variables</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+
+
+<span class="p">[[</span><span class="o">-</span><span class="mf">2.25714118e+00</span> <span class="o">-</span><span class="mf">4.78423832e-01</span> <span class="o">-</span><span class="mf">1.27279624e-01</span>  <span class="mf">2.40875085e-02</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">2.07401302e+00</span>  <span class="mf">6.71882687e-01</span> <span class="o">-</span><span class="mf">2.33825517e-01</span>  <span class="mf">1.02662845e-01</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">2.35633511e+00</span>  <span class="mf">3.40766425e-01</span>  <span class="mf">4.40539002e-02</span>  <span class="mf">2.82823051e-02</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">2.29170679e+00</span>  <span class="mf">5.95399863e-01</span>  <span class="mf">9.09852971e-02</span> <span class="o">-</span><span class="mf">6.57353401e-02</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">2.38186270e+00</span> <span class="o">-</span><span class="mf">6.44675659e-01</span>  <span class="mf">1.56856473e-02</span> <span class="o">-</span><span class="mf">3.58028703e-02</span><span class="p">]</span>
+ <span class="p">[</span>      <span class="p">...</span>             <span class="p">...</span>             <span class="p">...</span>              <span class="p">...</span>     <span class="p">]</span>
+ <span class="p">[</span>      <span class="p">...</span>             <span class="p">...</span>             <span class="p">...</span>              <span class="p">...</span>     <span class="p">]</span>
+ <span class="p">[</span> <span class="mf">1.86425786e+00</span> <span class="o">-</span><span class="mf">3.85674038e-01</span>  <span class="mf">2.55418178e-01</span>  <span class="mf">3.87957152e-01</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">1.55935649e+00</span>  <span class="mf">8.93692855e-01</span> <span class="o">-</span><span class="mf">2.62833001e-02</span>  <span class="mf">2.19456899e-01</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">1.51609145e+00</span> <span class="o">-</span><span class="mf">2.68170747e-01</span>  <span class="mf">1.79576781e-01</span>  <span class="mf">1.18773236e-01</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">1.36820418e+00</span> <span class="o">-</span><span class="mf">1.00787793e+00</span>  <span class="mf">9.30278721e-01</span>  <span class="mf">2.60414072e-02</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">9.57448488e-01</span>  <span class="mf">2.42504270e-02</span>  <span class="mf">5.26485033e-01</span> <span class="o">-</span><span class="mf">1.62533529e-01</span><span class="p">]]</span>
+</code></pre></div></div>
+<h3 id="cuál-es-el-peso-de-la-primera-componente-principal">¿Cuál es el peso de la primera componente principal?</h3>
+
+<div style="text-align: justify;">
+Por las características de la matriz de covarianzas $\mathbf{C}_{\mathbf{X}}$ (simétrica y definida positiva), todos los valores propios son positivos. Además, podemos observar que en el ejemplo de las flores
+
+$$
+\lambda_{1}+\lambda_{2}+\lambda_{3}+\lambda_{4}=4
+$$
+
+es decir,
+
+$$
+\sum_{i=1}^{m} \lambda_{i}=\operatorname{tr}\left(\mathbf{C}_{\mathbf{X}}\right)
+$$
+
+Ya hemos visto que los elementos de la diagonal principal de la matriz de covarianzas $\mathbf{C}_{\mathbf{X}}$ representan el valor de la varianza de cada una de las variables.<br />
+
+Se define la traza de una matriz cuadrada, que denotamos por $\operatorname{tr}(A)$, como la suma de los elementos de la diagonal principal. En el caso de las nuevas variables, los elementos de la diagonal principal de la matriz de covarianzas $\mathbf{C}_\mathbf{T}$ (los valores propios $\lambda_i$) también representan esta varianza. Si el total de la varianza, es decir, la suma de los valores propios, es $m$, la aportación de la primera componente es
+
+$$
+\frac{\lambda_{1}}{\lambda_{1}+\lambda_{2}+\lambda_{3}+\lambda_{4}} \times 100 \%.
+$$
+
+Para nuestro ejemplo, la primera componente principal es capaz de retener un porcentaje de variabilidad igual a:
+
+$$
+\frac{\lambda_{1}}{\lambda_{1}+\lambda_{2}+\lambda_{3}+\lambda_{4}} \times 100 \%=\frac{2.91849782}{4} \times 100 \%=72.962 \%.
+$$
+
+Del mismo modo, el resto de las componentes principales son capaces de retener el siguiente porcentaje de variabilidad:
+
+$$
+\begin{aligned}
+&amp; \frac{\lambda_{2}}{\lambda_{1}+\lambda_{2}+\lambda_{3}+\lambda_{4}} \times 100 \%=\frac{0.91403047}{4} \times 100 \%=22.851\% \\
+&amp; \frac{\lambda_{3}}{\lambda_{1}+\lambda_{2}+\lambda_{3}+\lambda_{4}} \times 100 \%=\frac{0.14675688}{4} \times 100 \%=3.6689 \% \\
+&amp; \frac{\lambda_{4}}{\lambda_{1}+\lambda_{2}+\lambda_{3}+\lambda_{4}} \times 100 \%=\frac{0.02071484}{4} \times 100 \%=0.5179 \%
+\end{aligned}
+$$
+
+Cada una de las cuatro variables originales retiene un $25 \%$ de la variabilidad (en la diagonal de \mathbf{X} solo hay $1$s). En cambio, las nuevas 
+variables retienen un $72.962 \%, 22.851 \%, 3.6689 \%$ y $0.5179 \%$, respectivamente. Es decir, hacen falta tres variables originales para obtener la misma cantidad de información que se conseguiría con una única variable nueva, la primera componente principal. 
+</div>
+
+<h3 id="visualización">Visualización</h3>
+
+<div style="text-align: justify;">
+En este apartado vamos a realizar dos gráficos para visualizar: un diagrama de dispersión y un biplot.<br />
+
+El diagrama de dispersión nos sirve para ver los valores de las observaciones respecto de las componentes principales y resaltamos las diferentes observaciones por su especie.
+</div>
+
+<p><img src="image-1.png" alt="" /></p>
+
+<div style="text-align: justify;">
+Nos interesa mirar la información respecto a los ejes de las dos primeras componentes principales, pues en conjunto, los dos componentes principales explican alrededor del $95.8 \%$ de la variación total, un porcentaje bastante elevado. 
+</div>
+
+<p><img src="image-2.png" alt="" /></p>
+
+<p><em>Figura 1. Diagrama de dispersión de las dos componentes principales. En azul las observaciones que corresponden a la especie setosa, naranja a versicolor y verde a virgínica.</em></p>
+
+<div style="text-align: justify;">
+Vemos que existe una clara separación entre los diferentes tipos de especies. Cada clase de flor representa un clúster específico como se puede ver en el gráfico. <br />
+
+El biplot es un gráfico que permite representar las variables del dataset original y las observaciones transformadas en los ejes de las dos componentes principales. Las flechas representan las variables originales y es importante hacia dónde apuntan. La dirección y el sentido indican el peso y el signo de las variables originales en las dos componentes principales.<br />
+
+Varias cosas que podemos comentar sobre las flechas son:
+
+<ol>
+  <li>Dos flechas que tienen dirección y sentido semejantes indica una correlación positiva.</li>
+  <li>Dos flechas que tienen la misma dirección pero sentidos diferentes indican una correlación negativa.</li>
+  <li>Un ángulo recto (90º) entre dos flechas indica no correlación entre ellas.</li>
+  <li>Un ángulo llano (180º) entre dos flechas indica correlación negativa perfecta.</li>
+</ol>
+</div>
+
+<p><img src="image-3.png" alt="" /></p>
+
+<div style="text-align: justify;">
+En la figura se puede ver cómo las flechas que indican las direcciones de las variables longitud y anchura del pétalo (Petal.Length, Petal.Width) están prácticamente superpuestas. Recordemos que, en este caso, la covarianza entre estas dos variables es $0.96286543$, lo que representa un valor muy cercano a 1. Es decir, como ya habíamos dicho las variables 3 y 4 están altamente relacionadas.
+</div>
+
+<h3 id="reducción-de-la-dimensión">Reducción de la dimensión</h3>
+
+<div style="text-align: justify;">
+Hemos visto que, en el ejemplo de las flores, con dos componentes principales podemos retener el $95.8 \%$ de la variabilidad o la información. Esto significa que podemos pasar de una muestra de flores en que se han medido cuatro variables diferentes a una muestra de flores en que solo medimos dos variables. Veámoslo con más detalle en el caso general.<br />
+
+Si consideramos todas las componentes principales, la ortonormalidad de las componentes principales implica que
+
+$$
+\mathbf{P} \mathbf{P}^{T}=\mathbf{I}_{m},
+$$
+
+donde $\mathbf{I}_{m}$ es la matriz identidad de dimensión $m$. Entonces, la proyección:
+
+$$
+\mathbf{T}=\mathbf{X} \mathbf{P},
+$$
+
+se puede invertir para recuperar los datos originales, a partir de los datos proyectados:
+
+$$
+\mathbf{X}=\mathbf{T} \mathbf{P}^{T},
+$$
+
+puesto que
+
+$$
+\mathbf{T}=\mathbf{X} \mathbf{P} \Leftrightarrow \mathbf{T} \mathbf{P}^{T}=\mathbf{X} \mathbf{P} \mathbf{P}^{T} \Leftrightarrow \mathbf{T} \mathbf{P}^{T}=\mathbf{X} \mathbf{I}_{m} \Leftrightarrow \mathbf{T} \mathbf{P}^{T}=\mathbf{X}.
+$$
+
+Sin embargo, uno de los objetivos del análisis de componentes principales es la reducción de la dimensión. Por eso, consideramos ahora un número inferior de componentes principales, $\ell&lt;m$, es decir, solo consideramos los vectores propios asociados a los $\ell$ valores propios más grandes. Entonces, si definimos la matriz reducida:
+
+$$
+\hat{\mathbf{P}}=\left(p_{1}\left|p_{2}\right| \cdots \mid p_{\ell}\right) \in \mathcal{M}_{m \times \ell}(\mathbb{R}),
+$$
+
+la matriz de las proyecciones (reducida) se define:
+
+$$
+\hat{\mathbf{T}}=\mathbf{X} \hat{\mathbf{P}} \in \mathcal{M}_{n \times \ell}(\mathbb{R}).
+$$
+
+Una de las consecuencias de haber reducido la dimensionalidad es que la matriz $\hat{\mathbf{P}}$ ya no es invertible. Por lo tanto, los datos originales contenidos en $\mathbf{X}$ no se pueden recuperar completamente mediante la matriz $\hat{\mathbf{T}}$. Sin embargo, se puede invertir la proyección de la siguiente manera:
+
+$$
+\hat{\mathbf{X}}=\hat{\mathbf{T}} \hat{\mathbf{P}}^{T} \in \mathcal{M}_{n \times m}(\mathbb{R}),
+$$
+
+para obtener los datos originales, pero con pérdida de información. <br />
+La diferencia entre los datos originales recogidos en la matriz $\mathbf{X}$ y los datos originales con pérdida de información de la matriz $\hat{\mathbf{X}}$ se denomina error residual y se representa con la matriz $\mathbf{E}$. En efecto:
+
+$$
+\mathbf{E}=\mathbf{X}-\hat{\mathbf{X}} \in \mathcal{M}_{n \times m}(\mathbb{R}).
+$$
+
+Finalmente comentar que la matriz $\hat{\mathbf{T}}$ continúa teniendo tantas filas como la matriz $\mathbf{X}$ original, pero el número de columnas de $\hat{\mathbf{T}}$ pasa de tener $m$ columnas a tener $\ell$ columnas.
+</div>
+
+<h3 id="implementación-en-python">Implementación en python</h3>
+<script src="https://gist.github.com/victorosores/122aa0d224b753b8aac5ac499ed08e16.js"></script>
+
+
 
       <footer class="site-footer">
         
