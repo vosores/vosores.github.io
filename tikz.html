@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>    
+    <meta name="google-site-verification" content="UtBQXaaKqY6KYEk1SldtSO5XVEy9SmoUfqJ5as0603Y" />
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    
+    <meta charset="UTF-8">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171312398-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171312398-1');
+    </script>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Breve introducción a TikZ. | Dr. Víctor Osores</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Breve introducción a TikZ." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule." />
+<meta property="og:description" content="Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule." />
+<link rel="canonical" href="http://localhost:4000/tikz.html" />
+<meta property="og:url" content="http://localhost:4000/tikz.html" />
+<meta property="og:site_name" content="Dr. Víctor Osores" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Breve introducción a TikZ." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule.","headline":"Breve introducción a TikZ.","url":"http://localhost:4000/tikz.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Breve introducción a TikZ.</h1>
+      
+      
+      
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><strong>Introducción</strong><br />
+TikZ es un complejo lenguaje gráfico que permite ‘‘dibujar’’  en un documento LaTeX sin ninguna otra herramienta auxiliar.</p>
+
+<p><strong>IMPORTANTE:</strong> TikZ tiene un conflicto con el paquete <code>babel</code> cuando se trabaja en español, ya que ambos definen como caracteres activos “&lt;” y “&gt;”: <code>babel</code> para el entrecomillado “multinivel”, y <code>tikz</code> para las flechas que aparecen al final de una línea. Por ello, es necesario eliminar este conflicto, usando, por ejemplo:</p>
+
+<p><code>
+\usepackage[spanish,es-noshorthands]{babel}
+</code></p>
+
+<p>Que suprime el uso “activo” de los caracteres “&lt;” y “&gt;” en babel.</p>
+
+<p>TikZ define un conjunto de comandos y entornos LaTeX elaborar gráficos.
+Por ejemplo, el código:</p>
+
+<pre><code class="language-latex:">\tikz \draw (0,0) circle (1cm);
+\tikz \draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle; 
+</code></pre>
+
+<p>Genera el siguiente dibujo:</p>
+
+<p><img src="/img/image-4.png" alt="alt text" /></p>
+
+<p>Las unidades de TikZ, por defecto, son en centímetros. Por lo que la primera linea de código dibuja (con <code>\draw</code>) un círculo de un centímetro de diámetro centrado en el punto (0,0) y radio 1 cm, y en el otro se genera un cuadrado de un centímetro de lado.<br />
+Se observa que el comando <code>\tikz</code> genera dibujos independientes entre sí.<br />
+Para que ambos dibujos sean uno solo, generando una figura con el cuadrado y el círculo superpuestos, en lugar de usar el comando <code>\tikz</code>, es necesario incluir los comandos de dibujo en un entorno <code>\begin{tikzpicture}</code>, por ejemplo:</p>
+
+<pre><code class="language-latex:">\begin{tikzpicture}
+\draw (0,0) circle (1cm);    
+\draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;    
+\end{tikzpicture}
+</code></pre>
+
+<p>Genera lo siguiente:</p>
+
+<p><img src="/img/image-5.png" alt="alt text" /></p>
+
+<p>Las ventajas de usar <code>\tikz</code> en lugar de una herramienta externa son, entre otras:</p>
+
+<ol>
+  <li>Control completo sobre el diagrama.</li>
+  <li>Se usa el mismo tipo de letra  que en el documento.</li>
+  <li>Capacidad de utilizar macros.</li>
+  <li>La alta calidad del resultado.</li>
+</ol>
+
+<p>Como inconvenientes, cabe citar:</p>
+
+<ol>
+  <li>Elevada curva de aprendizaje (para valientes).</li>
+  <li>No se “dibuja” sobre el propio “dibujo”.</li>
+  <li>El código puede ser complejo de entender.</li>
+</ol>
+
+<p><strong>Dibujo básico</strong></p>
+
+<p>Normalmente, un gráfico TikZ se compone utilizando el entorno <code>tikzpicture</code>, como se vio en el ejemplo inicial. Un elemento fundamental en TikZ es el “camino”  o “Path”, en inglés. Existen diversos comandos, como <code>\draw</code>, <code>\filldraw</code> o <code>\path</code> que se basan en la idea de encadenar posiciones y unirlas mediante otros elementos.</p>
+
+<p>En el ejemplo anterior teniamos:</p>
+
+<pre><code class="language-latex:">\begin{tikzpicture}
+\draw (0,0) circle (1cm);    
+\draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;    
+\end{tikzpicture}
+</code></pre>
+
+<ol>
+  <li><code>\draw</code> indica que se debe “dibujar” el camino a realizar. Cada comando <code>\draw</code> inicia un nuevo camino.</li>
+  <li>El camino se expresa por una sucesión de puntos y “operaciones” que expresan lo que hay que hacer entre cada punto.</li>
+  <li>“(-1,0)” indica que se debe posicionar en dicho punto. En centímetros por defecto.</li>
+  <li>Con el comando <code>draw</code>, la operación “–” indica que se debe dibujar una línea recta entre el punto anterior y el siguiente.</li>
+  <li>Con el comando <code>draw</code>, la operación “circle” indica que se debe dibujar un círculo con el radio indicado en el siguiente parámetro, en este caso “(1cm)”.</li>
+  <li>“cycle” indica que se vaya al punto de inicio del camino actual.</li>
+</ol>
+
+<p>Existen diversas operaciones para recorrer un camino: <code>rectangle</code>, <code>grid</code>, <code>ellipse</code>, son algunas de las factibles. Cada una de ellas necesita unos parámetros determinados para su correcto dibujo (googlear cada uno).</p>
+
+<p><strong>Estilos</strong></p>
+
+<p>Los diferentes comandos tienen parámetros opcionales que facilitan el diseño de diferentes estilos para los gráficos. Por ejemplo:</p>
+
+<p><img src="/img/image-6.png" alt="alt text" /></p>
+
+<pre><code class="language-latex:">\draw[step=0.5,color=red!50!white, very thin] (-1.5,-1.5) grid (1.5,1.5);
+\draw (-2,0) -- (2,0);
+\draw (0,-2) -- (0,2);
+\draw[thick, color=blue] (-2,1.5) .. controls (0,-2) .. (2,1.5);
+\filldraw[color=gray] (-2,1.5) circle (3pt); 
+\filldraw[color=gray] (2,1.5) circle (3pt); 
+\filldraw[color=gray] (0,-2) circle (3pt); 
+</code></pre>
+
+<p>Se observa que:</p>
+
+<ol>
+  <li>El primer comando tiene unos parámetros envueltos entre corchetes. Estos parámetros permiten matizar el funcionamiento de las operaciones a realizar en el comando. En concreto, están indicando:
+    <ul>
+      <li><code>step</code> que al dibujar el mallado con <code>grid</code>, la malla tenga un grosor de medio centímetro.</li>
+      <li><code>color</code>, expresa, en formato <code>xcolor</code>, que debe dibujar en color rojo claro.</li>
+      <li><code>very thin</code>, expresa el grosor de las líneas que se dibujen en este comando, en este caso concreto, la malla a pintar.</li>
+    </ul>
+  </li>
+  <li>Los dos siguientes comandos <code>\draw</code> dibujan los ejes horizontales con el estilo por defecto (líneas negras de grosor <code>thin</code>.</li>
+  <li>El siguiente comando <code>\draw</code> dibuja una línea desde el punto <code>(-2,1.5)</code> al punto <code>(2,1.5)</code>, pero en lugar de ser recta, la operación <code>.. controls (0,-2) ..</code>, establece que se dibuje la línea utilizando este punto de control como elemento de referencia para trazarla curva. Lo que hace <code>tikz</code> es “salir” del punto inicial de forma paralela a la recta imaginaria que llegaría al punto de control, para después girar de tal modo que llegue al punto de destino de forma paralela a la recta imaginaria que va del punto de destino al punto de control. La sintaxis de esta operación permite utilizar dos puntos de control diferentes para el origen y el destino, así tanto el ángulo como la distancia a dichos puntos definen la forma de la curva a trazar. En este comando también se ha especificado un estilo entre corchetes, línea gruesa y de color azul.</li>
+  <li>Los tres últimos comandos <code>\filldraw</code> dibujan con relleno: se posicionan en un punto; después, la operación a ejecutar es <code>circle</code>, con un radio de 3pt, que en este caso se rellenan del mismo color que se ha indicado, <code>gray</code>, gris.<br />
+Con estas herramientas se pueden realizar dibujos muy complejos. Para facilitar al máximo su desarrollo, <code>tikz</code> permite, además, darle nombre a los estilos y reutilizarlos tantas veces como se necesite. Por ejemplo, el dibujo anterior se puede reescribir de la siguiente forma:
+    <pre><code class="language-latex:">\begin{tikzpicture}[
+migrid/.style ={step=0.5,color=red!50!white, very thin},
+micurva/.style ={thick, color=blue},
+mipunto/.style ={color=gray}]
+\draw[migrid] (-1.5,-1.5) grid (1.5,1.5);
+\draw (-2,0) -- (2,0);
+\draw (0,-2) -- (0,2);
+\draw[micurva] (-2,1.5) .. controls (0,-2) .. (2,1.5);
+\filldraw[mipunto] (-2,1.5) circle (3pt); 
+\filldraw[mipunto] (2,1.5) circle (3pt); 
+\filldraw[mipunto] (0,-2) circle (3pt); 
+\end{tikzpicture}
+</code></pre>
+  </li>
+  <li><code>migrid/.style</code> define un estilo de nombre <code>migrid</code> que se puede utilizar entre corchetes en los diferentes comandos para aplicar los parámetros que definen el estilo.</li>
+  <li>Después del signo <code>=</code>, entre llaves, se describen los parámetros que definen el estilo. 
+Esto permite la reutilización como se observa en los tres comandos <code>\filldraw</code>.</li>
+</ol>
+
+<p><strong>Nodos</strong></p>
+
+<p>Los nodos facilitan la generación de diagramas que contengan textos o que requieran mostrar relaciones entre elementos, entre otras cosas.<br />
+A continuación se muestra un ejemplo de uso de los nodos que utiliza algunas librerías adicionales para facilitar su diseño.</p>
+
+<ol>
+  <li><code>fit</code>, para calcular el tamaño de los nodos.</li>
+  <li><code>positioning</code>, para colocar los nodos en posiciones relativas a otros.<br />
+Para utilizar estas librerías auxiliares de TikZ se utiliza el comando: <code>\usetikzlibrary{fit,positioning}</code>.<br />
+<img src="/img/image-7.png" alt="alt text" /></li>
+</ol>
+
+<pre><code class="language-latex:">\begin{tikzpicture}[node distance= 1.5cm, auto,
+every node/.style={text=white, rounded corners=0.05cm},
+grande/.style={rectangle,  fill=blue!60!white, font=\large}, 
+peque/.style={rectangle, fill=white!30!black, font=\large}]
+
+\node[grande](sistema){Capa del sistema};
+\node[grande, above of=sistema](basico){Capa básica \scriptsize (core \&amp; módulos)};
+\node[grande, above of=basico](tikz){TikZ \scriptsize (capa frontal)};
+\node[peque, below of=sistema](pdftex){pdftex};
+\node[peque, left=0.25cm of pdftex](dvips){dvips};
+\node[peque, right=0.25cm of pdftex](dvipdfm){dvipdfm};
+
+\draw[-&gt;] (tikz.south) -- (basico.north) (basico.south) -- (sistema.north);
+\draw[-&gt;] (sistema.south) .. controls +(left:0.5cm) and +(up:0.5cm) .. (dvips.north);
+\draw[-&gt;] (sistema.south) .. controls +(right:0.5cm) and +(up:0.5cm) .. (dvipdfm.north);
+\draw[-&gt;] (sistema.south) -- (pdftex.north);
+\end{tikzpicture}  
+</code></pre>
+<p>Se observa que:</p>
+<ol>
+  <li>Las primeras líneas establecen los estilos a utilizar: El texto será de color blanco para todos los nodos y las esquinas redondeadas; los nodos con el estilo “grande” utilizan un color de relleno diferente a los pequeños, el tipo de letra será grande y deberán tener forma de “rectangle”.</li>
+  <li>En cada comando <code>\node</code> se observa, entre paréntesis, el “nombre” que tendrá el nodo, seguido de su contenido entre llaves. El “nombre” se utiliza para referenciar al nodo desde otro lugar. En este caso concreto, para establecer la posición relativa entre ellos.</li>
+  <li>Entre los parámetros de cada nodo se incluye el estilo y la posición relativa a otro nodo: “above of”, “below of”, “left” y “right”. Se observa que se puede incluir la distancia relativa de separación entre ellos.</li>
+  <li>Para dibujar las líneas que conectan los nodos, se utiliza <code>draw</code>. El parámetro especifica el tipo de línea a dibujar, en este caso con una flecha al final (pero no al comienzo) del camino.</li>
+  <li>Si se desease una línea con flecha tanto al comienzo como al final del camino se debería utilizar “&lt;-&gt;”. Para expresar una flecha solo al comienzo, se utilizar “&lt;-”.</li>
+  <li>Para indicar los lugares de origen y de destino de la línea, se indican los nombres de los respectivos nodos, seguidos de un punto y del modificador que expresa el punto del que debe salir: “north”, desde el borde superior; “south”, desde el inferior; “east”, desde el borde derecho, y “west”, desde el borde izquierdo. Si no se indican los puntos de inicio y fin de la línea, TikZ busca los más próximos entre sí.</li>
+  <li>Para expresar una línea curva se utiliza <code>controls</code> como se vio anteriormente. En este caso se indican dos puntos de control. Ambos, precedidos del símbolo “+”, que sirve para expresar coordenadas relativas, a los puntos de salida y llegada respectivamente.</li>
+  <li>Cada punto de control, además de ser relativo, indica posición, no mediante un punto (x,y) sino mediante un desplazamiento a través de un eje. Este se expresa con el texto “left” o “right”, en este caso.</li>
+</ol>
+
+<p>TikZ es tan potente que permite expresar el mismo dibujo de diversas maneras. En este caso se puede hacer uso de la operación <code>edge</code> que facilita la unión entre nodos, sin necesidad de indicar <code>draw</code>. De este modo se captura la semántica entre nodos y enlaces. El codigo queda así:</p>
+
+<pre><code class="language-latex:">\begin{tikzpicture}[node distance= 1.5cm, auto,
+every node/.style={text=white, rounded corners=0.05cm},
+grande/.style={rectangle,  fill=blue!60!white, font=\large}, 
+peque/.style={rectangle, fill=white!30!black, font=\large}]
+
+\node[grande](sistema){Capa del sistema}
+edge[-&gt;, bend right=20] (dvips)
+edge[-&gt;] (pdftex)
+edge[-&gt;, bend left=20] (dvipdfm);
+\node[grande, above of=sistema](basico){Capa básica \scriptsize (core \&amp; módulos)}
+edge[-&gt;] (sistema);
+\node[grande, above of=basico](tikz){TikZ \scriptsize (capa frontal)}
+edge[-&gt;] (basico);
+\node[peque, below of=sistema](pdftex){pdftex};
+\node[peque, left=0.25cm of pdftex](dvips){dvips};
+\node[peque, right=0.25cm of pdftex](dvipdfm){dvipdfm};    
+\end{tikzpicture}
+</code></pre>
+
+<p>Como se observa, la operación <code>edge</code>, en el comando <code>\node</code>, facilita el dibujo del enlace entre el nodo que se está definiendo y otro que se indica por su nombre. Además, es posible expresar el “grado de curvatura” del enlace y TikZ se encargará de posicionar la curva en el mejor lugar posible.</p>
+
+<p><strong>Gráficos</strong></p>
+
+<p>En TikZ se pueden generar gráficos de alta calidad como el que sigue:</p>
+
+<p><img src="/img/image-8.png" alt="alt text" /></p>
+
+<p>El código es el que sigue:</p>
+
+<pre><code class="language-latex:">\begin{tikzpicture}
+\datavisualization [scientific axes, visualize as smooth line]
+data [format=function] { 
+var x : interval [-360:360]; 
+func y = sin(\value x);
+};
+\end{tikzpicture}
+</code></pre>
+<p>Una gráfica levemente mas interesante se puede conseguir de la siguiente manera:</p>
+
+<pre><code class="language-latex:">\begin{tikzpicture}[scale=2]
+\draw (1.05cm,2pt) node[above] {$\displaystyle\int_0^{3/2} \!\!x^2\mathrm{d}x$};
+\draw (0,0) grid (3.9,3.9);
+\draw[-&gt;] (-0.2,0) -- (4,0) node[right] {$x$};
+\draw[-&gt;] (0,-0.2) -- (0,4) node[above] {$f(x)$};
+\foreach \x/\xtext in {1/1, 1.5/1\frac{1}{2}, 2/2, 3/3}
+ \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$\xtext$};
+\foreach \y/\ytext in {1/1, 2/2, 2.25/2\frac{1}{4}, 3/3}
+ \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {$\ytext$};
+\draw (-0.5,0.25) parabola bend (0,0) (2,4) node[below right] {$x^2$};
+\end{tikzpicture}
+</code></pre>
+<p><img src="/img/image-10.png" alt="alt text" /></p>
+
+<p>Una forma relativamente simple de generar gráficas de funciones es la siguiente:</p>
+
+<pre><code class="language-latex:">\begin{tikzpicture}
+% limites
+\def\xa{ -pi-0.3}
+\def\xb{pi+0.4}
+\def\ya{-3.4}
+\def\yb{ 3.6}
+\def\N{100} % numero de puntos
+% Dibujar ejes y mallado
+\draw[xstep=pi/2,very thin, color=gray] (\xa,\ya) grid (\xb,\yb);
+\draw[-&gt;] (\xa,0) -- (\xb,0) node[right] {$x$}; % eje X
+\draw[-&gt;] (0,\ya) -- (0,\yb) node[left] {$y$}; % eje Y
+% ticks
+\draw[] % x
+  node[below,scale=0.9] at ( -pi,   0) {$-\pi$}
+  node[below,scale=0.9] at ( -pi/2, 0) {$-\dfrac{\pi}{2}$}
+  node[below,scale=0.9] at (     0, 0) {0}
+  node[below,scale=0.9] at (  pi/2, 0) {$\dfrac{\pi}{2}$}
+  node[below,scale=0.9] at (  pi,   0) {$\pi$};
+\draw[] % y
+  node[left,scale=0.9] at ( 0,  3) {$3$}
+  node[left,scale=0.9] at ( 0,  2) {$2$}
+  node[left,scale=0.9] at ( 0,  1) {$1$}
+  node[left,scale=0.9] at ( 0,  0) {$0$}
+  node[left,scale=0.9] at ( 0, -1) {$-1$}
+  node[left,scale=0.9] at ( 0, -2) {$-2$}
+  node[left,scale=0.9] at ( 0, -3) {$-3$};
+% functions
+\def\ea{0.28}
+\def\eb{0.26}
+\draw[color=blue,samples=\N,domain=\xa:\xb] % función seno
+  plot(\x,{sin(\x r)}) % r for radians
+  node[above right] at (pi/2,1) {$\sin(x)$};
+\draw[color=red,samples=\N,domain=\xa:\xb] % función coseno
+  plot(\x,{cos(\x r)})
+  node[above left] at (-pi/2,1) {$\cos(x)$};
+\draw[color=orange] % función tangente
+  plot[samples=\N,domain=  \xa:-pi/2-\eb] (\x, {tan(\x r)})
+  plot[samples=\N,domain=  -pi/2+\ea:   pi/2-\eb] (\x, {tan(\x r)})
+  plot[samples=\N,domain=   pi/2+\ea: pi-\eb] (\x, {tan(\x r)})
+  node[above right] at (pi/2,2.5) {$\tan(x)$};
+\end{tikzpicture}
+</code></pre>
+<p>El código anterior genera la siguiente gŕafica:</p>
+
+<p><img src="/img/image-11.png" alt="alt text" /></p>
+
+<p>Para diagramas más avanzados, como por ejemplo, un diagrama de barras, se puede utilizar el paquete <code>pgfplots</code> que se basa en <code>pgf/tikz</code> y simplifica su construcción.
+Para ello es necesario incluir en el preámbulo: <code>\usepackage{pgfplots</code>}, que añade la librería <code>pgfplots</code>.
+Por ejemplo:</p>
+
+<p><img src="/img/image-9.png" alt="alt text" />
+Se obtiene con este código:</p>
+
+<pre><code class="language-latex:">\begin{tikzpicture}
+\begin{axis}[
+xbar, xmin=0,
+width=12cm, height=6cm, enlarge y limits=0.2,
+xlabel={Lenguajes de programación (repositorios activos)},
+symbolic y coords={Javascript, Java, Python, CSS, PHP, Ruby, C++},
+nodes near coords, nodes near coords align={horizontal},
+]
+\addplot coordinates {(323928,Javascript) 
+(222852,Java)
+(164852,Python)
+(164585,CSS)
+(138771,PHP)
+(132848,Ruby)
+(86505,C++)};
+\end{axis}
+\end{tikzpicture}
+</code></pre>
+
+<p><strong>Referencias</strong></p>
+
+<ol>
+  <li>Página del proyecto <a href="https://www.ctan.org/pkg/pgf" target="_blank">TikZ</a> en CTAN.</li>
+  <li>Introducción simple a TikZ: <a href="http://cremeronline.com/LaTeX/minimaltikz.pdf" target="_blank"> A very minimal introduction to TikZ</a></li>
+  <li>Página del <a href="https://www.ctan.org/pkg/pgfplots" target="_blank"> paquete </a> <code>pgfplots</code>.</li>
+</ol>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits"> Built with Jekyll on Cayman. &copy; 2024 V. A. Osores  </span>
+        <span class="site-footer-credits">Link to <a href="/index">Home Page</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
