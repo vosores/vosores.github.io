@@ -62,8 +62,35 @@
     </header>
 
     <main id="content" class="main-content" role="main">
-      <p><strong>Introducción</strong><br />
-TikZ es un complejo lenguaje gráfico que permite ‘‘dibujar’’  en un documento LaTeX sin ninguna otra herramienta auxiliar.</p>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+
+<h2 id="contenido">Contenido</h2>
+<ul>
+  <li><a href="#introduccion">Introducción</a></li>
+  <li><a href="#dibujo-basico">Dibujo básico</a></li>
+  <li><a href="#otras-formas">Otras formas</a></li>
+  <li><a href="#estilos">Estilos</a></li>
+  <li><a href="#ejes-graficas">Ejes y gráficas de funciones</a>
+    <ul>
+      <li><a href="#ejes">Ejes</a></li>
+      <li><a href="#graficas-fun">Gráficas de funciones</a></li>
+    </ul>
+  </li>
+  <li><a href="graficos-barra">Gráficos de barras</a></li>
+  <li><a href="#nodos">Nodos</a></li>
+  <li><a href="#referencias">Referencias</a></li>
+</ul>
+
+<h2 id="introducción">Introducción</h2>
+<p>TikZ es un complejo lenguaje gráfico que permite ‘‘dibujar’’  en un documento LaTeX sin ninguna otra herramienta auxiliar.</p>
 
 <p><strong>IMPORTANTE:</strong> TikZ tiene un conflicto con el paquete <code>babel</code> cuando se trabaja en español, ya que ambos definen como caracteres activos “&lt;” y “&gt;”: <code>babel</code> para el entrecomillado “multinivel”, y <code>tikz</code> para las flechas que aparecen al final de una línea. Por ello, es necesario eliminar este conflicto, usando, por ejemplo:</p>
 
@@ -73,20 +100,47 @@ TikZ es un complejo lenguaje gráfico que permite ‘‘dibujar’’  en un doc
 
 <p>Que suprime el uso “activo” de los caracteres “&lt;” y “&gt;” en babel.</p>
 
-<p>TikZ define un conjunto de comandos y entornos LaTeX elaborar gráficos.
+<p>Para dar nuestros priperos pasos con TikZ, use la siguiente plantilla en $\LaTeX$ para ir probando las distintas alternativas que aquí se presentan.</p>
+<pre><code class="language-latex:">\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{fit,positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tikzpicture}
+&lt;Tu código aquí&gt;
+\end{tikzpicture}
+
+\end{document}
+</code></pre>
+<p>Como se puede ver se cargan los paquetes:</p>
+<ol>
+  <li>Tikz: <code>\usepackage{tikz}</code> y algunas librerías: <code>\usetikzlibrary{fit,positioning}</code>.</li>
+  <li>Pgfplots: <code>\usepackage{pgfplots}</code>.</li>
+</ol>
+
+<p>Además, cada vez que queramos crear un dibujo, gráfico o diagrama con TikZ, necesitamos usar el entorno <code>tikzpicture</code>.</p>
+
+<p>TikZ define un conjunto de comandos y entornos $\LaTeX$ para elaborar gráficos de alta calidad.
 Por ejemplo, el código:</p>
 
-<pre><code class="language-latex:">\tikz \draw (0,0) circle (1cm);
-\tikz \draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle; 
+<pre><code class="language-latex:">\begin{tikzpicture}
+\tikz \draw (0,0) circle (1cm);
+\tikz \draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;
+\end{tikzpicture}
 </code></pre>
 
 <p>Genera el siguiente dibujo:</p>
 
 <p><img src="/img/image-4.png" alt="alt text" /></p>
 
-<p>Las unidades de TikZ, por defecto, son en centímetros. Por lo que la primera linea de código dibuja (con <code>\draw</code>) un círculo de un centímetro de diámetro centrado en el punto (0,0) y radio 1 cm, y en el otro se genera un cuadrado de un centímetro de lado.<br />
-Se observa que el comando <code>\tikz</code> genera dibujos independientes entre sí.<br />
-Para que ambos dibujos sean uno solo, generando una figura con el cuadrado y el círculo superpuestos, en lugar de usar el comando <code>\tikz</code>, es necesario incluir los comandos de dibujo en un entorno <code>\begin{tikzpicture}</code>, por ejemplo:</p>
+<p>Las unidades de TikZ, por defecto, son en centímetros. Por lo que la primera linea de código dibuja (con <code>\draw</code>) una circunferencia centrada en el punto (0,0) y radio 1 cm, y en el otro se genera un cuadrado de $\sqrt{2}$ centímetros de lado.</p>
+
+<p>Se observa que el comando <code>\tikz</code> genera dibujos independientes entre sí.<br />
+Para que ambos dibujos sean uno solo, generando una figura con el cuadrado y la circunferencia superpuestos, en lugar de usar el comando <code>\tikz</code>, es necesario incluir los comandos de dibujo en un entorno <code>\begin{tikzpicture}</code> sin el comando <code>tikz</code> antes de <code>\draw</code>, por ejemplo:</p>
 
 <pre><code class="language-latex:">\begin{tikzpicture}
 \draw (0,0) circle (1cm);    
@@ -94,32 +148,33 @@ Para que ambos dibujos sean uno solo, generando una figura con el cuadrado y el 
 \end{tikzpicture}
 </code></pre>
 
-<p>Genera lo siguiente:</p>
+<p>Generando la siguiente figura:</p>
 
 <p><img src="/img/image-5.png" alt="alt text" /></p>
 
 <p>Las ventajas de usar <code>\tikz</code> en lugar de una herramienta externa son, entre otras:</p>
 
 <ol>
-  <li>Control completo sobre el diagrama.</li>
+  <li>Control completo sobre la figura, la gráfica o el diagrama.</li>
   <li>Se usa el mismo tipo de letra  que en el documento.</li>
   <li>Capacidad de utilizar macros.</li>
-  <li>La alta calidad del resultado.</li>
+  <li>Alta calidad del resultado.</li>
 </ol>
 
-<p>Como inconvenientes, cabe citar:</p>
+<p>Como inconvenientes:</p>
 
 <ol>
   <li>Elevada curva de aprendizaje (para valientes).</li>
-  <li>No se “dibuja” sobre el propio “dibujo”.</li>
   <li>El código puede ser complejo de entender.</li>
 </ol>
 
-<p><strong>Dibujo básico</strong></p>
+<p>A continuación analizaremos algunos comandos útiles para dibujar y graficar en Tikz.</p>
 
-<p>Normalmente, un gráfico TikZ se compone utilizando el entorno <code>tikzpicture</code>, como se vio en el ejemplo inicial. Un elemento fundamental en TikZ es el “camino”  o “Path”, en inglés. Existen diversos comandos, como <code>\draw</code>, <code>\filldraw</code> o <code>\path</code> que se basan en la idea de encadenar posiciones y unirlas mediante otros elementos.</p>
+<h2 id="dibujo-básico">Dibujo básico</h2>
 
-<p>En el ejemplo anterior teniamos:</p>
+<p>Normalmente, un gráfico TikZ se compone utilizando el entorno <code>tikzpicture</code>, como se vio en el ejemplo inicial. Un elemento fundamental en TikZ es el “camino”  o “Path”, en inglés. Existen diversos comandos, como <code>\draw</code>, <code>\filldraw</code> o <code>\path</code> que se basan en la idea de encadenar posiciones y unirlas mediante otros elementos (lineas, lineas punteadas, otros).</p>
+
+<p>Analicemos el ejemplo anterior:</p>
 
 <pre><code class="language-latex:">\begin{tikzpicture}
 \draw (0,0) circle (1cm);    
@@ -130,20 +185,122 @@ Para que ambos dibujos sean uno solo, generando una figura con el cuadrado y el 
 <ol>
   <li><code>\draw</code> indica que se debe “dibujar” el camino a realizar. Cada comando <code>\draw</code> inicia un nuevo camino.</li>
   <li>El camino se expresa por una sucesión de puntos y “operaciones” que expresan lo que hay que hacer entre cada punto.</li>
-  <li>“(-1,0)” indica que se debe posicionar en dicho punto. En centímetros por defecto.</li>
-  <li>Con el comando <code>draw</code>, la operación “–” indica que se debe dibujar una línea recta entre el punto anterior y el siguiente.</li>
-  <li>Con el comando <code>draw</code>, la operación “circle” indica que se debe dibujar un círculo con el radio indicado en el siguiente parámetro, en este caso “(1cm)”.</li>
+  <li>En la linea 1 con el comando <code>draw</code>, la operación “circle” indica que se debe dibujar una circunferencia de centro $(0,0)$ y radio $1cm$.</li>
+  <li>Con el comando <code>draw</code>, la operación <code>--</code> indica que se debe dibujar una línea recta entre el punto anterior y el siguiente.</li>
+  <li><code>(-1,0) -- (0,1)</code> indica que se debe posicionar en el punto $(-1,0)$ y se debe dibujar una recta hacia el punto $(0,1)$ y así sucesivamente. En centímetros por defecto.</li>
   <li>“cycle” indica que se vaya al punto de inicio del camino actual.</li>
 </ol>
 
 <p>Existen diversas operaciones para recorrer un camino: <code>rectangle</code>, <code>grid</code>, <code>ellipse</code>, son algunas de las factibles. Cada una de ellas necesita unos parámetros determinados para su correcto dibujo (googlear cada uno).</p>
 
-<p><strong>Estilos</strong></p>
+<h2 id="otras-formas">Otras formas</h2>
+<p>Uno de los comandos más simples y comúnmente utilizados en TikZ es el comando <code>\draw</code>. Veamos algúnos de sus usos.</p>
+
+<ol>
+  <li>Para dibujar una línea recta: Ingresamos una coordenada de inicio $(a,b)$, seguida de dos guiones <code>--</code> antes de la coordenada de finalización. Luego, terminamos la declaración cerrándola con un punto y coma <code>;</code>.
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (0,0) -- (4,0);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-line.png" alt="alt text" /></p>
+  </li>
+  <li>Para dibujar un cuadrado: Ingresamos todas las coordenadas de los vértices, seguida de dos guiones <code>--</code> antes de la coordenada de finalización. Luego, terminamos la declaración cerrándola con un punto y coma <code>;</code>.
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (0,0) -- (4,0) -- (4,4) -- (0,4) -- (0,0);
+\end{tikzpicture}
+</code></pre>
+    <p>ó</p>
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (0,0) -- (4,0) -- (4,4) -- (0,4) -- cycle;
+\end{tikzpicture}
+</code></pre>
+    <p>Para simplificar aún más este código, podemos usar la palabra clave <code>rectangle</code> después de la coordenada de inicio y luego seguir con la coordenada de la esquina diagonalmente opuesta.</p>
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (0,0) rectangle (4,4);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-cuad.png" alt="alt text" /></p>
+  </li>
+  <li>También podemos agregar líneas que no son rectas. Por ejemplo, para dibujar una parábola usamos:
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (0,0) parabola (4,4);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-parabola.png" alt="Parábola" /></p>
+  </li>
+  <li>Para agregar una línea curva, usamos puntos de control. Comenzamos con nuestra coordenada de inicio, luego usamos dos puntos <code>..</code> seguidos de la palabra clave <code>controls</code> y luego las coordenadas de nuestros puntos de control separadas por un <code>and</code>. Luego, después de dos puntos <code>..</code> más, tenemos el punto final. Estos puntos de control actúan como imanes que atraen la línea en su dirección:
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (0,0) .. controls (4,0) and (0,4) .. (4,4);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-control.png" alt="Puntos de control" /></p>
+  </li>
+  <li>Para dibujar una circunferencia: La primera coordenada es el centro de la circunferencia y la longitud entre paréntesis al final es su radio.
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (2,2) circle (3cm);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-circle.png" alt="Circulo" /></p>
+  </li>
+  <li>Para dibujar una elipse. Esta vez, las longitudes entre paréntesis, separadas por un <code>and</code>, son el eje mayor en la dirección $x$ y el eje menor en la dirección $y$, respectivamente. La coordenada $(2,1)$ es el centro de la elipse:
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (2,1) ellipse (3cm and 1cm);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-elipse.png" alt="Elipse" /></p>
+  </li>
+  <li>Para dibujar un arco. El parentesis inicial es el centro $(1,1)$ y en el paréntesis final ingresamos el ángulo de inicio, el ángulo de finalización y el radio. Esta vez estos valores están separados por dos puntos <code>:</code>.
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw (2,1) arc (0:130:3cm);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-arco.png" alt="Arco" /><br />
+Para personalizar la forma en que se dibujan estas líneas, agregamos argumentos adicionales al comando <code>\draw</code>. Por ejemplo, podemos editar la circunferencia que dibujamos para que la línea sea roja, gruesa y punteada o en el cuadrado para que la linea sea verde, gruesa y punteada:</p>
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw[red,thick,dashed] (0,1) circle (2cm);
+\draw[green,thick,dashed] (0,-1) rectangle (4,3);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-cc.png" alt="Circunferencia y cuadrado" /></p>
+  </li>
+  <li>Para dibujar un mallado: Para hacer esto, usamos el comando <code>\draw</code> seguido de algunos argumentos adicionales. Por ejemplo, 
+especificamos el tamaño del paso de la cuadrícula usando <code>step=</code> y una longitud. También hemos especificado el color gris y le hemos dicho que haga las líneas muy delgadas. Después de estos argumentos, ingresamos las coordenadas de la esquina inferior izquierda, seguidas de la palabra clave <code>grid</code> y luego las coordenadas de la esquina superior derecha.
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw[step=1cm,gray,very thin] (-1,-1) grid (5,5);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-13.png" alt="Con contorno" /><br />
+o sin contorno</p>
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw[step=1cm,gray,very thin] (-0.9,-0.9) grid (4.9,4.9);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-12.png" alt="Sin contorno" /></p>
+  </li>
+</ol>
+
+<h2 id="estilos">Estilos</h2>
 
 <p>Los diferentes comandos tienen parámetros opcionales que facilitan el diseño de diferentes estilos para los gráficos. Por ejemplo:</p>
 
-<p><img src="/img/image-6.png" alt="alt text" /></p>
+<ol>
+  <li>Para colorear, usamos el comando <code>\fill</code> en lugar del comando <code>\draw</code>. Luego, entre corchetes, ingresamos un color (40% azul mezclado con 60% blanco). Después, simplemente especificamos una forma cerrada (circunferencia, rectángulo, elipse, otra) como lo haríamos normalmente.
+    <pre><code class="language-latex:">\begin{tikzpicture}
+\draw[step=1cm,gray,very thin] (-1,-1) grid (5,5);
+\fill[blue!40!white] (2,2) circle (2);
+\end{tikzpicture}
+</code></pre>
+    <p><img src="/img/image-14.png" alt="Circulo" /></p>
+  </li>
+  <li>Si quisiéramos agregar un borde alrededor de esta figura, debemos usar el comando <code>\filldraw</code> y luego modificar los argumentos para tener tanto un color de relleno como un color de contorno especificado:
+    <pre><code class="language-latex:">\draw[step=1cm,gray,very thin] (-1,-1) grid (5,5);
+\filldraw[fill=blue!40!white, draw=black] (0,0) rectangle (4,4);
+</code></pre>
+    <p><img src="/img/image-15.png" alt="Cuadrado" /></p>
+  </li>
+</ol>
 
+<p>Analicemos el siguiente código:</p>
 <pre><code class="language-latex:">\draw[step=0.5,color=red!50!white, very thin] (-1.5,-1.5) grid (1.5,1.5);
 \draw (-2,0) -- (2,0);
 \draw (0,-2) -- (0,2);
@@ -152,6 +309,7 @@ Para que ambos dibujos sean uno solo, generando una figura con el cuadrado y el 
 \filldraw[color=gray] (2,1.5) circle (3pt); 
 \filldraw[color=gray] (0,-2) circle (3pt); 
 </code></pre>
+<p><img src="/img/image-6.png" alt="alt text" /></p>
 
 <p>Se observa que:</p>
 
@@ -165,9 +323,11 @@ Para que ambos dibujos sean uno solo, generando una figura con el cuadrado y el 
   </li>
   <li>Los dos siguientes comandos <code>\draw</code> dibujan los ejes horizontales con el estilo por defecto (líneas negras de grosor <code>thin</code>.</li>
   <li>El siguiente comando <code>\draw</code> dibuja una línea desde el punto <code>(-2,1.5)</code> al punto <code>(2,1.5)</code>, pero en lugar de ser recta, la operación <code>.. controls (0,-2) ..</code>, establece que se dibuje la línea utilizando este punto de control como elemento de referencia para trazarla curva. Lo que hace <code>tikz</code> es “salir” del punto inicial de forma paralela a la recta imaginaria que llegaría al punto de control, para después girar de tal modo que llegue al punto de destino de forma paralela a la recta imaginaria que va del punto de destino al punto de control. La sintaxis de esta operación permite utilizar dos puntos de control diferentes para el origen y el destino, así tanto el ángulo como la distancia a dichos puntos definen la forma de la curva a trazar. En este comando también se ha especificado un estilo entre corchetes, línea gruesa y de color azul.</li>
-  <li>Los tres últimos comandos <code>\filldraw</code> dibujan con relleno: se posicionan en un punto; después, la operación a ejecutar es <code>circle</code>, con un radio de 3pt, que en este caso se rellenan del mismo color que se ha indicado, <code>gray</code>, gris.<br />
-Con estas herramientas se pueden realizar dibujos muy complejos. Para facilitar al máximo su desarrollo, <code>tikz</code> permite, además, darle nombre a los estilos y reutilizarlos tantas veces como se necesite. Por ejemplo, el dibujo anterior se puede reescribir de la siguiente forma:
-    <pre><code class="language-latex:">\begin{tikzpicture}[
+  <li>Los tres últimos comandos <code>\filldraw</code> dibujan con relleno: se posicionan en un punto; después, la operación a ejecutar es <code>circle</code>, con un radio de 3pt, que en este caso se rellenan del mismo color que se ha indicado, <code>gray</code>, gris.</li>
+</ol>
+
+<p>Con estas herramientas se pueden realizar dibujos muy complejos. Para facilitar al máximo su desarrollo, <code>tikz</code> permite, además, darle nombre a los estilos y reutilizarlos tantas veces como se necesite. Por ejemplo, el dibujo anterior se puede reescribir de la siguiente forma:</p>
+<pre><code class="language-latex:">\begin{tikzpicture}[
 migrid/.style ={step=0.5,color=red!50!white, very thin},
 micurva/.style ={thick, color=blue},
 mipunto/.style ={color=gray}]
@@ -180,13 +340,182 @@ mipunto/.style ={color=gray}]
 \filldraw[mipunto] (0,-2) circle (3pt); 
 \end{tikzpicture}
 </code></pre>
-  </li>
+
+<ol>
   <li><code>migrid/.style</code> define un estilo de nombre <code>migrid</code> que se puede utilizar entre corchetes en los diferentes comandos para aplicar los parámetros que definen el estilo.</li>
   <li>Después del signo <code>=</code>, entre llaves, se describen los parámetros que definen el estilo. 
 Esto permite la reutilización como se observa en los tres comandos <code>\filldraw</code>.</li>
 </ol>
 
-<p><strong>Nodos</strong></p>
+<h2 id="ejes-y-gráficas-de-funciones">Ejes y gráficas de funciones</h2>
+
+<h3 id="ejes">Ejes:</h3>
+<p>A continuación veremos como agregar ejes etiquetados (etiquetas) a nuestra cuadrícula. Para hacer esto, dibujamos dos líneas normales, ambas desde $(0,0)$, pero las haremos gruesas y agregaremos cabezas de flecha usando un guion y un corchete puntiagudo <code>-&gt;</code>:</p>
+
+<pre><code class="language-latex:">\draw[step=1cm,gray,very thin] (-0.1,-0.1) grid (5.6,5.6);
+\draw[thick,-&gt;] (0,0) -- (5.5,0);
+\draw[thick,-&gt;] (0,0) -- (0,5.5);
+</code></pre>
+<p><img src="/img/image-16.png" alt="Ejes cartesianos" /></p>
+
+<p>También podemos etiquetar nuestros ejes usando nodos. Para hacer esto, agregamos la palabra clave <code>node</code> en ambos enunciados <code>\draw</code> junto a las coordenadas de finalización, seguido de una especificación de anclaje entre corchetes cuadrados y el texto entre llaves. Cada nodo que creamos en TikZ tiene varios anclajes. Entonces, cuando especificamos el anclaje <code>north west</code> para el nodo del eje $x$, le estamos diciendo a TikZ que use el anclaje en la esquina superior izquierda para anclar el nodo a la coordenada.</p>
+
+<pre><code class="language-latex:">\draw[step=1cm,gray,very thin] (-0.1,-0.1) grid (5.6,5.6);
+\draw[thick,-&gt;] (0,0) -- (5.5,0) node[anchor=north west] {$x$};
+\draw[thick,-&gt;] (0,0) -- (0,5.5) node[anchor=south east] {$y$};
+\draw (2,2) node {Estoy aquí};
+\draw node at (4.5,4.5) {$\displaystyle\int f d\mu$};
+\draw node at (4.5,3.5) {$f(x) = \sin(x)$};
+\draw node at (1.5,1.5) {$|e^{i\theta}|=1$};
+</code></pre>
+<p><img src="/img/image-18.png" alt="Node" /><br />
+Note que con <code>node</code> se puede agregar información sobre la imagen.<br />
+También podemos agregar marcas y numeración sobre los ejes de la siguiente manera:</p>
+
+<pre><code class="language-latex:">\draw[step=1cm,gray,very thin] (-0.1,-0.1) grid (5.6,5.6);
+\draw[thick,-&gt;] (0,0) -- (5.5,0) node[anchor=north west] {$x$};
+\draw[thick,-&gt;] (0,0) -- (0,5.5) node[anchor=south east] {$y$};
+\foreach \x in {0,1,2,3,4,5}
+   \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {0,1,2,3,4,5}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+</code></pre>
+<p><img src="/img/image-17.png" alt="Ejes con etiquetas" /><br />
+El código utiliza dos bucles <code>\foreach</code> para recorrer sistemáticamente los ejes agregando las marcas y los números. En cada uno, la variable $x$ o $y$ toma todos los números entre las llaves <code>{...}</code>, uno a uno, y ejecuta el comando <code>\draw</code>.</p>
+
+<h3 id="gráficas-de-funciones">Gráficas de funciones:</h3>
+<p>En TikZ se pueden generar gráficos de alta calidad como el que sigue:</p>
+
+<p><img src="/img/image-19.png" alt="alt text" /><br />
+El código es el que sigue:</p>
+<pre><code class="language-latex:">\begin{tikzpicture}[domain=0:4]
+\draw[very thin,color=lightgray,dashed] (-0.1,-1.1) grid (4.1,4.1);
+\draw[thick,-&gt;] (-0.2,0) -- (4.2,0) node[right] {$x$};
+\draw[thick,-&gt;] (0,-1.2) -- (0,4.2) node[above] {$y$};
+\foreach \x in {0,1,2,3,4}
+   \draw (\x,1pt) -- (\x,-1pt) node[anchor=north] {$\x$};
+\foreach \y in {-1,0,1,2,3,4}
+    \draw (1pt,\y) -- (-1pt,\y) node[anchor=east] {$\y$};
+\draw[color=red] plot(\x,{\x}) node[right] {$f(x) =x$};
+\draw[color=blue] plot(\x,{sin(\x r)}) node[right] {$f(x) = \sin x$};
+% El r que aparece en el argumento de la función indica que se evaluara la función en radianes.
+\draw[color=orange,variable=\t] plot(\t,{(1/25)*exp(\t)}) node[right] {$f(x) = \frac{1}{25} \mathrm e^x$};
+\end{tikzpicture}
+</code></pre>
+
+<p>Cuando se grafica una función, las coordenadas de los datos de la gráfica se pueden calcular evaluando una expresión matemática. Dado que pgf incluye un motor matemático, puedes especificar esta expresión y luego hacer que TikZ produzca automáticamente las coordenadas deseadas.</p>
+
+<p>La sintaxis es sencilla: Después del comando <code>plot</code> y sus opciones locales, se proporciona directamente una <code>⟨expresión de coordenada⟩</code>, en el ejemplo anterior <code>(\x,{sin(\x r)})</code>. Parece una coordenada normal, pero dentro de ella puedes usar una macro especial, que es <code>\x</code> por defecto, aunque esto se puede cambiar utilizando la opción <code>variable</code> (como en la linea 10 del código anterior). La <code>⟨expresión de coordenada⟩</code> se evalúa para diferentes valores de <code>\x</code> y las coordenadas resultantes se grafican.</p>
+
+<p>Ten en cuenta que a menudo tendrás que poner la coordenada $x$ o $y$ entre llaves, especialmente cuando usas una expresión que implique paréntesis.<br />
+Las siguientes opciones influyen en cómo se evalúa la <code>⟨expresión de coordenada⟩</code>:</p>
+<ol>
+  <li><code>variable=⟨macro⟩</code>: Establece la macro cuyo valor se asigna a los diferentes valores cuando se evalúa la <code>⟨expresión de coordenada⟩</code> (sin valor predeterminado, inicialmente <code>\x</code>).</li>
+  <li><code>samples=⟨número⟩</code>: Establece el número de muestras utilizadas en la gráfica (sin valor predeterminado, inicialmente <code>samples=25</code>).</li>
+  <li><code>domain=⟨inicio⟩:⟨fin⟩</code>: Establece el dominio del cual se debe evaluar la variable (sin valor predeterminado, inicialmente <code>domain=-5:5</code>).</li>
+  <li><code>samples at=⟨lista de muestras⟩</code>: Esta opción especifica una lista de posiciones para las cuales se debe evaluar la variable. Por ejemplo, puedes decir <code>samples at={1,2,8,9,10}</code> para que la variable se evalúe exactamente para los valores $1$, $2$, $8$, $9$ y $10$. Puedes usar la sintaxis <code>\foreach</code>, por lo que puedes usar <code>...</code> dentro de la <code>⟨lista de muestras⟩</code>.</li>
+</ol>
+
+<p>Cuando se usa esta opción, las opciones <code>samples</code> y <code>domain</code> quedan anuladas. A la inversa, configurar <code>samples</code> o <code>domain</code> anulará esta opción.</p>
+
+<!-- ```latex:
+\begin{tikzpicture}
+\datavisualization [scientific axes, visualize as smooth line]
+data [format=function] { 
+var x : interval [-360:360]; 
+func y = sin(\value x);
+};
+\end{tikzpicture}
+``` -->
+<p>Una gráfica levemente mas interesante se puede conseguir de la siguiente manera:</p>
+
+<!-- ```latex:
+\begin{tikzpicture}[scale=2]
+\draw (1.05cm,2pt) node[above] {$\displaystyle\int_0^{3/2} \!\!x^2\mathrm{d}x$};
+\draw (0,0) grid (3.9,3.9);
+\draw[->] (-0.2,0) -- (4,0) node[right] {$x$};
+\draw[->] (0,-0.2) -- (0,4) node[above] {$f(x)$};
+\foreach \x/\xtext in {1/1, 1.5/1\frac{1}{2}, 2/2, 3/3}
+ \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$\xtext$};
+\foreach \y/\ytext in {1/1, 2/2, 2.25/2\frac{1}{4}, 3/3}
+ \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {$\ytext$};
+\draw (-0.5,0.25) parabola bend (0,0) (2,4) node[below right] {$x^2$};
+\end{tikzpicture}
+```
+![alt text](/img/image-10.png)
+
+Una forma relativamente simple de generar gráficas de funciones es la siguiente: -->
+
+<pre><code class="language-latex:">\begin{tikzpicture}
+% Definición de variables
+\def\xa{-pi-0.3}
+\def\xb{pi+0.4}
+\def\ya{-3.4}
+\def\yb{ 3.6}
+\def\ea{0.28}
+\def\eb{0.26}
+\def\N{100} % numero de puntos
+% Ejes y mallado
+\draw[xstep=pi/2, very thin, color=lightgray, dashed] (\xa,\ya) grid (\xb,\yb);
+\draw[thick,-&gt;] (\xa,0) -- (\xb,0) node[right] {$x$}; % eje X
+\draw[thick,-&gt;] (0,\ya) -- (0,\yb) node[left] {$y$}; % eje Y
+% Ticks para eje x
+\foreach \x in {-pi,-pi/2,0,pi/2,pi}
+    \draw[thick] (\x,2pt) -- (\x,-2pt);
+\draw % x
+  node[below,scale=0.9] at (-pi,0) {$-\pi$}
+  node[below,scale=0.9] at (-pi/2,0) {$-\frac{\pi}{2}$}
+  node[below,scale=0.9] at (0,0) {$0$}
+  node[below,scale=0.9] at (pi/2,0) {$\frac{\pi}{2}$}
+  node[below,scale=0.9] at (pi,0) {$\pi$};
+% Ticks para eje y
+\foreach \y in {-3,-2,-1,0,1,2,3}
+    \draw[thick] (2pt,\y) -- (-2pt,\y) node[anchor=east] {$\y$};
+% functions
+\draw[color=blue,samples=\N,domain=\xa:\xb] % función seno
+  plot(\x,{sin(\x r)}) % r for radians
+  node[above right] at (pi/2,1) {$f(x)=\sin(x)$};
+\draw[color=red,samples=\N,domain=\xa:\xb] % función coseno
+  plot(\x,{cos(\x r)})
+  node[above left] at (-pi/2+0.5,-2) {$g(x)=\cos(x)$};
+\draw[color=orange] % función tangente
+  plot[samples=\N,domain=\xa:-pi/2-\eb] (\x, {tan(\x r)})
+  plot[samples=\N,domain=-pi/2+\ea:pi/2-\eb] (\x, {tan(\x r)})
+  plot[samples=\N,domain=pi/2+\ea:pi-\eb] (\x, {tan(\x r)})
+  node[above right] at (pi/2,3.0) {$h(x)=\tan(x)$};
+\end{tikzpicture}
+</code></pre>
+<p>El código anterior genera la siguiente gŕafica:</p>
+
+<p><img src="/img/image-20.png" alt="Función seno coseno tangente" /></p>
+
+<h2 id="gráficos-de-barras">Gráficos de barras</h2>
+<p>Para diagramas más avanzados, como por ejemplo, un diagrama de barras, se puede utilizar el paquete <code>pgfplots</code> que se basa en <code>pgf/tikz</code> y simplifica su construcción.
+Para ello es necesario incluir en el preámbulo: <code>\usepackage{pgfplots}</code>, que añade la librería <code>pgfplots</code>.
+Por ejemplo:</p>
+
+<p><img src="/img/image-9.png" alt="alt text" />
+Se obtiene con este código:</p>
+
+<pre><code class="language-latex:">\begin{tikzpicture}[scale=0.85]
+\begin{axis}[
+xbar, xmin=0,
+width=12cm, height=6cm, enlarge y limits=0.2,
+xlabel={Lenguajes de programación (repositorios activos)},
+symbolic y coords={Javascript, Java, Python, CSS, PHP, Ruby, C++},
+nodes near coords, nodes near coords align={horizontal},
+]
+\addplot coordinates {(323928,Javascript)
+(222852,Java)
+(164852,Python)
+(164585,CSS)
+(138771,PHP)
+(132848,Ruby)
+(86505,C++)};
+\end{axis}
+\end{tikzpicture}
+</code></pre>
+<h2 id="nodos">Nodos</h2>
 
 <p>Los nodos facilitan la generación de diagramas que contengan textos o que requieran mostrar relaciones entre elementos, entre otras cosas.<br />
 A continuación se muestra un ejemplo de uso de los nodos que utiliza algunas librerías adicionales para facilitar su diseño.</p>
@@ -251,113 +580,7 @@ edge[-&gt;] (basico);
 
 <p>Como se observa, la operación <code>edge</code>, en el comando <code>\node</code>, facilita el dibujo del enlace entre el nodo que se está definiendo y otro que se indica por su nombre. Además, es posible expresar el “grado de curvatura” del enlace y TikZ se encargará de posicionar la curva en el mejor lugar posible.</p>
 
-<p><strong>Gráficos</strong></p>
-
-<p>En TikZ se pueden generar gráficos de alta calidad como el que sigue:</p>
-
-<p><img src="/img/image-8.png" alt="alt text" /></p>
-
-<p>El código es el que sigue:</p>
-
-<pre><code class="language-latex:">\begin{tikzpicture}
-\datavisualization [scientific axes, visualize as smooth line]
-data [format=function] { 
-var x : interval [-360:360]; 
-func y = sin(\value x);
-};
-\end{tikzpicture}
-</code></pre>
-<p>Una gráfica levemente mas interesante se puede conseguir de la siguiente manera:</p>
-
-<pre><code class="language-latex:">\begin{tikzpicture}[scale=2]
-\draw (1.05cm,2pt) node[above] {$\displaystyle\int_0^{3/2} \!\!x^2\mathrm{d}x$};
-\draw (0,0) grid (3.9,3.9);
-\draw[-&gt;] (-0.2,0) -- (4,0) node[right] {$x$};
-\draw[-&gt;] (0,-0.2) -- (0,4) node[above] {$f(x)$};
-\foreach \x/\xtext in {1/1, 1.5/1\frac{1}{2}, 2/2, 3/3}
- \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$\xtext$};
-\foreach \y/\ytext in {1/1, 2/2, 2.25/2\frac{1}{4}, 3/3}
- \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {$\ytext$};
-\draw (-0.5,0.25) parabola bend (0,0) (2,4) node[below right] {$x^2$};
-\end{tikzpicture}
-</code></pre>
-<p><img src="/img/image-10.png" alt="alt text" /></p>
-
-<p>Una forma relativamente simple de generar gráficas de funciones es la siguiente:</p>
-
-<pre><code class="language-latex:">\begin{tikzpicture}
-% limites
-\def\xa{ -pi-0.3}
-\def\xb{pi+0.4}
-\def\ya{-3.4}
-\def\yb{ 3.6}
-\def\N{100} % numero de puntos
-% Dibujar ejes y mallado
-\draw[xstep=pi/2,very thin, color=gray] (\xa,\ya) grid (\xb,\yb);
-\draw[-&gt;] (\xa,0) -- (\xb,0) node[right] {$x$}; % eje X
-\draw[-&gt;] (0,\ya) -- (0,\yb) node[left] {$y$}; % eje Y
-% ticks
-\draw[] % x
-  node[below,scale=0.9] at ( -pi,   0) {$-\pi$}
-  node[below,scale=0.9] at ( -pi/2, 0) {$-\dfrac{\pi}{2}$}
-  node[below,scale=0.9] at (     0, 0) {0}
-  node[below,scale=0.9] at (  pi/2, 0) {$\dfrac{\pi}{2}$}
-  node[below,scale=0.9] at (  pi,   0) {$\pi$};
-\draw[] % y
-  node[left,scale=0.9] at ( 0,  3) {$3$}
-  node[left,scale=0.9] at ( 0,  2) {$2$}
-  node[left,scale=0.9] at ( 0,  1) {$1$}
-  node[left,scale=0.9] at ( 0,  0) {$0$}
-  node[left,scale=0.9] at ( 0, -1) {$-1$}
-  node[left,scale=0.9] at ( 0, -2) {$-2$}
-  node[left,scale=0.9] at ( 0, -3) {$-3$};
-% functions
-\def\ea{0.28}
-\def\eb{0.26}
-\draw[color=blue,samples=\N,domain=\xa:\xb] % función seno
-  plot(\x,{sin(\x r)}) % r for radians
-  node[above right] at (pi/2,1) {$\sin(x)$};
-\draw[color=red,samples=\N,domain=\xa:\xb] % función coseno
-  plot(\x,{cos(\x r)})
-  node[above left] at (-pi/2,1) {$\cos(x)$};
-\draw[color=orange] % función tangente
-  plot[samples=\N,domain=  \xa:-pi/2-\eb] (\x, {tan(\x r)})
-  plot[samples=\N,domain=  -pi/2+\ea:   pi/2-\eb] (\x, {tan(\x r)})
-  plot[samples=\N,domain=   pi/2+\ea: pi-\eb] (\x, {tan(\x r)})
-  node[above right] at (pi/2,2.5) {$\tan(x)$};
-\end{tikzpicture}
-</code></pre>
-<p>El código anterior genera la siguiente gŕafica:</p>
-
-<p><img src="/img/image-11.png" alt="alt text" /></p>
-
-<p>Para diagramas más avanzados, como por ejemplo, un diagrama de barras, se puede utilizar el paquete <code>pgfplots</code> que se basa en <code>pgf/tikz</code> y simplifica su construcción.
-Para ello es necesario incluir en el preámbulo: <code>\usepackage{pgfplots</code>}, que añade la librería <code>pgfplots</code>.
-Por ejemplo:</p>
-
-<p><img src="/img/image-9.png" alt="alt text" />
-Se obtiene con este código:</p>
-
-<pre><code class="language-latex:">\begin{tikzpicture}
-\begin{axis}[
-xbar, xmin=0,
-width=12cm, height=6cm, enlarge y limits=0.2,
-xlabel={Lenguajes de programación (repositorios activos)},
-symbolic y coords={Javascript, Java, Python, CSS, PHP, Ruby, C++},
-nodes near coords, nodes near coords align={horizontal},
-]
-\addplot coordinates {(323928,Javascript) 
-(222852,Java)
-(164852,Python)
-(164585,CSS)
-(138771,PHP)
-(132848,Ruby)
-(86505,C++)};
-\end{axis}
-\end{tikzpicture}
-</code></pre>
-
-<p><strong>Referencias</strong></p>
+<h2 id="referencias">Referencias</h2>
 
 <ol>
   <li>Página del proyecto <a href="https://www.ctan.org/pkg/pgf" target="_blank">TikZ</a> en CTAN.</li>
