@@ -82,6 +82,7 @@
     <ul>
       <li><a href="#ejes">Ejes</a></li>
       <li><a href="#gráficas-de-funciones">Gráficas de funciones</a></li>
+      <li><a href="#funciones-soportadas">Funciones soportadas</a></li>
     </ul>
   </li>
   <li><a href="#gráficos-de-barras">Gráficos de barras</a></li>
@@ -92,13 +93,11 @@
 <h2 id="introducción">Introducción</h2>
 <p>TikZ es un complejo lenguaje gráfico que permite ‘‘dibujar’’  en un documento LaTeX sin ninguna otra herramienta auxiliar.</p>
 
-<p><strong>IMPORTANTE:</strong> TikZ tiene un conflicto con el paquete <code>babel</code> cuando se trabaja en español, ya que ambos definen como caracteres activos “&lt;” y “&gt;”: <code>babel</code> para el entrecomillado “multinivel”, y <code>tikz</code> para las flechas que aparecen al final de una línea. Por ello, es necesario eliminar este conflicto, usando, por ejemplo:</p>
-
-<p><code>
+<!-- **IMPORTANTE:** TikZ tiene un conflicto con el paquete <code>babel</code> cuando se trabaja en español, ya que ambos definen como caracteres activos “<” y “>”: <code>babel</code> para el entrecomillado “multinivel”, y <code>tikz</code> para las flechas que aparecen al final de una línea. Por ello, es necesario eliminar este conflicto, usando, por ejemplo:
+<code>
 \usepackage[spanish,es-noshorthands]{babel}
-</code></p>
-
-<p>Que suprime el uso “activo” de los caracteres “&lt;” y “&gt;” en babel.</p>
+</code>
+Que suprime el uso "activo" de los caracteres "<" y ">" en babel. -->
 
 <p>Para dar nuestros priperos pasos con TikZ, use la siguiente plantilla en $\LaTeX$ para ir probando las distintas alternativas que aquí se presentan.</p>
 <pre><code class="language-latex:">\documentclass{article}
@@ -106,6 +105,7 @@
 \usetikzlibrary{fit,positioning}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
+\usepackage{amsmath}
 
 \begin{document}
 \pagestyle{empty}
@@ -513,6 +513,336 @@ node[below,scale=0.9] at (pi,0) {$\pi$};
   </li>
 </ol>
 
+<h3 id="funciones-soportadas">Funciones soportadas</h3>
+
+<p>A continuación se presenta una lista de las funciones que soporta TikZ.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code>abs</code></td>
+      <td><code>cosh</code></td>
+      <td><code>frac</code></td>
+      <td><code>ln</code></td>
+      <td><code>notless</code></td>
+      <td><code>sec</code></td>
+    </tr>
+    <tr>
+      <td><code>acos</code></td>
+      <td><code>cot</code></td>
+      <td><code>gcd</code></td>
+      <td><code>log10</code></td>
+      <td><code>oct</code></td>
+      <td><code>sign</code></td>
+    </tr>
+    <tr>
+      <td><code>add</code></td>
+      <td><code>deg</code></td>
+      <td><code>greater</code></td>
+      <td><code>log2</code></td>
+      <td><code>or</code></td>
+      <td><code>sin</code></td>
+    </tr>
+    <tr>
+      <td><code>and</code></td>
+      <td><code>depth</code></td>
+      <td><code>height</code></td>
+      <td><code>max</code></td>
+      <td><code>pi</code></td>
+      <td><code>sinh</code></td>
+    </tr>
+    <tr>
+      <td><code>array</code></td>
+      <td><code>dim</code></td>
+      <td><code>hex</code></td>
+      <td><code>min</code></td>
+      <td><code>pow</code></td>
+      <td><code>sqrt</code></td>
+    </tr>
+    <tr>
+      <td><code>asin</code></td>
+      <td><code>div</code></td>
+      <td><code>Hex</code></td>
+      <td><code>mod</code></td>
+      <td><code>rad</code></td>
+      <td><code>subtract</code></td>
+    </tr>
+    <tr>
+      <td><code>atan</code></td>
+      <td><code>divide</code></td>
+      <td><code>int</code></td>
+      <td><code>Mod</code></td>
+      <td><code>rand</code></td>
+      <td><code>tan</code></td>
+    </tr>
+    <tr>
+      <td><code>atan2</code></td>
+      <td><code>e</code></td>
+      <td><code>ifthenelse</code></td>
+      <td><code>multiply</code></td>
+      <td><code>random</code></td>
+      <td><code>tanh</code></td>
+    </tr>
+    <tr>
+      <td><code>bin</code></td>
+      <td><code>equal</code></td>
+      <td><code>iseven</code></td>
+      <td><code>neg</code></td>
+      <td><code>real</code></td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>ceil</code></td>
+      <td><code>factorial</code></td>
+      <td><code>isodd</code></td>
+      <td><code>not</code></td>
+      <td><code>rnd</code></td>
+      <td><code>veclen</code></td>
+    </tr>
+    <tr>
+      <td><code>cos</code></td>
+      <td><code>false</code></td>
+      <td><code>isprime</code></td>
+      <td><code>notequal</code></td>
+      <td><code>round</code></td>
+      <td><code>width</code></td>
+    </tr>
+    <tr>
+      <td><code>cosec</code></td>
+      <td><code>floor</code></td>
+      <td><code>less</code></td>
+      <td><code>notgreater</code></td>
+      <td><code>scalar</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>donde,</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Función</th>
+      <th>Descripción</th>
+      <th>Función</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>abs</code></td>
+      <td>valor absoluto</td>
+      <td><code>acos</code></td>
+      <td>arcocoseno</td>
+    </tr>
+    <tr>
+      <td><code>add</code></td>
+      <td>sumar</td>
+      <td><code>and</code></td>
+      <td>y lógico</td>
+    </tr>
+    <tr>
+      <td><code>array</code></td>
+      <td>matriz</td>
+      <td><code>asin</code></td>
+      <td>arcoseno</td>
+    </tr>
+    <tr>
+      <td><code>atan</code></td>
+      <td>arcotangente</td>
+      <td><code>atan2</code></td>
+      <td>arcotangente de dos parámetros</td>
+    </tr>
+    <tr>
+      <td><code>bin</code></td>
+      <td>binario</td>
+      <td><code>ceil</code></td>
+      <td>techo (parte entera superior)</td>
+    </tr>
+    <tr>
+      <td><code>cos</code></td>
+      <td>coseno</td>
+      <td><code>cosec</code></td>
+      <td>cosecante</td>
+    </tr>
+    <tr>
+      <td><code>cosh</code></td>
+      <td>coseno hiperbólico</td>
+      <td><code>cot</code></td>
+      <td>cotangente</td>
+    </tr>
+    <tr>
+      <td><code>deg</code></td>
+      <td>grados</td>
+      <td><code>depth</code></td>
+      <td>profundidad</td>
+    </tr>
+    <tr>
+      <td><code>dim</code></td>
+      <td>dimensión</td>
+      <td><code>div</code></td>
+      <td>dividir</td>
+    </tr>
+    <tr>
+      <td><code>e</code></td>
+      <td>constante e</td>
+      <td><code>equal</code></td>
+      <td>igual</td>
+    </tr>
+    <tr>
+      <td><code>factorial</code></td>
+      <td>factorial</td>
+      <td><code>false</code></td>
+      <td>falso</td>
+    </tr>
+    <tr>
+      <td><code>floor</code></td>
+      <td>piso (parte entera inferior)</td>
+      <td><code>frac</code></td>
+      <td>fracción</td>
+    </tr>
+    <tr>
+      <td><code>gcd</code></td>
+      <td>máximo común divisor</td>
+      <td><code>greater</code></td>
+      <td>mayor</td>
+    </tr>
+    <tr>
+      <td><code>height</code></td>
+      <td>altura</td>
+      <td><code>hex</code></td>
+      <td>hexadecimal</td>
+    </tr>
+    <tr>
+      <td><code>int</code></td>
+      <td>entero</td>
+      <td><code>ifthenelse</code></td>
+      <td>si entonces sino</td>
+    </tr>
+    <tr>
+      <td><code>iseven</code></td>
+      <td>es par</td>
+      <td><code>isodd</code></td>
+      <td>es impar</td>
+    </tr>
+    <tr>
+      <td><code>isprime</code></td>
+      <td>es primo</td>
+      <td><code>less</code></td>
+      <td>menos</td>
+    </tr>
+    <tr>
+      <td><code>ln</code></td>
+      <td>logaritmo natural</td>
+      <td><code>log10</code></td>
+      <td>logaritmo base 10</td>
+    </tr>
+    <tr>
+      <td><code>log2</code></td>
+      <td>logaritmo base 2</td>
+      <td><code>max</code></td>
+      <td>máximo</td>
+    </tr>
+    <tr>
+      <td><code>min</code></td>
+      <td>mínimo</td>
+      <td><code>mod</code></td>
+      <td>módulo</td>
+    </tr>
+    <tr>
+      <td><code>Mod</code></td>
+      <td>módulo (otra forma)</td>
+      <td><code>multiply</code></td>
+      <td>multiplicar</td>
+    </tr>
+    <tr>
+      <td><code>neg</code></td>
+      <td>negativo</td>
+      <td><code>not</code></td>
+      <td>no lógico</td>
+    </tr>
+    <tr>
+      <td><code>notequal</code></td>
+      <td>no igual</td>
+      <td><code>notgreater</code></td>
+      <td>no mayor</td>
+    </tr>
+    <tr>
+      <td><code>notless</code></td>
+      <td>no menor</td>
+      <td><code>oct</code></td>
+      <td>octal</td>
+    </tr>
+    <tr>
+      <td><code>or</code></td>
+      <td>o lógico</td>
+      <td><code>pi</code></td>
+      <td>pi</td>
+    </tr>
+    <tr>
+      <td><code>pow</code></td>
+      <td>potencia</td>
+      <td><code>rad</code></td>
+      <td>radianes</td>
+    </tr>
+    <tr>
+      <td><code>rand</code></td>
+      <td>aleatorio</td>
+      <td><code>random</code></td>
+      <td>aleatorio</td>
+    </tr>
+    <tr>
+      <td><code>real</code></td>
+      <td>real</td>
+      <td><code>rnd</code></td>
+      <td>aleatorio (otra forma)</td>
+    </tr>
+    <tr>
+      <td><code>round</code></td>
+      <td>redondear</td>
+      <td><code>scalar</code></td>
+      <td>escalar</td>
+    </tr>
+    <tr>
+      <td><code>sec</code></td>
+      <td>secante</td>
+      <td><code>sign</code></td>
+      <td>signo</td>
+    </tr>
+    <tr>
+      <td><code>sin</code></td>
+      <td>seno</td>
+      <td><code>sinh</code></td>
+      <td>seno hiperbólico</td>
+    </tr>
+    <tr>
+      <td><code>sqrt</code></td>
+      <td>raíz cuadrada</td>
+      <td><code>subtract</code></td>
+      <td>restar</td>
+    </tr>
+    <tr>
+      <td><code>tan</code></td>
+      <td>tangente</td>
+      <td><code>tanh</code></td>
+      <td>tangente hiperbólica</td>
+    </tr>
+    <tr>
+      <td><code>true</code></td>
+      <td>verdadero</td>
+      <td><code>veclen</code></td>
+      <td>longitud de vector</td>
+    </tr>
+    <tr>
+      <td><code>width</code></td>
+      <td>ancho</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="gráficos-de-barras">Gráficos de barras</h2>
 
 <p>Para diagramas más avanzados, como por ejemplo, un diagrama de barras, se puede utilizar el paquete <code>pgfplots</code> que se basa en <code>pgf/tikz</code> y simplifica su construcción.
@@ -612,6 +942,12 @@ edge[-&gt;] (basico);
   <li>Muchos ejemplos de TikZ y PGF: <a href="https://texample.net/tikz/examples" target="_blank">TikZ and PGF examples</a>.</li>
   <li>Página del <a href="https://www.ctan.org/pkg/pgfplots" target="_blank"> paquete </a> <code>pgfplots</code>.</li>
 </ol>
+
+<h2 id="al-finalizar">Al finalizar</h2>
+
+<div style="text-align: justify;">
+En caso de identificar errores en la documentación, en la resolución, implementación u otro, o si quieres proponer una solución más elegante a las problemáticas propuestas, escríbeme a vosores@ucm.cl
+</div>
 
 
       <footer class="site-footer">
