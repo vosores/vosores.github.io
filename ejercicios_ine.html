@@ -62,7 +62,12 @@
     </header>
 
     <main id="content" class="main-content" role="main">
-      <h2 id="ejercicios-resueltos-de-inecuaciones">Ejercicios resueltos de inecuaciones</h2>
+      <h1 id="antes-de-comenzar">Antes de comenzar</h1>
+<div style="text-align: justify;">
+En caso de identificar errores en la documentación, en la resolución, implementación u otro, o si quieres proponer una solución más elegante a las problemáticas propuestas, escríbeme a vosores@ucm.cl
+</div>
+
+<h1 id="inecuaciones">Inecuaciones</h1>
 <p>1.- Resuelva:<br />
 $-\displaystyle\frac{x-1}{4}+1&lt;\displaystyle\frac{3 x-1}{2}.$<br />
 <strong>Solución:</strong></p>
@@ -529,6 +534,324 @@ c) $\operatorname{máx}({A}) =\nexists$, y $\min ({A})=-3$</p>
 <p>Finalmente</p>
 
 <p>$\left.\therefore S_F=S_1 \cup S_2 \cup S_3=\right]-5,-2[\cup[-2,-1[=]-5,-1[$.</p>
+
+<h1 id="cálculo-de-límites">Cálculo de límites</h1>
+<h2 id="límite-de-sucesiones">Límite de sucesiones</h2>
+
+<p>1.-  Calcule los siguientes limites.<br />
+a.-</p>
+
+\[\begin{aligned}
+\lim _{n \rightarrow+\infty}\left(\frac{n+5}{n+2}\right)^n=&amp;\lim _{n \rightarrow+\infty}\left(\frac{n+2+3}{n+2}\right)^n \\ 
+ =&amp;\lim _{m \rightarrow+\infty}\left(\frac{n+2}{n+2}+\frac{3}{n+2}\right)^n \\ 
+=&amp;\lim _{n \rightarrow+\infty}\left(1+\frac{3}{n+2}\right)^n \\ 
+=&amp;\lim _{n \rightarrow+\infty}\left(1+\frac{3}{n+2}\right)^{(n+2)-2} \\
+=&amp;\lim _{n \rightarrow+\infty}\left(1+\frac{3}{n+2}\right)^{n+2} \cdot\left(1+\frac{3}{n+2}\right)^{-2} \\
+= &amp;e^3 \cdot 1 \\ 
+= &amp;e^3. 
+\end{aligned}\]
+
+<p>b.-</p>
+
+\[\begin{aligned}
+\lim _{n \rightarrow+\infty}\left(\frac{n+3}{n+1}\right)^{n+1} &amp; =\lim _{n \rightarrow+\infty}\left(\frac{n+1+2}{n+1}\right)^{n+1} \\
+&amp; =\lim _{n \rightarrow+\infty}\left(\frac{n+1}{n+1}+\frac{2}{n+1}\right)^{n+1} \\
+&amp; =\lim _{n \rightarrow+\infty}\left(1+\frac{2}{n+1}\right)^{n+1} \\
+&amp; =e^2.
+\end{aligned}\]
+
+<p>c.-</p>
+
+\[\begin{aligned}
+\lim _{n \rightarrow \infty}\left(1+\frac{5}{2 n}\right)^{4 n} &amp; =\lim _{n \rightarrow+\infty}\left(1+\frac{5}{2 n}\right)^{2 n \cdot 2} \\
+&amp; =\left(\lim _{n \rightarrow+\infty}\left(1+\frac{5}{2 n}\right)^{2 n}\right)^2 \\
+&amp; =\left(e^5\right)^2 \\
+&amp; =e^{10}.
+\end{aligned}\]
+
+<p>d.-</p>
+
+<p>$\displaystyle\lim _{n \rightarrow+\infty}\left(\frac{2 n-5}{4 n+1}\right)^n=?$<br />
+Sea $q_n=\frac{2 n-5}{4 n+1}$, luego</p>
+
+\[\begin{aligned}
+\lim _{n \rightarrow+\infty} q_n &amp; =\frac{2 n-5}{4 n+1} \text{ (Por teorema de cociente de polinómios) }\\
+&amp; =\frac{1}{2}
+\end{aligned}\]
+
+<p>Luego por teorema visto en clases</p>
+
+\[\begin{aligned}
+\lim _{n \rightarrow+\infty}\left(\frac{2 n-5}{4 n+1}\right)^n=0.
+\end{aligned}\]
+
+<p>e.-</p>
+
+\[\begin{aligned}
+\lim _{n \rightarrow+\infty} \frac{\sqrt{3 n^2+5 n-6}}{2 n+9} &amp; =\lim _{n \rightarrow+\infty} \frac{\sqrt{3 n^2+5 n-6}}{\sqrt{(2 n+9)^2}} \\
+&amp; =\lim _{n \rightarrow+\infty} \sqrt{\frac{3 n^2+5 n-6}{4 n^2+36 n+81}} \\
+&amp; =\sqrt{\lim _{n \rightarrow+\infty} \frac{3n^2+5 n-6}{4 n^2+36 n+81}} \text { (por continuidad de } f(x)=\sqrt{x} \text { ) }\\
+&amp; =\sqrt{\frac{3}{4}}.
+\end{aligned}\]
+
+<p>f.-</p>
+
+\[\begin{aligned}
+\lim _{n \rightarrow+\infty}(\sqrt{n+\sqrt{n}}-\sqrt{n-\sqrt{n}}) &amp;=\lim _{n \rightarrow+\infty}(\sqrt{n+\sqrt{n}}-\sqrt{n-\sqrt{n}}) \cdot \frac{\sqrt{n+\sqrt{n}}+\sqrt{n-\sqrt{n}}}{\sqrt{n+\sqrt{n}}+\sqrt{n-\sqrt{n}}}\\
+&amp;=\lim _{n \rightarrow+\infty} \frac{(n+\sqrt{n})-(n-\sqrt{n})}{\sqrt{n+\sqrt{n}}+\sqrt{n-\sqrt{n}}} \\
+&amp; =\lim _{n \rightarrow+\infty} \frac{2 \sqrt{n}}{\sqrt{n+\sqrt{n}}+\sqrt{n-\sqrt{n}}} \\
+&amp; =\lim _{n \rightarrow+\infty} \frac{\sqrt{n} \cdot 2}{\sqrt{n\left(1+\frac{\sqrt{n}}{n}\right)}+\sqrt{n\left(1-\frac{\sqrt{n}}{n}\right)}} \\
+&amp; =\lim _{n \rightarrow \infty} \frac{\sqrt{n} \cdot 2}{\sqrt{n}\left(\sqrt{1+\frac{1}{\sqrt{n}}}+\sqrt{1-\frac{1}{\sqrt{n}}}\right)} \\
+&amp; =\lim _{n \rightarrow+\infty} \frac{2}{\sqrt{1+\frac{1}{\sqrt{n}}}+\sqrt{1-\frac{1}{\sqrt{n}}}} \\
+&amp; =1.
+\end{aligned}\]
+
+<h2 id="límite-de-funciones">Límite de funciones</h2>
+
+<p>1.- Resuelve los siguientes límites:</p>
+
+<p>a.- $\displaystyle\lim _{x \rightarrow-2} \frac{x^{3}+x^{2}-8 x-12}{x^{4}+4 x^{3}+5 x^{2}+4 x+4}$</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\lim _{x \rightarrow-2} \frac{x^{3}+x^{2}-8 x-12}{x^{4}+4 x^{3}+5 x^{2}+4 x+4}=&amp;\displaystyle\lim _{x \rightarrow-2} \frac{(x + 2)\left(x^{2}-x-6\right)}{(x + 2)\left(x^{3}+2 x^{2}+x+2\right)}\\
+=&amp;\displaystyle\lim _{x \rightarrow-2} \frac{(x+2)(x+3)}{(x+2)\left(x^{2}+1\right)}\\
+=&amp;\displaystyle\lim _{x \rightarrow-2} \frac{x+3}{x^{2}+1}\\
+=&amp;\frac{1}{5}.
+\end{aligned}\]
+
+<p>b.- $\displaystyle\lim _{x \rightarrow 2} \frac{x^{3}-8}{x-2}$</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow 2} \frac{x^{3}-8}{x-2}=&amp;\displaystyle\lim _{x \rightarrow 2} \frac{(x-2)\left(x^{2}+2 x+4\right)}{x-2}\\
+=&amp;12.
+\end{aligned}\]
+
+<p>c.- $\displaystyle\lim _{x \rightarrow 0} \frac{3 x^{4}-x^{3}-x^{2}}{x^{3}-4 x^{2}+5 x}$</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow 0} \frac{3 x^{4}-x^{3}-x^{2}}{x^{3}-4 x^{2}+5 x}=&amp;\displaystyle\lim _{x \rightarrow 0} \frac{x\left(3 x^{3}-x^{2}-x\right)}{x\left(x^{2}-4 x+5\right)}\\
+=&amp;\frac{0}{5}\\
+=&amp;0.
+\end{aligned}\]
+
+<p>d.- $\displaystyle\lim _{x \rightarrow 0} \frac{\sqrt{x+1}-1}{x}$</p>
+
+<p><strong>Sol:</strong> Es una indeterminación $0/0$. Puede resolverse haciendo arreglos algebraicos a la función, multiplicando los términos de la expresión por el conjugado del numerador (un 1 conveniente). Así:</p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow 0} \frac{\sqrt{x+1}-1}{x}=\displaystyle\lim _{x \rightarrow 0} \frac{(\sqrt{x+1}-1)(\sqrt{x+1}+1)}{x(\sqrt{x+1}+1)}\\
+&amp;=\displaystyle\lim _{x \rightarrow 0} \frac{x+1-1}{x(\sqrt{x+1}+1)}\\
+&amp;=\displaystyle\lim _{x \rightarrow 0} \frac{1}{\sqrt{x+1}+1}\\
+&amp;=\frac{1}{2}.
+\end{aligned}\]
+
+<p>e.- $\displaystyle\lim _{x \rightarrow 0} \frac{4 x}{\sqrt{4+x}-\sqrt{4-x}}$</p>
+
+<p><strong>Sol:</strong> Es similar al anterior. Para resolverlo hay que multiplicar por un 1 conveniente.</p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow 0} \frac{4 x}{\sqrt{4+x}-\sqrt{4-x}}&amp;=\displaystyle\lim _{x \rightarrow 0} \frac{4 x(\sqrt{4+x}+\sqrt{4-x})}{(\sqrt{4+x}-\sqrt{4-x})(\sqrt{4+x}+\sqrt{4-x})}\\
+&amp; =\displaystyle\lim _{x \rightarrow 0} \frac{4 x(\sqrt{4+x}+\sqrt{4-x})}{(4+x)-(4-x)}\\
+&amp;=\displaystyle\lim _{x \rightarrow 0} \frac{4 x(\sqrt{4+x}+\sqrt{4-x})}{2 x}\\
+&amp;=\displaystyle\lim _{x \rightarrow 0} 2(\sqrt{4+x}+\sqrt{4-x})\\
+&amp;=2 \cdot(2+2)\\
+&amp;=8.
+\end{aligned}\]
+
+<p>f.- $\displaystyle\lim _{x \rightarrow +\infty} \frac{\sqrt{x^{2}-2 x}-(x-2)}{x-2}$</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow +\infty} \frac{\sqrt{x^{2}-2 x}-(x-2)}{x-2}&amp;=\displaystyle\lim _{x \rightarrow +\infty} \frac{\sqrt{\frac{x^{2}-2 x}{x^{2}}}-\left(\frac{x-2}{x}\right)}{\frac{x-2}{x}}(\text { dividiendo el numerador y el denominador por } x)\\
+&amp; =\frac{\sqrt{1}-1}{1}\\
+&amp;=0.
+\end{aligned}\]
+
+<p>g. $\displaystyle\lim _{x \rightarrow +\infty} \frac{\sqrt{x^{2}-5 x+1}}{\sqrt{4 x^{2}+3 x}}$.</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow +\infty} \frac{\sqrt{x^{2}-5 x+1}}{\sqrt{4 x^{2}+3 x}}=&amp;\displaystyle\lim _{x \rightarrow +\infty} \sqrt{\frac{x^{2}-5 x+1}{4 x^{2}+3 x}}\\
+=&amp;\sqrt{\displaystyle\lim _{x \rightarrow +\infty} \frac{x^{2}-5 x+1}{4 x^{2}+3 x}}\\
+=&amp;\sqrt{\frac{1}{4}}\\
+=&amp;\frac{1}{2}.
+\end{aligned}\]
+
+<p>h. $\displaystyle\lim _{x \rightarrow +\infty} \frac{\sqrt{x^{2}+2 x}}{2 x-1}$.</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow +\infty} \frac{\sqrt{x^{2}+2 x}}{2 x-1}=&amp;\displaystyle\lim _{x \rightarrow +\infty} \sqrt{\frac{x^{2}+2 x}{(2 x-1)^{2}}}\\
+=&amp;\displaystyle\lim _{x \rightarrow +\infty} \sqrt{\frac{x^{2}+2 x}{4 x^{2}-4 x+1}}\\
+=&amp;\sqrt{\frac{1}{4}}\\
+=&amp;\frac{1}{2}.
+\end{aligned}\]
+
+<p>i. $\displaystyle\lim _{x \rightarrow +\infty} \frac{3 x^{2}+5 x}{\sqrt{x^{3}+5 x-3}}$.</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow +\infty} \frac{3 x^{2}+5 x}{\sqrt{x^{3}+5 x-3}}=&amp;\displaystyle\lim _{x \rightarrow +\infty} \frac{\frac{3 x^{2}+5 x}{x^{2}}}{\frac{\sqrt{x^{3}+5 x-3}}{x^{2}}}\\
+=&amp;\displaystyle\lim _{x \rightarrow +\infty} \frac{3+\frac{5}{x}}{\sqrt{\frac{x^{3}+5 x-3}{x^{4}}}}\\
+=&amp;+\infty.
+\end{aligned}\]
+
+<p>j. $\displaystyle\lim _{x \rightarrow +\infty}(\sqrt{x+2 \sqrt{x}}-\sqrt{x})$.</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\lim _{x \rightarrow +\infty}(\sqrt{x+2 \sqrt{x}}-\sqrt{x})&amp;=\lim _{x \rightarrow +\infty} \frac{(\sqrt{x+2 \sqrt{x}}-\sqrt{x})(\sqrt{x+2 \sqrt{x}}+\sqrt{x})}{\sqrt{x+2 \sqrt{x}}+\sqrt{x}}\\
+&amp; =\displaystyle\lim _{x \rightarrow +\infty} \frac{x+2 \sqrt{x}-x}{\sqrt{x+2 \sqrt{x}}+\sqrt{x}}\\
+&amp;=\displaystyle\lim _{x \rightarrow +\infty} \frac{2 \sqrt{x}}{\sqrt{x+2 \sqrt{x}}+\sqrt{x}}\qquad(\text { multiplicando por } \sqrt{x}/\sqrt{x})\\
+&amp; =\displaystyle\lim _{x \rightarrow +\infty} \frac{\frac{2 \sqrt{x}}{\sqrt{x}}}{\frac{\sqrt{x+2 \sqrt{x}}}{\sqrt{x}}+\frac{\sqrt{x}}{\sqrt{x}}}\\
+&amp;=\displaystyle\lim _{x \rightarrow +\infty} \frac{\frac{2 \sqrt{x}}{\sqrt{x}}}{\sqrt{\frac{x+2 \sqrt{x}}{x}}+\frac{\sqrt{x}}{\sqrt{x}}}\\
+&amp;=\frac{2}{1+1}\\
+&amp;=1.
+\end{aligned}\]
+
+<p>k. $\displaystyle\lim _{x \rightarrow +\infty}\left(\sqrt{x^{2}+2 x}-\sqrt{x^{2}-3 x}\right)$.</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow +\infty}\left(\sqrt{x^{2}+2 x}-\sqrt{x^{2}-3 x}\right)&amp;=\displaystyle\lim _{x \rightarrow +\infty} \frac{\left(\sqrt{x^{2}+2 x}-\sqrt{x^{2}-3 x}\right)\left(\sqrt{x^{2}+2 x}+\sqrt{x^{2}-3 x}\right)}{\sqrt{x^{2}+2 x}+\sqrt{x^{2}-3 x}}\\
+&amp; =\displaystyle\lim _{x \rightarrow +\infty} \frac{x^{2}+2 x-x^{2}+3 x}{\sqrt{x^{2}+x}+\sqrt{x^{2}-x}}\\
+&amp; =\displaystyle\lim _{x \rightarrow +\infty} \frac{5 x}{\sqrt{x^{2}+x}+\sqrt{x^{2}-x}} (\text { extrayendo den numerador y denominador el } x)\\
+&amp;=\frac{5}{2}.
+\end{aligned}\]
+
+<p>l. $\displaystyle\lim _{x \rightarrow +\infty}\left(\sqrt{x^{2}-5 x+4}-x\right)$.</p>
+
+<p><strong>Sol:</strong></p>
+
+\[\begin{aligned}
+\displaystyle\lim _{x \rightarrow +\infty}\left(\sqrt{x^{2}-5 x+4}-x\right)&amp;=\displaystyle\lim _{x \rightarrow +\infty} \frac{\left(\sqrt{x^{2}-5 x+4}-x\right)\left(\sqrt{x^{2}-5 x+4}+x\right)}{\sqrt{x^{2}-5 x+4}+x}\\
+&amp; =\displaystyle\lim _{x \rightarrow +\infty} \frac{x^{2}-5 x+4-x^{2}}{\sqrt{x^{2}-5 x+4}+x}\\
+&amp; =\displaystyle\lim _{x \rightarrow +\infty} \frac{-5 x+4}{\sqrt{x^{2}-5 x+4}+x}\\
+&amp; =\displaystyle\lim _{x \rightarrow +\infty} \frac{\frac{(-5 x+4)}{x}}{\frac{\sqrt{x^{2}-5 x+4}+x}{x}}\\
+&amp; =\displaystyle\lim _{x \rightarrow +\infty} \frac{-5+\frac{4}{x}}{\sqrt{1-\frac{5 x+4}{x^{2}}}+1}\\
+&amp;=-\frac{5}{2}.
+\end{aligned}\]
+
+<h2 id="límites-laterales-continuidad">Límites laterales, continuidad</h2>
+
+<p>1.- Analice la continuidad de la función dada. Justifica la respuesta en cada caso.</p>
+
+<p>a.-</p>
+
+\[f(x)=\begin{cases}x^{2}, &amp; \text { si } x \leq 1 \\ x-1, &amp; \text { si } x&gt;1\end{cases}\]
+
+<p><strong>Sol:</strong>  Cada función es continua en su intervalo de definición respectivo; pero es discontinua en $x=1$, pues en ese punto los límites laterales no son iguales. En efecto:</p>
+
+<p>Por la izquierda: $\displaystyle\lim _{x \rightarrow 1^{-}} f(x)=\displaystyle\lim _{x \rightarrow 1^{-}} x^{2}=1$. Por la derecha: $\displaystyle\lim _{x \rightarrow 1^{+}} f(x)=\displaystyle\lim _{x \rightarrow 1^{+}}(x-1)=0$.</p>
+
+<p>b.-</p>
+
+\[f(x)=\left\{\begin{array}{cc}1-x^{2}, &amp; \text { si } x \leq 1 \\ x-1, &amp; \text { si } x&gt;1\end{array}\right.\]
+
+<p><strong>Sol:</strong>  En este caso, la función es continua en todo $\mathbb{R}$, pues cada función es continua en su intervalo de definición y en $x=1$ los límites laterales coinciden y $f(1)=0$.</p>
+
+<p>Por la izquierda: $\displaystyle\lim _{x \rightarrow 1^{-}} f(x)=\displaystyle\lim _{x \rightarrow 1^{-}}\left(1-x^{2}\right)=0$. Por la derecha: $\displaystyle\lim _{x \rightarrow 1^{+}} f(x)=\displaystyle\lim _{x \rightarrow 1^{+}}(x-1)=0$.</p>
+
+<p>c.-</p>
+
+\[f(x)= \begin{cases}\cos x, &amp; \text { si } x \leq 0 \\ x+1, &amp; \text { si } x&gt;0\end{cases}\]
+
+<p><strong>Sol:</strong> La función es continua en $\mathbb{R}$, pues cada función es continua en su intervalo de definición y en $x=0$ los límites laterales coinciden y $f(0)=1$. En efecto:</p>
+
+<p>Por la izquierda: $\displaystyle\lim _{x \rightarrow 0^{-}} f(x)=\displaystyle\lim _{x \rightarrow 0^{-}} \cos x=1$. Por la derecha: $\displaystyle\lim _{x \rightarrow 0^{+}} f(x)=\displaystyle\lim _{x \rightarrow 0^{+}}(x+1)=1$.</p>
+
+<p>d.-</p>
+
+\[f(x)= \begin{cases}\frac{1}{x-1}, &amp; \text { si } x \leq 0 \\ \sin x, &amp; \text { si } x&gt;0\end{cases}\]
+
+<p><strong>Sol:</strong> La función $f$ está definida en todo $\mathbb{R}$. La función $f(x)=\frac{1}{x-1}$ es continua en $\mathbb{R}-${$1$}, pero ese punto está en el segundo ``tramo’’, por tanto continua en $x\leq 0$. Analicemos los límites laterales.</p>
+
+<p>En $x=0$, los límites laterales dan:</p>
+
+<p>Por la izquierda: $\displaystyle\lim _{x \rightarrow 0^{-}} f(x)=\displaystyle\lim _{x \rightarrow 0^{-}} \frac{1}{x-1}=-1$. Por la derecha: $\displaystyle\lim _{x \rightarrow 0^{+}} f(x)=\displaystyle\lim _{x \rightarrow 0^{+}} \sin x=0$. Como no coinciden, la función no es continua en $x=0$.</p>
+
+<p>e.-</p>
+
+\[f(x)=\left\{\begin{array}{cc}1-x, &amp; \text { si } x \leq 1 \\ \ln (2-x) &amp; \text { si } 2&gt;x&gt;1\end{array}\right.\]
+
+<p><strong>Sol:</strong> La función $f$ es continua en $]-\infty,2[$. En efecto, al igual que antes, cada función es continua en su dominio de definición, lo único que resta verificar es qué ocurre en $x=1$. Hay que calcular los 
+límites laterales en ese punto.</p>
+
+<p>Por la izquierda: $\displaystyle\lim _{x \rightarrow 1^{-}} f(x)=\displaystyle\lim _{x \rightarrow 1^{-}}(1-x)=0$.</p>
+
+<p>Por la derecha: $\displaystyle\lim _{x \rightarrow 1^{+}} f(x)=\displaystyle\lim _{x \rightarrow 1^{+}} \ln (2-x)=\ln 1=0$.</p>
+
+<p>Como son iguales y además $f(1)=0$, la función es continua en $x=1$.</p>
+
+<p>2.- ¿Para qué valores de $a$ la función</p>
+
+\[f(x)=\left\{\begin{array}{cl}x^{2}, &amp; \text { si } x \leq 1 \\ 2 x+a, &amp; \text { si } x&gt;1\end{array}\right.\]
+
+<p>es continua en $x=1$?</p>
+
+<p><strong>Sol:</strong> En el punto $x=1$ deben ser iguales los límites laterales e iguales a $f(1)=1$.</p>
+
+<p>Por la izquierda:</p>
+
+\[\displaystyle\lim _{x \rightarrow 1^{-}} f(x)=\displaystyle\lim _{x \rightarrow a^{-}} x^{2}=1.\]
+
+<p>Por la derecha:
+$\displaystyle\lim _{x \rightarrow 1^{+}} f(x)=\displaystyle\lim _{x \rightarrow 1^{+}}(2 x+a)=2+a$.</p>
+
+<p>Como deben ser iguales: $1=2+a \Rightarrow a=-1$. Luego, $f$ es continua en $x=1$ si $a=-1$.</p>
+
+<p>3.- Determina los valores de $a$ y $b\in\mathbb{R}$ que hacen que la función</p>
+
+\[f(x)=\left\{\begin{array}{cc}\sin (x)-a &amp; x&lt;-\pi \\ \cos (x)+b &amp; -\pi \leq x&lt;0 \\ e^{x}-1 &amp; x \geq 0\end{array}\right.\]
+
+<p>sea continua en todo $\mathbb{R}$.</p>
+
+<p><strong>Sol:</strong> Dado que cada función es continua en su dominio de definición, solo falta analizar (forzar) la continuidad en $-\pi$ y $0$. 
+En cada caso los límites laterales deben ser iguales e iguales a $f(-\pi)=-1+b$ y $f(0)=0$, respectivamente.</p>
+
+<p>En $x=-\pi$:</p>
+
+<p>Límite por la izquierda:</p>
+
+\[\displaystyle\lim _{x \rightarrow \pi^{-}} f(x)=
+\displaystyle\lim _{x \rightarrow \pi^{-}}\sin(x)-a=\sin (\pi)-a=-a\]
+
+<p>Límite por la derecha:</p>
+
+\[\displaystyle\lim _{x \rightarrow \pi^{+}} f(x)=\displaystyle
+\lim _{x \rightarrow \pi^{+}}\cos (x)+b=\cos (\pi)+b=-1+b.\]
+
+<p>Como deben ser iguales: $-a=-1+b \Rightarrow a=1-b$.</p>
+
+<p>En $x=0$ :</p>
+
+<p>Límite por la izquierda:</p>
+
+\[\displaystyle\lim _{x \rightarrow 0^{-}} f(x)=
+\displaystyle\lim _{x \rightarrow 0^{-}}\cos (x)+b=\cos (0)+b=1+b.\]
+
+<p>Límite por la derecha:</p>
+
+\[\displaystyle\lim _{x \rightarrow 0^{+}} f(x)=
+\displaystyle\lim _{x \rightarrow 0^{+}}\left(e^{x}-1\right)=e^{0}-1=0\]
+
+<p>Como deben ser iguales: $1+b=0 \Rightarrow b=-1 \Rightarrow a=2$.</p>
+
+<p>Luego, la función continua en $\mathbb{R}$ si $a=2$ y $b=-1$, es decir:</p>
+
+\[f(x)=\left\{\begin{array}{cc}\sin (x)-2 &amp; x&lt;-\pi \\ \cos (x)-1 &amp; -\pi \leq x&lt;0 \\ e^{x}-1 &amp; x \geq 0\end{array}\right.\]
 
 <p><a href="./">back</a></p>
 
