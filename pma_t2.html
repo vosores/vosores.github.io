@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>    
+    <meta name="google-site-verification" content="UtBQXaaKqY6KYEk1SldtSO5XVEy9SmoUfqJ5as0603Y" />
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    
+    <meta charset="UTF-8">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171312398-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-171312398-1');
+    </script>
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Breve introducción a Python. | Dr. Víctor Osores</title>
+<meta name="generator" content="Jekyll v4.3.3" />
+<meta property="og:title" content="Breve introducción a Python." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule." />
+<meta property="og:description" content="Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule." />
+<link rel="canonical" href="http://localhost:4000/pma_t2.html" />
+<meta property="og:url" content="http://localhost:4000/pma_t2.html" />
+<meta property="og:site_name" content="Dr. Víctor Osores" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Breve introducción a Python." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Facultad de Ciencias Básicas, Dpto. Matemática, Física y Estadística, Universidad Católica del Maule.","headline":"Breve introducción a Python.","url":"http://localhost:4000/pma_t2.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Breve introducción a Python.</h1>
+      
+      
+      
+      
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+
+<h2 id="contenido">Contenido</h2>
+
+<ul>
+  <li><a href="#introducción-a-python">Introducción a Python</a></li>
+  <li><a href="#asignación-de-variables">Asignación de variables</a></li>
+  <li><a href="#acceso-y-modificación-de-los-elementos">Acceso y modificación de los elementos</a></li>
+  <li><a href="#operaciones-matemáticas-con-arrays-a-nivel-de-elemento-a-elemento">Operaciones matemáticas con arrays a nivel de elemento a elemento</a></li>
+  <li><a href="#tipos-de-operadores-en-python">Tipos de Operadores en Python</a>
+    <ul>
+      <li><a href="#operadores-aritméticos">Operadores Aritméticos</a></li>
+      <li><a href="#operadores-relacionales">Operadores Relacionales</a></li>
+      <li><a href="#operadores-lógicos">Operadores Lógicos</a></li>
+      <li><a href="#operadores-de-asignación">Operadores de Asignación</a></li>
+      <li><a href="#operadores-de-identidad">Operadores de Identidad</a></li>
+      <li><a href="#operadores-de-pertenencia">Operadores de Pertenencia</a></li>
+    </ul>
+  </li>
+  <li><a href="#estructuras-de-control-de-flujo">Estructuras de control de flujo</a>
+    <ul>
+      <li><a href="#ciclo-for-en-python">Ciclo for en python</a></li>
+      <li><a href="#sentencias-if-else">Sentencias if else</a></li>
+      <li><a href="#sentencia-elif">Sentencia elif</a></li>
+      <li><a href="#bucle-while-de-python">Bucle while de Python</a></li>
+    </ul>
+  </li>
+  <li><a href="#funciones-en-python">Funciones en Python</a>
+    <ul>
+      <li><a href="#fibonacci-con-la-fórmula-de-binet">Fibonacci con la Fórmula de Binet</a></li>
+    </ul>
+  </li>
+  <li><a href="#taller-de-modelamiento-matemático-y-fenómenos-de-evolución">Taller de Modelamiento matemático y fenómenos de evolución</a></li>
+</ul>
+
+<h2 id="introducción-a-python">Introducción a Python</h2>
+
+<p>En este taller utilizaremos el lenguaje de programación Python junto con algunas de sus bibliotecas especializadas, para expresar y manipular las matemáticas relacionadas con matrices y vectores de manera eficiente. El objetivo principal es introducir herramientas útiles para implementar métodos numéricos enfocados en la resolución de sistemas de ecuaciones diferenciales ordinarias.</p>
+
+<p>Revisaremos una serie de comandos y funciones que demuestran cómo trabajar de forma práctica y estructurada con escalares, vectores y matrices.</p>
+
+<p>Para interactuar con el contenido de esta introducción a Python, acceda al siguiente enlace de Google Colab.</p>
+
+<script src="https://gist.github.com/vosores/749dc7a1d0bbab3f2a46a36df9c4a2ef.js"></script>
+
+<h2 id="asignación-de-variables">Asignación de variables</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># puede usar ; para definir variables en la misma linea
+</span><span class="n">suma</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+</code></pre></div></div>
+
+<p>Puedes utilizar la función <code class="language-plaintext highlighter-rouge">print()</code> para visualizar el valor de un objeto, ya sea una variable, un vector, una matriz u otro tipo de dato.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">suma</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5
+</code></pre></div></div>
+
+<p>El uso de vectores y matrices es esencial para este resultado de aprendizaje. Por ello, utilizaremos la biblioteca <code class="language-plaintext highlighter-rouge">NumPy</code>, diseñada específicamente para cálculos numéricos y análisis de datos, especialmente cuando se trabaja con grandes volúmenes de información.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># llamada a la librería numpy:
+</span></code></pre></div></div>
+
+<p>A continuación, utilizaremos algunas funciones básicas para generar rápidamente <em>arrays</em> (vectores y matrices).</p>
+
+<ul>
+  <li>$np.linspace(inicio, fin, n)$: Crea y devuelve una referencia a un array de una dimensión cuyos elementos son la secuencia de <code class="language-plaintext highlighter-rouge">n</code> valores equidistantes desde <code class="language-plaintext highlighter-rouge">inicio</code> hasta <code class="language-plaintext highlighter-rouge">fin</code>.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">x=</span><span class="sh">'</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="c1"># vector fila (array de 1 dimensión) que contiene 4 números reales equidistantes desde el 0 al 3.
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># Aquí se redefine el vector x, ya no tendremos acceso al vector x = [0 1 2 3].
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">x=</span><span class="sh">'</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x= [0. 1. 2. 3.]
+x= [0.         0.01010101 0.02020202 0.03030303 0.04040404 0.05050505
+ 0.06060606 0.07070707 0.08080808 0.09090909 0.1010101  0.11111111
+ 0.12121212 0.13131313 0.14141414 0.15151515 0.16161616 0.17171717
+ 0.18181818 0.19191919 0.2020202  0.21212121 0.22222222 0.23232323
+ 0.24242424 0.25252525 0.26262626 0.27272727 0.28282828 0.29292929
+ 0.3030303  0.31313131 0.32323232 0.33333333 0.34343434 0.35353535
+ 0.36363636 0.37373737 0.38383838 0.39393939 0.4040404  0.41414141
+ 0.42424242 0.43434343 0.44444444 0.45454545 0.46464646 0.47474747
+ 0.48484848 0.49494949 0.50505051 0.51515152 0.52525253 0.53535354
+ 0.54545455 0.55555556 0.56565657 0.57575758 0.58585859 0.5959596
+ 0.60606061 0.61616162 0.62626263 0.63636364 0.64646465 0.65656566
+ 0.66666667 0.67676768 0.68686869 0.6969697  0.70707071 0.71717172
+ 0.72727273 0.73737374 0.74747475 0.75757576 0.76767677 0.77777778
+ 0.78787879 0.7979798  0.80808081 0.81818182 0.82828283 0.83838384
+ 0.84848485 0.85858586 0.86868687 0.87878788 0.88888889 0.8989899
+ 0.90909091 0.91919192 0.92929293 0.93939394 0.94949495 0.95959596
+ 0.96969697 0.97979798 0.98989899 1.        ]
+</code></pre></div></div>
+
+<ul>
+  <li>$np.arange(inicio, fin, salto)$: Crea y devuelve una referencia a un array de una dimensión cuyos elementos son la secuencia desde <code class="language-plaintext highlighter-rouge">inicio</code> hasta <code class="language-plaintext highlighter-rouge">fin</code> tomando valores cada <code class="language-plaintext highlighter-rouge">salto</code>.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># Salto
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># vector cuyos elementos son números reales equidistantes entre 0 y 1-h cuyo salto es h.
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]
+</code></pre></div></div>
+
+<p>Para generar una partición del intervalo $[0,1]$ que comience en $0$ y termine en $1$ a paso $h$ fijo, puede usar:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="n">h</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+</code></pre></div></div>
+
+<ul>
+  <li>$np.empty(dimensiones)$: Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla <code class="language-plaintext highlighter-rouge">(x,y)</code> dimensiones.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">empty</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># tupla dimensiones (a,b): a filas, b columnas.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="c1"># Matriz con 3 filas y 3 columnas (los elementos a_{ij} se definen automáticamente)
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[0.1 0.2 0.3]
+ [0.4 0.5 0.6]
+ [0.7 0.8 0.9]]
+</code></pre></div></div>
+
+<ul>
+  <li>$np.zeros(dimensiones)$: Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla dimensiones cuyos elementos son todos ceros.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># Matriz de dimensiones 2 x 3 (2 filas y 3 columnas) con todos los elementos a_{ij} = 0.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[0. 0. 0.]
+ [0. 0. 0.]]
+</code></pre></div></div>
+
+<ul>
+  <li>$np.ones(dimensiones)$: Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla dimensiones cuyos elementos son todos unos.</li>
+</ul>
+
+<p>Matriz de dimensión 2x3 (2 fila y 3 columnas) con todos sus elementos iguales a 1.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[1. 1. 1.]
+ [1. 1. 1.]]
+</code></pre></div></div>
+
+<p>Matriz de dimensión 1x3 (1 fila y 3 columnas) con todos sus elementos iguales a 1.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[1. 1. 1.]]
+</code></pre></div></div>
+
+<p>Vector fila (matriz de 1 fila y 3 columnas) con todos sus elementos iguales a 1.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1. 1. 1.]
+</code></pre></div></div>
+
+<p>Vector columna (matriz de 4 fila y 1 columnas) con todos sus elementos iguales a 1.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[1.]
+ [1.]
+ [1.]
+ [1.]]
+</code></pre></div></div>
+
+<ul>
+  <li>$np.full(dimensiones, valor)$: Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla dimensiones cuyos elementos son todos valor.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="mf">3.0</span><span class="p">)</span> <span class="c1"># Matriz cuyos elementos son todos iguales a 3.0
+</span><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[3. 3. 3. 3.]
+ [3. 3. 3. 3.]]
+</code></pre></div></div>
+
+<ul>
+  <li>$np.identity(n)$: Crea y devuelve una referencia a la matriz identidad de dimensión $n$.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">identity</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># Matriz identidad de orden n=5.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[1. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0.]
+ [0. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 1.]]
+</code></pre></div></div>
+
+<ul>
+  <li>$np.random.random(dimensiones)$: Crea y devuelve una referencia a un array con las dimensiones especificadas en la tupla dimensiones cuyos elementos son aleatorios.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># Matriz de orden 3x2 con valores aleatorios entre 0 y 1 por defecto.
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">A=</span><span class="sh">'</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">A</span> <span class="c1"># Multiplicación de la matriz A por el escalar 10.
+</span><span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">B=</span><span class="sh">'</span><span class="p">,</span><span class="n">B</span><span class="p">)</span> <span class="c1"># Matriz de orden 3x2 con valores aleatorios entre 0 y 10.
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A= [[0.29944606 0.03828226]
+ [0.92151849 0.39298975]
+ [0.35294774 0.92536481]]
+B= [[2.99446057 0.38282262]
+ [9.21518494 3.9298975 ]
+ [3.52947744 9.25364814]]
+</code></pre></div></div>
+
+<ul>
+  <li>$np.diag(v,k)$: Extrae una diagonal o construye una matriz diagonal.
+    <ul>
+      <li>
+        <p><strong>v</strong> (vector o matriz)<br />
+  Si <em>v</em> es una matriz, devuelve una copia de su k-ésima diagonal.<br />
+  Si <em>v</em> es un vector, devuelve una matriz diagonal con <em>v</em> sobre la k-ésima diagonal.</p>
+      </li>
+      <li>
+        <p><strong>k</strong> (número entero, opcional)<br />
+  Diagonal en cuestión. Por defecto es 0.<br />
+  Usa <em>k &gt; 0</em> para diagonales sobre la diagonal principal, y <em>k &lt; 0</em> para diagonales bajo la diagonal principal.</p>
+      </li>
+      <li>
+        <p><strong>out</strong> (Matriz o vector)<br />
+  Diagonal extraída o matriz diagonal construida.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Matriz random de orden 5
+</span><span class="n">d_A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">diag</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># son los elementos de la diagonal principal de la matriz A.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">v=</span><span class="sh">'</span><span class="p">,</span><span class="n">d_A</span><span class="p">)</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">diag</span><span class="p">(</span><span class="n">d_A</span><span class="p">)</span> <span class="c1"># Crea una matriz diagonal (solo elementos en la diagonal principal) con los elementos de d_A.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[0.19732352 0.25025703 0.25959884 0.48983972 0.14132041]
+ [0.99847553 0.47422155 0.40698131 0.48891106 0.30007843]
+ [0.29969325 0.55094652 0.70773012 0.56139925 0.41237901]
+ [0.74852093 0.35024552 0.94323611 0.82278904 0.55021109]
+ [0.75295973 0.25838071 0.74783274 0.61744358 0.15099475]]
+v= [0.19732352 0.47422155 0.70773012 0.82278904 0.15099475]
+[[0.19732352 0.         0.         0.         0.        ]
+ [0.         0.47422155 0.         0.         0.        ]
+ [0.         0.         0.70773012 0.         0.        ]
+ [0.         0.         0.         0.82278904 0.        ]
+ [0.         0.         0.         0.         0.15099475]]
+</code></pre></div></div>
+
+<p>Existen varios atributos y funciones que permiten describir las características de un <em>array</em>. A continuación, se presentan algunas de las más comunes:</p>
+
+<ul>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">a.ndim</code></strong>: Devuelve el número de dimensiones del <em>array</em> <code class="language-plaintext highlighter-rouge">a</code>.</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">a.shape</code></strong>: Retorna una tupla que indica las dimensiones del <em>array</em> <code class="language-plaintext highlighter-rouge">a</code>.</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">a.size</code></strong>: Proporciona el número total de elementos en el <em>array</em> <code class="language-plaintext highlighter-rouge">a</code>.</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">a.dtype</code></strong>: Indica el tipo de datos de los elementos almacenados en el <em>array</em> <code class="language-plaintext highlighter-rouge">a</code>.</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">a.T</code></strong>: Devuelve la transpuesta del <em>array</em> <code class="language-plaintext highlighter-rouge">a</code> (intercambia filas por columnas en el caso de matrices).</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="mf">3.1</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># Matriz de orden 3x5 (3 filas, 5 columnas). Todos sus elementos son iguales a 3.1
+</span><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">)</span> <span class="c1"># número de elementos que tiene la matriz
+</span><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># orden de la matriz (3 filas y 5 columnas)
+</span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[3.1 3.1 3.1 3.1 3.1]
+ [3.1 3.1 3.1 3.1 3.1]
+ [3.1 3.1 3.1 3.1 3.1]]
+15
+(3, 5)
+[[0.42394896 0.42837491 0.89547643]
+ [0.12416299 0.27471687 0.21652912]
+ [0.79961267 0.11090453 0.44186001]
+ [0.65961756 0.50919244 0.27390606]
+ [0.20697892 0.63413266 0.4020175 ]]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">.</span><span class="n">T</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[0.42394896 0.12416299 0.79961267 0.65961756 0.20697892]
+ [0.42837491 0.27471687 0.11090453 0.50919244 0.63413266]
+ [0.89547643 0.21652912 0.44186001 0.27390606 0.4020175 ]]
+</code></pre></div></div>
+
+<h2 id="acceso-y-modificación-de-los-elementos">Acceso y modificación de los elementos</h2>
+
+<p>Para acceder a los elementos de un vector o una matriz, utilizamos la siguiente sintaxis.</p>
+
+<p>Por ejemplo, si tenemos el vector:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">v[0]</code> representa la <strong>primera componente</strong> del vector <code class="language-plaintext highlighter-rouge">v</code> y devolverá el valor <code class="language-plaintext highlighter-rouge">1</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">v[3]</code> representa la <strong>cuarta componente</strong> del vector <code class="language-plaintext highlighter-rouge">v</code> y devolverá el valor <code class="language-plaintext highlighter-rouge">2</code>.</li>
+</ul>
+
+<p>Es importante recordar que en Python los índices comienzan en <code class="language-plaintext highlighter-rouge">0</code>, lo que significa que el primer elemento tiene índice <code class="language-plaintext highlighter-rouge">0</code>, el segundo elemento tiene índice <code class="language-plaintext highlighter-rouge">1</code>, y así sucesivamente.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">random</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># vector de 4 componentes generado aleatoriamente.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.56554423 0.7158947  0.23732554 0.39578333]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># primera componente del vector v.
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.5655442286233147
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># Cuarta componente del vector v.
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.3957833287291599
+</code></pre></div></div>
+
+<p>Podemos cambiar el valor de un elemento de un vector o matriz asignando un nuevo valor.</p>
+
+<p>Por ejemplo, si tenemos el vector:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div></div>
+<p>Podemos modificar la tercera componente (índice <code class="language-plaintext highlighter-rouge">2</code>) asignándole un nuevo valor:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v[2] = 10
+</code></pre></div></div>
+<p>Después de esta asignación, el vector <code class="language-plaintext highlighter-rouge">v</code> será:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v = [1, 3, 10, 2]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># vector original
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.56554423 0.7158947  0.23732554 0.39578333]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># vector con la tercera componente igual a pi.
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.56554423 0.7158947  3.14159265 0.39578333]
+</code></pre></div></div>
+
+<p>En forma análoga, podemos acceder a los elementos de una matriz utilizando la siguiente sintaxis:</p>
+
+<p><code class="language-plaintext highlighter-rouge">A[i,j]</code> (fila <code class="language-plaintext highlighter-rouge">i</code>, columna <code class="language-plaintext highlighter-rouge">j</code>).</p>
+
+<p>Por ejemplo, si tenemos la matriz:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">A[0, 1]</code> devolverá el elemento de la <strong>primera fila</strong> y la <strong>segunda columna</strong>, es decir, <code class="language-plaintext highlighter-rouge">2</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">A[2, 2]</code> devolverá el elemento de la <strong>tercera fila</strong> y la <strong>tercera columna</strong>, es decir, <code class="language-plaintext highlighter-rouge">9</code>.</li>
+</ul>
+
+<p>Recuerda que, al igual que con los vectores, los índices en Python comienzan en <code class="language-plaintext highlighter-rouge">0</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[0.93974559 0.05350414 0.79262227 0.22552793 0.1799146 ]
+ [0.00175417 0.44495108 0.19229064 0.05121848 0.49654071]
+ [0.93650049 0.6865986  0.45940217 0.67444161 0.88872908]]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Elemento a_11 (fila 1 columna 1).
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9397455885358104
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># Elemento de la fila 3 columna 4.
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.6744416056849745
+</code></pre></div></div>
+
+<p>Podemos cambiar un elemento de la matriz $A$ utilizando la siguiente sintaxis:</p>
+
+<p><code class="language-plaintext highlighter-rouge">A[i,j] = b</code></p>
+
+<p>Por ejemplo, si queremos cambiar el elemento de la segunda fila y tercera columna a <code class="language-plaintext highlighter-rouge">10</code>, lo hacemos así:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</code></pre></div></div>
+<p>Además, también podemos extraer elementos de la matriz $A$ de la siguiente manera:</p>
+
+<ul>
+  <li>
+    <p><strong>Un elemento específico:</strong><br />
+Por ejemplo, <code class="language-plaintext highlighter-rouge">A[0, 1]</code> devuelve el elemento de la primera fila y segunda columna.</p>
+  </li>
+  <li>
+    <p><strong>Una fila completa:</strong><br />
+Usando <code class="language-plaintext highlighter-rouge">A[i, :]</code>, donde <code class="language-plaintext highlighter-rouge">i</code> es el índice de la fila.</p>
+  </li>
+  <li>
+    <p><strong>Una columna completa:</strong><br />
+Usando <code class="language-plaintext highlighter-rouge">A[:, j]</code>, donde <code class="language-plaintext highlighter-rouge">j</code> es el índice de la columna.</p>
+  </li>
+</ul>
+
+<p>Por ejemplo, si tenemos:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">A[1, :]</code> devolverá <code class="language-plaintext highlighter-rouge">[4, 5, 6]</code> (segunda fila completa).</li>
+  <li><code class="language-plaintext highlighter-rouge">A[:, 2]</code> devolverá <code class="language-plaintext highlighter-rouge">[3, 6, 9]</code> (tercera columna completa).</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[0.93974559 0.05350414 0.79262227 0.22552793 0.1799146 ]
+ [0.00175417 0.44495108 0.19229064 0.05121848 0.49654071]
+ [0.93650049 0.6865986  0.45940217 0.67444161 0.88872908]]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Cambié el elemento de la fila 3 columna 4 por un 0.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[0.93974559 0.05350414 0.79262227 0.22552793 0.1799146 ]
+ [0.00175417 0.44495108 0.19229064 0.05121848 0.49654071]
+ [0.93650049 0.6865986  0.45940217 0.         0.88872908]]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># Extraemos toda la información correspondiente a la columna 3 (todas las filas (:), columna 3).
+</span><span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.79262227 0.19229064 0.45940217]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># Extraemos toda la información correspondiente a la fila 1 hasta la 2, columna 4.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.22552793 0.05121848]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">,:]</span> <span class="c1"># Extraemos toda la información correspondiente a la fila 3.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.93650049 0.6865986  0.45940217 0.         0.88872908]
+</code></pre></div></div>
+
+<h2 id="operaciones-matemáticas-con-arrays-a-nivel-de-elemento-a-elemento">Operaciones matemáticas con arrays a nivel de elemento a elemento</h2>
+
+<p>Las operaciones a nivel de elemento se aplican a los elementos que ocupan la misma posición en dos <code class="language-plaintext highlighter-rouge">arrays</code>. Por lo tanto, es necesario que ambos <code class="language-plaintext highlighter-rouge">arrays</code> tengan las mismas dimensiones. El resultado será un <code class="language-plaintext highlighter-rouge">array</code> con las mismas dimensiones que los originales.</p>
+
+<p>Los operadores matemáticos <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">*</code>, <code class="language-plaintext highlighter-rouge">/</code>, <code class="language-plaintext highlighter-rouge">%</code> y <code class="language-plaintext highlighter-rouge">**</code> se utilizan para realizar las siguientes operaciones a nivel de elemento:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">+</code>: Suma elemento a elemento.</li>
+  <li><code class="language-plaintext highlighter-rouge">-</code>: Resta elemento a elemento.</li>
+  <li><code class="language-plaintext highlighter-rouge">*</code>: Producto elemento a elemento.</li>
+  <li><code class="language-plaintext highlighter-rouge">/</code>: División elemento a elemento.</li>
+  <li><code class="language-plaintext highlighter-rouge">%</code>: Cálculo del resto elemento a elemento.</li>
+  <li><code class="language-plaintext highlighter-rouge">**</code>: Potenciación elemento a elemento.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">random</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[1. 1. 1.]
+ [1. 1. 1.]]
+[[0.39344805 0.72132887 0.53187417]
+ [0.76542712 0.76330354 0.65035085]]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="p">)</span> <span class="c1"># Suma elemento a elemento
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[1.39344805 1.72132887 1.53187417]
+ [1.76542712 1.76330354 1.65035085]]
+</code></pre></div></div>
+
+<p>Es importante aclarar que la operación <code class="language-plaintext highlighter-rouge">A * B</code> no realiza el producto matemático tradicional de matrices. En su lugar, aplica el producto <strong>elemento a elemento</strong> entre los <em>arrays</em> <code class="language-plaintext highlighter-rouge">A</code> y <code class="language-plaintext highlighter-rouge">B</code>. Esto significa que cada elemento de <code class="language-plaintext highlighter-rouge">A</code> se multiplica por el elemento correspondiente de <code class="language-plaintext highlighter-rouge">B</code> en la misma posición.</p>
+
+<p>De manera similar, si <code class="language-plaintext highlighter-rouge">A</code> y <code class="language-plaintext highlighter-rouge">B</code> son vectores, la operación <code class="language-plaintext highlighter-rouge">A * B</code> tampoco calcula el producto escalar o vectorial. En cambio, realiza una multiplicación <strong>elemento a elemento</strong> entre los dos vectores.</p>
+
+<p>Por ejemplo, si tenemos:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">B</span>
+</code></pre></div></div>
+<p>El resultado será:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C = [
+    [1*5, 2*6],
+    [3*7, 4*8]
+]
+</code></pre></div></div>
+<p>Esto dará como resultado:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C = [
+    [5, 12],
+    [21, 32]
+]
+</code></pre></div></div>
+<p>Para realizar el producto matemático tradicional de matrices, es necesario usar la función <code class="language-plaintext highlighter-rouge">np.dot(A, B)</code> o el operador <code class="language-plaintext highlighter-rouge">@</code> en Python.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="n">B</span><span class="p">)</span> <span class="c1"># División elemento a elemento.
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[2.54163163 1.3863302  1.88014393]
+ [1.3064601  1.3100948  1.53763158]]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="n">B</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Esto no es B*B. Aquí cada elemento de B se eleva a 2.
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[0.15480136 0.52031534 0.28289014]
+ [0.58587868 0.5826323  0.42295622]]
+</code></pre></div></div>
+
+<h2 id="tipos-de-operadores-en-python">Tipos de Operadores en Python</h2>
+
+<p>En Python, los operadores se clasifican en varias categorías dependiendo de su propósito. A continuación se presentan los principales tipos:</p>
+
+<h3 id="operadores-aritméticos">Operadores Aritméticos</h3>
+<p>Se usan para realizar operaciones matemáticas básicas.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Operador</strong></th>
+      <th><strong>Descripción</strong></th>
+      <th><strong>Ejemplo</strong></th>
+      <th><strong>Resultado</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">+</code></td>
+      <td>Suma</td>
+      <td><code class="language-plaintext highlighter-rouge">5 + 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">8</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-</code></td>
+      <td>Resta</td>
+      <td><code class="language-plaintext highlighter-rouge">5 - 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">*</code></td>
+      <td>Multiplicación</td>
+      <td><code class="language-plaintext highlighter-rouge">5 * 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">15</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/</code></td>
+      <td>División</td>
+      <td><code class="language-plaintext highlighter-rouge">5 / 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1.6667</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%</code></td>
+      <td>Módulo (resto)</td>
+      <td><code class="language-plaintext highlighter-rouge">5 % 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">**</code></td>
+      <td>Potenciación</td>
+      <td><code class="language-plaintext highlighter-rouge">5 ** 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">125</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">//</code></td>
+      <td>División entera</td>
+      <td><code class="language-plaintext highlighter-rouge">5 // 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="operadores-relacionales">Operadores Relacionales</h3>
+<p>Se usan para comparar valores y retornan un valor booleano (<code class="language-plaintext highlighter-rouge">True</code> o <code class="language-plaintext highlighter-rouge">False</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Operador</strong></th>
+      <th><strong>Descripción</strong></th>
+      <th><strong>Ejemplo</strong></th>
+      <th><strong>Resultado</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;</code></td>
+      <td>Menor que</td>
+      <td><code class="language-plaintext highlighter-rouge">5 &lt; 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">False</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=</code></td>
+      <td>Menor o igual que</td>
+      <td><code class="language-plaintext highlighter-rouge">5 &lt;= 5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;</code></td>
+      <td>Mayor que</td>
+      <td><code class="language-plaintext highlighter-rouge">5 &gt; 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;=</code></td>
+      <td>Mayor o igual que</td>
+      <td><code class="language-plaintext highlighter-rouge">5 &gt;= 6</code></td>
+      <td><code class="language-plaintext highlighter-rouge">False</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">==</code></td>
+      <td>Igualdad</td>
+      <td><code class="language-plaintext highlighter-rouge">5 == 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">False</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">!=</code></td>
+      <td>Diferente</td>
+      <td><code class="language-plaintext highlighter-rouge">5 != 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="operadores-lógicos">Operadores Lógicos</h3>
+<p>Se usan para combinar condiciones lógicas.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Operador</strong></th>
+      <th><strong>Descripción</strong></th>
+      <th><strong>Ejemplo</strong></th>
+      <th><strong>Resultado</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">and</code></td>
+      <td>AND lógico</td>
+      <td><code class="language-plaintext highlighter-rouge">(5 &gt; 3) and (5 &lt; 10)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">or</code></td>
+      <td>OR lógico</td>
+      <td><code class="language-plaintext highlighter-rouge">(5 &gt; 3) or (5 &gt; 10)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">not</code></td>
+      <td>NOT lógico</td>
+      <td><code class="language-plaintext highlighter-rouge">not(5 &gt; 3)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">False</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para el trabajo con vectores (por ejemplo, arrays de <code class="language-plaintext highlighter-rouge">numpy</code>) usar:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Operador</strong></th>
+      <th><strong>Nombre</strong></th>
+      <th><strong>Uso</strong></th>
+      <th><strong>Ejemplo</strong></th>
+      <th><strong>Descripción</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&amp;</code></td>
+      <td>AND lógico</td>
+      <td><code class="language-plaintext highlighter-rouge">(cond1) &amp; (cond2)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">(v &gt; 0.1) &amp; (v &lt; 0.4)</code></td>
+      <td>Retorna <code class="language-plaintext highlighter-rouge">True</code> si ambas condiciones son verdaderas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\|</code></td>
+      <td>OR lógico</td>
+      <td><code class="language-plaintext highlighter-rouge">(cond1) \| (cond2)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">(v &lt; 0.1) \| (v &gt; 0.4)</code></td>
+      <td>Retorna <code class="language-plaintext highlighter-rouge">True</code> si al menos una de las condiciones es verdadera.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">~</code></td>
+      <td>NOT lógico</td>
+      <td><code class="language-plaintext highlighter-rouge">~(cond)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">~(v &lt; 0.4)</code></td>
+      <td>Invierte el resultado lógico de la condición (<code class="language-plaintext highlighter-rouge">True</code> ↔ <code class="language-plaintext highlighter-rouge">False</code>).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="operadores-de-asignación">Operadores de Asignación</h3>
+<p>Se usan para asignar valores a variables, con combinaciones de operaciones.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Operador</strong></th>
+      <th><strong>Descripción</strong></th>
+      <th><strong>Ejemplo</strong></th>
+      <th><strong>Resultado</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">=</code></td>
+      <td>Asignación simple</td>
+      <td><code class="language-plaintext highlighter-rouge">x = 5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = 5</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">+=</code></td>
+      <td>Suma y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x += 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x + 3</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">-=</code></td>
+      <td>Resta y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x -= 2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x - 2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">*=</code></td>
+      <td>Multiplicación y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x *= 4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x * 4</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/=</code></td>
+      <td>División y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x /= 2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x / 2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">//=</code></td>
+      <td>División entera y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x //= 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x // 3</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%=</code></td>
+      <td>Módulo y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x %= 2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x % 2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">**=</code></td>
+      <td>Potencia y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x **= 2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x ** 2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&amp;=</code></td>
+      <td>AND bit a bit y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x &amp;= 2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x &amp; 2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">\|=</code></td>
+      <td>OR bit a bit y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x |= 2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x | 2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">^=</code></td>
+      <td>XOR bit a bit y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x ^= 3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x ^ 3</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;&lt;=</code></td>
+      <td>Desplazamiento izquierda y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x &lt;&lt;= 2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x &lt;&lt; 2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;&gt;=</code></td>
+      <td>Desplazamiento derecha y asignación</td>
+      <td><code class="language-plaintext highlighter-rouge">x &gt;&gt;= 1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">x = x &gt;&gt; 1</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="operadores-de-identidad">Operadores de Identidad</h3>
+<p>Se usan para verificar si dos objetos son iguales (mismo objeto en memoria).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Operador</strong></th>
+      <th><strong>Descripción</strong></th>
+      <th><strong>Ejemplo</strong></th>
+      <th><strong>Resultado</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">is</code></td>
+      <td>Verifica identidad</td>
+      <td><code class="language-plaintext highlighter-rouge">x is y</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code> o <code class="language-plaintext highlighter-rouge">False</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">is not</code></td>
+      <td>Verifica no identidad</td>
+      <td><code class="language-plaintext highlighter-rouge">x is not y</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code> o <code class="language-plaintext highlighter-rouge">False</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="operadores-de-pertenencia">Operadores de Pertenencia</h3>
+<p>Se usan para verificar si un valor está presente en una colección.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Operador</strong></th>
+      <th><strong>Descripción</strong></th>
+      <th><strong>Ejemplo</strong></th>
+      <th><strong>Resultado</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">in</code></td>
+      <td>Verifica pertenencia</td>
+      <td><code class="language-plaintext highlighter-rouge">"a" in "abc"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">not in</code></td>
+      <td>Verifica no pertenencia</td>
+      <td><code class="language-plaintext highlighter-rouge">"x" not in "abc"</code></td>
+      <td><code class="language-plaintext highlighter-rouge">True</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="mi">2</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="mi">5</span><span class="o">!=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="mi">6</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>False
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">random</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">v</span><span class="o">&gt;</span><span class="mf">0.4</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.81370763 0.59142879 0.46424298 0.66206272]
+[ True  True  True  True]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Uso con vectores y matrices
+</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+
+<span class="c1"># AND lógico (&amp;): Elementos entre 0.1 y 0.5
+</span><span class="n">and_result</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">v</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">AND lógico: (v &gt; 0.1) &amp; (v &lt; 0.5)</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">and_result</span><span class="p">)</span>  <span class="c1"># Resultado: [ True False False False]
+</span>
+<span class="c1"># OR lógico (|): Elementos menores a 0.1 o mayores a 0.5
+</span><span class="n">or_result</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">v</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">OR lógico: (v &lt; 0.1) | (v &gt; 0.5)</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">or_result</span><span class="p">)</span>  <span class="c1"># Resultado: [False  True  True  True]
+</span>
+<span class="c1"># NOT lógico (~): Elementos que NO son menores a 0.4
+</span><span class="n">not_result</span> <span class="o">=</span> <span class="o">~</span><span class="p">(</span><span class="n">v</span> <span class="o">&lt;</span> <span class="mf">0.4</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="s">NOT lógico: ~(v &lt; 0.4)</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">not_result</span><span class="p">)</span>  <span class="c1"># Resultado: [ True False  True  True]
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AND lógico: (v &gt; 0.1) &amp; (v &lt; 0.5)
+[ True False False False]
+
+OR lógico: (v &lt; 0.1) | (v &gt; 0.5)
+[False  True  True  True]
+
+NOT lógico: ~(v &lt; 0.4)
+[False False  True  True]
+</code></pre></div></div>
+
+<h2 id="estructuras-de-control-de-flujo">Estructuras de control de flujo</h2>
+
+<h3 id="ciclo-for-en-python">Ciclo for en python</h3>
+
+<p>El ciclo for se utiliza para recorrer los elementos de un objeto iterable (lista, tupla, conjunto, diccionario, vectores, matrices) y ejecutar un bloque de código. En cada paso de la iteración se tiene en cuenta a un único elemento del objeto iterable, sobre el cuál se pueden aplicar una serie de operaciones.</p>
+
+<p>Su sintaxis es la siguiente:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for &lt;elem&gt; in &lt;iterable&gt;:
+  &lt;Tu código&gt;
+</code></pre></div></div>
+
+<p>Aquí, $elem$ es la variable que toma el valor del elemento dentro de $iterable$ en cada paso del bucle. Este finaliza su ejecución cuando se recorren todos los elementos.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+5
+3
+25
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Vector de enteros. Estas serán las posiciones de los elementos del vector b
+</span><span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">)</span> <span class="c1"># Defino el vector b del mismo tamaño que el vector a pero con elementos todos iguales a 0.
+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+  <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1"># Lleno componente a componente el vector b.
+</span><span class="nf">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0 1 2 3 4]
+[ 2.  3.  6. 11. 18.]
+</code></pre></div></div>
+
+<h3 id="sentencias-if-else">Sentencias if else</h3>
+
+<p>“Cuando la expresión if se evalúa como True, entonces ejecuta el código que le sigue. Pero si se evalúa como False, entonces ejecuta el código que sigue después de la sentencia else .”</p>
+
+<p>Su sintaxis es la siguiente:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if condicion:
+  ejecutar codigo si la condicion es True
+else:
+  ejecutar codigo si la condicion es False
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s"> b es mayor que a</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">a es mayor que b</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a es mayor que b
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coleccion</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">coleccion</span><span class="p">:</span> <span class="c1"># Note el uso del operador de identidad `is`
+</span>    <span class="k">if</span> <span class="n">e</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">break</span>  <span class="c1"># Break permite salir del ciclo for.
+</span>    <span class="nf">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2
+4
+5
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">coleccion</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">coleccion</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">e</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">True</span><span class="sh">'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="nf">print</span><span class="p">(</span><span class="sh">'</span><span class="s">False</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
+True
+True
+True
+False
+False
+True
+True
+</code></pre></div></div>
+
+<h3 id="sentencia-elif">Sentencia elif</h3>
+
+<p>La sintaxis básica es similar a la siguiente:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if primera_condicion:
+  ejecutar sentencia
+elif segunda_condicion:
+  ejecutar sentencia
+else:
+  ejecutar sentencia alternativa si todas las condiciones previas son son evaluadas como False
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s"> x es mayor que 10!</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+      <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">x es menor que 10!</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="p">:</span>
+      <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">x es menor que 20!</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+     <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">x es igual a 10</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> x es mayor que 10!
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s"> 10 &lt; x &lt; 20</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+      <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">x &lt;= 10</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+     <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">x &gt;= 20</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x &gt;= 20
+</code></pre></div></div>
+
+<h3 id="bucle-while-de-python">Bucle while de Python</h3>
+
+<p>El bucle while de Python hace que se ejecute un bloque de código repetidamente mientras una condición sea verdadera. En Python, los bucles while se utilizan principalmente cuando el número de iteraciones necesarias no viene determinado de antemano.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="k">break</span>
+  <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+2
+3
+</code></pre></div></div>
+
+<h2 id="funciones-en-python">Funciones en Python</h2>
+
+<p>Las funciones son una herramienta fundamental en Python que te permiten estructurar y organizar tu código de forma más eficiente. Una de sus principales ventajas es que ayudan a <strong>reducir el número total de líneas de código</strong> en tu proyecto, mejorando su legibilidad y mantenimiento.</p>
+
+<p>En Python, una definición de función tiene las siguientes características:</p>
+
+<ul>
+  <li>La palabra clave <code class="language-plaintext highlighter-rouge">def</code> para indicar que estás definiendo una función.</li>
+  <li>Un nombre de función que describe su propósito.</li>
+  <li>Paréntesis <code class="language-plaintext highlighter-rouge">()</code>, dentro de los cuales se pueden incluir los parámetros de entrada (opcionales).</li>
+  <li>Dos puntos <code class="language-plaintext highlighter-rouge">:</code> para indicar el inicio del bloque de código de la función.</li>
+  <li>Un bloque de código con las instrucciones a ejecutar.</li>
+  <li>Una sentencia de retorno <code class="language-plaintext highlighter-rouge">return</code> (opcional), que especifica el valor que la función devolverá.</li>
+</ul>
+
+<p>Sintaxis básica:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">nombre_funcion</span><span class="p">():</span>
+    <span class="c1"># Aquí va el algoritmo
+</span>    <span class="c1"># Más instrucciones
+</span>    <span class="k">return</span>  <span class="c1"># Retorno opcional
+</span></code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">multiplicacion</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">):</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">input1</span> <span class="o">*</span> <span class="n">input2</span>
+  <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="nf">multiplicacion</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">area_circulo</span><span class="p">(</span><span class="n">radio</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Calcula el área de un círculo dado su radio.
+
+    Parámetros:
+        radio (float): El radio del círculo.
+
+    Retorna:
+        float: El área del círculo.
+    </span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="n">radio</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">El radio no puede ser negativo.</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radio</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># Fórmula: π * r^2
+</span></code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">area_c</span> <span class="o">=</span> <span class="nf">area_circulo</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">area_c</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12.566370614359172
+</code></pre></div></div>
+
+<h2 id="fibonacci-con-la-fórmula-de-binet">Fibonacci con la Fórmula de Binet</h2>
+
+<p>Aquí calculamos el <strong>n-ésimo término en la secuencia de Fibonacci</strong> utilizando la famosa <strong>Fórmula de Binet</strong>.</p>
+
+<h4 id="secuencia-de-fibonacci"><strong>Secuencia de Fibonacci</strong></h4>
+<p>La secuencia de Fibonacci es una sucesión matemática en la que cada número es la suma de los dos anteriores. Se define como:</p>
+
+<p>$
+F(0) = 0, \quad F(1) = 1, \quad F(n) = F(n-1) + F(n-2) \; \text{para } n \geq 2
+$</p>
+
+<h4 id="fórmula-de-binet"><strong>Fórmula de Binet</strong></h4>
+<p>La <strong>fórmula de Binet</strong> permite calcular directamente el valor de ( F(n) ) sin necesidad de realizar un bucle. Está definida como:</p>
+
+<p>$
+F(n) = \frac{\phi^n - \psi^n}{\sqrt{5}}
+$</p>
+
+<p>Donde:</p>
+<ul>
+  <li>$\phi = \frac{1 + \sqrt{5}}{2}$ es el <strong>número áureo</strong>.</li>
+  <li>$\psi = \frac{1 - \sqrt{5}}{2}$ es el complemento.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">fibonacci_binet</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Calcula el n-ésimo término de Fibonacci usando la fórmula de Binet.
+
+    Parámetros:
+        n (int): El índice del número de Fibonacci a calcular (debe ser &gt;= 0).
+
+    Retorna:
+        int: El n-ésimo número de Fibonacci.
+    </span><span class="sh">"""</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">El índice n debe ser un número entero no negativo.</span><span class="sh">"</span><span class="p">)</span>
+
+    <span class="c1"># Cálculo de Fibonacci usando la fórmula de Binet
+</span>    <span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Número áureo (phi)
+</span>    <span class="n">psi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># Complemento
+</span>    <span class="n">fibonacci</span> <span class="o">=</span> <span class="p">(</span><span class="n">phi</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">psi</span><span class="o">**</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nf">round</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">)</span>  <span class="c1"># Redondeamos al entero más cercano
+</span>
+<span class="c1"># Ejemplo de uso
+</span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">fibo_num</span> <span class="o">=</span> <span class="nf">fibonacci_binet</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">El </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s">-ésimo término de Fibonacci es: </span><span class="si">{</span><span class="n">fibo_num</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>El 10-ésimo término de Fibonacci es: 55
+</code></pre></div></div>
+
+<h2 id="taller-de-modelamiento-matemático-y-fenómenos-de-evolución">Taller de Modelamiento matemático y fenómenos de evolución</h2>
+
+<ol>
+<li>
+Construya una función en python que evalúe la función
+
+$$f(x)= \begin{cases}2 \operatorname{sen}^{2}(2 x), &amp; x \leq 0, \\ 1-\mathrm{e}^{-x}, &amp; x&gt;0.\end{cases}$$
+
+<b>Indicación:</b> Dado un vector $x$, su función debe evaluar $f$ en cada elemento de $x$. La función debe retornar un vector $y$ del mismo tamaño con la evaluación de $f$ en cada $x_i$.
+</li>
+
+<li>
+Investigue la librería matplotlib y úsela para gráficar la función $f$ del problema 1. en el intervalo $[-5, 6]$.
+</li>
+
+<li>
+Construya una función en Python, que evalúe la función:
+
+$$f(x)=\begin{cases} 
+x-1, &amp; x \leq -2, \\ 
+1-x^2, &amp; -2 &lt; x &lt; 0, \\ 
+-\displaystyle\frac{1}{x+1}, &amp; x \geq 0 
+\end{cases}$$
+
+Grafique la función $f$ en $[-6,10]$.
+</li>
+
+<li>
+Construya una función que genere una matriz de la forma 
+
+$$\boldsymbol{A}=\left(\begin{array}{cccc}2 &amp; -1 &amp; &amp; 0 \\ -1 &amp; \ddots &amp; \ddots &amp; \\ &amp; \ddots &amp; \ddots &amp; -1 \\ 0 &amp; &amp; -1 &amp; 2\end{array}\right) \in \mathbb{R}^{n \times n}.$$
+
+<b>Indicación:</b> La matriz $A$ es una matriz tridiagonal, solo tiene información distinta de 0 en las tres diagonales. En el resto de posiciones los coeficientes son iguales a 0.
+</li>
+
+<li>
+Haga una función que genere una matriz de la forma
+
+$$
+A=\left(\begin{array}{cc}
+\alpha \mathbf{I} &amp; \varepsilon \mathbf{1} \\
+\varepsilon \mathbf{1} &amp; \alpha \mathbf{I}
+\end{array}\right) \in \mathbb{R}^{2 n \times 2 n},
+$$
+
+donde $\mathbf{1}$ denota la matriz de elementos todos 1 . $\mathbf{I}$ denota a la matriz identidad de $\mathbb{R}^{n \times n}, \alpha, \varepsilon$ y $n$ deben ser parámetros de la función.
+</li>
+
+<li>
+Haga una función que genere una matriz de la forma
+
+$$
+A=\left(\begin{array}{ccc}
+2 n &amp; &amp; \mathbf{1}\\
+&amp; \ddots &amp; \\
+\mathbf{1} &amp; &amp; 2 n
+\end{array}\right) \in \mathbb{R}^{2 n \times 2 n}
+$$
+
+donde $\mathbf{1}$ indica que los elementos fuera de la diagonal principal de la matriz $A$ son unos.
+</li>
+</ol>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits"> Built with Jekyll on Cayman. &copy; 2024 V. A. Osores  </span>
+        <span class="site-footer-credits">Link to <a href="/index">Home Page</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
