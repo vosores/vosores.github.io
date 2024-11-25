@@ -1302,7 +1302,7 @@ $</p>
 
 <ol>
 <li>
-Construya una función en python que evalúe la función
+Construya una función en python que evalúe la función <span style="float: right;">[3 pts.]</span>
 
 $$f(x)= \begin{cases}2 \operatorname{sen}^{2}(2 x), &amp; x \leq 0, \\ 1-\mathrm{e}^{-x}, &amp; x&gt;0.\end{cases}$$
 
@@ -1310,11 +1310,11 @@ $$f(x)= \begin{cases}2 \operatorname{sen}^{2}(2 x), &amp; x \leq 0, \\ 1-\mathrm
 </li>
 
 <li>
-Investigue la librería matplotlib y úsela para gráficar la función $f$ del problema 1. en el intervalo $[-5, 6]$.
+Investigue la librería matplotlib y úsela para gráficar la función $f$ del problema 1. en el intervalo $[-5, 6]$. <span style="float: right;">[3 pts.]</span>
 </li>
 
 <li>
-Construya una función en Python, que evalúe la función:
+Construya una función en Python, que evalúe la función: <span style="float: right;">[4 pts.]</span>
 
 $$f(x)=\begin{cases} 
 x-1, &amp; x \leq -2, \\ 
@@ -1326,7 +1326,7 @@ Grafique la función $f$ en $[-6,10]$.
 </li>
 
 <li>
-Construya una función que genere una matriz de la forma 
+Construya una función que reciba como entrada $n$ y que genere una matriz de la forma  <span style="float: right;">[10 pts.]</span>
 
 $$\boldsymbol{A}=\left(\begin{array}{cccc}2 &amp; -1 &amp; &amp; 0 \\ -1 &amp; \ddots &amp; \ddots &amp; \\ &amp; \ddots &amp; \ddots &amp; -1 \\ 0 &amp; &amp; -1 &amp; 2\end{array}\right) \in \mathbb{R}^{n \times n}.$$
 
@@ -1334,7 +1334,7 @@ $$\boldsymbol{A}=\left(\begin{array}{cccc}2 &amp; -1 &amp; &amp; 0 \\ -1 &amp; \
 </li>
 
 <li>
-Haga una función que genere una matriz de la forma
+Haga una función que reciba como entrada $n$, $varepsilon$ y $\alpha$, que genere una matriz de la forma <span style="float: right;">[10 pts.]</span>
 
 $$
 A=\left(\begin{array}{cc}
@@ -1347,7 +1347,7 @@ donde $\mathbf{1}$ denota la matriz de elementos todos 1 . $\mathbf{I}$ denota a
 </li>
 
 <li>
-Haga una función que genere una matriz de la forma
+Haga una función que reciba como entrada $n$ y que genere una matriz de la forma <span style="float: right;">[10 pts.]</span>
 
 $$
 A=\left(\begin{array}{ccc}
@@ -1358,6 +1358,28 @@ A=\left(\begin{array}{ccc}
 $$
 
 donde $\mathbf{1}$ indica que los elementos fuera de la diagonal principal de la matriz $A$ son unos.
+</li>
+Haga una función que genere una matriz de la forma
+<li>
+a) Diseñe una función en Python que reciba como entrada el orden $n$ de una matriz simétrica cuyas entradas son definidas por: <span style="float: right;">[5 pts.]</span>
+    \[
+    A_{ij} = \begin{cases} 
+    i + j, &amp; \text{si } i \neq j, \\
+    2i, &amp; \text{si } i = j.
+    \end{cases}
+    \]
+
+b) Análogamente, construya una función en Python que dado $n$ entregue la matriz $E \in \mathbb{R}^{n \times n}$ donde cada entrada $E_{ij}$ se defina como: <span style="float: right;">[5 pts.]</span>
+    \[
+    E_{ij} = i^2 - j^2.
+    \]
+</li>
+<li>
+<p>Usando la fórmula: <span style="float: right;">[10 pts.]</span></p>
+    \[
+    \frac{\sin(x + h) - \sin(x)}{h},
+    \]
+    aproxime la derivada de $\sin(x)$ (es decir, $\cos(x)$) en $x = 0.5$, usando $h = 10^{-p}$ para $p = 1, \ldots, 10$ y calcule el error al usar esta aproximación.
 </li>
 </ol>
 
