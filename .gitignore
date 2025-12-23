@@ -1,0 +1,34 @@
+# -------------------------
+# Jekyll / GitHub Pages
+# -------------------------
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Cache / build artifacts
+.sass-cache/
+.cache/
+
+# -------------------------
+# Ruby / Bundler
+# -------------------------
+.bundle/
+vendor/bundle/
+vendor/cache/
+vendor/ruby/
+
+# -------------------------
+# OS / editor junk
+# -------------------------
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
