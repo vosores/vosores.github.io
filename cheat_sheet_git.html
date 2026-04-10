@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheat Sheet Git Profesional</title>
+<style>
+  :root{
+    --blue:#183d63;
+    --blue2:#1f4e79;
+    --light:#f4f7fb;
+    --line:#d5deea;
+    --text:#16212b;
+    --muted:#5b6573;
+    --warn:#fff4e5;
+    --warn-line:#e7b365;
+    --ok:#1e6b43;
+    --ok-bg:#e8f6ee;
+    --copy-bg:#f8fbff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#eef3f8;
+    line-height:1.45;
+  }
+  .page{
+    width:1120px;
+    margin:28px auto;
+    background:white;
+    padding:28px 34px 32px;
+    border-radius:18px;
+    box-shadow:0 12px 36px rgba(14,33,52,.10);
+  }
+  .hero{
+    background:linear-gradient(135deg,var(--blue),#285f95);
+    color:white;
+    border-radius:16px;
+    padding:22px 24px;
+    margin-bottom:18px;
+  }
+  .hero h1{margin:0 0 6px;font-size:31px;letter-spacing:.3px}
+  .hero p{margin:0;font-size:14px;opacity:.95}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+  .card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+    background:white;
+  }
+  .card h2{margin:0 0 10px;color:var(--blue);font-size:18px}
+  .badge{
+    display:inline-block;background:#e8f0f8;color:var(--blue2);
+    border:1px solid #c9d9ea;border-radius:999px;padding:5px 10px;
+    font-size:12px;font-weight:700;margin:0 8px 8px 0;
+  }
+  .note{
+    background:#eaf2f8;border:1px solid #bad0e4;border-radius:14px;
+    padding:12px 14px;margin:14px 0 18px;font-size:14px;
+  }
+  .warn{
+    background:var(--warn);border:1px solid var(--warn-line);border-radius:14px;
+    padding:12px 14px;margin-top:14px;font-size:14px;
+  }
+  h3.section{
+    margin:18px 0 10px;color:var(--blue);font-size:19px;border-bottom:2px solid #e8eef5;padding-bottom:6px;
+  }
+  table{
+    width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;
+    border:1px solid var(--line);border-radius:14px;font-size:13px;
+  }
+  th,td{padding:10px 11px;vertical-align:top;border-bottom:1px solid #e7edf4}
+  th{background:var(--blue2);color:white;text-align:left;font-size:12.5px;letter-spacing:.2px}
+  tr:nth-child(even) td{background:var(--light)}
+  tr:last-child td{border-bottom:none}
+  code{
+    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+    background:#f1f5f9;border:1px solid #dbe5f0;border-radius:7px;
+    padding:2px 6px;font-size:12px;color:#0f2740;
+  }
+  .mini-table th,.mini-table td{padding:8px 10px}
+  ul.clean{margin:8px 0 0 18px;padding:0}
+  .footer{margin-top:16px;color:var(--muted);font-size:12px;text-align:center}
+
+  td.copyable{
+    position:relative;
+    cursor:copy;
+    transition:background-color .15s ease, box-shadow .15s ease;
+  }
+  td.copyable:hover{
+    background:var(--copy-bg) !important;
+    box-shadow: inset 0 0 0 1px #c9d9ea;
+  }
+  td.copyable::after{
+    content:"Copiar";
+    position:absolute;
+    top:7px;
+    right:8px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--blue2);
+    background:#eef5fc;
+    border:1px solid #c9d9ea;
+    border-radius:999px;
+    padding:2px 7px;
+    opacity:0;
+    transform:translateY(-2px);
+    transition:opacity .15s ease, transform .15s ease;
+    pointer-events:none;
+  }
+  td.copyable:hover::after,
+  td.copyable:focus-visible::after{
+    opacity:1;
+    transform:translateY(0);
+  }
+  td.copyable.copied{
+    background:var(--ok-bg) !important;
+    box-shadow: inset 0 0 0 1px #b8e0c8;
+  }
+  td.copyable.copied::after{
+    content:"Copiado";
+    opacity:1;
+    transform:translateY(0);
+    color:var(--ok);
+    border-color:#b8e0c8;
+    background:#f3fcf6;
+  }
+
+  @media print{
+    body{background:white}
+    .page{width:auto;margin:0;box-shadow:none;border-radius:0;padding:12mm}
+    .hero{break-inside:avoid}
+    table,.card,.note,.warn{break-inside:avoid}
+    td.copyable::after{display:none}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <h1>Cheat Sheet Git</h1>
+      <p>Resumen de control de versiones, ramas, repositorios remotos, inspección del historial, recuperación y estrategias seguras de merge.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Conceptos clave</h2>
+        <span class="badge">Repositorio</span>
+        <span class="badge">Commit</span>
+        <span class="badge">Branch</span>
+        <span class="badge">Merge</span>
+        <ul class="clean">
+          <li><strong>Working tree:</strong> archivos que estás editando.</li>
+          <li><strong>Staging area:</strong> cambios preparados con <code>git add</code>.</li>
+          <li><strong>Commit:</strong> instantánea del proyecto.</li>
+          <li><strong>Branch:</strong> línea de desarrollo independiente.</li>
+          <li><strong>Remote:</strong> repositorio remoto, por ejemplo <code>origin</code>.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Estados más comunes</h2>
+        <ul class="clean">
+          <li><code>untracked</code>: archivo nuevo no seguido por Git.</li>
+          <li><code>modified</code>: archivo modificado.</li>
+          <li><code>staged</code>: cambio listo para commit.</li>
+          <li><code>committed</code>: cambio ya guardado en el historial.</li>
+          <li><code>ahead/behind</code>: tu rama está adelantada o atrasada respecto al remoto.</li>
+          <li><code>detached HEAD</code>: estás parado en un commit, no en una rama.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note"><strong>Flujo mental básico:</strong> editar archivos <strong>→</strong> <code>git status</code> <strong>→</strong> <code>git add</code> <strong>→</strong> <code>git commit</code> <strong>→</strong> <code>git push</code>. Para integrar trabajo ajeno: <code>git fetch</code>, revisar, y luego <code>merge</code> o <code>pull</code>.</div>
+
+    <h3 class="section">1. Configuración inicial e inicio de repositorios</h3>
+    <table>
+      <thead>
+        <tr><th style="width:17%">Comando</th><th style="width:31%">¿Para qué sirve?</th><th style="width:22%">Sintaxis típica</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git --version</code></td><td>Muestra la versión instalada de Git.</td><td><code>git --version</code></td><td><code>git --version</code></td></tr>
+        <tr><td><code>git config --global user.name</code></td><td>Define tu nombre para los commits.</td><td><code>git config --global user.name "Nombre"</code></td><td><code>git config --global user.name "Víctor"</code></td></tr>
+        <tr><td><code>git config --global user.email</code></td><td>Define tu correo para los commits.</td><td><code>git config --global user.email "correo"</code></td><td><code>git config --global user.email "vosores@ejemplo.com"</code></td></tr>
+        <tr><td><code>git config --global init.defaultBranch</code></td><td>Define el nombre por defecto de la rama inicial.</td><td><code>git config --global init.defaultBranch main</code></td><td><code>git config --global init.defaultBranch main</code></td></tr>
+        <tr><td><code>git config --list</code></td><td>Muestra la configuración activa.</td><td><code>git config --list</code></td><td><code>git config --list</code></td></tr>
+        <tr><td><code>git init</code></td><td>Inicializa un repositorio local.</td><td><code>git init</code></td><td><code>git init</code></td></tr>
+        <tr><td><code>git clone</code></td><td>Clona un repositorio remoto.</td><td><code>git clone URL</code></td><td><code>git clone git@github.com:usuario/proyecto.git</code></td></tr>
+        <tr><td><code>git remote add origin</code></td><td>Asocia un remoto al repositorio local.</td><td><code>git remote add origin URL</code></td><td><code>git remote add origin git@github.com:usuario/proyecto.git</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">2. Flujo básico de trabajo diario</h3>
+    <table>
+      <thead>
+        <tr><th style="width:16%">Comando</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:34%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git status</code></td><td>Muestra el estado actual de archivos y rama.</td><td><code>git status</code></td><td><code>git status</code></td></tr>
+        <tr><td><code>git add archivo</code></td><td>Agrega un archivo específico al staging.</td><td><code>git add archivo</code></td><td><code>git add app.py</code></td></tr>
+        <tr><td><code>git add .</code></td><td>Agrega todos los cambios del directorio actual.</td><td><code>git add .</code></td><td><code>git add .</code></td></tr>
+        <tr><td><code>git add -A</code></td><td>Agrega modificaciones, nuevos archivos y eliminaciones.</td><td><code>git add -A</code></td><td><code>git add -A</code></td></tr>
+        <tr><td><code>git commit -m</code></td><td>Crea un commit con mensaje corto.</td><td><code>git commit -m "mensaje"</code></td><td><code>git commit -m "Corrige conflicto en template base"</code></td></tr>
+        <tr><td><code>git commit -am</code></td><td>Hace add y commit solo de archivos ya rastreados.</td><td><code>git commit -am "mensaje"</code></td><td><code>git commit -am "Ajusta estilos del navbar"</code></td></tr>
+        <tr><td><code>git push</code></td><td>Sube commits al remoto.</td><td><code>git push remote rama</code></td><td><code>git push origin main</code></td></tr>
+        <tr><td><code>git push -u origin rama</code></td><td>Sube una rama nueva y fija el upstream.</td><td><code>git push -u origin rama</code></td><td><code>git push -u origin fran</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">3. Inspección del historial y diferencias</h3>
+    <table>
+      <thead>
+        <tr><th style="width:17%">Comando</th><th style="width:28%">¿Qué muestra?</th><th style="width:22%">Sintaxis básica</th><th style="width:33%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git log</code></td><td>Historial completo de commits.</td><td><code>git log</code></td><td><code>git log</code></td></tr>
+        <tr><td><code>git log --oneline --graph --all</code></td><td>Vista resumida y gráfica de ramas.</td><td><code>git log --oneline --graph --all</code></td><td><code>git log --oneline --graph --all</code></td></tr>
+        <tr><td><code>git show</code></td><td>Detalle de un commit específico.</td><td><code>git show HASH</code></td><td><code>git show a1b2c3d</code></td></tr>
+        <tr><td><code>git diff</code></td><td>Diferencias no staged.</td><td><code>git diff</code></td><td><code>git diff</code></td></tr>
+        <tr><td><code>git diff --staged</code></td><td>Diferencias ya agregadas al staging.</td><td><code>git diff --staged</code></td><td><code>git diff --staged</code></td></tr>
+        <tr><td><code>git diff rama1..rama2</code></td><td>Compara ramas o commits.</td><td><code>git diff A..B</code></td><td><code>git diff main..fran</code></td></tr>
+        <tr><td><code>git blame</code></td><td>Indica quién modificó cada línea.</td><td><code>git blame archivo</code></td><td><code>git blame main.py</code></td></tr>
+        <tr><td><code>git shortlog -sn</code></td><td>Resume commits por autor.</td><td><code>git shortlog -sn</code></td><td><code>git shortlog -sn</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">4. Ramas y navegación</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:28%">Uso</th><th style="width:20%">Sintaxis</th><th style="width:34%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git branch</code></td><td>Lista ramas locales.</td><td><code>git branch</code></td><td><code>git branch</code></td></tr>
+        <tr><td><code>git branch -a</code></td><td>Lista ramas locales y remotas.</td><td><code>git branch -a</code></td><td><code>git branch -a</code></td></tr>
+        <tr><td><code>git branch nombre</code></td><td>Crea una rama sin cambiarte a ella.</td><td><code>git branch rama</code></td><td><code>git branch feature-login</code></td></tr>
+        <tr><td><code>git switch rama</code></td><td>Cambia a una rama existente.</td><td><code>git switch rama</code></td><td><code>git switch main</code></td></tr>
+        <tr><td><code>git checkout rama</code></td><td>Cambia a una rama existente.</td><td><code>git checkout rama</code></td><td><code>git checkout fran</code></td></tr>
+        <tr><td><code>git switch -c rama</code></td><td>Crea y cambia a una nueva rama.</td><td><code>git switch -c rama</code></td><td><code>git switch -c hotfix-navbar</code></td></tr>
+        <tr><td><code>git checkout -b rama</code></td><td>Equivalente clásico para crear y cambiar.</td><td><code>git checkout -b rama</code></td><td><code>git checkout -b correccion-template</code></td></tr>
+        <tr><td><code>git branch -m</code></td><td>Renombra la rama actual o una específica.</td><td><code>git branch -m nueva</code></td><td><code>git branch -m master main</code></td></tr>
+        <tr><td><code>git branch -d rama</code></td><td>Borra una rama ya fusionada.</td><td><code>git branch -d rama</code></td><td><code>git branch -d feature-login</code></td></tr>
+        <tr><td><code>git branch -D rama</code></td><td>Fuerza el borrado de una rama.</td><td><code>git branch -D rama</code></td><td><code>git branch -D rama-experimental</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">5. Repositorios remotos y sincronización</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:28%">Uso</th><th style="width:21%">Sintaxis</th><th style="width:33%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git remote -v</code></td><td>Muestra los remotos configurados.</td><td><code>git remote -v</code></td><td><code>git remote -v</code></td></tr>
+        <tr><td><code>git remote add</code></td><td>Agrega un remoto.</td><td><code>git remote add nombre URL</code></td><td><code>git remote add upstream URL</code></td></tr>
+        <tr><td><code>git remote remove</code></td><td>Elimina un remoto.</td><td><code>git remote remove nombre</code></td><td><code>git remote remove upstream</code></td></tr>
+        <tr><td><code>git fetch</code></td><td>Trae cambios del remoto sin fusionarlos.</td><td><code>git fetch remote</code></td><td><code>git fetch origin</code></td></tr>
+        <tr><td><code>git fetch --all --prune</code></td><td>Actualiza todos los remotos y limpia referencias obsoletas.</td><td><code>git fetch --all --prune</code></td><td><code>git fetch --all --prune</code></td></tr>
+        <tr><td><code>git pull</code></td><td>Trae y fusiona cambios del remoto.</td><td><code>git pull remote rama</code></td><td><code>git pull origin main</code></td></tr>
+        <tr><td><code>git pull --rebase</code></td><td>Trae cambios y reubica tus commits arriba.</td><td><code>git pull --rebase origin rama</code></td><td><code>git pull --rebase origin main</code></td></tr>
+        <tr><td><code>git push</code></td><td>Envía commits locales al remoto.</td><td><code>git push remote rama</code></td><td><code>git push origin fran</code></td></tr>
+        <tr><td><code>git push --force-with-lease</code></td><td>Fuerza push con protección extra.</td><td><code>git push --force-with-lease</code></td><td><code>git push --force-with-lease origin mi-rama</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn"><strong>Importante:</strong> <code>git fetch</code> es mucho más seguro que <code>git pull</code> cuando quieres revisar antes de integrar cambios. <code>pull</code> = <code>fetch</code> + <code>merge</code> (o rebase si se configuró así).</div>
+
+    <h3 class="section">6. Stash, archivos ignorados y limpieza</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:28%">Uso</th><th style="width:21%">Sintaxis</th><th style="width:33%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git stash</code></td><td>Guarda temporalmente cambios no committeados.</td><td><code>git stash</code></td><td><code>git stash</code></td></tr>
+        <tr><td><code>git stash push -m</code></td><td>Guarda cambios con mensaje.</td><td><code>git stash push -m "texto"</code></td><td><code>git stash push -m "antes de traer main"</code></td></tr>
+        <tr><td><code>git stash list</code></td><td>Lista stashes guardados.</td><td><code>git stash list</code></td><td><code>git stash list</code></td></tr>
+        <tr><td><code>git stash pop</code></td><td>Recupera el stash más reciente y lo elimina.</td><td><code>git stash pop</code></td><td><code>git stash pop</code></td></tr>
+        <tr><td><code>git stash apply</code></td><td>Recupera un stash sin borrarlo.</td><td><code>git stash apply stash@{n}</code></td><td><code>git stash apply stash@{1}</code></td></tr>
+        <tr><td><code>git clean -n</code></td><td>Muestra qué archivos no rastreados borraría.</td><td><code>git clean -n</code></td><td><code>git clean -n</code></td></tr>
+        <tr><td><code>git clean -fd</code></td><td>Borra archivos y carpetas no rastreados.</td><td><code>git clean -fd</code></td><td><code>git clean -fd</code></td></tr>
+        <tr><td><code>.gitignore</code></td><td>Evita que ciertos archivos entren al control de versiones.</td><td><code>.gitignore</code></td><td><code>__pycache__/</code>, <code>*.sqlite3</code>, <code>media/</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">7. Restaurar, resetear y revertir</h3>
+    <table>
+      <thead>
+        <tr><th style="width:17%">Comando</th><th style="width:29%">¿Qué hace?</th><th style="width:22%">Sintaxis básica</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git restore archivo</code></td><td>Descarta cambios no staged de un archivo.</td><td><code>git restore archivo</code></td><td><code>git restore settings.py</code></td></tr>
+        <tr><td><code>git restore --staged archivo</code></td><td>Saca un archivo del staging.</td><td><code>git restore --staged archivo</code></td><td><code>git restore --staged urls.py</code></td></tr>
+        <tr><td><code>git reset HEAD archivo</code></td><td>Forma clásica de sacar del staging.</td><td><code>git reset HEAD archivo</code></td><td><code>git reset HEAD app.py</code></td></tr>
+        <tr><td><code>git reset --soft HEAD~1</code></td><td>Deshace el último commit pero conserva staging.</td><td><code>git reset --soft HEAD~1</code></td><td><code>git reset --soft HEAD~1</code></td></tr>
+        <tr><td><code>git reset --mixed HEAD~1</code></td><td>Deshace el commit y deja cambios fuera del staging.</td><td><code>git reset --mixed HEAD~1</code></td><td><code>git reset --mixed HEAD~1</code></td></tr>
+        <tr><td><code>git reset --hard HEAD~1</code></td><td>Deshace commit y borra cambios locales asociados.</td><td><code>git reset --hard HEAD~1</code></td><td><code>git reset --hard HEAD~1</code></td></tr>
+        <tr><td><code>git revert HASH</code></td><td>Crea un nuevo commit que revierte otro anterior.</td><td><code>git revert HASH</code></td><td><code>git revert a1b2c3d</code></td></tr>
+        <tr><td><code>git reflog</code></td><td>Muestra movimientos de HEAD y permite recuperar estados.</td><td><code>git reflog</code></td><td><code>git reflog</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn"><strong>Diferencia crítica:</strong> <code>reset</code> reescribe historia local; <code>revert</code> agrega un commit nuevo y suele ser más seguro si el commit ya fue compartido con otras personas.</div>
+
+    <h3 class="section">8. Merge: conceptos, comandos y uso seguro</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:28%">Uso</th><th style="width:21%">Sintaxis</th><th style="width:33%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git merge rama</code></td><td>Fusiona una rama dentro de la rama actual.</td><td><code>git merge rama</code></td><td><code>git merge main</code></td></tr>
+        <tr><td><code>git merge --no-ff rama</code></td><td>Fuerza un commit de merge aunque Git pudiera avanzar en línea recta.</td><td><code>git merge --no-ff rama</code></td><td><code>git merge --no-ff feature-login</code></td></tr>
+        <tr><td><code>git merge --ff-only rama</code></td><td>Solo permite fast-forward; si no se puede, falla.</td><td><code>git merge --ff-only rama</code></td><td><code>git merge --ff-only main</code></td></tr>
+        <tr><td><code>git merge --abort</code></td><td>Cancela un merge en conflicto y vuelve al estado anterior.</td><td><code>git merge --abort</code></td><td><code>git merge --abort</code></td></tr>
+        <tr><td><code>git merge --continue</code></td><td>Continúa un merge después de resolver conflictos.</td><td><code>git merge --continue</code></td><td><code>git merge --continue</code></td></tr>
+        <tr><td><code>git mergetool</code></td><td>Abre una herramienta gráfica o configurada para resolver conflictos.</td><td><code>git mergetool</code></td><td><code>git mergetool</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note"><strong>Regla de oro del merge:</strong> Git fusiona <em>la rama que nombras</em> dentro de <em>la rama en la que estás parado</em>. Si estás en <code>fran</code> y ejecutas <code>git merge main</code>, estás trayendo <code>main</code> a <code>fran</code>. Si estás en <code>main</code> y ejecutas <code>git merge fran</code>, estás trayendo <code>fran</code> a <code>main</code>.</div>
+
+    <h3 class="section">9. Escenarios delicados de merge</h3>
+    <table>
+      <thead>
+        <tr><th style="width:28%">Objetivo</th><th style="width:37%">Secuencia recomendada</th><th style="width:35%">Comentario</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Traer <code>main</code> a tu rama <code>fran</code></td>
+          <td><code>git checkout main</code><br><code>git pull origin main</code><br><code>git checkout fran</code><br><code>git merge main</code></td>
+          <td>Este flujo actualiza primero <code>main</code> y luego integra esos cambios en tu rama de trabajo.</td>
+        </tr>
+        <tr>
+          <td>Fusionar <code>fran</code> en <code>main</code></td>
+          <td><code>git checkout main</code><br><code>git pull origin main</code><br><code>git merge fran</code><br><code>git push origin main</code></td>
+          <td>Hazlo solo cuando <code>main</code> esté limpio y estés segura de que la rama ya fue probada.</td>
+        </tr>
+        <tr>
+          <td>Revisar antes de fusionar</td>
+          <td><code>git fetch origin</code><br><code>git log --oneline --graph --all</code><br><code>git diff main..fran</code></td>
+          <td>Muy útil antes de hacer un merge delicado en proyectos compartidos.</td>
+        </tr>
+        <tr>
+          <td>Merge con commit explícito</td>
+          <td><code>git checkout main</code><br><code>git merge --no-ff fran</code></td>
+          <td>Deja un hito visible en el historial. Útil para features importantes.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn"><strong>Antes de cualquier merge delicado:</strong>
+      <ul class="clean">
+        <li>Ejecuta <code>git status</code> y verifica que el árbol esté limpio.</li>
+        <li>Haz <code>git stash</code> si tienes trabajo a medio hacer.</li>
+        <li>Actualiza la rama base con <code>git pull origin main</code>.</li>
+        <li>Revisa diferencias con <code>git diff</code> o el historial con <code>git log --graph --all</code>.</li>
+      </ul>
+    </div>
+
+    <h3 class="section">10. Conflictos de merge: qué hacer paso a paso</h3>
+    <table>
+      <thead>
+        <tr><th style="width:15%">Paso</th><th style="width:28%">Acción</th><th style="width:22%">Comando típico</th><th style="width:35%">Qué significa</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Detectar el conflicto</td><td><code>git status</code></td><td>Git te dirá qué archivos quedaron en conflicto.</td></tr>
+        <tr><td>2</td><td>Abrir el archivo</td><td><code>nano archivo</code> o editor</td><td>Verás marcas como <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</td></tr>
+        <tr><td>3</td><td>Elegir o combinar contenido</td><td>edición manual</td><td>Debes dejar el texto correcto y borrar las marcas del conflicto.</td></tr>
+        <tr><td>4</td><td>Marcar como resuelto</td><td><code>git add archivo</code></td><td>Agregar el archivo le indica a Git que ya fue resuelto.</td></tr>
+        <tr><td>5</td><td>Finalizar el merge</td><td><code>git commit</code> o <code>git merge --continue</code></td><td>Se crea el commit final del merge.</td></tr>
+        <tr><td>6</td><td>Cancelar si hace falta</td><td><code>git merge --abort</code></td><td>Vuelve al estado previo al merge si decides no seguir.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">11. Cherry-pick, tags y utilidades útiles</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:28%">Uso</th><th style="width:21%">Sintaxis</th><th style="width:33%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>git cherry-pick HASH</code></td><td>Trae un commit puntual a la rama actual.</td><td><code>git cherry-pick HASH</code></td><td><code>git cherry-pick a1b2c3d</code></td></tr>
+        <tr><td><code>git tag</code></td><td>Lista etiquetas.</td><td><code>git tag</code></td><td><code>git tag</code></td></tr>
+        <tr><td><code>git tag v1.0</code></td><td>Crea una etiqueta ligera.</td><td><code>git tag nombre</code></td><td><code>git tag v1.0</code></td></tr>
+        <tr><td><code>git tag -a v1.0 -m</code></td><td>Crea una etiqueta anotada.</td><td><code>git tag -a nombre -m "msg"</code></td><td><code>git tag -a v1.0 -m "Primera versión estable"</code></td></tr>
+        <tr><td><code>git push origin --tags</code></td><td>Sube etiquetas al remoto.</td><td><code>git push origin --tags</code></td><td><code>git push origin --tags</code></td></tr>
+        <tr><td><code>git describe --tags</code></td><td>Describe el commit actual respecto a tags.</td><td><code>git describe --tags</code></td><td><code>git describe --tags</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">12. Flujo de trabajo profesional recomendado</h3>
+    <table class="mini-table">
+      <thead><tr><th style="width:34%">Situación</th><th>Secuencia sugerida</th></tr></thead>
+      <tbody>
+        <tr><td>Iniciar trabajo nuevo</td><td><code>git switch main</code> → <code>git pull origin main</code> → <code>git switch -c feature-x</code></td></tr>
+        <tr><td>Guardar avance local</td><td><code>git status</code> → <code>git add .</code> → <code>git commit -m "mensaje"</code></td></tr>
+        <tr><td>Subir rama nueva</td><td><code>git push -u origin feature-x</code></td></tr>
+        <tr><td>Actualizar tu rama con main</td><td><code>git checkout main</code> → <code>git pull origin main</code> → <code>git checkout feature-x</code> → <code>git merge main</code></td></tr>
+        <tr><td>Fusionar rama terminada en main</td><td><code>git checkout main</code> → <code>git pull origin main</code> → <code>git merge --no-ff feature-x</code> → <code>git push origin main</code></td></tr>
+        <tr><td>Deshacer un commit ya compartido</td><td><code>git revert HASH</code></td></tr>
+        <tr><td>Recuperar algo perdido</td><td><code>git reflog</code> → <code>git reset --hard HASH</code> o nueva rama desde ese punto</td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer">Cheat sheet en español para Git • Dr. Víctor A. Osores Escalona • Listo para imprimir o exportar a PDF desde el navegador</div>
+  </div>
+
+<script>
+(function () {
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(resolve, reject) {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-9999px';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        if (ok) resolve();
+        else reject(new Error('No se pudo copiar'));
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  function markCopyableCell(td) {
+    td.classList.add('copyable');
+    td.setAttribute('tabindex', '0');
+    td.setAttribute('title', 'Haz clic para copiar');
+    td.setAttribute('role', 'button');
+
+    const getTextToCopy = function() {
+      return td.innerText.replace(/\s+/g, ' ').trim();
+    };
+
+    const handleCopy = function() {
+      const text = getTextToCopy();
+      if (!text) return;
+      copyText(text).then(function() {
+        td.classList.add('copied');
+        setTimeout(function() {
+          td.classList.remove('copied');
+        }, 1200);
+      }).catch(function() {
+        alert('No se pudo copiar automáticamente. Intenta copiar manualmente.');
+      });
+    };
+
+    td.addEventListener('click', handleCopy);
+    td.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleCopy();
+      }
+    });
+  }
+
+  document.querySelectorAll('table').forEach(function(table) {
+    const headerCells = Array.from(table.querySelectorAll('thead th'));
+    const copyIndexes = [];
+
+    headerCells.forEach(function(th, idx) {
+      const text = th.innerText.trim().toLowerCase();
+      if (
+        text.includes('sintaxis') ||
+        text.includes('ejemplo') ||
+        text.includes('secuencia sugerida') ||
+        text.includes('secuencia recomendada') ||
+        text.includes('comando típico') ||
+        text.includes('comando recomendado')
+      ) {
+        copyIndexes.push(idx);
+      }
+    });
+
+    table.querySelectorAll('tbody tr').forEach(function(tr) {
+      const cells = tr.querySelectorAll('td');
+      copyIndexes.forEach(function(i) {
+        if (cells[i]) markCopyableCell(cells[i]);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
