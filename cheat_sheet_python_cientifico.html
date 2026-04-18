@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheat Sheet Python Científico Profesional</title>
+<style>
+  :root{
+    --blue:#183d63;
+    --blue2:#1f4e79;
+    --light:#f4f7fb;
+    --line:#d5deea;
+    --text:#16212b;
+    --muted:#5b6573;
+    --warn:#fff4e5;
+    --warn-line:#e7b365;
+    --ok:#1e6b43;
+    --ok-bg:#eaf7ef;
+    --copy-bg:#f8fbff;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#eef3f8;
+    line-height:1.45;
+  }
+
+  .page{
+    width:1120px;
+    margin:28px auto;
+    background:white;
+    padding:28px 34px 32px;
+    border-radius:18px;
+    box-shadow:0 12px 36px rgba(14,33,52,.10);
+  }
+
+  .hero{
+    background:linear-gradient(135deg,var(--blue),#285f95);
+    color:white;
+    border-radius:16px;
+    padding:22px 24px;
+    margin-bottom:18px;
+  }
+
+  .hero h1{margin:0 0 6px;font-size:31px;letter-spacing:.3px}
+  .hero p{margin:0;font-size:14px;opacity:.95}
+
+  .actions-bar{
+    display:flex;
+    justify-content:flex-end;
+    margin:0 0 18px;
+  }
+
+  .action-button{
+    appearance:none;
+    border:1px solid #c9d9ea;
+    background:#eef5fc;
+    color:var(--blue2);
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+
+  .action-button:hover{
+    background:#e3effb;
+    box-shadow:0 4px 12px rgba(24,61,99,.10);
+    transform:translateY(-1px);
+  }
+
+  .action-button:focus-visible{
+    outline:2px solid var(--blue2);
+    outline-offset:2px;
+  }
+
+  .action-button.shared{
+    background:var(--ok-bg);
+    color:var(--ok);
+    border-color:#b8e0c8;
+  }
+
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:16px;
+  }
+
+  .grid3{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+    margin-top:16px;
+  }
+
+  .card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+    background:white;
+  }
+
+  .card h2{
+    margin:0 0 10px;
+    color:var(--blue);
+    font-size:18px;
+  }
+
+  .badge{
+    display:inline-block;
+    background:#e8f0f8;
+    color:var(--blue2);
+    border:1px solid #c9d9ea;
+    border-radius:999px;
+    padding:5px 10px;
+    font-size:12px;
+    font-weight:700;
+    margin:0 8px 8px 0;
+  }
+
+  .note{
+    background:#eaf2f8;
+    border:1px solid #bad0e4;
+    border-radius:14px;
+    padding:12px 14px;
+    margin:14px 0 18px;
+    font-size:14px;
+  }
+
+  .warn{
+    background:var(--warn);
+    border:1px solid var(--warn-line);
+    border-radius:14px;
+    padding:12px 14px;
+    margin-top:14px;
+    font-size:14px;
+  }
+
+  h3.section{
+    margin:18px 0 10px;
+    color:var(--blue);
+    font-size:19px;
+    border-bottom:2px solid #e8eef5;
+    padding-bottom:6px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:14px;
+    font-size:13px;
+  }
+
+  th,td{
+    padding:10px 11px;
+    vertical-align:top;
+    border-bottom:1px solid #e7edf4;
+  }
+
+  th{
+    background:var(--blue2);
+    color:white;
+    text-align:left;
+    font-size:12.5px;
+    letter-spacing:.2px;
+  }
+
+  tr:nth-child(even) td{background:var(--light)}
+  tr:last-child td{border-bottom:none}
+
+  code{
+    font-family:"Cascadia Code","Fira Code",Consolas,monospace;
+    background:#f1f5f9;
+    border:1px solid #dbe5f0;
+    border-radius:7px;
+    padding:2px 6px;
+    font-size:12px;
+    color:#0f2740;
+  }
+
+  .mini-table th,.mini-table td{padding:8px 10px}
+  ul.clean{margin:8px 0 0 18px;padding:0}
+
+  .footer{
+    margin-top:16px;
+    color:var(--muted);
+    font-size:12px;
+    text-align:center;
+  }
+
+  td.copyable{
+    position:relative;
+    cursor:copy;
+    transition:background-color .15s ease, box-shadow .15s ease;
+  }
+
+  td.copyable:hover{
+    background:var(--copy-bg) !important;
+    box-shadow: inset 0 0 0 1px #c9d9ea;
+  }
+
+  td.copyable::after{
+    content:"Copiar";
+    position:absolute;
+    top:7px;
+    right:8px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--blue2);
+    background:#eef5fc;
+    border:1px solid #c9d9ea;
+    border-radius:999px;
+    padding:2px 7px;
+    opacity:0;
+    transform:translateY(-2px);
+    transition:opacity .15s ease, transform .15s ease;
+    pointer-events:none;
+  }
+
+  td.copyable:hover::after,
+  td.copyable:focus-visible::after{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  td.copyable.copied{
+    background:var(--ok-bg) !important;
+    box-shadow: inset 0 0 0 1px #b8e0c8;
+  }
+
+  td.copyable.copied::after{
+    content:"Copiado";
+    opacity:1;
+    transform:translateY(0);
+    color:var(--ok);
+    border-color:#b8e0c8;
+    background:#f3fcf6;
+  }
+
+  td.copyable:focus-visible{
+    outline:2px solid var(--blue2);
+    outline-offset:-2px;
+  }
+
+  @media print{
+    body{background:white}
+    .page{width:auto;margin:0;box-shadow:none;border-radius:0;padding:12mm}
+    .hero{break-inside:avoid}
+    table,.card,.note,.warn{break-inside:avoid}
+    td.copyable::after{display:none}
+    .actions-bar{display:none}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <h1>Cheat Sheet Python Científico</h1>
+      <p>Resumen profesional para trabajo numérico, visualización científica, análisis tabular y flujos reproducibles con NumPy, Matplotlib y Pandas.</p>
+    </div>
+
+    <div class="actions-bar">
+      <button id="shareButton" class="action-button" type="button">Compartir</button>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Bibliotecas base</h2>
+        <span class="badge">NumPy</span>
+        <span class="badge">Matplotlib</span>
+        <span class="badge">Pandas</span>
+        <span class="badge">Jupyter</span>
+        <ul class="clean">
+          <li><strong>NumPy</strong> permite trabajar con arrays, cálculo vectorizado, álgebra lineal, integración y discretización.</li>
+          <li><strong>Matplotlib</strong> se usa para gráficos 2D, mapas de calor, contornos, series temporales y figuras listas para informes o papers.</li>
+          <li><strong>Pandas</strong> facilita el manejo de tablas, CSV, Excel, fechas, filtros y análisis exploratorio.</li>
+          <li>En flujo científico real: <code>NumPy</code> calcula, <code>Matplotlib</code> visualiza y <code>Pandas</code> organiza y resume.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Importaciones típicas</h2>
+        <ul class="clean">
+          <li><code>import numpy as np</code></li>
+          <li><code>import matplotlib.pyplot as plt</code></li>
+          <li><code>import pandas as pd</code></li>
+          <li><code>from pathlib import Path</code></li>
+          <li><code>from math import pi, sin, cos</code></li>
+          <li><code>from matplotlib.colors import LogNorm</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Entorno recomendado:</strong>
+      <code>python -m venv .venv</code> → <code>source .venv/bin/activate</code> → <code>pip install numpy matplotlib pandas</code>
+    </div>
+
+    <h3 class="section">1. Entorno y ejecución rápida</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:30%">¿Para qué sirve?</th><th style="width:22%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>python -m venv</code></td><td>Crea un entorno virtual.</td><td><code>python -m venv .venv</code></td><td><code>python -m venv .venv</code></td></tr>
+        <tr><td>Activar entorno</td><td>Activa el entorno virtual en Linux.</td><td><code>source .venv/bin/activate</code></td><td><code>source .venv/bin/activate</code></td></tr>
+        <tr><td><code>pip install</code></td><td>Instala librerías.</td><td><code>pip install paquete</code></td><td><code>pip install numpy matplotlib pandas</code></td></tr>
+        <tr><td><code>python script.py</code></td><td>Ejecuta un script.</td><td><code>python archivo.py</code></td><td><code>python main.py</code></td></tr>
+        <tr><td><code>jupyter lab</code></td><td>Abre JupyterLab si está instalado.</td><td><code>jupyter lab</code></td><td><code>jupyter lab</code></td></tr>
+        <tr><td><code>pip freeze</code></td><td>Lista dependencias instaladas.</td><td><code>pip freeze</code></td><td><code>pip freeze &gt; requirements.txt</code></td></tr>
+        <tr><td><code>pip install -r</code></td><td>Instala dependencias desde archivo.</td><td><code>pip install -r archivo</code></td><td><code>pip install -r requirements.txt</code></td></tr>
+        <tr><td><code>deactivate</code></td><td>Sale del entorno virtual.</td><td><code>deactivate</code></td><td><code>deactivate</code></td></tr>
+      </tbody>
+    </table>
+
+<h3 class="section">2. NumPy: creación de arrays</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Función</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>np.array</code></td><td>Crea un array desde listas o tuplas.</td><td><code>np.array(objeto)</code></td><td><code>np.array([1, 2, 3])</code></td></tr>
+    <tr><td><code>np.asarray</code></td><td>Convierte a array evitando copia si ya es compatible.</td><td><code>np.asarray(objeto)</code></td><td><code>np.asarray(lista)</code></td></tr>
+    <tr><td><code>np.zeros</code></td><td>Crea un array de ceros.</td><td><code>np.zeros(shape)</code></td><td><code>np.zeros((3, 3))</code></td></tr>
+    <tr><td><code>np.ones</code></td><td>Crea un array de unos.</td><td><code>np.ones(shape)</code></td><td><code>np.ones((2, 4))</code></td></tr>
+    <tr><td><code>np.full</code></td><td>Crea un array lleno con un valor.</td><td><code>np.full(shape, valor)</code></td><td><code>np.full((2,2), 7)</code></td></tr>
+    <tr><td><code>np.empty</code></td><td>Reserva memoria sin inicializar valores.</td><td><code>np.empty(shape)</code></td><td><code>np.empty((3, 3))</code></td></tr>
+    <tr><td><code>np.eye</code></td><td>Crea una matriz identidad.</td><td><code>np.eye(n)</code></td><td><code>np.eye(4)</code></td></tr>
+    <tr><td><code>np.diag</code></td><td>Extrae la diagonal o construye una matriz diagonal.</td><td><code>np.diag(A)</code> o <code>np.diag(v)</code></td><td><code>np.diag([1, 2, 3])</code></td></tr>
+    <tr><td><code>np.arange</code></td><td>Crea valores con paso fijo.</td><td><code>np.arange(inicio, fin, paso)</code></td><td><code>np.arange(0, 10, 2)</code></td></tr>
+    <tr><td><code>np.linspace</code></td><td>Crea valores equiespaciados.</td><td><code>np.linspace(a, b, n)</code></td><td><code>np.linspace(0, 1, 100)</code></td></tr>
+    <tr><td><code>np.logspace</code></td><td>Crea valores equiespaciados en escala logarítmica.</td><td><code>np.logspace(a, b, n)</code></td><td><code>np.logspace(-3, 3, 50)</code></td></tr>
+    <tr><td><code>np.random.rand</code></td><td>Genera números aleatorios uniformes en [0,1).</td><td><code>np.random.rand(...)</code></td><td><code>np.random.rand(5)</code></td></tr>
+    <tr><td><code>np.random.randn</code></td><td>Genera normales estándar.</td><td><code>np.random.randn(...)</code></td><td><code>np.random.randn(100)</code></td></tr>
+    <tr><td><code>np.random.randint</code></td><td>Genera enteros aleatorios.</td><td><code>np.random.randint(a, b, size)</code></td><td><code>np.random.randint(0, 10, size=5)</code></td></tr>
+    <tr><td><code>np.random.seed</code></td><td>Fija semilla para reproducibilidad.</td><td><code>np.random.seed(n)</code></td><td><code>np.random.seed(42)</code></td></tr>
+  </tbody>
+</table>
+
+<h3 class="section">3. NumPy: forma, indexación y operaciones</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Herramienta</th><th style="width:28%">¿Qué hace?</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>.shape</code></td><td>Entrega las dimensiones del array.</td><td><code>A.shape</code></td><td><code>A.shape</code></td></tr>
+    <tr><td><code>.ndim</code></td><td>Entrega el número de dimensiones.</td><td><code>A.ndim</code></td><td><code>A.ndim</code></td></tr>
+    <tr><td><code>.size</code></td><td>Entrega la cantidad total de elementos.</td><td><code>A.size</code></td><td><code>A.size</code></td></tr>
+    <tr><td><code>.dtype</code></td><td>Entrega el tipo interno de datos.</td><td><code>A.dtype</code></td><td><code>A.dtype</code></td></tr>
+    <tr><td><code>.astype</code></td><td>Convierte el tipo de datos.</td><td><code>A.astype(tipo)</code></td><td><code>A.astype(float)</code></td></tr>
+    <tr><td><code>.reshape</code></td><td>Reorganiza la forma del array.</td><td><code>A.reshape(...)</code></td><td><code>A.reshape(2, 3)</code></td></tr>
+    <tr><td><code>.flatten</code></td><td>Aplana un array a 1D.</td><td><code>A.flatten()</code></td><td><code>A.flatten()</code></td></tr>
+    <tr><td><code>.ravel</code></td><td>Devuelve una vista 1D si es posible.</td><td><code>A.ravel()</code></td><td><code>A.ravel()</code></td></tr>
+    <tr><td>Indexación</td><td>Accede a elementos específicos.</td><td><code>A[i, j]</code></td><td><code>A[0, 1]</code></td></tr>
+    <tr><td>Slicing</td><td>Extrae subarrays.</td><td><code>A[a:b, c:d]</code></td><td><code>A[:, 0]</code></td></tr>
+    <tr><td>Indexación negativa</td><td>Accede desde el final.</td><td><code>A[-1]</code></td><td><code>x[-1]</code></td></tr>
+    <tr><td>Operaciones vectorizadas</td><td>Opera elemento a elemento.</td><td><code>A + B</code>, <code>A * B</code></td><td><code>x**2 + 2*x + 1</code></td></tr>
+    <tr><td>Broadcasting</td><td>Expande dimensiones compatibles automáticamente.</td><td><code>A + v</code></td><td><code>M + np.array([1,2,3])</code></td></tr>
+    <tr><td><code>np.transpose</code></td><td>Transpone un array.</td><td><code>np.transpose(A)</code></td><td><code>A.T</code></td></tr>
+    <tr><td><code>swapaxes</code></td><td>Intercambia ejes específicos.</td><td><code>A.swapaxes(i, j)</code></td><td><code>A.swapaxes(0, 1)</code></td></tr>
+  </tbody>
+</table>
+
+<h3 class="section">4. NumPy: máscaras, búsqueda y diferencias</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Función</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Máscara booleana</td><td>Filtra elementos según condición.</td><td><code>A[condición]</code></td><td><code>x[x &gt; 0]</code></td></tr>
+    <tr><td><code>np.where</code></td><td>Devuelve índices o aplica selección condicional.</td><td><code>np.where(cond, a, b)</code></td><td><code>np.where(x &gt; 0, x, 0)</code></td></tr>
+    <tr><td><code>np.argmax</code></td><td>Índice del valor máximo.</td><td><code>np.argmax(A)</code></td><td><code>np.argmax(y)</code></td></tr>
+    <tr><td><code>np.argmin</code></td><td>Índice del valor mínimo.</td><td><code>np.argmin(A)</code></td><td><code>np.argmin(y)</code></td></tr>
+    <tr><td><code>np.argsort</code></td><td>Ordena devolviendo índices.</td><td><code>np.argsort(A)</code></td><td><code>np.argsort(y)</code></td></tr>
+    <tr><td><code>np.unique</code></td><td>Entrega valores únicos.</td><td><code>np.unique(A)</code></td><td><code>np.unique(etiquetas)</code></td></tr>
+    <tr><td><code>np.nonzero</code></td><td>Entrega índices de valores distintos de cero.</td><td><code>np.nonzero(A)</code></td><td><code>np.nonzero(A)</code></td></tr>
+    <tr><td><code>np.count_nonzero</code></td><td>Cuenta elementos no nulos.</td><td><code>np.count_nonzero(A)</code></td><td><code>np.count_nonzero(A)</code></td></tr>
+    <tr><td><code>np.diff</code></td><td>Diferencias finitas entre elementos consecutivos.</td><td><code>np.diff(A)</code></td><td><code>np.diff(x)</code></td></tr>
+    <tr><td><code>np.gradient</code></td><td>Aproxima derivadas numéricas.</td><td><code>np.gradient(f, x)</code></td><td><code>np.gradient(y, x)</code></td></tr>
+    <tr><td><code>np.clip</code></td><td>Acota valores a un rango.</td><td><code>np.clip(A, a, b)</code></td><td><code>np.clip(y, 0, 1)</code></td></tr>
+    <tr><td><code>np.cumsum</code></td><td>Suma acumulada.</td><td><code>np.cumsum(A)</code></td><td><code>np.cumsum(x)</code></td></tr>
+    <tr><td><code>np.cumprod</code></td><td>Producto acumulado.</td><td><code>np.cumprod(A)</code></td><td><code>np.cumprod(x)</code></td></tr>
+  </tbody>
+</table>
+
+<h3 class="section">5. NumPy: álgebra lineal y estadísticas</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Función</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>np.sum</code></td><td>Suma elementos.</td><td><code>np.sum(A)</code></td><td><code>np.sum(x)</code></td></tr>
+    <tr><td><code>np.mean</code></td><td>Promedio.</td><td><code>np.mean(A)</code></td><td><code>np.mean(datos)</code></td></tr>
+    <tr><td><code>np.std</code></td><td>Desviación estándar.</td><td><code>np.std(A)</code></td><td><code>np.std(datos)</code></td></tr>
+    <tr><td><code>np.var</code></td><td>Varianza.</td><td><code>np.var(A)</code></td><td><code>np.var(datos)</code></td></tr>
+    <tr><td><code>np.min</code> / <code>np.max</code></td><td>Mínimo y máximo.</td><td><code>np.min(A)</code></td><td><code>np.max(x)</code></td></tr>
+    <tr><td><code>np.median</code></td><td>Mediana.</td><td><code>np.median(A)</code></td><td><code>np.median(datos)</code></td></tr>
+    <tr><td><code>@</code></td><td>Producto matricial.</td><td><code>A @ B</code></td><td><code>A @ x</code></td></tr>
+    <tr><td><code>np.dot</code></td><td>Producto punto o matricial.</td><td><code>np.dot(a, b)</code></td><td><code>np.dot(v1, v2)</code></td></tr>
+    <tr><td><code>np.outer</code></td><td>Producto exterior.</td><td><code>np.outer(a, b)</code></td><td><code>np.outer(x, y)</code></td></tr>
+    <tr><td><code>np.trace</code></td><td>Suma de la diagonal principal.</td><td><code>np.trace(A)</code></td><td><code>np.trace(A)</code></td></tr>
+    <tr><td><code>np.linalg.solve</code></td><td>Resuelve sistemas lineales.</td><td><code>np.linalg.solve(A, b)</code></td><td><code>np.linalg.solve(A, b)</code></td></tr>
+    <tr><td><code>np.linalg.inv</code></td><td>Calcula la inversa de una matriz.</td><td><code>np.linalg.inv(A)</code></td><td><code>np.linalg.inv(A)</code></td></tr>
+    <tr><td><code>np.linalg.eig</code></td><td>Calcula valores y vectores propios.</td><td><code>np.linalg.eig(A)</code></td><td><code>np.linalg.eig(A)</code></td></tr>
+    <tr><td><code>np.linalg.det</code></td><td>Calcula el determinante.</td><td><code>np.linalg.det(A)</code></td><td><code>np.linalg.det(A)</code></td></tr>
+    <tr><td><code>np.linalg.norm</code></td><td>Calcula normas.</td><td><code>np.linalg.norm(A)</code></td><td><code>np.linalg.norm(v)</code></td></tr>
+    <tr><td><code>np.trapz</code></td><td>Integra numéricamente con regla del trapecio.</td><td><code>np.trapz(y, x)</code></td><td><code>np.trapz(y, x)</code></td></tr>
+  </tbody>
+</table>
+
+<h3 class="section">6. NumPy: mallas, concatenación y guardado</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Herramienta</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>np.meshgrid</code></td><td>Construye mallas 2D desde vectores.</td><td><code>np.meshgrid(x, y)</code></td><td><code>X, Y = np.meshgrid(x, y)</code></td></tr>
+    <tr><td><code>np.sin</code>, <code>np.cos</code></td><td>Funciones trigonométricas vectorizadas.</td><td><code>np.sin(x)</code></td><td><code>np.sin(2*np.pi*x)</code></td></tr>
+    <tr><td><code>np.exp</code></td><td>Exponencial elemento a elemento.</td><td><code>np.exp(x)</code></td><td><code>np.exp(-x**2)</code></td></tr>
+    <tr><td><code>np.sqrt</code></td><td>Raíz cuadrada.</td><td><code>np.sqrt(x)</code></td><td><code>np.sqrt(x)</code></td></tr>
+    <tr><td><code>np.concatenate</code></td><td>Une arrays sobre un eje dado.</td><td><code>np.concatenate([A, B], axis=0)</code></td><td><code>np.concatenate([a, b])</code></td></tr>
+    <tr><td><code>np.vstack</code></td><td>Apila arrays verticalmente.</td><td><code>np.vstack([A, B])</code></td><td><code>np.vstack([a, b])</code></td></tr>
+    <tr><td><code>np.hstack</code></td><td>Apila arrays horizontalmente.</td><td><code>np.hstack([A, B])</code></td><td><code>np.hstack([a, b])</code></td></tr>
+    <tr><td><code>np.column_stack</code></td><td>Apila vectores como columnas.</td><td><code>np.column_stack([a, b])</code></td><td><code>np.column_stack([x, y])</code></td></tr>
+    <tr><td><code>np.row_stack</code></td><td>Apila vectores como filas.</td><td><code>np.row_stack([a, b])</code></td><td><code>np.row_stack([x, y])</code></td></tr>
+    <tr><td><code>np.savetxt</code></td><td>Guarda arrays en texto plano.</td><td><code>np.savetxt("archivo.txt", A)</code></td><td><code>np.savetxt("datos.txt", A)</code></td></tr>
+    <tr><td><code>np.loadtxt</code></td><td>Carga arrays desde texto.</td><td><code>np.loadtxt("archivo.txt")</code></td><td><code>np.loadtxt("datos.txt")</code></td></tr>
+    <tr><td><code>np.save</code></td><td>Guarda arrays en formato binario NumPy.</td><td><code>np.save("archivo.npy", A)</code></td><td><code>np.save("campo.npy", Z)</code></td></tr>
+    <tr><td><code>np.load</code></td><td>Carga archivos binarios NumPy.</td><td><code>np.load("archivo.npy")</code></td><td><code>np.load("campo.npy")</code></td></tr>
+  </tbody>
+</table>
+
+    <h3 class="section">7. Matplotlib: gráficos básicos</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Función</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>plt.figure</code></td><td>Crea una figura nueva.</td><td><code>plt.figure()</code></td><td><code>plt.figure(figsize=(8,4))</code></td></tr>
+        <tr><td><code>plt.plot</code></td><td>Grafica líneas.</td><td><code>plt.plot(x, y)</code></td><td><code>plt.plot(x, y)</code></td></tr>
+        <tr><td><code>plt.scatter</code></td><td>Grafica puntos dispersos.</td><td><code>plt.scatter(x, y)</code></td><td><code>plt.scatter(x, y)</code></td></tr>
+        <tr><td><code>plt.hist</code></td><td>Grafica histogramas.</td><td><code>plt.hist(datos)</code></td><td><code>plt.hist(datos, bins=20)</code></td></tr>
+        <tr><td><code>plt.bar</code></td><td>Grafica barras.</td><td><code>plt.bar(x, y)</code></td><td><code>plt.bar(categorias, valores)</code></td></tr>
+        <tr><td><code>plt.imshow</code></td><td>Muestra matrices o imágenes.</td><td><code>plt.imshow(A)</code></td><td><code>plt.imshow(M, origin="lower")</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">8. Matplotlib: subplots y control por ejes</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Herramienta</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>plt.subplots</code></td><td>Crea figura y ejes de forma estructurada.</td><td><code>fig, ax = plt.subplots()</code></td><td><code>fig, ax = plt.subplots(figsize=(8,4))</code></td></tr>
+    <tr><td><code>ax.plot</code></td><td>Grafica sobre un eje específico.</td><td><code>ax.plot(x, y)</code></td><td><code>ax.plot(t, q)</code></td></tr>
+    <tr><td><code>ax.scatter</code></td><td>Dispersiones por eje.</td><td><code>ax.scatter(x, y)</code></td><td><code>ax.scatter(x, y)</code></td></tr>
+    <tr><td><code>ax.set_title</code></td><td>Define título del eje.</td><td><code>ax.set_title("...")</code></td><td><code>ax.set_title("Serie temporal")</code></td></tr>
+    <tr><td><code>ax.set_xlabel</code></td><td>Etiqueta del eje x.</td><td><code>ax.set_xlabel("x")</code></td><td><code>ax.set_xlabel("Tiempo")</code></td></tr>
+    <tr><td><code>ax.set_ylabel</code></td><td>Etiqueta del eje y.</td><td><code>ax.set_ylabel("y")</code></td><td><code>ax.set_ylabel("Caudal")</code></td></tr>
+    <tr><td><code>ax.grid</code></td><td>Activa la grilla en un eje.</td><td><code>ax.grid(True)</code></td><td><code>ax.grid(True)</code></td></tr>
+    <tr><td><code>fig.colorbar</code></td><td>Agrega barra de color ligada a un objeto gráfico.</td><td><code>fig.colorbar(im, ax=ax)</code></td><td><code>fig.colorbar(im, ax=ax)</code></td></tr>
+    <tr><td><code>sharex/sharey</code></td><td>Comparte ejes entre subplots.</td><td><code>plt.subplots(..., sharex=True)</code></td><td><code>plt.subplots(2,1,sharex=True)</code></td></tr>
+  </tbody>
+</table>
+
+<h3 class="section">8A. Matplotlib: composiciones visuales y figuras elegantes</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Idea</th><th style="width:28%">¿Qué logra?</th><th style="width:22%">Patrón</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figura limpia con <code>fig, ax</code></td>
+      <td>Permite controlar mejor títulos, ejes, leyenda y grilla.</td>
+      <td><code>fig, ax = plt.subplots(...)</code></td>
+      <td><code>fig, ax = plt.subplots(figsize=(8,4))</code></td>
+    </tr>
+    <tr>
+      <td>Líneas múltiples bien presentadas</td>
+      <td>Sirve para comparar funciones o simulaciones en una sola figura.</td>
+      <td><code>ax.plot(...)</code> repetido</td>
+      <td><code>ax.plot(x, y1, label="Modelo 1")</code><br><code>ax.plot(x, y2, label="Modelo 2")</code></td>
+    </tr>
+    <tr>
+      <td>Grilla suave y leyenda</td>
+      <td>Mejora la lectura sin recargar visualmente.</td>
+      <td><code>ax.grid(True)</code><br><code>ax.legend()</code></td>
+      <td><code>ax.grid(True, alpha=0.3)</code><br><code>ax.legend()</code></td>
+    </tr>
+    <tr>
+      <td>Mapa de calor</td>
+      <td>Ideal para campos escalares, matrices o soluciones 2D.</td>
+      <td><code>im = ax.imshow(...)</code></td>
+      <td><code>im = ax.imshow(Z, origin="lower", aspect="auto")</code></td>
+    </tr>
+    <tr>
+      <td>Contornos rellenos</td>
+      <td>Muy útil para superficies, distribuciones y campos continuos.</td>
+      <td><code>ax.contourf(X, Y, Z, ...)</code></td>
+      <td><code>cf = ax.contourf(X, Y, Z, 30)</code></td>
+    </tr>
+    <tr>
+      <td>Barra de color</td>
+      <td>Agrega contexto cuantitativo a mapas y contornos.</td>
+      <td><code>fig.colorbar(..., ax=ax)</code></td>
+      <td><code>fig.colorbar(cf, ax=ax)</code></td>
+    </tr>
+    <tr>
+      <td>Subplots comparativos</td>
+      <td>Permite mostrar varias vistas del mismo fenómeno.</td>
+      <td><code>fig, axs = plt.subplots(m, n, ...)</code></td>
+      <td><code>fig, axs = plt.subplots(1, 2, figsize=(10,4))</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Idea de diseño:</strong>
+  para figuras bonitas y profesionales conviene usar <code>fig, ax = plt.subplots()</code>,
+  definir un <code>figsize</code> adecuado, usar títulos y etiquetas claras, activar una grilla suave
+  y guardar con <code>dpi=300</code> o superior.
+</div>
+
+<h3 class="section">8B. Ejemplos de figuras visualmente atractivas con Matplotlib</h3>
+<table class="mini-table">
+  <thead>
+    <tr>
+      <th style="width:34%">Objetivo</th>
+      <th>Ejemplo recomendado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Curva elegante de función matemática</td>
+      <td>
+        <code>x = np.linspace(0, 2*np.pi, 400)</code><br>
+        <code>y = np.sin(x)</code><br>
+        <code>fig, ax = plt.subplots(figsize=(8,4))</code><br>
+        <code>ax.plot(x, y, label="sin(x)")</code><br>
+        <code>ax.set_title("Función seno")</code><br>
+        <code>ax.set_xlabel("x")</code><br>
+        <code>ax.set_ylabel("y")</code><br>
+        <code>ax.grid(True, alpha=0.3)</code><br>
+        <code>ax.legend()</code><br>
+        <code>plt.tight_layout()</code><br>
+        <code>plt.show()</code>
+      </td>
+    </tr>
+    <tr>
+      <td>Comparar dos curvas en una figura limpia</td>
+      <td>
+        <code>x = np.linspace(0, 2*np.pi, 400)</code><br>
+        <code>fig, ax = plt.subplots(figsize=(8,4))</code><br>
+        <code>ax.plot(x, np.sin(x), label="sin(x)")</code><br>
+        <code>ax.plot(x, np.cos(x), label="cos(x)")</code><br>
+        <code>ax.set_title("Comparación de funciones")</code><br>
+        <code>ax.grid(True, alpha=0.3)</code><br>
+        <code>ax.legend()</code><br>
+        <code>plt.tight_layout()</code><br>
+        <code>plt.show()</code>
+      </td>
+    </tr>
+    <tr>
+      <td>Mapa de calor bonito</td>
+      <td>
+        <code>x = np.linspace(-2, 2, 200)</code><br>
+        <code>y = np.linspace(-2, 2, 200)</code><br>
+        <code>X, Y = np.meshgrid(x, y)</code><br>
+        <code>Z = np.exp(-(X**2 + Y**2))</code><br>
+        <code>fig, ax = plt.subplots(figsize=(6,5))</code><br>
+        <code>im = ax.imshow(Z, origin="lower", extent=[x.min(), x.max(), y.min(), y.max()])</code><br>
+        <code>ax.set_title("Mapa de calor de una gaussiana")</code><br>
+        <code>fig.colorbar(im, ax=ax)</code><br>
+        <code>plt.tight_layout()</code><br>
+        <code>plt.show()</code>
+      </td>
+    </tr>
+    <tr>
+      <td>Contornos rellenos elegantes</td>
+      <td>
+        <code>x = np.linspace(-3, 3, 200)</code><br>
+        <code>y = np.linspace(-3, 3, 200)</code><br>
+        <code>X, Y = np.meshgrid(x, y)</code><br>
+        <code>Z = np.sin(X) * np.cos(Y)</code><br>
+        <code>fig, ax = plt.subplots(figsize=(6,5))</code><br>
+        <code>cf = ax.contourf(X, Y, Z, 30)</code><br>
+        <code>ax.set_title("Contornos rellenos")</code><br>
+        <code>fig.colorbar(cf, ax=ax)</code><br>
+        <code>plt.tight_layout()</code><br>
+        <code>plt.show()</code>
+      </td>
+    </tr>
+    <tr>
+      <td>Subplots comparativos</td>
+      <td>
+        <code>x = np.linspace(0, 2*np.pi, 400)</code><br>
+        <code>fig, axs = plt.subplots(1, 2, figsize=(10,4))</code><br>
+        <code>axs[0].plot(x, np.sin(x))</code><br>
+        <code>axs[0].set_title("sin(x)")</code><br>
+        <code>axs[1].plot(x, np.cos(x))</code><br>
+        <code>axs[1].set_title("cos(x)")</code><br>
+        <code>for ax in axs: ax.grid(True, alpha=0.3)</code><br>
+        <code>plt.tight_layout()</code><br>
+        <code>plt.show()</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3 class="section">9. Matplotlib: etiquetas, formato y guardado</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Herramienta</th><th style="width:28%">¿Para qué sirve?</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>plt.title</code></td><td>Agrega título al gráfico.</td><td><code>plt.title(texto)</code></td><td><code>plt.title("Evolución temporal")</code></td></tr>
+        <tr><td><code>plt.xlabel</code></td><td>Etiqueta del eje x.</td><td><code>plt.xlabel(texto)</code></td><td><code>plt.xlabel("Tiempo")</code></td></tr>
+        <tr><td><code>plt.ylabel</code></td><td>Etiqueta del eje y.</td><td><code>plt.ylabel(texto)</code></td><td><code>plt.ylabel("Temperatura")</code></td></tr>
+        <tr><td><code>plt.legend</code></td><td>Muestra leyenda.</td><td><code>plt.legend()</code></td><td><code>plt.legend()</code></td></tr>
+        <tr><td><code>plt.grid</code></td><td>Activa grilla visual.</td><td><code>plt.grid(True)</code></td><td><code>plt.grid(True)</code></td></tr>
+        <tr><td><code>plt.tight_layout</code></td><td>Ajusta márgenes automáticamente.</td><td><code>plt.tight_layout()</code></td><td><code>plt.tight_layout()</code></td></tr>
+        <tr><td><code>plt.savefig</code></td><td>Guarda la figura a archivo.</td><td><code>plt.savefig("fig.png")</code></td><td><code>plt.savefig("resultado.png", dpi=300)</code></td></tr>
+        <tr><td><code>plt.show</code></td><td>Muestra la figura en pantalla.</td><td><code>plt.show()</code></td><td><code>plt.show()</code></td></tr>
+      </tbody>
+    </table>
+
+<h3 class="section">10. Matplotlib: escalas, anotaciones y referencias</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Herramienta</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>ax.set_xscale</code></td><td>Define escala del eje x.</td><td><code>ax.set_xscale("log")</code></td><td><code>ax.set_xscale("log")</code></td></tr>
+    <tr><td><code>ax.set_yscale</code></td><td>Define escala del eje y.</td><td><code>ax.set_yscale("log")</code></td><td><code>ax.set_yscale("log")</code></td></tr>
+    <tr><td><code>ax.axhline</code></td><td>Dibuja línea horizontal de referencia.</td><td><code>ax.axhline(y=valor)</code></td><td><code>ax.axhline(y=0)</code></td></tr>
+    <tr><td><code>ax.axvline</code></td><td>Dibuja línea vertical de referencia.</td><td><code>ax.axvline(x=valor)</code></td><td><code>ax.axvline(x=t0)</code></td></tr>
+    <tr><td><code>ax.errorbar</code></td><td>Grafica puntos con barras de error.</td><td><code>ax.errorbar(x, y, yerr=err)</code></td><td><code>ax.errorbar(x, y, yerr=dy)</code></td></tr>
+    <tr><td><code>ax.annotate</code></td><td>Agrega anotaciones al gráfico.</td><td><code>ax.annotate("txt", xy=(x,y))</code></td><td><code>ax.annotate("máximo", xy=(xm, ym))</code></td></tr>
+    <tr><td><code>plt.xlim</code></td><td>Define límites del eje x.</td><td><code>plt.xlim(a, b)</code></td><td><code>plt.xlim(0, 10)</code></td></tr>
+    <tr><td><code>plt.ylim</code></td><td>Define límites del eje y.</td><td><code>plt.ylim(a, b)</code></td><td><code>plt.ylim(-1, 1)</code></td></tr>
+  </tbody>
+</table>
+
+    <h3 class="section">11. Matplotlib: gráficos científicos frecuentes</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Gráfico</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Curva simple</td><td>Visualiza una función o serie.</td><td><code>plt.plot(x, y)</code></td><td><code>plt.plot(t, np.sin(t))</code></td></tr>
+        <tr><td>Múltiples curvas</td><td>Compara varias funciones.</td><td><code>plt.plot(...)</code> repetido</td><td><code>plt.plot(x, y1); plt.plot(x, y2)</code></td></tr>
+        <tr><td>Mapa de calor</td><td>Visualiza matrices 2D.</td><td><code>plt.imshow(Z)</code></td><td><code>plt.imshow(Z, origin="lower")</code></td></tr>
+        <tr><td>Curvas de nivel</td><td>Representa contornos.</td><td><code>plt.contour(X, Y, Z)</code></td><td><code>plt.contour(X, Y, Z, 20)</code></td></tr>
+        <tr><td>Relleno de contornos</td><td>Contornos coloreados.</td><td><code>plt.contourf(X, Y, Z)</code></td><td><code>plt.contourf(X, Y, Z, 30)</code></td></tr>
+        <tr><td>Barra de color</td><td>Agrega escala a imágenes/contornos.</td><td><code>plt.colorbar()</code></td><td><code>plt.colorbar()</code></td></tr>
+        <tr><td>Subplots múltiples</td><td>Compara resultados en varios paneles.</td><td><code>fig, axs = plt.subplots(m, n)</code></td><td><code>fig, axs = plt.subplots(2,2)</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">12. Pipeline científico típico con NumPy y Matplotlib</h3>
+    <table class="mini-table">
+      <thead><tr><th style="width:34%">Etapa</th><th>Comando o idea central</th></tr></thead>
+      <tbody>
+        <tr><td>Importar librerías</td><td><code>import numpy as np</code><br><code>import matplotlib.pyplot as plt</code></td></tr>
+        <tr><td>Crear malla</td><td><code>x = np.linspace(0, 2*np.pi, 200)</code></td></tr>
+        <tr><td>Evaluar función o modelo</td><td><code>y = np.sin(x)</code></td></tr>
+        <tr><td>Calcular cantidades derivadas</td><td><code>dy = np.gradient(y, x)</code></td></tr>
+        <tr><td>Graficar</td><td><code>plt.plot(x, y)</code></td></tr>
+        <tr><td>Etiquetar</td><td><code>plt.xlabel("x")</code><br><code>plt.ylabel("y")</code><br><code>plt.title("Seno")</code></td></tr>
+        <tr><td>Guardar o mostrar</td><td><code>plt.savefig("fig.png", dpi=300)</code><br><code>plt.show()</code></td></tr>
+      </tbody>
+    </table>
+
+<h3 class="section">12A. NumPy: funciones útiles adicionales</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Función</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>np.isclose</code></td><td>Compara valores con tolerancia.</td><td><code>np.isclose(a, b)</code></td><td><code>np.isclose(0.1+0.2, 0.3)</code></td></tr>
+    <tr><td><code>np.allclose</code></td><td>Compara arrays con tolerancia.</td><td><code>np.allclose(A, B)</code></td><td><code>np.allclose(sol1, sol2)</code></td></tr>
+    <tr><td><code>np.nanmean</code></td><td>Promedio ignorando NaN.</td><td><code>np.nanmean(A)</code></td><td><code>np.nanmean(datos)</code></td></tr>
+    <tr><td><code>np.nanstd</code></td><td>Desviación ignorando NaN.</td><td><code>np.nanstd(A)</code></td><td><code>np.nanstd(datos)</code></td></tr>
+    <tr><td><code>np.nan_to_num</code></td><td>Reemplaza NaN e infinitos.</td><td><code>np.nan_to_num(A)</code></td><td><code>np.nan_to_num(A, nan=0.0)</code></td></tr>
+  </tbody>
+</table>
+
+<h3 class="section">12B. Matplotlib: estilos y salida científica</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Herramienta</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>plt.style.use</code></td><td>Aplica un estilo global.</td><td><code>plt.style.use("...")</code></td><td><code>plt.style.use("default")</code></td></tr>
+    <tr><td><code>dpi</code></td><td>Controla resolución de salida.</td><td><code>plt.savefig(..., dpi=300)</code></td><td><code>plt.savefig("fig.pdf", dpi=300)</code></td></tr>
+    <tr><td><code>figsize</code></td><td>Controla tamaño de figura.</td><td><code>plt.figure(figsize=(w,h))</code></td><td><code>plt.figure(figsize=(10,4))</code></td></tr>
+    <tr><td><code>bbox_inches</code></td><td>Ajusta bordes al guardar.</td><td><code>plt.savefig(..., bbox_inches="tight")</code></td><td><code>plt.savefig("fig.png", bbox_inches="tight")</code></td></tr>
+  </tbody>
+</table>
+<h3 class="section">12C. Modelamiento matemático con NumPy</h3>
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%">Herramienta</th>
+      <th style="width:30%">¿Qué hace?</th>
+      <th style="width:20%">Sintaxis</th>
+      <th style="width:30%">Ejemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Malla 1D</td>
+      <td>Discretiza un dominio continuo.</td>
+      <td><code>np.linspace(a, b, n)</code></td>
+      <td><code>x = np.linspace(0, 1, 100)</code></td>
+    </tr>
+    <tr>
+      <td>Malla 2D</td>
+      <td>Construye dominio bidimensional.</td>
+      <td><code>np.meshgrid(x, y)</code></td>
+      <td><code>X, Y = np.meshgrid(x, y)</code></td>
+    </tr>
+    <tr>
+      <td>Derivada numérica</td>
+      <td>Aproxima derivadas discretas.</td>
+      <td><code>np.gradient(f, dx)</code></td>
+      <td><code>df = np.gradient(f, dx)</code></td>
+    </tr>
+    <tr>
+      <td>Integral numérica</td>
+      <td>Aproxima integrales.</td>
+      <td><code>np.trapz(f, x)</code></td>
+      <td><code>I = np.trapz(f, x)</code></td>
+    </tr>
+    <tr>
+      <td>Campo escalar 2D</td>
+      <td>Evalúa funciones sobre malla.</td>
+      <td><code>Z = f(X, Y)</code></td>
+      <td><code>Z = np.sin(X)*np.cos(Y)</code></td>
+    </tr>
+    <tr>
+      <td>Mapa de calor</td>
+      <td>Visualiza soluciones 2D.</td>
+      <td><code>plt.imshow(Z)</code></td>
+      <td><code>plt.imshow(Z, origin="lower")</code></td>
+    </tr>
+    <tr>
+      <td>Contornos</td>
+      <td>Representa niveles de una función.</td>
+      <td><code>plt.contour(X,Y,Z)</code></td>
+      <td><code>plt.contourf(X,Y,Z,20)</code></td>
+    </tr>
+    <tr>
+      <td>Guardar resultados</td>
+      <td>Exporta datos numéricos.</td>
+      <td><code>np.save</code>, <code>to_csv</code></td>
+      <td><code>np.save("Z.npy", Z)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Flujo típico en modelamiento:</strong><br>
+  discretizar dominio → evaluar modelo → derivar/integrar → visualizar → exportar resultados
+</div>
+
+<div class="warn">
+  <strong>Consejo clave:</strong>
+  evita loops en Python cuando puedas. Usa operaciones vectorizadas con NumPy para eficiencia.
+</div>
+<h3 class="section">12D. Pandas: fechas y series temporales</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Función</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>pd.to_datetime</code></td><td>Convierte strings a fechas.</td><td><code>pd.to_datetime(col)</code></td><td><code>df["fecha"] = pd.to_datetime(df["fecha"])</code></td></tr>
+    <tr><td><code>set_index</code></td><td>Usa fecha como índice temporal.</td><td><code>df.set_index("fecha")</code></td><td><code>df = df.set_index("fecha")</code></td></tr>
+    <tr><td><code>sort_index</code></td><td>Ordena por índice.</td><td><code>df.sort_index()</code></td><td><code>df.sort_index()</code></td></tr>
+    <tr><td><code>resample</code></td><td>Reagrupa series temporales.</td><td><code>df.resample("M").mean()</code></td><td><code>df.resample("D").sum()</code></td></tr>
+    <tr><td><code>rolling</code></td><td>Calcula ventanas móviles.</td><td><code>df.rolling(n).mean()</code></td><td><code>df["q"].rolling(7).mean()</code></td></tr>
+  </tbody>
+</table>
+
+    <h3 class="section">13. Pandas: creación y carga de datos</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Función</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>pd.DataFrame</code></td><td>Crea una tabla desde diccionarios o listas.</td><td><code>pd.DataFrame(datos)</code></td><td><code>pd.DataFrame({"x":[1,2], "y":[3,4]})</code></td></tr>
+        <tr><td><code>pd.read_csv</code></td><td>Lee archivos CSV.</td><td><code>pd.read_csv(ruta)</code></td><td><code>pd.read_csv("datos.csv")</code></td></tr>
+        <tr><td><code>pd.read_excel</code></td><td>Lee archivos Excel.</td><td><code>pd.read_excel(ruta)</code></td><td><code>pd.read_excel("datos.xlsx")</code></td></tr>
+        <tr><td><code>pd.read_csv</code> con opciones</td><td>Controla separador, encabezado y fechas.</td><td><code>pd.read_csv(...)</code></td><td><code>pd.read_csv("datos.csv", sep=";", parse_dates=["fecha"])</code></td></tr>
+        <tr><td><code>df.head()</code></td><td>Muestra las primeras filas.</td><td><code>df.head()</code></td><td><code>df.head()</code></td></tr>
+        <tr><td><code>df.info()</code></td><td>Resume tipos y nulos.</td><td><code>df.info()</code></td><td><code>df.info()</code></td></tr>
+        <tr><td><code>df.describe()</code></td><td>Resume estadísticas descriptivas.</td><td><code>df.describe()</code></td><td><code>df.describe()</code></td></tr>
+        <tr><td><code>pd.to_datetime</code></td><td>Convierte strings a fechas.</td><td><code>pd.to_datetime(col)</code></td><td><code>df["fecha"] = pd.to_datetime(df["fecha"])</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">14. Pandas: selección, filtrado y limpieza</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Herramienta</th><th style="width:28%">¿Qué hace?</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>df["col"]</code></td><td>Selecciona una columna.</td><td><code>df["columna"]</code></td><td><code>df["temperatura"]</code></td></tr>
+        <tr><td><code>df.loc</code></td><td>Selecciona por etiquetas y condiciones.</td><td><code>df.loc[filtro]</code></td><td><code>df.loc[df["x"] &gt; 0]</code></td></tr>
+        <tr><td><code>df.iloc</code></td><td>Selecciona por posiciones.</td><td><code>df.iloc[filas, cols]</code></td><td><code>df.iloc[:5, :2]</code></td></tr>
+        <tr><td>Filtro múltiple</td><td>Filtra con varias condiciones.</td><td><code>df[(c1) &amp; (c2)]</code></td><td><code>df[(df["q"] &gt; 10) &amp; (df["temp"] &lt; 20)]</code></td></tr>
+        <tr><td><code>query</code></td><td>Filtra con sintaxis tipo expresión.</td><td><code>df.query("col &gt; 0")</code></td><td><code>df.query("q &gt; 10 and temp &lt; 20")</code></td></tr>
+        <tr><td><code>dropna</code></td><td>Elimina filas o columnas con nulos.</td><td><code>df.dropna()</code></td><td><code>df.dropna()</code></td></tr>
+        <tr><td><code>fillna</code></td><td>Rellena valores faltantes.</td><td><code>df.fillna(valor)</code></td><td><code>df.fillna(0)</code></td></tr>
+        <tr><td><code>rename</code></td><td>Renombra columnas o índices.</td><td><code>df.rename(...)</code></td><td><code>df.rename(columns={"x":"tiempo"})</code></td></tr>
+        <tr><td><code>astype</code></td><td>Cambia tipo de datos.</td><td><code>df["col"].astype(tipo)</code></td><td><code>df["anio"].astype(int)</code></td></tr>
+        <tr><td><code>drop</code></td><td>Elimina columnas o filas.</td><td><code>df.drop(columns=[...])</code></td><td><code>df.drop(columns=["aux"])</code></td></tr>
+      </tbody>
+    </table>
+
+<h3 class="section">15. Pandas: agrupación, combinación y exportación</h3>
+<table>
+  <thead>
+    <tr><th style="width:18%">Función</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>groupby</code></td><td>Agrupa datos por categoría.</td><td><code>df.groupby("col")</code></td><td><code>df.groupby("region").mean()</code></td></tr>
+    <tr><td><code>agg</code></td><td>Aplica varias agregaciones.</td><td><code>df.groupby(...).agg(...)</code></td><td><code>df.groupby("region").agg(["mean","max"])</code></td></tr>
+    <tr><td><code>sort_values</code></td><td>Ordena por columnas.</td><td><code>df.sort_values("col")</code></td><td><code>df.sort_values("fecha")</code></td></tr>
+    <tr><td><code>value_counts</code></td><td>Cuenta valores únicos.</td><td><code>df["col"].value_counts()</code></td><td><code>df["estado"].value_counts()</code></td></tr>
+    <tr><td><code>pd.concat</code></td><td>Concatena tablas por filas o columnas.</td><td><code>pd.concat([df1, df2])</code></td><td><code>pd.concat([df1, df2], axis=0)</code></td></tr>
+    <tr><td><code>pd.merge</code></td><td>Une tablas por claves comunes.</td><td><code>pd.merge(df1, df2, on="id")</code></td><td><code>pd.merge(obs, meta, on="estacion")</code></td></tr>
+    <tr><td><code>pivot_table</code></td><td>Reorganiza y resume tablas.</td><td><code>df.pivot_table(...)</code></td><td><code>df.pivot_table(values="q", index="mes", columns="anio")</code></td></tr>
+    <tr><td><code>set_index</code></td><td>Define una columna como índice.</td><td><code>df.set_index("col")</code></td><td><code>df.set_index("fecha")</code></td></tr>
+    <tr><td><code>reset_index</code></td><td>Devuelve el índice a columna.</td><td><code>df.reset_index()</code></td><td><code>df.reset_index()</code></td></tr>
+    <tr><td><code>to_csv</code></td><td>Exporta a CSV.</td><td><code>df.to_csv("salida.csv")</code></td><td><code>df.to_csv("resultado.csv", index=False)</code></td></tr>
+    <tr><td><code>to_excel</code></td><td>Exporta a Excel.</td><td><code>df.to_excel("salida.xlsx")</code></td><td><code>df.to_excel("resumen.xlsx", index=False)</code></td></tr>
+    <tr><td><code>plot</code></td><td>Genera gráficos rápidos desde DataFrame.</td><td><code>df.plot(...)</code></td><td><code>df.plot(x="t", y="q")</code></td></tr>
+  </tbody>
+</table>
+
+    <h3 class="section">16. Pipeline científico con Pandas</h3>
+    <table class="mini-table">
+      <thead><tr><th style="width:34%">Etapa</th><th>Comando o idea central</th></tr></thead>
+      <tbody>
+        <tr><td>Cargar datos</td><td><code>pd.read_csv(...)</code> o <code>pd.read_excel(...)</code></td></tr>
+        <tr><td>Inspeccionar estructura</td><td><code>df.head()</code>, <code>df.info()</code>, <code>df.describe()</code></td></tr>
+        <tr><td>Limpiar</td><td><code>df.dropna()</code>, <code>fillna()</code>, <code>astype()</code></td></tr>
+        <tr><td>Construir variables</td><td><code>df["nueva"] = ...</code>, fechas con <code>pd.to_datetime</code></td></tr>
+        <tr><td>Resumir</td><td><code>groupby()</code>, <code>pivot_table()</code>, <code>value_counts()</code></td></tr>
+        <tr><td>Visualizar o exportar</td><td><code>df.plot(...)</code>, <code>to_csv()</code>, <code>to_excel()</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">17. Checklist de trabajo científico reproducible</h3>
+    <table class="mini-table">
+      <thead><tr><th style="width:34%">Buena práctica</th><th>Acción concreta</th></tr></thead>
+      <tbody>
+        <tr><td>Entorno limpio</td><td><code>python -m venv .venv</code></td></tr>
+        <tr><td>Dependencias registradas</td><td><code>pip freeze &gt; requirements.txt</code></td></tr>
+        <tr><td>Semillas fijas</td><td><code>np.random.seed(42)</code></td></tr>
+        <tr><td>Figuras reproducibles</td><td>definir tamaños, etiquetas y <code>dpi</code> al guardar</td></tr>
+        <tr><td>Separar datos y código</td><td>guardar resultados en <code>csv</code>, <code>xlsx</code> o <code>npy</code></td></tr>
+        <tr><td>Nombrar claramente</td><td>usar nombres descriptivos para arrays, columnas y figuras</td></tr>
+      </tbody>
+    </table>
+    
+
+    <div class="warn">
+      <strong>Buena práctica:</strong>
+      usa <strong>NumPy</strong> para cálculo vectorizado, <strong>Matplotlib</strong> para visualización controlada y <strong>Pandas</strong> cuando trabajes con tablas, archivos CSV/Excel y análisis exploratorio. Para proyectos científicos serios, registra dependencias, fija semillas y guarda tanto datos procesados como figuras.
+    </div>
+
+
+<h3 class="section">18. Modelamiento matemático con NumPy</h3>
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%">Herramienta</th>
+      <th style="width:30%">¿Qué hace?</th>
+      <th style="width:20%">Sintaxis</th>
+      <th style="width:30%">Ejemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Malla 1D</td>
+      <td>Discretiza un dominio continuo.</td>
+      <td><code>np.linspace(a, b, n)</code></td>
+      <td><code>x = np.linspace(0, 1, 100)</code></td>
+    </tr>
+    <tr>
+      <td>Malla 2D</td>
+      <td>Construye dominio bidimensional.</td>
+      <td><code>np.meshgrid(x, y)</code></td>
+      <td><code>X, Y = np.meshgrid(x, y)</code></td>
+    </tr>
+    <tr>
+      <td>Derivada numérica</td>
+      <td>Aproxima derivadas discretas.</td>
+      <td><code>np.gradient(f, dx)</code></td>
+      <td><code>df = np.gradient(f, dx)</code></td>
+    </tr>
+    <tr>
+      <td>Integral numérica</td>
+      <td>Aproxima integrales.</td>
+      <td><code>np.trapz(f, x)</code></td>
+      <td><code>I = np.trapz(f, x)</code></td>
+    </tr>
+    <tr>
+      <td>Campo escalar 2D</td>
+      <td>Evalúa funciones sobre malla.</td>
+      <td><code>Z = f(X, Y)</code></td>
+      <td><code>Z = np.sin(X)*np.cos(Y)</code></td>
+    </tr>
+    <tr>
+      <td>Mapa de calor</td>
+      <td>Visualiza soluciones 2D.</td>
+      <td><code>plt.imshow(Z)</code></td>
+      <td><code>plt.imshow(Z, origin="lower")</code></td>
+    </tr>
+    <tr>
+      <td>Contornos</td>
+      <td>Representa niveles de una función.</td>
+      <td><code>plt.contour(X,Y,Z)</code></td>
+      <td><code>plt.contourf(X,Y,Z,20)</code></td>
+    </tr>
+    <tr>
+      <td>Guardar resultados</td>
+      <td>Exporta datos numéricos.</td>
+      <td><code>np.save</code>, <code>to_csv</code></td>
+      <td><code>np.save("Z.npy", Z)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Flujo típico en modelamiento:</strong><br>
+  discretizar dominio → evaluar modelo → derivar/integrar → visualizar → exportar resultados
+</div>
+
+<div class="warn">
+  <strong>Consejo clave:</strong>
+  evita loops en Python cuando puedas. Usa operaciones vectorizadas con NumPy para eficiencia.
+</div>
+
+
+    <div class="footer">Cheat sheet en español para Python científico • Dr. Víctor A. Osores Escalona • Listo para imprimir o exportar a PDF desde el navegador</div>
+  </div>
+
+<script>
+(() => {
+  "use strict";
+
+const COPYABLE_HEADER_PATTERNS = [
+  "sintaxis típica",
+  "sintaxis",
+  "ejemplo",
+  "comando recomendado",
+  "secuencia sugerida",
+  "secuencia recomendada",
+  "acción concreta",
+  "ejemplo del material"
+];
+
+  const COPIED_STATE_DURATION_MS = 1200;
+  const COPY_ERROR_MESSAGE =
+    "No se pudo copiar automáticamente. Intenta copiar manualmente o verifica que estés usando HTTPS o localhost.";
+
+  async function copyToClipboard(text) {
+    if (!text || !text.trim()) {
+      throw new Error("No hay contenido para copiar.");
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    fallbackCopyToClipboard(text);
+  }
+
+  function fallbackCopyToClipboard(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.setAttribute("aria-hidden", "true");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-9999px";
+    textarea.style.left = "-9999px";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+
+    const success = document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    if (!success) {
+      throw new Error("Fallback de copiado no disponible.");
+    }
+  }
+
+  function extractTextFromCell(cell) {
+    const codeBlocks = Array.from(cell.querySelectorAll("code"))
+      .map(block => block.innerText.trim())
+      .filter(Boolean);
+
+    if (codeBlocks.length > 1) {
+      return codeBlocks.join("\n");
+    }
+
+    if (codeBlocks.length === 1) {
+      return codeBlocks[0];
+    }
+
+    return cell.innerText.trim();
+  }
+
+  function setCopiedVisualState(cell) {
+    cell.classList.add("copied");
+
+    window.setTimeout(() => {
+      cell.classList.remove("copied");
+    }, COPIED_STATE_DURATION_MS);
+  }
+
+  function isHeaderCopyable(headerText) {
+    return COPYABLE_HEADER_PATTERNS.some(pattern =>
+      headerText.includes(pattern)
+    );
+  }
+
+  function isAlreadyEnhanced(cell) {
+    return cell.dataset.copyEnabled === "true";
+  }
+
+  function markCellAsEnhanced(cell) {
+    cell.dataset.copyEnabled = "true";
+  }
+
+  function enhanceCopyableCell(cell) {
+    if (!cell || isAlreadyEnhanced(cell)) {
+      return;
+    }
+
+    cell.classList.add("copyable");
+    cell.setAttribute("tabindex", "0");
+    cell.setAttribute("role", "button");
+    cell.setAttribute("title", "Haz clic para copiar");
+    cell.setAttribute("aria-label", "Copiar contenido de la celda");
+
+    const handleCopy = async () => {
+      try {
+        const textToCopy = extractTextFromCell(cell);
+
+        if (!textToCopy) {
+          return;
+        }
+
+        await copyToClipboard(textToCopy);
+        setCopiedVisualState(cell);
+      } catch (error) {
+        console.error("Error al copiar contenido:", error);
+        alert(COPY_ERROR_MESSAGE);
+      }
+    };
+
+    cell.addEventListener("click", handleCopy);
+
+    cell.addEventListener("keydown", event => {
+      const isActivationKey = event.key === "Enter" || event.key === " ";
+
+      if (!isActivationKey) {
+        return;
+      }
+
+      event.preventDefault();
+      handleCopy();
+    });
+
+    markCellAsEnhanced(cell);
+  }
+
+  function getCopyableColumnIndexes(table) {
+    const headerCells = Array.from(table.querySelectorAll("thead th"));
+
+    return headerCells.reduce((indexes, headerCell, index) => {
+      const normalizedText = headerCell.innerText.trim().toLowerCase();
+
+      if (isHeaderCopyable(normalizedText)) {
+        indexes.push(index);
+      }
+
+      return indexes;
+    }, []);
+  }
+
+  function enableCopyOnTable(table) {
+    const copyableColumnIndexes = getCopyableColumnIndexes(table);
+
+    if (!copyableColumnIndexes.length) {
+      return;
+    }
+
+    const bodyRows = table.querySelectorAll("tbody tr");
+
+    bodyRows.forEach(row => {
+      const cells = row.querySelectorAll("td");
+
+      copyableColumnIndexes.forEach(index => {
+        if (cells[index]) {
+          enhanceCopyableCell(cells[index]);
+        }
+      });
+    });
+  }
+
+  function enableCopyOnTables(root = document) {
+    const tables = root.querySelectorAll("table");
+    tables.forEach(enableCopyOnTable);
+  }
+
+  window.copyToClipboard = copyToClipboard;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enableCopyOnTables();
+    });
+  } else {
+    enableCopyOnTables();
+  }
+})();
+</script>
+
+<script>
+(() => {
+  "use strict";
+
+  const SHARE_SUCCESS_DURATION_MS = 1500;
+  const SHARE_ERROR_MESSAGE = "No se pudo compartir automáticamente.";
+
+  function setTemporarySharedState(button, text) {
+    const originalText = button.textContent;
+    button.classList.add("shared");
+    button.textContent = text;
+
+    window.setTimeout(() => {
+      button.classList.remove("shared");
+      button.textContent = originalText;
+    }, SHARE_SUCCESS_DURATION_MS);
+  }
+
+  async function sharePage() {
+    const shareData = {
+      title: document.title,
+      text: "Cheat sheet profesional de Python científico en español, elaborado por Dr. Víctor A. Osores Escalona.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      return "shared";
+    }
+
+    if (typeof window.copyToClipboard !== "function") {
+      throw new Error("La función global copyToClipboard no está disponible.");
+    }
+
+    await window.copyToClipboard(window.location.href);
+    return "copied";
+  }
+
+  function enableShareButton() {
+    const shareButton = document.getElementById("shareButton");
+
+    if (!shareButton || shareButton.dataset.shareEnabled === "true") {
+      return;
+    }
+
+    shareButton.addEventListener("click", async () => {
+      try {
+        const result = await sharePage();
+
+        if (result === "shared") {
+          setTemporarySharedState(shareButton, "Compartido");
+        } else {
+          setTemporarySharedState(shareButton, "Enlace copiado");
+        }
+      } catch (error) {
+        console.error("Error al compartir:", error);
+        alert(SHARE_ERROR_MESSAGE);
+      }
+    });
+
+    shareButton.dataset.shareEnabled = "true";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enableShareButton();
+    });
+  } else {
+    enableShareButton();
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheat Sheet Python Profesional</title>
+<style>
+  :root{
+    --blue:#183d63;
+    --blue2:#1f4e79;
+    --light:#f4f7fb;
+    --line:#d5deea;
+    --text:#16212b;
+    --muted:#5b6573;
+    --warn:#fff4e5;
+    --warn-line:#e7b365;
+    --ok:#1e6b43;
+    --ok-bg:#eaf7ef;
+    --copy-bg:#f8fbff;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color:var(--text);
+    background:#eef3f8;
+    line-height:1.45;
+  }
+
+  .page{
+    width:1120px;
+    margin:28px auto;
+    background:white;
+    padding:28px 34px 32px;
+    border-radius:18px;
+    box-shadow:0 12px 36px rgba(14,33,52,.10);
+  }
+
+  .hero{
+    background:linear-gradient(135deg,var(--blue),#285f95);
+    color:white;
+    border-radius:16px;
+    padding:22px 24px;
+    margin-bottom:18px;
+  }
+
+  .hero h1{margin:0 0 6px;font-size:31px;letter-spacing:.3px}
+  .hero p{margin:0;font-size:14px;opacity:.95}
+
+  .actions-bar{
+    display:flex;
+    justify-content:flex-end;
+    margin:0 0 18px;
+  }
+
+  .action-button{
+    appearance:none;
+    border:1px solid #c9d9ea;
+    background:#eef5fc;
+    color:var(--blue2);
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+
+  .action-button:hover{
+    background:#e3effb;
+    box-shadow:0 4px 12px rgba(24,61,99,.10);
+    transform:translateY(-1px);
+  }
+
+  .action-button:focus-visible{
+    outline:2px solid var(--blue2);
+    outline-offset:2px;
+  }
+
+  .action-button.shared{
+    background:var(--ok-bg);
+    color:var(--ok);
+    border-color:#b8e0c8;
+  }
+
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:16px;
+  }
+
+  .card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:14px 16px;
+    background:white;
+  }
+
+  .card h2{
+    margin:0 0 10px;
+    color:var(--blue);
+    font-size:18px;
+  }
+
+  .badge{
+    display:inline-block;
+    background:#e8f0f8;
+    color:var(--blue2);
+    border:1px solid #c9d9ea;
+    border-radius:999px;
+    padding:5px 10px;
+    font-size:12px;
+    font-weight:700;
+    margin:0 8px 8px 0;
+  }
+
+  .note{
+    background:#eaf2f8;
+    border:1px solid #bad0e4;
+    border-radius:14px;
+    padding:12px 14px;
+    margin:14px 0 18px;
+    font-size:14px;
+  }
+
+  .warn{
+    background:var(--warn);
+    border:1px solid var(--warn-line);
+    border-radius:14px;
+    padding:12px 14px;
+    margin-top:14px;
+    font-size:14px;
+  }
+
+  h3.section{
+    margin:18px 0 10px;
+    color:var(--blue);
+    font-size:19px;
+    border-bottom:2px solid #e8eef5;
+    padding-bottom:6px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:14px;
+    font-size:13px;
+  }
+
+  th,td{
+    padding:10px 11px;
+    vertical-align:top;
+    border-bottom:1px solid #e7edf4;
+  }
+
+  th{
+    background:var(--blue2);
+    color:white;
+    text-align:left;
+    font-size:12.5px;
+    letter-spacing:.2px;
+  }
+
+  tr:nth-child(even) td{background:var(--light)}
+  tr:last-child td{border-bottom:none}
+
+  code{
+    font-family:"Cascadia Code","Fira Code",Consolas,monospace;
+    background:#f1f5f9;
+    border:1px solid #dbe5f0;
+    border-radius:7px;
+    padding:2px 6px;
+    font-size:12px;
+    color:#0f2740;
+  }
+
+  .mini-table th,.mini-table td{padding:8px 10px}
+  ul.clean{margin:8px 0 0 18px;padding:0}
+
+  .footer{
+    margin-top:16px;
+    color:var(--muted);
+    font-size:12px;
+    text-align:center;
+  }
+
+  td.copyable{
+    position:relative;
+    cursor:copy;
+    transition:background-color .15s ease, box-shadow .15s ease;
+  }
+
+  td.copyable:hover{
+    background:var(--copy-bg) !important;
+    box-shadow: inset 0 0 0 1px #c9d9ea;
+  }
+
+  td.copyable::after{
+    content:"Copiar";
+    position:absolute;
+    top:7px;
+    right:8px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--blue2);
+    background:#eef5fc;
+    border:1px solid #c9d9ea;
+    border-radius:999px;
+    padding:2px 7px;
+    opacity:0;
+    transform:translateY(-2px);
+    transition:opacity .15s ease, transform .15s ease;
+    pointer-events:none;
+  }
+
+  td.copyable:hover::after,
+  td.copyable:focus-visible::after{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  td.copyable.copied{
+    background:var(--ok-bg) !important;
+    box-shadow: inset 0 0 0 1px #b8e0c8;
+  }
+
+  td.copyable.copied::after{
+    content:"Copiado";
+    opacity:1;
+    transform:translateY(0);
+    color:var(--ok);
+    border-color:#b8e0c8;
+    background:#f3fcf6;
+  }
+
+  td.copyable:focus-visible{
+    outline:2px solid var(--blue2);
+    outline-offset:-2px;
+  }
+
+  @media print{
+    body{background:white}
+    .page{width:auto;margin:0;box-shadow:none;border-radius:0;padding:12mm}
+    .hero{break-inside:avoid}
+    table,.card,.note,.warn{break-inside:avoid}
+    td.copyable::after{display:none}
+    .actions-bar{display:none}
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <h1>Cheat Sheet Python</h1>
+      <p>Resumen profesional de sintaxis, estructuras de datos, funciones, módulos, archivos, entornos virtuales y buenas prácticas.</p>
+    </div>
+
+    <div class="actions-bar">
+      <button id="shareButton" class="action-button" type="button">Compartir</button>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Conceptos clave</h2>
+        <span class="badge">Interpretado</span>
+        <span class="badge">Multiparadigma</span>
+        <span class="badge">Tipado dinámico</span>
+        <span class="badge">Legible</span>
+        <ul class="clean">
+          <li>Python usa la <strong>indentación</strong> para definir bloques.</li>
+          <li>Todo en Python es orientado a objetos en distintos niveles.</li>
+          <li>Las colecciones más usadas son <code>list</code>, <code>tuple</code>, <code>dict</code> y <code>set</code>.</li>
+          <li>La importación de librerías se hace con <code>import</code> o <code>from ... import ...</code>.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Tipos básicos</h2>
+        <ul class="clean">
+          <li><code>int</code> enteros</li>
+          <li><code>float</code> reales</li>
+          <li><code>complex</code> complejos</li>
+          <li><code>bool</code> booleanos</li>
+          <li><code>str</code> cadenas</li>
+          <li><code>list</code> listas mutables</li>
+          <li><code>tuple</code> tuplas inmutables</li>
+          <li><code>dict</code> diccionarios</li>
+          <li><code>set</code> conjuntos</li>
+          <li><code>NoneType</code> valor nulo (<code>None</code>)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Ejecutar un script:</strong> <code>python script.py</code> o <code>python3 script.py</code>
+      &nbsp; | &nbsp;
+      <strong>Modo interactivo:</strong> <code>python</code>
+    </div>
+
+    <h3 class="section">1. Sintaxis básica</h3>
+    <table>
+      <thead>
+        <tr><th style="width:16%">Elemento</th><th style="width:30%">¿Para qué sirve?</th><th style="width:24%">Sintaxis típica</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>print()</code></td><td>Muestra salida por pantalla.</td><td><code>print(valor)</code></td><td><code>print("Hola mundo")</code></td></tr>
+        <tr><td>Variable</td><td>Asigna un valor a un nombre.</td><td><code>nombre = valor</code></td><td><code>x = 10</code></td></tr>
+        <tr><td>Comentario</td><td>Agrega notas en una línea.</td><td><code># comentario</code></td><td><code># cálculo principal</code></td></tr>
+        <tr><td><code>input()</code></td><td>Lee texto desde teclado.</td><td><code>input("mensaje")</code></td><td><code>nombre = input("Tu nombre: ")</code></td></tr>
+        <tr><td><code>type()</code></td><td>Muestra el tipo de un objeto.</td><td><code>type(objeto)</code></td><td><code>type(3.14)</code></td></tr>
+        <tr><td><code>len()</code></td><td>Entrega longitud de una colección o string.</td><td><code>len(objeto)</code></td><td><code>len("python")</code></td></tr>
+        <tr><td>f-string</td><td>Permite interpolar variables en texto.</td><td><code>f"...{var}..."</code></td><td><code>print(f"Resultado: {x}")</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">2. Condicionales y bucles</h3>
+    <table>
+      <thead>
+        <tr><th style="width:16%">Estructura</th><th style="width:28%">Uso</th><th style="width:24%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>if</code></td><td>Evalúa una condición.</td><td><code>if condición:</code></td><td><code>if x &gt; 0:</code></td></tr>
+        <tr><td><code>if / else</code></td><td>Permite dos caminos posibles.</td><td><code>if ...: else:</code></td><td><code>if x % 2 == 0: ... else: ...</code></td></tr>
+        <tr><td><code>if / elif / else</code></td><td>Permite múltiples condiciones.</td><td><code>if ... elif ... else:</code></td><td><code>if nota &gt;= 4: ...</code></td></tr>
+        <tr><td><code>for</code></td><td>Itera sobre elementos.</td><td><code>for x in iterable:</code></td><td><code>for i in range(5):</code></td></tr>
+        <tr><td><code>while</code></td><td>Itera mientras una condición sea verdadera.</td><td><code>while condición:</code></td><td><code>while n &gt; 0:</code></td></tr>
+        <tr><td><code>break</code></td><td>Rompe el ciclo actual.</td><td><code>break</code></td><td><code>if x == 0: break</code></td></tr>
+        <tr><td><code>continue</code></td><td>Salta a la siguiente iteración.</td><td><code>continue</code></td><td><code>if x &lt; 0: continue</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">3. Listas, tuplas, diccionarios y sets</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Estructura</th><th style="width:28%">¿Qué hace?</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>list</code></td><td>Colección ordenada y mutable.</td><td><code>[a, b, c]</code></td><td><code>nums = [1, 2, 3]</code></td></tr>
+        <tr><td><code>append</code></td><td>Agrega un elemento al final.</td><td><code>lista.append(x)</code></td><td><code>nums.append(4)</code></td></tr>
+        <tr><td><code>tuple</code></td><td>Colección ordenada e inmutable.</td><td><code>(a, b, c)</code></td><td><code>p = (2, 5)</code></td></tr>
+        <tr><td><code>dict</code></td><td>Guarda pares clave-valor.</td><td><code>{"k": v}</code></td><td><code>edad = {"Ana": 20}</code></td></tr>
+        <tr><td><code>dict.get</code></td><td>Obtiene una clave evitando error si no existe.</td><td><code>dic.get(clave)</code></td><td><code>edad.get("Ana")</code></td></tr>
+        <tr><td><code>set</code></td><td>Conjunto sin repetidos.</td><td><code>{a, b, c}</code></td><td><code>s = {1, 2, 2, 3}</code></td></tr>
+        <tr><td>Slicing</td><td>Extrae subrangos de secuencias.</td><td><code>obj[inicio:fin:paso]</code></td><td><code>nums[1:4]</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">4. Funciones</h3>
+    <table>
+      <thead>
+        <tr><th style="width:16%">Elemento</th><th style="width:30%">Uso</th><th style="width:24%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>def</code></td><td>Define una función.</td><td><code>def nombre(...):</code></td><td><code>def saludar(nombre):</code></td></tr>
+        <tr><td><code>return</code></td><td>Devuelve un valor.</td><td><code>return valor</code></td><td><code>return x**2</code></td></tr>
+        <tr><td>Argumento por defecto</td><td>Da un valor inicial opcional.</td><td><code>def f(x=0):</code></td><td><code>def potencia(x, n=2):</code></td></tr>
+        <tr><td><code>*args</code></td><td>Recibe múltiples argumentos posicionales.</td><td><code>def f(*args):</code></td><td><code>def suma(*args):</code></td></tr>
+        <tr><td><code>**kwargs</code></td><td>Recibe argumentos nombrados variables.</td><td><code>def f(**kwargs):</code></td><td><code>def config(**kwargs):</code></td></tr>
+        <tr><td><code>lambda</code></td><td>Define funciones pequeñas anónimas.</td><td><code>lambda x: expr</code></td><td><code>lambda x: x + 1</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">5. Comprensiones y utilidades comunes</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Herramienta</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>List comprehension</td><td>Crea listas de forma compacta.</td><td><code>[expr for x in it]</code></td><td><code>[x**2 for x in range(5)]</code></td></tr>
+        <tr><td>Condicional en comprensión</td><td>Filtra elementos.</td><td><code>[x for x in it if cond]</code></td><td><code>[x for x in nums if x &gt; 0]</code></td></tr>
+        <tr><td><code>enumerate</code></td><td>Itera con índice y valor.</td><td><code>enumerate(iterable)</code></td><td><code>for i, x in enumerate(lista):</code></td></tr>
+        <tr><td><code>zip</code></td><td>Combina iterables en paralelo.</td><td><code>zip(a, b)</code></td><td><code>for x, y in zip(xs, ys):</code></td></tr>
+        <tr><td><code>sorted</code></td><td>Ordena y devuelve una nueva colección.</td><td><code>sorted(iterable)</code></td><td><code>sorted(nombres)</code></td></tr>
+        <tr><td><code>sum</code></td><td>Suma elementos numéricos.</td><td><code>sum(iterable)</code></td><td><code>sum([1,2,3])</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">6. Manejo de archivos</h3>
+    <table>
+      <thead>
+        <tr><th style="width:17%">Acción</th><th style="width:29%">¿Para qué sirve?</th><th style="width:24%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>open</code></td><td>Abre un archivo.</td><td><code>open(ruta, modo)</code></td><td><code>open("datos.txt", "r")</code></td></tr>
+        <tr><td><code>with open</code></td><td>Abre y cierra automáticamente.</td><td><code>with open(...) as f:</code></td><td><code>with open("datos.txt") as f:</code></td></tr>
+        <tr><td>Lectura completa</td><td>Lee todo el contenido.</td><td><code>f.read()</code></td><td><code>contenido = f.read()</code></td></tr>
+        <tr><td>Lectura por líneas</td><td>Lee línea a línea.</td><td><code>f.readlines()</code> o iteración</td><td><code>for linea in f:</code></td></tr>
+        <tr><td>Escritura</td><td>Escribe contenido en archivo.</td><td><code>f.write(texto)</code></td><td><code>f.write("hola\n")</code></td></tr>
+        <tr><td>Modo append</td><td>Agrega al final del archivo.</td><td><code>open("a")</code></td><td><code>open("log.txt", "a")</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">7. Excepciones y debugging</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Elemento</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>try / except</code></td><td>Maneja errores controladamente.</td><td><code>try: ... except:</code></td><td><code>try: x=1/0 except ZeroDivisionError: ...</code></td></tr>
+        <tr><td><code>finally</code></td><td>Ejecuta un bloque al final.</td><td><code>finally:</code></td><td><code>try: ... finally: print("fin")</code></td></tr>
+        <tr><td><code>raise</code></td><td>Lanza una excepción manualmente.</td><td><code>raise Error("msg")</code></td><td><code>raise ValueError("dato inválido")</code></td></tr>
+        <tr><td><code>assert</code></td><td>Verifica una condición en desarrollo.</td><td><code>assert condición</code></td><td><code>assert x &gt; 0</code></td></tr>
+        <tr><td><code>breakpoint()</code></td><td>Activa un punto de depuración.</td><td><code>breakpoint()</code></td><td><code>breakpoint()</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">8. Módulos, paquetes e imports</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Elemento</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>import</code></td><td>Importa un módulo completo.</td><td><code>import modulo</code></td><td><code>import math</code></td></tr>
+        <tr><td><code>from ... import</code></td><td>Importa objetos específicos.</td><td><code>from modulo import obj</code></td><td><code>from math import pi, sin</code></td></tr>
+        <tr><td>Alias</td><td>Renombra el módulo importado.</td><td><code>import modulo as alias</code></td><td><code>import numpy as np</code></td></tr>
+        <tr><td><code>__name__ == "__main__"</code></td><td>Define el punto de entrada del script.</td><td><code>if __name__ == "__main__":</code></td><td><code>if __name__ == "__main__": main()</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">9. Entornos virtuales y paquetes</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:30%">¿Para qué sirve?</th><th style="width:22%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>python -m venv</code></td><td>Crea un entorno virtual.</td><td><code>python -m venv .venv</code></td><td><code>python -m venv .venv</code></td></tr>
+        <tr><td>Activar en Linux</td><td>Activa el entorno virtual.</td><td><code>source .venv/bin/activate</code></td><td><code>source .venv/bin/activate</code></td></tr>
+        <tr><td><code>pip install</code></td><td>Instala paquetes.</td><td><code>pip install paquete</code></td><td><code>pip install numpy</code></td></tr>
+        <tr><td><code>pip freeze</code></td><td>Lista dependencias instaladas.</td><td><code>pip freeze</code></td><td><code>pip freeze &gt; requirements.txt</code></td></tr>
+        <tr><td><code>pip install -r</code></td><td>Instala desde requirements.</td><td><code>pip install -r archivo</code></td><td><code>pip install -r requirements.txt</code></td></tr>
+        <tr><td><code>deactivate</code></td><td>Sale del entorno virtual.</td><td><code>deactivate</code></td><td><code>deactivate</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">10. Clases y POO básica</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Elemento</th><th style="width:28%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:32%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>class</code></td><td>Define una clase.</td><td><code>class Nombre:</code></td><td><code>class Punto:</code></td></tr>
+        <tr><td><code>__init__</code></td><td>Inicializa objetos.</td><td><code>def __init__(self,...):</code></td><td><code>def __init__(self, x, y):</code></td></tr>
+        <tr><td><code>self</code></td><td>Referencia a la instancia actual.</td><td><code>self.atributo</code></td><td><code>self.x = x</code></td></tr>
+        <tr><td>Método</td><td>Define comportamiento del objeto.</td><td><code>def metodo(self):</code></td><td><code>def norma(self):</code></td></tr>
+        <tr><td>Herencia</td><td>Permite extender otra clase.</td><td><code>class Hija(Padre):</code></td><td><code>class Cuadrado(Figura):</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">11. Flujo de trabajo rápido</h3>
+    <table class="mini-table">
+      <thead><tr><th style="width:34%">Paso</th><th>Comando recomendado</th></tr></thead>
+      <tbody>
+        <tr><td>Crear entorno virtual</td><td><code>python -m venv .venv</code></td></tr>
+        <tr><td>Activarlo</td><td><code>source .venv/bin/activate</code></td></tr>
+        <tr><td>Instalar paquete</td><td><code>pip install numpy matplotlib</code></td></tr>
+        <tr><td>Crear script</td><td><code>touch main.py</code></td></tr>
+        <tr><td>Editar</td><td><code>nano main.py</code></td></tr>
+        <tr><td>Ejecutar</td><td><code>python main.py</code></td></tr>
+        <tr><td>Guardar dependencias</td><td><code>pip freeze &gt; requirements.txt</code></td></tr>
+        <tr><td>Salir del entorno</td><td><code>deactivate</code></td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn">
+      <strong>Buena práctica:</strong>
+      usa nombres descriptivos, evita variables globales innecesarias, organiza el código en funciones y trabaja dentro de entornos virtuales cuando desarrolles proyectos.
+    </div>
+
+    <div class="footer">Cheat sheet en español para Python • Dr. Víctor A. Osores Escalona • Listo para imprimir o exportar a PDF desde el navegador</div>
+  </div>
+
+<script>
+(() => {
+  "use strict";
+
+  const COPYABLE_HEADER_PATTERNS = [
+    "sintaxis típica",
+    "sintaxis",
+    "ejemplo",
+    "comando recomendado",
+    "secuencia sugerida",
+    "secuencia recomendada"
+  ];
+
+  const COPIED_STATE_DURATION_MS = 1200;
+  const COPY_ERROR_MESSAGE =
+    "No se pudo copiar automáticamente. Intenta copiar manualmente o verifica que estés usando HTTPS o localhost.";
+
+  async function copyToClipboard(text) {
+    if (!text || !text.trim()) {
+      throw new Error("No hay contenido para copiar.");
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    fallbackCopyToClipboard(text);
+  }
+
+  function fallbackCopyToClipboard(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.setAttribute("aria-hidden", "true");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-9999px";
+    textarea.style.left = "-9999px";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+
+    const success = document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    if (!success) {
+      throw new Error("Fallback de copiado no disponible.");
+    }
+  }
+
+  function extractTextFromCell(cell) {
+    const codeBlocks = Array.from(cell.querySelectorAll("code"))
+      .map(block => block.innerText.trim())
+      .filter(Boolean);
+
+    if (codeBlocks.length > 1) {
+      return codeBlocks.join("\n");
+    }
+
+    if (codeBlocks.length === 1) {
+      return codeBlocks[0];
+    }
+
+    return cell.innerText.trim();
+  }
+
+  function setCopiedVisualState(cell) {
+    cell.classList.add("copied");
+
+    window.setTimeout(() => {
+      cell.classList.remove("copied");
+    }, COPIED_STATE_DURATION_MS);
+  }
+
+  function isHeaderCopyable(headerText) {
+    return COPYABLE_HEADER_PATTERNS.some(pattern =>
+      headerText.includes(pattern)
+    );
+  }
+
+  function isAlreadyEnhanced(cell) {
+    return cell.dataset.copyEnabled === "true";
+  }
+
+  function markCellAsEnhanced(cell) {
+    cell.dataset.copyEnabled = "true";
+  }
+
+  function enhanceCopyableCell(cell) {
+    if (!cell || isAlreadyEnhanced(cell)) {
+      return;
+    }
+
+    cell.classList.add("copyable");
+    cell.setAttribute("tabindex", "0");
+    cell.setAttribute("role", "button");
+    cell.setAttribute("title", "Haz clic para copiar");
+    cell.setAttribute("aria-label", "Copiar contenido de la celda");
+
+    const handleCopy = async () => {
+      try {
+        const textToCopy = extractTextFromCell(cell);
+
+        if (!textToCopy) {
+          return;
+        }
+
+        await copyToClipboard(textToCopy);
+        setCopiedVisualState(cell);
+      } catch (error) {
+        console.error("Error al copiar contenido:", error);
+        alert(COPY_ERROR_MESSAGE);
+      }
+    };
+
+    cell.addEventListener("click", handleCopy);
+
+    cell.addEventListener("keydown", event => {
+      const isActivationKey = event.key === "Enter" || event.key === " ";
+
+      if (!isActivationKey) {
+        return;
+      }
+
+      event.preventDefault();
+      handleCopy();
+    });
+
+    markCellAsEnhanced(cell);
+  }
+
+  function getCopyableColumnIndexes(table) {
+    const headerCells = Array.from(table.querySelectorAll("thead th"));
+
+    return headerCells.reduce((indexes, headerCell, index) => {
+      const normalizedText = headerCell.innerText.trim().toLowerCase();
+
+      if (isHeaderCopyable(normalizedText)) {
+        indexes.push(index);
+      }
+
+      return indexes;
+    }, []);
+  }
+
+  function enableCopyOnTable(table) {
+    const copyableColumnIndexes = getCopyableColumnIndexes(table);
+
+    if (!copyableColumnIndexes.length) {
+      return;
+    }
+
+    const bodyRows = table.querySelectorAll("tbody tr");
+
+    bodyRows.forEach(row => {
+      const cells = row.querySelectorAll("td");
+
+      copyableColumnIndexes.forEach(index => {
+        if (cells[index]) {
+          enhanceCopyableCell(cells[index]);
+        }
+      });
+    });
+  }
+
+  function enableCopyOnTables(root = document) {
+    const tables = root.querySelectorAll("table");
+    tables.forEach(enableCopyOnTable);
+  }
+
+  window.copyToClipboard = copyToClipboard;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enableCopyOnTables();
+    });
+  } else {
+    enableCopyOnTables();
+  }
+})();
+</script>
+
+<script>
+(() => {
+  "use strict";
+
+  const SHARE_SUCCESS_DURATION_MS = 1500;
+  const SHARE_ERROR_MESSAGE = "No se pudo compartir automáticamente.";
+
+  function setTemporarySharedState(button, text) {
+    const originalText = button.textContent;
+    button.classList.add("shared");
+    button.textContent = text;
+
+    window.setTimeout(() => {
+      button.classList.remove("shared");
+      button.textContent = originalText;
+    }, SHARE_SUCCESS_DURATION_MS);
+  }
+
+  async function sharePage() {
+    const shareData = {
+      title: document.title,
+      text: "Cheat sheet profesional de Python en español, elaborado por Dr. Víctor A. Osores Escalona.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      return "shared";
+    }
+
+    if (typeof window.copyToClipboard !== "function") {
+      throw new Error("La función global copyToClipboard no está disponible.");
+    }
+
+    await window.copyToClipboard(window.location.href);
+    return "copied";
+  }
+
+  function enableShareButton() {
+    const shareButton = document.getElementById("shareButton");
+
+    if (!shareButton || shareButton.dataset.shareEnabled === "true") {
+      return;
+    }
+
+    shareButton.addEventListener("click", async () => {
+      try {
+        const result = await sharePage();
+
+        if (result === "shared") {
+          setTemporarySharedState(shareButton, "Compartido");
+        } else {
+          setTemporarySharedState(shareButton, "Enlace copiado");
+        }
+      } catch (error) {
+        console.error("Error al compartir:", error);
+        alert(SHARE_ERROR_MESSAGE);
+      }
+    });
+
+    shareButton.dataset.shareEnabled = "true";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enableShareButton();
+    });
+  } else {
+    enableShareButton();
+  }
+})();
+</script>
+</body>
+</html>
+

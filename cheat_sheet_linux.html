@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cheat Sheet Linux</title>
+<title>Cheat Sheet Linux Profesional</title>
 <style>
   :root{
     --blue:#183d63;
@@ -18,7 +18,9 @@
     --ok-bg:#eaf7ef;
     --copy-bg:#f8fbff;
   }
+
   *{box-sizing:border-box}
+
   body{
     margin:0;
     font-family: Inter, "Segoe UI", Arial, sans-serif;
@@ -26,6 +28,7 @@
     background:#eef3f8;
     line-height:1.45;
   }
+
   .page{
     width:1120px;
     margin:28px auto;
@@ -34,6 +37,7 @@
     border-radius:18px;
     box-shadow:0 12px 36px rgba(14,33,52,.10);
   }
+
   .hero{
     background:linear-gradient(135deg,var(--blue),#285f95);
     color:white;
@@ -41,59 +45,162 @@
     padding:22px 24px;
     margin-bottom:18px;
   }
+
   .hero h1{margin:0 0 6px;font-size:31px;letter-spacing:.3px}
   .hero p{margin:0;font-size:14px;opacity:.95}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+
+  .actions-bar{
+    display:flex;
+    justify-content:flex-end;
+    margin:0 0 18px;
+  }
+
+  .action-button{
+    appearance:none;
+    border:1px solid #c9d9ea;
+    background:#eef5fc;
+    color:var(--blue2);
+    border-radius:999px;
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+
+  .action-button:hover{
+    background:#e3effb;
+    box-shadow:0 4px 12px rgba(24,61,99,.10);
+    transform:translateY(-1px);
+  }
+
+  .action-button:focus-visible{
+    outline:2px solid var(--blue2);
+    outline-offset:2px;
+  }
+
+  .action-button.shared{
+    background:var(--ok-bg);
+    color:var(--ok);
+    border-color:#b8e0c8;
+  }
+
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:16px;
+  }
+
   .card{
     border:1px solid var(--line);
     border-radius:14px;
     padding:14px 16px;
     background:white;
   }
-  .card h2{margin:0 0 10px;color:var(--blue);font-size:18px}
+
+  .card h2{
+    margin:0 0 10px;
+    color:var(--blue);
+    font-size:18px;
+  }
+
   .badge{
-    display:inline-block;background:#e8f0f8;color:var(--blue2);
-    border:1px solid #c9d9ea;border-radius:999px;padding:5px 10px;
-    font-size:12px;font-weight:700;margin:0 8px 8px 0;
+    display:inline-block;
+    background:#e8f0f8;
+    color:var(--blue2);
+    border:1px solid #c9d9ea;
+    border-radius:999px;
+    padding:5px 10px;
+    font-size:12px;
+    font-weight:700;
+    margin:0 8px 8px 0;
   }
+
   .note{
-    background:#eaf2f8;border:1px solid #bad0e4;border-radius:14px;
-    padding:12px 14px;margin:14px 0 18px;font-size:14px;
+    background:#eaf2f8;
+    border:1px solid #bad0e4;
+    border-radius:14px;
+    padding:12px 14px;
+    margin:14px 0 18px;
+    font-size:14px;
   }
+
   .warn{
-    background:var(--warn);border:1px solid var(--warn-line);border-radius:14px;
-    padding:12px 14px;margin-top:14px;font-size:14px;
+    background:var(--warn);
+    border:1px solid var(--warn-line);
+    border-radius:14px;
+    padding:12px 14px;
+    margin-top:14px;
+    font-size:14px;
   }
+
   h3.section{
-    margin:18px 0 10px;color:var(--blue);font-size:19px;border-bottom:2px solid #e8eef5;padding-bottom:6px;
+    margin:18px 0 10px;
+    color:var(--blue);
+    font-size:19px;
+    border-bottom:2px solid #e8eef5;
+    padding-bottom:6px;
   }
+
   table{
-    width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;
-    border:1px solid var(--line);border-radius:14px;font-size:13px;
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:14px;
+    font-size:13px;
   }
-  th,td{padding:10px 11px;vertical-align:top;border-bottom:1px solid #e7edf4}
-  th{background:var(--blue2);color:white;text-align:left;font-size:12.5px;letter-spacing:.2px}
+
+  th,td{
+    padding:10px 11px;
+    vertical-align:top;
+    border-bottom:1px solid #e7edf4;
+  }
+
+  th{
+    background:var(--blue2);
+    color:white;
+    text-align:left;
+    font-size:12.5px;
+    letter-spacing:.2px;
+  }
+
   tr:nth-child(even) td{background:var(--light)}
   tr:last-child td{border-bottom:none}
+
   code{
-    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
-    background:#f1f5f9;border:1px solid #dbe5f0;border-radius:7px;
-    padding:2px 6px;font-size:12px;color:#0f2740;
+    font-family:"Cascadia Code","Fira Code",Consolas,monospace;
+    background:#f1f5f9;
+    border:1px solid #dbe5f0;
+    border-radius:7px;
+    padding:2px 6px;
+    font-size:12px;
+    color:#0f2740;
   }
+
   .mini-table th,.mini-table td{padding:8px 10px}
   ul.clean{margin:8px 0 0 18px;padding:0}
-  .footer{margin-top:16px;color:var(--muted);font-size:12px;text-align:center}
 
-  /* NUEVO: celdas copiables sin alterar el diseño base */
+  .footer{
+    margin-top:16px;
+    color:var(--muted);
+    font-size:12px;
+    text-align:center;
+  }
+
   td.copyable{
     position:relative;
     cursor:copy;
     transition:background-color .15s ease, box-shadow .15s ease;
   }
+
   td.copyable:hover{
     background:var(--copy-bg) !important;
     box-shadow: inset 0 0 0 1px #c9d9ea;
   }
+
   td.copyable::after{
     content:"Copiar";
     position:absolute;
@@ -111,15 +218,18 @@
     transition:opacity .15s ease, transform .15s ease;
     pointer-events:none;
   }
+
   td.copyable:hover::after,
   td.copyable:focus-visible::after{
     opacity:1;
     transform:translateY(0);
   }
+
   td.copyable.copied{
     background:var(--ok-bg) !important;
     box-shadow: inset 0 0 0 1px #b8e0c8;
   }
+
   td.copyable.copied::after{
     content:"Copiado";
     opacity:1;
@@ -129,12 +239,18 @@
     background:#f3fcf6;
   }
 
+  td.copyable:focus-visible{
+    outline:2px solid var(--blue2);
+    outline-offset:-2px;
+  }
+
   @media print{
     body{background:white}
     .page{width:auto;margin:0;box-shadow:none;border-radius:0;padding:12mm}
     .hero{break-inside:avoid}
     table,.card,.note,.warn{break-inside:avoid}
     td.copyable::after{display:none}
+    .actions-bar{display:none}
   }
 </style>
 </head>
@@ -142,7 +258,11 @@
   <div class="page">
     <div class="hero">
       <h1>Cheat Sheet Linux (Ubuntu)</h1>
-      <p>Resumen de terminal, archivos, SSH, permisos, análisis de texto y procesos.</p>
+      <p>Resumen profesional de terminal, archivos, SSH, permisos, análisis de texto, procesos, red y administración básica.</p>
+    </div>
+
+    <div class="actions-bar">
+      <button id="shareButton" class="action-button" type="button">Compartir</button>
     </div>
 
     <div class="grid2">
@@ -151,35 +271,40 @@
         <span class="badge">Linux libre</span>
         <span class="badge">Multiusuario</span>
         <span class="badge">Multitarea</span>
-        <span class="badge">Multiplataforma</span>
+        <span class="badge">CLI</span>
         <ul class="clean">
-          <li>El sistema operativo permite interactuar con el hardware y ejecutar aplicaciones.</li>
-          <li>En Linux todo cuelga del directorio raíz <code>/</code>.</li>
-          <li>El directorio personal del usuario suele estar en <code>/home/usuario</code>.</li>
-          <li>El acceso remoto seguro se hace con <code>ssh</code>.</li>
+          <li>Linux organiza todo desde el directorio raíz <code>/</code>.</li>
+          <li>El directorio personal suele estar en <code>/home/usuario</code>.</li>
+          <li>Muchos procesos administrativos requieren <code>sudo</code>.</li>
+          <li>El acceso remoto seguro normalmente se realiza con <code>ssh</code>.</li>
         </ul>
       </div>
+
       <div class="card">
         <h2>Directorios importantes</h2>
         <ul class="clean">
           <li><code>/bin</code> ejecutables básicos</li>
-          <li><code>/boot</code> arranque del sistema</li>
+          <li><code>/boot</code> arranque</li>
           <li><code>/dev</code> dispositivos</li>
           <li><code>/etc</code> configuración</li>
           <li><code>/home</code> usuarios</li>
           <li><code>/lib</code> bibliotecas</li>
-          <li><code>/media</code> dispositivos montados</li>
-          <li><code>/opt</code> aplicaciones</li>
+          <li><code>/media</code> medios montados</li>
+          <li><code>/opt</code> aplicaciones extra</li>
           <li><code>/tmp</code> temporales</li>
-          <li><code>/usr</code> aplicaciones compartidas</li>
-          <li><code>/var</code> datos variables</li>
-          <li><code>/root</code> administrador</li>
-          <li><code>/proc</code> kernel y procesos</li>
+          <li><code>/usr</code> programas compartidos</li>
+          <li><code>/var</code> datos variables y logs</li>
+          <li><code>/proc</code> procesos y kernel</li>
         </ul>
       </div>
     </div>
 
-    <div class="note"><strong>Acceso remoto:</strong> <code>ssh remote_username@remote_host</code> &nbsp; | &nbsp; Ejemplo: <code>ssh username@ima.ucm.cl</code></div>
+    <div class="note">
+      <strong>Acceso remoto:</strong>
+      <code>ssh usuario@servidor</code>
+      &nbsp; | &nbsp;
+      <strong>Ejemplo:</strong> <code>ssh username@ima.ucm.cl</code>
+    </div>
 
     <h3 class="section">1. Navegación, directorios y visualización</h3>
     <table>
@@ -190,14 +315,15 @@
         <tr><td><code>pwd</code></td><td>Muestra el directorio de trabajo actual.</td><td><code>pwd</code></td><td><code>pwd</code></td></tr>
         <tr><td><code>ls</code></td><td>Lista archivos y carpetas.</td><td><code>ls</code>, <code>ls -a</code>, <code>ls -l</code>, <code>ls -lh</code></td><td><code>ls -lah</code></td></tr>
         <tr><td><code>cd</code></td><td>Cambia de directorio. Sin argumentos vuelve al directorio personal.</td><td><code>cd ruta</code></td><td><code>cd ..</code>, <code>cd ~</code>, <code>cd /usr/local</code></td></tr>
-        <tr><td><code>mkdir</code></td><td>Crea directorios.</td><td><code>mkdir nombre</code></td><td><code>mkdir curso_01</code></td></tr>
+        <tr><td><code>mkdir</code></td><td>Crea directorios.</td><td><code>mkdir nombre</code>, <code>mkdir -p ruta</code></td><td><code>mkdir -p cursos/linux</code></td></tr>
         <tr><td><code>cat</code></td><td>Muestra el contenido completo de un archivo.</td><td><code>cat archivo</code></td><td><code>cat notas.txt</code></td></tr>
         <tr><td><code>more</code></td><td>Muestra el archivo pantalla a pantalla.</td><td><code>more archivo</code></td><td><code>more datos.txt</code></td></tr>
         <tr><td><code>less</code></td><td>Permite avanzar y retroceder dentro del archivo.</td><td><code>less archivo</code></td><td><code>less resultados.log</code></td></tr>
-        <tr><td><code>head</code></td><td>Muestra las primeras líneas del archivo.</td><td><code>head archivo</code></td><td><code>head -n 3 estilos_favoritos.txt</code></td></tr>
-        <tr><td><code>tail</code></td><td>Muestra las últimas líneas del archivo.</td><td><code>tail archivo</code></td><td><code>tail -n 1 estilos_favoritos.txt</code></td></tr>
-        <tr><td><code>touch</code></td><td>Crea un fichero vacío o actualiza su fecha.</td><td><code>touch archivo</code></td><td><code>touch estilos_favoritos.txt</code></td></tr>
-        <tr><td><code>nano</code> / <code>vi</code></td><td>Editores de texto en terminal.</td><td><code>nano archivo</code></td><td><code>nano script.sh</code></td></tr>
+        <tr><td><code>head</code></td><td>Muestra las primeras líneas del archivo.</td><td><code>head archivo</code></td><td><code>head -n 3 archivo.txt</code></td></tr>
+        <tr><td><code>tail</code></td><td>Muestra las últimas líneas del archivo.</td><td><code>tail archivo</code></td><td><code>tail -n 20 archivo.txt</code></td></tr>
+        <tr><td><code>tail -f</code></td><td>Sigue un archivo en tiempo real, útil para logs.</td><td><code>tail -f archivo</code></td><td><code>tail -f /var/log/syslog</code></td></tr>
+        <tr><td><code>touch</code></td><td>Crea un archivo vacío o actualiza su fecha.</td><td><code>touch archivo</code></td><td><code>touch script.sh</code></td></tr>
+        <tr><td><code>nano</code> / <code>vi</code></td><td>Editores de texto en terminal.</td><td><code>nano archivo</code></td><td><code>nano config.ini</code></td></tr>
       </tbody>
     </table>
 
@@ -207,18 +333,21 @@
         <tr><th style="width:18%">Comando / símbolo</th><th style="width:29%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:31%">Ejemplo</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>cp</code></td><td>Copia archivos.</td><td><code>cp origen destino</code></td><td><code>cp *.odt textos/</code></td></tr>
-        <tr><td><code>cp -R</code></td><td>Copia directorios completos de forma recursiva.</td><td><code>cp -R dir1 dir2</code></td><td><code>cp -R multimedia/ multimedia2</code></td></tr>
-        <tr><td><code>mv</code></td><td>Mueve archivos o cambia su nombre.</td><td><code>mv origen destino</code></td><td><code>mv mi_texto.txt carta.txt</code></td></tr>
-        <tr><td><code>rm</code></td><td>Borra archivos.</td><td><code>rm archivo</code></td><td><code>rm *.txt</code></td></tr>
-        <tr><td><code>rm -R</code> / <code>rm -Rf</code></td><td>Borra directorios completos.</td><td><code>rm -R carpeta</code></td><td><code>rm -Rf multimedia_copia/</code></td></tr>
-        <tr><td><code>*</code></td><td>Comodín para cualquier cadena.</td><td><code>a*s</code></td><td><code>ls /usr/bin/a*s</code></td></tr>
-        <tr><td><code>?</code></td><td>Comodín para un solo carácter.</td><td><code>g?o*</code></td><td><code>ls /usr/bin/g?o*</code></td></tr>
-        <tr><td><code>[1-6]</code></td><td>Rango de caracteres.</td><td><code>docu[1-6]</code></td><td><code>cat docu[1-6]</code></td></tr>
+        <tr><td><code>cp</code></td><td>Copia archivos.</td><td><code>cp origen destino</code></td><td><code>cp archivo.txt respaldo.txt</code></td></tr>
+        <tr><td><code>cp -R</code></td><td>Copia directorios completos recursivamente.</td><td><code>cp -R dir1 dir2</code></td><td><code>cp -R proyecto/ proyecto_backup/</code></td></tr>
+        <tr><td><code>mv</code></td><td>Mueve archivos o cambia su nombre.</td><td><code>mv origen destino</code></td><td><code>mv viejo.txt nuevo.txt</code></td></tr>
+        <tr><td><code>rm</code></td><td>Borra archivos.</td><td><code>rm archivo</code></td><td><code>rm salida.tmp</code></td></tr>
+        <tr><td><code>rm -R</code> / <code>rm -Rf</code></td><td>Borra directorios completos.</td><td><code>rm -R carpeta</code></td><td><code>rm -Rf build/</code></td></tr>
+        <tr><td><code>*</code></td><td>Comodín para cualquier cadena.</td><td><code>*.txt</code></td><td><code>ls *.log</code></td></tr>
+        <tr><td><code>?</code></td><td>Comodín para un solo carácter.</td><td><code>file?.txt</code></td><td><code>ls dato?.csv</code></td></tr>
+        <tr><td><code>[a-z]</code></td><td>Rango de caracteres.</td><td><code>archivo[1-3]</code></td><td><code>ls informe[1-3].pdf</code></td></tr>
       </tbody>
     </table>
 
-    <div class="warn"><strong>Precaución:</strong> <code>rm</code> no envía archivos a la papelera. El material enfatiza que una vez borrados no se pueden recuperar.</div>
+    <div class="warn">
+      <strong>Precaución:</strong>
+      <code>rm</code> no envía archivos a la papelera. Antes de borrar recursivamente, revisa bien la ruta y el directorio actual con <code>pwd</code>.
+    </div>
 
     <h3 class="section">3. Permisos, acceso y comandos frecuentes</h3>
     <table>
@@ -227,28 +356,32 @@
       </thead>
       <tbody>
         <tr><td><code>ls -l</code></td><td>Muestra tipo de archivo y permisos.</td><td><code>-rw-r--r--</code>, <code>drwxr-xr--</code></td><td><code>r=4</code>, <code>w=2</code>, <code>x=1</code></td></tr>
-        <tr><td><code>chmod</code> simbólico</td><td>Cambia permisos por usuario, grupo u otros.</td><td><code>chmod g+w datos</code></td><td><code>u</code>, <code>g</code>, <code>o</code>, <code>a</code></td></tr>
-        <tr><td><code>chmod</code> octal</td><td>Cambia permisos usando máscara numérica.</td><td><code>chmod 744 datos</code></td><td><code>744 = rwx r-- r--</code></td></tr>
-        <tr><td><code>date</code></td><td>Muestra fecha y hora.</td><td><code>date</code></td><td>Útil para scripts y registros.</td></tr>
-        <tr><td><code>who</code></td><td>Muestra usuarios conectados.</td><td><code>who</code></td><td>Muy útil en entornos multiusuario.</td></tr>
-        <tr><td><code>passwd</code></td><td>Cambia la contraseña.</td><td><code>passwd</code></td><td>Solicita confirmación.</td></tr>
+        <tr><td><code>chmod</code> simbólico</td><td>Cambia permisos por usuario, grupo u otros.</td><td><code>chmod g+w datos.txt</code></td><td><code>u</code>, <code>g</code>, <code>o</code>, <code>a</code></td></tr>
+        <tr><td><code>chmod</code> octal</td><td>Cambia permisos usando máscara numérica.</td><td><code>chmod 744 script.sh</code></td><td><code>744 = rwx r-- r--</code></td></tr>
+        <tr><td><code>chown</code></td><td>Cambia propietario y grupo.</td><td><code>chown usuario:grupo archivo</code></td><td><code>sudo chown fran:fran datos.csv</code></td></tr>
+        <tr><td><code>sudo</code></td><td>Ejecuta un comando con privilegios administrativos.</td><td><code>sudo comando</code></td><td><code>sudo apt update</code></td></tr>
+        <tr><td><code>date</code></td><td>Muestra fecha y hora.</td><td><code>date</code></td><td><code>date</code></td></tr>
+        <tr><td><code>who</code></td><td>Muestra usuarios conectados.</td><td><code>who</code></td><td><code>who</code></td></tr>
+        <tr><td><code>passwd</code></td><td>Cambia la contraseña.</td><td><code>passwd</code></td><td><code>passwd</code></td></tr>
       </tbody>
     </table>
 
     <h3 class="section">4. Búsqueda, ordenamiento y análisis de texto</h3>
     <table>
       <thead>
-        <tr><th style="width:16%">Comando</th><th style="width:26%">¿Qué hace?</th><th style="width:25%">Sintaxis básica</th><th style="width:33%">Ejemplo del material</th></tr>
+        <tr><th style="width:16%">Comando</th><th style="width:26%">¿Qué hace?</th><th style="width:25%">Sintaxis básica</th><th style="width:33%">Ejemplo</th></tr>
       </thead>
       <tbody>
-        <tr><td><code>grep</code></td><td>Busca patrones en archivos.</td><td><code>grep patrón archivo</code></td><td><code>grep "^Ana " datos.txt</code></td></tr>
-        <tr><td><code>grep -E</code></td><td>Permite expresiones extendidas.</td><td><code>grep -E patrón archivo</code></td><td><code>grep -E " IA | ML " datos.txt</code></td></tr>
-        <tr><td><code>grep -v</code></td><td>Muestra líneas que NO coinciden.</td><td><code>grep -v patrón archivo</code></td><td><code>grep -v " SO " datos.txt</code></td></tr>
+        <tr><td><code>grep</code></td><td>Busca patrones en archivos.</td><td><code>grep patrón archivo</code></td><td><code>grep "modelo" notas.txt</code></td></tr>
+        <tr><td><code>grep -E</code></td><td>Permite expresiones regulares extendidas.</td><td><code>grep -E patrón archivo</code></td><td><code>grep -E "IA|ML" datos.txt</code></td></tr>
+        <tr><td><code>grep -v</code></td><td>Muestra líneas que no coinciden.</td><td><code>grep -v patrón archivo</code></td><td><code>grep -v "error" salida.log</code></td></tr>
         <tr><td><code>sort</code></td><td>Ordena líneas.</td><td><code>sort archivo</code></td><td><code>sort datos.txt</code></td></tr>
         <tr><td><code>sort -k</code></td><td>Ordena por columna.</td><td><code>sort -k2 archivo</code></td><td><code>sort -k4,4nr datos.txt</code></td></tr>
-        <tr><td><code>cut</code></td><td>Extrae columnas o campos.</td><td><code>cut -d' ' -f1,3 archivo</code></td><td><code>cut -d' ' -f4 datos.txt</code></td></tr>
-        <tr><td><code>awk</code></td><td>Procesa texto por columnas.</td><td><code>awk 'condición {acción}' archivo</code></td><td><code>awk '$3 == "SO" {print}' datos.txt</code></td></tr>
+        <tr><td><code>cut</code></td><td>Extrae columnas o campos.</td><td><code>cut -d' ' -f1,3 archivo</code></td><td><code>cut -d',' -f2 datos.csv</code></td></tr>
+        <tr><td><code>awk</code></td><td>Procesa texto por columnas.</td><td><code>awk 'condición {acción}' archivo</code></td><td><code>awk '$3 > 10 {print}' datos.txt</code></td></tr>
+        <tr><td><code>sed</code></td><td>Transforma texto en flujo.</td><td><code>sed 's/viejo/nuevo/g' archivo</code></td><td><code>sed 's/foo/bar/g' texto.txt</code></td></tr>
         <tr><td><code>wc</code></td><td>Cuenta líneas, palabras y caracteres.</td><td><code>wc archivo</code></td><td><code>wc mifichero.txt</code></td></tr>
+        <tr><td><code>uniq</code></td><td>Elimina duplicados consecutivos.</td><td><code>uniq archivo</code></td><td><code>sort datos.txt | uniq</code></td></tr>
       </tbody>
     </table>
 
@@ -259,15 +392,90 @@
       </thead>
       <tbody>
         <tr><td><code>|</code></td><td>Pasa la salida de un comando a otro.</td><td><code>comando1 | comando2</code></td><td><code>ls -l | sort</code></td></tr>
-        <tr><td><code>&gt;</code></td><td>Redirige la salida a un archivo.</td><td><code>comando &gt; archivo</code></td><td><code>ls | sort &gt; salida.txt</code></td></tr>
+        <tr><td><code>&gt;</code></td><td>Redirige la salida a un archivo, sobrescribiendo.</td><td><code>comando &gt; archivo</code></td><td><code>ls &gt; salida.txt</code></td></tr>
+        <tr><td><code>&gt;&gt;</code></td><td>Redirige agregando al final del archivo.</td><td><code>comando &gt;&gt; archivo</code></td><td><code>echo "ok" &gt;&gt; log.txt</code></td></tr>
+        <tr><td><code>2&gt;</code></td><td>Redirige errores estándar.</td><td><code>comando 2&gt; errores.log</code></td><td><code>python app.py 2&gt; errores.log</code></td></tr>
         <tr><td><code>ps aux</code></td><td>Muestra procesos en ejecución.</td><td><code>ps aux</code></td><td><code>ps aux | grep python</code></td></tr>
+        <tr><td><code>top</code></td><td>Monitor interactivo de procesos.</td><td><code>top</code></td><td><code>top</code></td></tr>
+        <tr><td><code>htop</code></td><td>Monitor mejorado de procesos, si está instalado.</td><td><code>htop</code></td><td><code>htop</code></td></tr>
         <tr><td><code>kill PID</code></td><td>Solicita cierre limpio del proceso.</td><td><code>kill PID</code></td><td><code>kill 2451</code></td></tr>
         <tr><td><code>kill -9 PID</code></td><td>Fuerza la terminación del proceso.</td><td><code>kill -9 PID</code></td><td><code>kill -9 2451</code></td></tr>
-        <tr><td><code>nohup comando &amp;</code></td><td>Permite que el proceso siga corriendo aunque cierres la terminal.</td><td><code>nohup comando &amp;</code></td><td><code>nohup python script.py &amp;</code></td></tr>
+        <tr><td><code>nohup comando &amp;</code></td><td>Permite que el proceso siga aunque cierres la terminal.</td><td><code>nohup comando &amp;</code></td><td><code>nohup python script.py &amp;</code></td></tr>
       </tbody>
     </table>
 
-    <h3 class="section">6. Flujo de trabajo rápido</h3>
+    <h3 class="section">6. SSH, transferencia y trabajo remoto</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:30%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>ssh</code></td><td>Conecta a un servidor remoto.</td><td><code>ssh usuario@host</code></td><td><code>ssh fran@servidor.ucm.cl</code></td></tr>
+        <tr><td><code>scp</code></td><td>Copia archivos entre máquinas por SSH.</td><td><code>scp origen destino</code></td><td><code>scp datos.csv fran@host:/home/fran/</code></td></tr>
+        <tr><td><code>scp -r</code></td><td>Copia carpetas recursivamente.</td><td><code>scp -r carpeta destino</code></td><td><code>scp -r proyecto/ fran@host:/home/fran/</code></td></tr>
+        <tr><td><code>rsync</code></td><td>Sincroniza archivos eficientemente.</td><td><code>rsync -av origen destino</code></td><td><code>rsync -av datos/ backup/</code></td></tr>
+        <tr><td><code>ssh-keygen</code></td><td>Genera claves SSH.</td><td><code>ssh-keygen -t ed25519</code></td><td><code>ssh-keygen -t ed25519 -C "correo@ejemplo.com"</code></td></tr>
+        <tr><td><code>ssh-copy-id</code></td><td>Copia tu clave pública al servidor.</td><td><code>ssh-copy-id usuario@host</code></td><td><code>ssh-copy-id fran@servidor.ucm.cl</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">7. Red y diagnóstico básico</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:30%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>ping</code></td><td>Prueba conectividad con un host.</td><td><code>ping host</code></td><td><code>ping google.com</code></td></tr>
+        <tr><td><code>ip a</code></td><td>Muestra interfaces y direcciones IP.</td><td><code>ip a</code></td><td><code>ip a</code></td></tr>
+        <tr><td><code>ip r</code></td><td>Muestra rutas de red.</td><td><code>ip r</code></td><td><code>ip r</code></td></tr>
+        <tr><td><code>ss -tulpn</code></td><td>Muestra puertos y servicios escuchando.</td><td><code>ss -tulpn</code></td><td><code>sudo ss -tulpn</code></td></tr>
+        <tr><td><code>curl</code></td><td>Hace solicitudes HTTP desde terminal.</td><td><code>curl URL</code></td><td><code>curl https://example.com</code></td></tr>
+        <tr><td><code>wget</code></td><td>Descarga archivos desde una URL.</td><td><code>wget URL</code></td><td><code>wget https://servidor/archivo.zip</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">8. Espacio en disco y sistema</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:30%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>df -h</code></td><td>Muestra espacio disponible en discos montados.</td><td><code>df -h</code></td><td><code>df -h</code></td></tr>
+        <tr><td><code>du -sh</code></td><td>Muestra tamaño de archivos o carpetas.</td><td><code>du -sh ruta</code></td><td><code>du -sh proyecto/</code></td></tr>
+        <tr><td><code>free -h</code></td><td>Muestra memoria RAM y swap.</td><td><code>free -h</code></td><td><code>free -h</code></td></tr>
+        <tr><td><code>uname -a</code></td><td>Muestra información del kernel y sistema.</td><td><code>uname -a</code></td><td><code>uname -a</code></td></tr>
+        <tr><td><code>lsblk</code></td><td>Lista discos y particiones.</td><td><code>lsblk</code></td><td><code>lsblk</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">9. Compresión y empaquetado</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:30%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>tar -czf</code></td><td>Empaqueta y comprime en formato tar.gz.</td><td><code>tar -czf salida.tar.gz carpeta</code></td><td><code>tar -czf proyecto.tar.gz proyecto/</code></td></tr>
+        <tr><td><code>tar -xzf</code></td><td>Extrae archivos tar.gz.</td><td><code>tar -xzf archivo.tar.gz</code></td><td><code>tar -xzf proyecto.tar.gz</code></td></tr>
+        <tr><td><code>zip -r</code></td><td>Comprime en formato zip.</td><td><code>zip -r salida.zip carpeta</code></td><td><code>zip -r proyecto.zip proyecto/</code></td></tr>
+        <tr><td><code>unzip</code></td><td>Extrae archivos zip.</td><td><code>unzip archivo.zip</code></td><td><code>unzip proyecto.zip</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">10. Gestión de paquetes en Ubuntu</h3>
+    <table>
+      <thead>
+        <tr><th style="width:18%">Comando</th><th style="width:30%">Uso</th><th style="width:22%">Sintaxis</th><th style="width:30%">Ejemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>apt update</code></td><td>Actualiza el índice de paquetes.</td><td><code>sudo apt update</code></td><td><code>sudo apt update</code></td></tr>
+        <tr><td><code>apt upgrade</code></td><td>Actualiza paquetes instalados.</td><td><code>sudo apt upgrade</code></td><td><code>sudo apt upgrade -y</code></td></tr>
+        <tr><td><code>apt install</code></td><td>Instala un paquete.</td><td><code>sudo apt install paquete</code></td><td><code>sudo apt install htop</code></td></tr>
+        <tr><td><code>apt remove</code></td><td>Elimina un paquete.</td><td><code>sudo apt remove paquete</code></td><td><code>sudo apt remove nano</code></td></tr>
+        <tr><td><code>apt search</code></td><td>Busca paquetes disponibles.</td><td><code>apt search término</code></td><td><code>apt search python3</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="section">11. Flujo de trabajo rápido</h3>
     <table class="mini-table">
       <thead><tr><th style="width:34%">Paso</th><th>Comando recomendado</th></tr></thead>
       <tbody>
@@ -278,8 +486,9 @@
         <tr><td>Editar</td><td><code>nano notas.txt</code></td></tr>
         <tr><td>Ver inicio o fin</td><td><code>head -n 3 notas.txt</code> &nbsp; / &nbsp; <code>tail -n 1 notas.txt</code></td></tr>
         <tr><td>Buscar texto</td><td><code>grep "modelo" notas.txt</code></td></tr>
-        <tr><td>Contar resultados</td><td><code>sort datos.txt | uniq | wc -l</code></td></tr>
-        <tr><td>Trabajar remoto</td><td><code>ssh usuario@servidor</code></td></tr>
+        <tr><td>Contar resultados únicos</td><td><code>sort datos.txt | uniq | wc -l</code></td></tr>
+        <tr><td>Conectarte a un servidor</td><td><code>ssh usuario@servidor</code></td></tr>
+        <tr><td>Monitorear un log</td><td><code>tail -f /var/log/syslog</code></td></tr>
       </tbody>
     </table>
 
@@ -287,74 +496,260 @@
   </div>
 
 <script>
-(function(){
-  const candidateHeaders = new Set([
-    'Sintaxis típica',
-    'Sintaxis',
-    'Ejemplo',
-    'Ejemplo del material',
-    'Comando recomendado'
-  ]);
+(() => {
+  "use strict";
 
-  function copyText(text, cell){
-    const clean = text.replace(/\s+/g, ' ').trim();
-    if (!clean) return;
+  const COPYABLE_HEADER_PATTERNS = [
+    "sintaxis típica",
+    "sintaxis",
+    "ejemplo",
+    "ejemplo del material",
+    "comando recomendado",
+    "secuencia sugerida",
+    "secuencia recomendada"
+  ];
 
-    const success = () => {
-      cell.classList.add('copied');
-      clearTimeout(cell._copyTimer);
-      cell._copyTimer = setTimeout(() => cell.classList.remove('copied'), 1100);
-    };
+  const COPIED_STATE_DURATION_MS = 1200;
+  const COPY_ERROR_MESSAGE =
+    "No se pudo copiar automáticamente. Intenta copiar manualmente o verifica que estés usando HTTPS o localhost.";
+
+  async function copyToClipboard(text) {
+    if (!text || !text.trim()) {
+      throw new Error("No hay contenido para copiar.");
+    }
 
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(clean).then(success).catch(() => fallbackCopy(clean, success));
-    } else {
-      fallbackCopy(clean, success);
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    fallbackCopyToClipboard(text);
+  }
+
+  function fallbackCopyToClipboard(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.setAttribute("aria-hidden", "true");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-9999px";
+    textarea.style.left = "-9999px";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+
+    const success = document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    if (!success) {
+      throw new Error("Fallback de copiado no disponible.");
     }
   }
 
-  function fallbackCopy(text, onSuccess){
-    const area = document.createElement('textarea');
-    area.value = text;
-    area.setAttribute('readonly', '');
-    area.style.position = 'fixed';
-    area.style.opacity = '0';
-    area.style.pointerEvents = 'none';
-    document.body.appendChild(area);
-    area.select();
-    try {
-      document.execCommand('copy');
-      onSuccess();
-    } catch (e) {}
-    document.body.removeChild(area);
+  function extractTextFromCell(cell) {
+    const codeBlocks = Array.from(cell.querySelectorAll("code"))
+      .map(block => block.innerText.trim())
+      .filter(Boolean);
+
+    if (codeBlocks.length > 1) {
+      return codeBlocks.join("\n");
+    }
+
+    if (codeBlocks.length === 1) {
+      return codeBlocks[0];
+    }
+
+    return cell.innerText.trim();
   }
 
-  document.querySelectorAll('table').forEach(table => {
-    const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.textContent.trim());
-    const copyIndexes = headers
-      .map((text, idx) => candidateHeaders.has(text) ? idx : -1)
-      .filter(idx => idx >= 0);
+  function setCopiedVisualState(cell) {
+    cell.classList.add("copied");
 
-    if (!copyIndexes.length) return;
+    window.setTimeout(() => {
+      cell.classList.remove("copied");
+    }, COPIED_STATE_DURATION_MS);
+  }
 
-    table.querySelectorAll('tbody tr').forEach(row => {
-      const cells = row.querySelectorAll('td');
-      copyIndexes.forEach(idx => {
-        const cell = cells[idx];
-        if (!cell) return;
-        cell.classList.add('copyable');
-        cell.title = 'Haz clic para copiar';
-        cell.setAttribute('tabindex', '0');
-        cell.addEventListener('click', () => copyText(cell.innerText, cell));
-        cell.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            copyText(cell.innerText, cell);
-          }
-        });
+  function isHeaderCopyable(headerText) {
+    return COPYABLE_HEADER_PATTERNS.some(pattern =>
+      headerText.includes(pattern)
+    );
+  }
+
+  function isAlreadyEnhanced(cell) {
+    return cell.dataset.copyEnabled === "true";
+  }
+
+  function markCellAsEnhanced(cell) {
+    cell.dataset.copyEnabled = "true";
+  }
+
+  function enhanceCopyableCell(cell) {
+    if (!cell || isAlreadyEnhanced(cell)) {
+      return;
+    }
+
+    cell.classList.add("copyable");
+    cell.setAttribute("tabindex", "0");
+    cell.setAttribute("role", "button");
+    cell.setAttribute("title", "Haz clic para copiar");
+    cell.setAttribute("aria-label", "Copiar contenido de la celda");
+
+    const handleCopy = async () => {
+      try {
+        const textToCopy = extractTextFromCell(cell);
+
+        if (!textToCopy) {
+          return;
+        }
+
+        await copyToClipboard(textToCopy);
+        setCopiedVisualState(cell);
+      } catch (error) {
+        console.error("Error al copiar contenido:", error);
+        alert(COPY_ERROR_MESSAGE);
+      }
+    };
+
+    cell.addEventListener("click", handleCopy);
+
+    cell.addEventListener("keydown", event => {
+      const isActivationKey = event.key === "Enter" || event.key === " ";
+
+      if (!isActivationKey) {
+        return;
+      }
+
+      event.preventDefault();
+      handleCopy();
+    });
+
+    markCellAsEnhanced(cell);
+  }
+
+  function getCopyableColumnIndexes(table) {
+    const headerCells = Array.from(table.querySelectorAll("thead th"));
+
+    return headerCells.reduce((indexes, headerCell, index) => {
+      const normalizedText = headerCell.innerText.trim().toLowerCase();
+
+      if (isHeaderCopyable(normalizedText)) {
+        indexes.push(index);
+      }
+
+      return indexes;
+    }, []);
+  }
+
+  function enableCopyOnTable(table) {
+    const copyableColumnIndexes = getCopyableColumnIndexes(table);
+
+    if (!copyableColumnIndexes.length) {
+      return;
+    }
+
+    const bodyRows = table.querySelectorAll("tbody tr");
+
+    bodyRows.forEach(row => {
+      const cells = row.querySelectorAll("td");
+
+      copyableColumnIndexes.forEach(index => {
+        if (cells[index]) {
+          enhanceCopyableCell(cells[index]);
+        }
       });
     });
-  });
+  }
+
+  function enableCopyOnTables(root = document) {
+    const tables = root.querySelectorAll("table");
+    tables.forEach(enableCopyOnTable);
+  }
+
+  window.copyToClipboard = copyToClipboard;
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enableCopyOnTables();
+    });
+  } else {
+    enableCopyOnTables();
+  }
+})();
+</script>
+
+<script>
+(() => {
+  "use strict";
+
+  const SHARE_SUCCESS_DURATION_MS = 1500;
+  const SHARE_ERROR_MESSAGE = "No se pudo compartir automáticamente.";
+
+  function setTemporarySharedState(button, text) {
+    const originalText = button.textContent;
+    button.classList.add("shared");
+    button.textContent = text;
+
+    window.setTimeout(() => {
+      button.classList.remove("shared");
+      button.textContent = originalText;
+    }, SHARE_SUCCESS_DURATION_MS);
+  }
+
+  async function sharePage() {
+    const shareData = {
+      title: document.title,
+      text: "Cheat sheet profesional de Linux en español, elaborado por Dr. Víctor A. Osores Escalona.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      return "shared";
+    }
+
+    if (typeof window.copyToClipboard !== "function") {
+      throw new Error("La función global copyToClipboard no está disponible.");
+    }
+
+    await window.copyToClipboard(window.location.href);
+    return "copied";
+  }
+
+  function enableShareButton() {
+    const shareButton = document.getElementById("shareButton");
+
+    if (!shareButton || shareButton.dataset.shareEnabled === "true") {
+      return;
+    }
+
+    shareButton.addEventListener("click", async () => {
+      try {
+        const result = await sharePage();
+
+        if (result === "shared") {
+          setTemporarySharedState(shareButton, "Compartido");
+        } else {
+          setTemporarySharedState(shareButton, "Enlace copiado");
+        }
+      } catch (error) {
+        console.error("Error al compartir:", error);
+        alert(SHARE_ERROR_MESSAGE);
+      }
+    });
+
+    shareButton.dataset.shareEnabled = "true";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enableShareButton();
+    });
+  } else {
+    enableShareButton();
+  }
 })();
 </script>
 </body>

@@ -128,6 +128,43 @@
     background:#f3fcf6;
   }
 
+
+.actions-bar{
+  display:flex;
+  justify-content:flex-end;
+  margin:0 0 18px;
+}
+
+.action-button{
+  appearance:none;
+  border:1px solid #c9d9ea;
+  background:#eef5fc;
+  color:var(--blue2);
+  border-radius:999px;
+  padding:10px 16px;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:background-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.action-button:hover{
+  background:#e3effb;
+  box-shadow:0 4px 12px rgba(24,61,99,.10);
+  transform:translateY(-1px);
+}
+
+.action-button:focus-visible{
+  outline:2px solid var(--blue2);
+  outline-offset:2px;
+}
+
+.action-button.shared{
+  background:var(--ok-bg);
+  color:var(--ok);
+  border-color:#b8e0c8;
+}
+
   @media print{
     body{background:white}
     .page{width:auto;margin:0;box-shadow:none;border-radius:0;padding:12mm}
@@ -143,7 +180,11 @@
       <h1>Cheat Sheet Git</h1>
       <p>Resumen de control de versiones, ramas, repositorios remotos, inspección del historial, recuperación y estrategias seguras de merge.</p>
     </div>
-
+    <div class="actions-bar">
+        <button id="shareButton" class="action-button" type="button">
+            Compartir
+        </button>
+    </div>
     <div class="grid2">
       <div class="card">
         <h2>Conceptos clave</h2>
@@ -399,93 +440,409 @@
       </tbody>
     </table>
 
+
+<h3 class="section">13. Crear repositorio privado desde local</h3>
+
+<div class="note">
+  <strong>Idea general:</strong> puedes partir desde una carpeta local ya existente, inicializar Git,
+  hacer el primer commit y luego publicar el proyecto como repositorio <strong>privado</strong>.
+  Esto se puede hacer en distintas plataformas de alojamiento de código como 
+<strong>GitHub</strong>, 
+<strong>GitLab</strong> o 
+<strong>Bitbucket</strong>.
+  Dependiendo de la plataforma, puedes usar la interfaz web o herramientas de línea de comandos 
+  como <code>gh</code> (GitHub CLI) o equivalentes.
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%">Paso / Comando</th>
+      <th style="width:30%">¿Para qué sirve?</th>
+      <th style="width:20%">Sintaxis</th>
+      <th style="width:30%">Ejemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>git init</code></td>
+      <td>Inicializa el repositorio local en la carpeta actual del proyecto.</td>
+      <td><code>git init</code></td>
+      <td><code>git init</code></td>
+    </tr>
+    <tr>
+      <td><code>git add .</code></td>
+      <td>Agrega todos los archivos actuales al área de preparación (<em>staging</em>).</td>
+      <td><code>git add .</code></td>
+      <td><code>git add .</code></td>
+    </tr>
+    <tr>
+      <td><code>git commit -m</code></td>
+      <td>Crea el primer commit del proyecto con un mensaje descriptivo.</td>
+      <td><code>git commit -m "mensaje"</code></td>
+      <td><code>git commit -m "Primer commit"</code></td>
+    </tr>
+    <tr>
+      <td>Crear repo privado en GitHub</td>
+      <td>Desde la interfaz web de GitHub se crea un repositorio nuevo marcándolo como privado.</td>
+      <td>Interfaz web</td>
+      <td><code>Private repository</code></td>
+    </tr>
+    <tr>
+      <td><code>git branch -M main</code></td>
+      <td>Renombra o fija la rama principal con el nombre <code>main</code>.</td>
+      <td><code>git branch -M main</code></td>
+      <td><code>git branch -M main</code></td>
+    </tr>
+    <tr>
+      <td><code>git remote add origin</code></td>
+      <td>Conecta el repositorio local con el repositorio remoto privado.</td>
+      <td><code>git remote add origin URL</code></td>
+      <td><code>git remote add origin git@github.com:usuario/proyecto.git</code></td>
+    </tr>
+    <tr>
+      <td><code>git push -u origin main</code></td>
+      <td>Sube el contenido local al remoto y deja configurada la rama de seguimiento.</td>
+      <td><code>git push -u origin main</code></td>
+      <td><code>git push -u origin main</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <strong>Importante:</strong> Git por sí solo no crea repositorios privados en GitHub.
+  En el flujo manual, primero debes crear el repositorio privado en la plataforma web y luego
+  enlazarlo con <code>git remote add origin</code>. Si usas <code>gh</code>, puedes crear y publicar
+  el repositorio privado directamente desde la terminal.
+</div>
+
+<h3 class="section">13.1 Opción con GitHub CLI (<code>gh</code>)</h3>
+<table class="mini-table">
+  <thead>
+    <tr>
+      <th style="width:22%">Comando</th>
+      <th style="width:28%">Uso</th>
+      <th style="width:20%">Sintaxis</th>
+      <th style="width:30%">Ejemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>gh auth login</code></td>
+      <td>Autentica tu cuenta de GitHub desde la terminal.</td>
+      <td><code>gh auth login</code></td>
+      <td><code>gh auth login</code></td>
+    </tr>
+    <tr>
+      <td><code>gh repo create --private</code></td>
+      <td>Crea un repositorio privado directamente desde terminal, enlaza el remoto y opcionalmente hace el primer push.</td>
+      <td><code>gh repo create nombre --private --source=. --remote=origin --push</code></td>
+      <td><code>gh repo create mi-proyecto --private --source=. --remote=origin --push</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="section">13.2 Flujo recomendado: método manual</h3>
+<table class="mini-table">
+  <thead>
+    <tr>
+      <th style="width:34%">Objetivo</th>
+      <th>Secuencia recomendada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Crear un repositorio privado desde una carpeta local usando Git + GitHub web</td>
+      <td>
+        <code>git init</code><br>
+        <code>git add .</code><br>
+        <code>git commit -m "Primer commit"</code><br>
+        <code>git branch -M main</code><br>
+        <code>git remote add origin git@github.com:usuario/proyecto.git</code><br>
+        <code>git push -u origin main</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="section">13.3 Flujo recomendado: método con <code>gh</code></h3>
+<table class="mini-table">
+  <thead>
+    <tr>
+      <th style="width:34%">Objetivo</th>
+      <th>Secuencia recomendada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Crear y publicar un repositorio privado directamente desde terminal con GitHub CLI</td>
+      <td>
+        <code>git init</code><br>
+        <code>git add .</code><br>
+        <code>git commit -m "Primer commit"</code><br>
+        <code>gh repo create mi-proyecto --private --source=. --remote=origin --push</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
     <div class="footer">Cheat sheet en español para Git • Dr. Víctor A. Osores Escalona • Listo para imprimir o exportar a PDF desde el navegador</div>
   </div>
 
 <script>
-(function () {
-  function copyText(text) {
-    if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(text);
+(() => {
+  "use strict";
+
+  const COPYABLE_HEADER_PATTERNS = [
+    "sintaxis",
+    "ejemplo",
+    "secuencia sugerida",
+    "secuencia recomendada",
+    "comando típico",
+    "comando recomendado"
+  ];
+
+  const COPIED_STATE_DURATION_MS = 1200;
+  const COPY_ERROR_MESSAGE =
+    "No se pudo copiar automáticamente. Intenta copiar manualmente o verifica que estés usando HTTPS o localhost.";
+
+  async function copyToClipboard(text) {
+    if (!text || !text.trim()) {
+      throw new Error("No hay contenido para copiar.");
     }
-    return new Promise(function(resolve, reject) {
+
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    fallbackCopyToClipboard(text);
+  }
+
+  function fallbackCopyToClipboard(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.setAttribute("aria-hidden", "true");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-9999px";
+    textarea.style.left = "-9999px";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+
+    const success = document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    if (!success) {
+      throw new Error("Fallback de copiado no disponible.");
+    }
+  }
+
+  function extractTextFromCell(cell) {
+    const codeBlocks = Array.from(cell.querySelectorAll("code"))
+      .map(block => block.innerText.trim())
+      .filter(Boolean);
+
+    if (codeBlocks.length > 1) {
+      return codeBlocks.join("\n");
+    }
+
+    if (codeBlocks.length === 1) {
+      return codeBlocks[0];
+    }
+
+    return cell.innerText.trim();
+  }
+
+  function setCopiedVisualState(cell) {
+    cell.classList.add("copied");
+
+    window.setTimeout(() => {
+      cell.classList.remove("copied");
+    }, COPIED_STATE_DURATION_MS);
+  }
+
+  function isHeaderCopyable(headerText) {
+    return COPYABLE_HEADER_PATTERNS.some(pattern =>
+      headerText.includes(pattern)
+    );
+  }
+
+  function isAlreadyEnhanced(cell) {
+    return cell.dataset.copyEnabled === "true";
+  }
+
+  function markCellAsEnhanced(cell) {
+    cell.dataset.copyEnabled = "true";
+  }
+
+  function enhanceCopyableCell(cell) {
+    if (!cell || isAlreadyEnhanced(cell)) {
+      return;
+    }
+
+    cell.classList.add("copyable");
+    cell.setAttribute("tabindex", "0");
+    cell.setAttribute("role", "button");
+    cell.setAttribute("title", "Haz clic para copiar");
+    cell.setAttribute("aria-label", "Copiar contenido de la celda");
+
+    const handleCopy = async () => {
       try {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.setAttribute('readonly', '');
-        ta.style.position = 'fixed';
-        ta.style.top = '-9999px';
-        ta.style.left = '-9999px';
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        const ok = document.execCommand('copy');
-        document.body.removeChild(ta);
-        if (ok) resolve();
-        else reject(new Error('No se pudo copiar'));
-      } catch (err) {
-        reject(err);
+        const textToCopy = extractTextFromCell(cell);
+
+        if (!textToCopy) {
+          return;
+        }
+
+        await copyToClipboard(textToCopy);
+        setCopiedVisualState(cell);
+      } catch (error) {
+        console.error("Error al copiar contenido:", error);
+        alert(COPY_ERROR_MESSAGE);
       }
+    };
+
+    cell.addEventListener("click", handleCopy);
+
+    cell.addEventListener("keydown", event => {
+      const isActivationKey = event.key === "Enter" || event.key === " ";
+
+      if (!isActivationKey) {
+        return;
+      }
+
+      event.preventDefault();
+      handleCopy();
+    });
+
+    markCellAsEnhanced(cell);
+  }
+
+  function getCopyableColumnIndexes(table) {
+    const headerCells = Array.from(table.querySelectorAll("thead th"));
+
+    return headerCells.reduce((indexes, headerCell, index) => {
+      const normalizedText = headerCell.innerText.trim().toLowerCase();
+
+      if (isHeaderCopyable(normalizedText)) {
+        indexes.push(index);
+      }
+
+      return indexes;
+    }, []);
+  }
+
+  function enableCopyOnTable(table) {
+    const copyableColumnIndexes = getCopyableColumnIndexes(table);
+
+    if (!copyableColumnIndexes.length) {
+      return;
+    }
+
+    const bodyRows = table.querySelectorAll("tbody tr");
+
+    bodyRows.forEach(row => {
+      const cells = row.querySelectorAll("td");
+
+      copyableColumnIndexes.forEach(index => {
+        if (cells[index]) {
+          enhanceCopyableCell(cells[index]);
+        }
+      });
     });
   }
 
-  function markCopyableCell(td) {
-    td.classList.add('copyable');
-    td.setAttribute('tabindex', '0');
-    td.setAttribute('title', 'Haz clic para copiar');
-    td.setAttribute('role', 'button');
-
-    const getTextToCopy = function() {
-      return td.innerText.replace(/\s+/g, ' ').trim();
-    };
-
-    const handleCopy = function() {
-      const text = getTextToCopy();
-      if (!text) return;
-      copyText(text).then(function() {
-        td.classList.add('copied');
-        setTimeout(function() {
-          td.classList.remove('copied');
-        }, 1200);
-      }).catch(function() {
-        alert('No se pudo copiar automáticamente. Intenta copiar manualmente.');
-      });
-    };
-
-    td.addEventListener('click', handleCopy);
-    td.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        handleCopy();
-      }
-    });
+  function enableCopyOnTables(root = document) {
+    const tables = root.querySelectorAll("table");
+    tables.forEach(enableCopyOnTable);
   }
 
-  document.querySelectorAll('table').forEach(function(table) {
-    const headerCells = Array.from(table.querySelectorAll('thead th'));
-    const copyIndexes = [];
+  window.copyToClipboard = copyToClipboard;
 
-    headerCells.forEach(function(th, idx) {
-      const text = th.innerText.trim().toLowerCase();
-      if (
-        text.includes('sintaxis') ||
-        text.includes('ejemplo') ||
-        text.includes('secuencia sugerida') ||
-        text.includes('secuencia recomendada') ||
-        text.includes('comando típico') ||
-        text.includes('comando recomendado')
-      ) {
-        copyIndexes.push(idx);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enableCopyOnTables();
+    });
+  } else {
+    enableCopyOnTables();
+  }
+})();
+</script>
+
+<script>
+(() => {
+  "use strict";
+
+  const SHARE_SUCCESS_DURATION_MS = 1500;
+  const SHARE_ERROR_MESSAGE = "No se pudo compartir automáticamente.";
+
+  function setTemporarySharedState(button, text) {
+    const originalText = button.textContent;
+    button.classList.add("shared");
+    button.textContent = text;
+
+    window.setTimeout(() => {
+      button.classList.remove("shared");
+      button.textContent = originalText;
+    }, SHARE_SUCCESS_DURATION_MS);
+  }
+
+  async function sharePage() {
+    const shareData = {
+      title: document.title,
+      text: "Cheat sheet profesional de Git en español, elaborado por Dr. Víctor A. Osores Escalona.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+      return "shared";
+    }
+
+    if (typeof window.copyToClipboard !== "function") {
+      throw new Error("La función global copyToClipboard no está disponible.");
+    }
+
+    await window.copyToClipboard(window.location.href);
+    return "copied";
+  }
+
+  function enableShareButton() {
+    const shareButton = document.getElementById("shareButton");
+
+    if (!shareButton || shareButton.dataset.shareEnabled === "true") {
+      return;
+    }
+
+    shareButton.addEventListener("click", async () => {
+      try {
+        const result = await sharePage();
+
+        if (result === "shared") {
+          setTemporarySharedState(shareButton, "Compartido");
+        } else {
+          setTemporarySharedState(shareButton, "Enlace copiado");
+        }
+      } catch (error) {
+        console.error("Error al compartir:", error);
+        alert(SHARE_ERROR_MESSAGE);
       }
     });
 
-    table.querySelectorAll('tbody tr').forEach(function(tr) {
-      const cells = tr.querySelectorAll('td');
-      copyIndexes.forEach(function(i) {
-        if (cells[i]) markCopyableCell(cells[i]);
-      });
+    shareButton.dataset.shareEnabled = "true";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      enableShareButton();
     });
-  });
+  } else {
+    enableShareButton();
+  }
 })();
 </script>
 </body>
