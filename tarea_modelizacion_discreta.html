@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temas para Exposición y Defensa · Modelización Discreta</title>
+
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
+<style>
+  :root{
+    --bg: #f2f4ee;
+    --bg-line: #dde3d6;
+    --ink: #182733;
+    --muted: #5c6a63;
+    --card: #fffdf8;
+    --hair: #c9d2c1;
+
+    --markov: #2c4d7e;
+    --asint: #a8762a;
+    --leslie: #2f6b4f;
+    --rubrica: #6b3f69;
+    --rubrica-tint: #f1e9f1;
+
+    --serif: Cambria, Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --mono: 'SF Mono', 'Consolas', 'Menlo', monospace;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background-color: var(--bg);
+    background-image:
+      repeating-linear-gradient(to right, var(--bg-line) 0, var(--bg-line) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(to bottom, var(--bg-line) 0, var(--bg-line) 1px, transparent 1px, transparent 64px);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+
+  .page{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 28px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  header.masthead{ text-align:center; margin-bottom: 36px; }
+  .eyebrow{
+    font-family: var(--mono);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  h1{
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 8px 0 4px;
+  }
+  .subtitle{
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--muted);
+    font-size: 18px;
+    margin: 0 0 28px;
+  }
+
+  .roadmap{ display:flex; justify-content:center; margin: 18px 0 28px; }
+  .roadmap svg{ max-width: 100%; height: auto; }
+
+  .intro{
+    background: var(--card);
+    border: 1px solid var(--hair);
+    border-left: 4px solid var(--ink);
+    padding: 18px 22px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  /* ---------- Section divider ---------- */
+  .divider{ display:flex; align-items:center; gap:14px; margin: 52px 0 22px; }
+  .divider span{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .divider::before, .divider::after{ content:""; flex:1; height:1px; background: var(--hair); }
+
+  /* ---------- Student cards ---------- */
+  .student-card{
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--hair);
+    border-left: 6px solid var(--accent);
+    padding: 28px 30px 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  .student-card.markov{ --accent: var(--markov); }
+  .student-card.asint{ --accent: var(--asint); }
+  .student-card.leslie{ --accent: var(--leslie); }
+
+  .student-number{
+    position: absolute;
+    top: -18px; right: 14px;
+    font-family: var(--serif);
+    font-size: 110px;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: .08;
+    line-height:1;
+    user-select:none;
+  }
+  .student-eyebrow{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .student-card h2{ font-family: var(--serif); font-size: 24px; margin: 0 0 18px; color: var(--ink); }
+  .student-card h3{
+    font-family: var(--serif);
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--hair);
+    padding-bottom: 6px;
+    margin: 26px 0 12px;
+  }
+  .student-card ul, .student-card ol{ padding-left: 22px; margin: 8px 0 14px; }
+  .student-card li{ margin-bottom: 6px; }
+  .student-card .content-item{ margin-bottom: 18px; }
+  .student-card .content-item > strong{ display:block; margin-bottom:6px; font-size: 15.5px;}
+
+  .eq{
+    background: var(--bg);
+    border: 1px solid var(--hair);
+    border-radius: 3px;
+    padding: 10px 16px;
+    margin: 10px 0;
+    overflow-x: auto;
+  }
+
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 8px; }
+  .tag{
+    font-family: var(--mono);
+    font-size: 12.5px;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 11px;
+    border-radius: 2px;
+    opacity: .92;
+  }
+
+  /* ---------- Defense questions ---------- */
+  .questions-box{
+    background: var(--rubrica-tint);
+    border: 1px solid var(--rubrica);
+    border-left: 6px solid var(--rubrica);
+    padding: 22px 26px;
+    margin: 0 0 30px;
+  }
+  .questions-box h2{ font-family: var(--serif); font-size: 20px; margin: 0 0 4px; color: var(--rubrica); }
+  .questions-box p.note{ color: var(--muted); font-size: 14px; margin: 0 0 14px;}
+  .questions-box ol{ padding-left: 22px; margin:0; }
+  .questions-box li{ margin-bottom: 8px; }
+
+  /* ---------- Sequence flow ---------- */
+  .flow{ display:flex; align-items:center; justify-content:center; flex-wrap: wrap; gap: 6px; margin: 14px 0 10px; }
+  .flow .step{
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 18px;
+    border-radius: 3px;
+    color: #fff;
+    text-align:center;
+  }
+  .flow .step.s1{ background: var(--markov); }
+  .flow .step.s2{ background: var(--asint); }
+  .flow .step.s3{ background: var(--leslie); }
+  .flow .arrow{ font-size: 20px; color: var(--muted); padding: 0 4px; }
+  .flow-caption{ text-align:center; color: var(--muted); font-size: 14px; margin-top: 10px; }
+
+  /* ---------- Rubric ---------- */
+  .rubric-header{ margin-bottom: 18px; }
+  .rubric-header h2{ font-family: var(--serif); font-size: 26px; margin: 0 0 6px; color: var(--rubrica); }
+  .rubric-header p{ color: var(--muted); margin: 0; font-size: 15px; }
+
+  .legend{ display:flex; gap:18px; flex-wrap:wrap; font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin: 14px 0 20px; }
+  .legend b{ color: var(--ink); }
+
+  .table-wrap{ overflow-x:auto; margin-bottom: 26px; }
+  table.rubric{ border-collapse: collapse; width: 100%; min-width: 920px; background: var(--card); font-size: 13.5px; }
+  table.rubric th, table.rubric td{ border: 1px solid var(--hair); padding: 12px 13px; vertical-align: top; text-align: left; }
+  table.rubric thead th{
+    background: var(--ink);
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+  }
+  table.rubric td.criterio{ font-weight: 600; width: 15%; background: var(--rubrica-tint); }
+  table.rubric td.peso{ font-family: var(--mono); text-align:center; font-weight: 700; color: var(--rubrica); width: 6%; }
+  table.rubric tbody tr:nth-child(even) td:not(.criterio):not(.peso){ background: #fbfaf6; }
+
+  .grade-box{ background: var(--rubrica-tint); border: 1px solid var(--rubrica); padding: 22px 26px; margin-bottom: 10px; }
+  .grade-box h3{ font-family: var(--serif); color: var(--rubrica); margin: 0 0 10px; font-size: 18px; }
+  .grade-box .eq{ background: var(--card); }
+  .grade-box p{ margin: 10px 0 0; font-size: 14.5px; color: var(--ink); }
+
+  footer{ text-align:center; color: var(--muted); font-size: 12.5px; margin-top: 50px; font-family: var(--mono); }
+
+  @media print{
+    body{ background-image:none; }
+    .student-card, .questions-box, .grade-box, .intro{ break-inside: avoid; }
+    .divider{ break-after: avoid; }
+  }
+
+  @media (max-width: 560px){
+    .student-number{ font-size: 70px; }
+    .student-card{ padding: 22px 18px 24px; }
+    .flow{ flex-direction: column; }
+    .flow .arrow{ transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">Curso de Modelización Discreta I</div>
+    <h1>Temas para exposición y defensa</h1>
+    <p class="subtitle">Modelos matriciales de sistemas dinámicos discretos</p>
+
+    <div class="roadmap" aria-hidden="true">
+      <svg viewBox="0 0 560 110" width="560">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#5c6a63"/>
+          </marker>
+        </defs>
+        <line x1="95" y1="55" x2="225" y2="55" stroke="#5c6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="335" y1="55" x2="465" y2="55" stroke="#5c6a63" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <circle cx="55" cy="55" r="42" fill="#2c4d7e"/>
+        <text x="55" y="51" text-anchor="middle" fill="#fff" font-size="11" font-family="Cambria, Georgia, serif">Cadenas de</text>
+        <text x="55" y="64" text-anchor="middle" fill="#fff" font-size="11" font-family="Cambria, Georgia, serif">Markov</text>
+
+        <circle cx="280" cy="55" r="42" fill="#a8762a"/>
+        <text x="280" y="51" text-anchor="middle" fill="#fff" font-size="10.5" font-family="Cambria, Georgia, serif">Comportamiento</text>
+        <text x="280" y="64" text-anchor="middle" fill="#fff" font-size="10.5" font-family="Cambria, Georgia, serif">Asintótico</text>
+
+        <circle cx="505" cy="55" r="42" fill="#2f6b4f"/>
+        <text x="505" y="51" text-anchor="middle" fill="#fff" font-size="11" font-family="Cambria, Georgia, serif">Modelo de</text>
+        <text x="505" y="64" text-anchor="middle" fill="#fff" font-size="11" font-family="Cambria, Georgia, serif">Leslie</text>
+      </svg>
+    </div>
+
+    <p class="intro">Se propone dividir los contenidos en tres exposiciones que permitan cubrir el contenido principal de los modelos discretos matriciales estudiados en el curso. Cada estudiante deberá preparar una presentación, exponer los conceptos fundamentales, desarrollar ejemplos y responder preguntas durante la defensa.</p>
+  </header>
+
+  <div class="divider"><span>Exposiciones</span></div>
+
+  <!-- ESTUDIANTE 1 -->
+  <section class="student-card markov">
+    <div class="student-number">1</div>
+    <div class="student-eyebrow">Exposición 1 de 3</div>
+    <h2>Cadenas de Markov</h2>
+
+    <h3>Objetivos</h3>
+    <ul>
+      <li>Comprender el concepto de cadena de Markov.</li>
+      <li>Interpretar estados y probabilidades de transición.</li>
+      <li>Utilizar matrices estocásticas para modelar sistemas discretos.</li>
+    </ul>
+
+    <h3>Contenidos</h3>
+
+    <div class="content-item">
+      <strong>1. Introducción</strong>
+      <ul>
+        <li>Procesos aleatorios.</li>
+        <li>Diferencia entre sucesos independientes y dependientes.</li>
+        <li>Concepto de estado.</li>
+      </ul>
+    </div>
+
+    <div class="content-item">
+      <strong>2. Definición de cadena de Markov</strong>
+      <div class="eq">\[ P_{ij} = P(E_i^{t} \mid E_j^{t-1}) \]</div>
+      <p>Propiedad fundamental:</p>
+      <div class="eq">\[ P(E_i^{t} \mid E_j^{t-1}, E_k^{t-2}, \ldots) = P(E_i^{t} \mid E_j^{t-1}) \]</div>
+      <p>Interpretación: el futuro depende únicamente del estado actual.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>3. Matrices estocásticas</strong>
+      <ul>
+        <li>Construcción de la matriz de transición.</li>
+        <li>Interpretación probabilística de filas y columnas.</li>
+        <li>Propiedades:</li>
+      </ul>
+      <div class="eq">\[ P_{ij} \ge 0, \qquad \sum_i P_{ij} = 1 \]</div>
+    </div>
+
+    <div class="content-item">
+      <strong>4. Evolución temporal</strong>
+      <div class="eq">\[ X(t) = AX(t-1), \qquad X(t) = A^{t}X(0) \]</div>
+      <p>Interpretación del vector de estado.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>5. Diagramas de estados</strong>
+      <ul>
+        <li>Nodos.</li>
+        <li>Transiciones.</li>
+        <li>Probabilidades asociadas.</li>
+        <li>Relación con teoría de grafos.</li>
+      </ul>
+    </div>
+
+    <div class="content-item">
+      <strong>6. Aplicación</strong>
+      <p>Desarrollar uno de los ejemplos del texto.</p>
+    </div>
+
+    <h3>Conceptos que debe dominar</h3>
+    <div class="tags">
+      <span class="tag">Estado</span>
+      <span class="tag">Probabilidad de transición</span>
+      <span class="tag">Matriz estocástica</span>
+      <span class="tag">Vector de estado</span>
+      <span class="tag">Evolución temporal</span>
+    </div>
+  </section>
+
+  <!-- ESTUDIANTE 2 -->
+  <section class="student-card asint">
+    <div class="student-number">2</div>
+    <div class="student-eyebrow">Exposición 2 de 3</div>
+    <h2>Comportamiento a largo plazo de las cadenas de markov</h2>
+
+    <h3>Objetivos</h3>
+    <ul>
+      <li>Analizar el comportamiento asintótico de una cadena de Markov.</li>
+      <li>Relacionar cadenas de Markov con valores propios y vectores propios.</li>
+      <li>Comprender el concepto de distribución estacionaria.</li>
+    </ul>
+
+    <h3>Contenidos</h3>
+
+    <div class="content-item">
+      <strong>1. Potencias de la matriz de transición</strong>
+      <p>Teorema:</p>
+      <div class="eq">\[ P(E_i^{n} \mid E_j^{0}) = (A^{n})_{ij} \]</div>
+      <p>Interpretación probabilística.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>2. Cadenas regulares</strong>
+      <ul>
+        <li>Definición.</li>
+        <li>Accesibilidad de estados.</li>
+        <li>Ciclos.</li>
+        <li>Ejemplos de cadenas regulares y no regulares.</li>
+      </ul>
+    </div>
+
+    <div class="content-item">
+      <strong>3. Propiedades de matrices estocásticas</strong>
+      <ul>
+        <li>Existencia del valor propio \(\lambda = 1\).</li>
+        <li>Relación con estabilidad.</li>
+        <li>Interpretación física.</li>
+      </ul>
+    </div>
+
+    <div class="content-item">
+      <strong>4. Distribución estacionaria</strong>
+      <p>Vector \(\Pi\) tal que:</p>
+      <div class="eq">\[ A\Pi = \Pi \]</div>
+      <p>Interpretación:</p>
+      <ul>
+        <li>Distribución de equilibrio.</li>
+        <li>Comportamiento cuando \(t \to \infty\).</li>
+      </ul>
+    </div>
+
+    <div class="content-item">
+      <strong>5. Aplicaciones</strong>
+      <p>Resolver alguno de los ejemplos del texto.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>6. Relación con teoría de grafos</strong>
+      <ul>
+        <li>Nodos.</li>
+        <li>Aristas dirigidas.</li>
+        <li>Caminos.</li>
+        <li>Conectividad.</li>
+        <li>Accesibilidad.</li>
+      </ul>
+    </div>
+
+    <h3>Conceptos que debe dominar</h3>
+    <div class="tags">
+      <span class="tag">Regularidad</span>
+      <span class="tag">Distribución estacionaria</span>
+      <span class="tag">Valor propio dominante</span>
+      <span class="tag">Estados absorbentes</span>
+      <span class="tag">Comportamiento asintótico</span>
+    </div>
+  </section>
+
+  <!-- ESTUDIANTE 3 -->
+  <section class="student-card leslie">
+    <div class="student-number">3</div>
+    <div class="student-eyebrow">Exposición 3 de 3</div>
+    <h2>Modelo de Leslie</h2>
+
+    <h3>Objetivos</h3>
+    <ul>
+      <li>Comprender el modelamiento poblacional estructurado.</li>
+      <li>Analizar poblaciones divididas por edades.</li>
+      <li>Utilizar matrices para describir crecimiento poblacional.</li>
+    </ul>
+
+    <h3>Contenidos</h3>
+
+    <div class="content-item">
+      <strong>1. Motivación biológica</strong>
+      <ul>
+        <li>Fertilidad dependiente de la edad.</li>
+        <li>Supervivencia dependiente de la edad.</li>
+        <li>Limitaciones del crecimiento exponencial.</li>
+      </ul>
+    </div>
+
+    <div class="content-item">
+      <strong>2. Modelo exponencial discreto</strong>
+      <div class="eq">\[ y_{t+1} = r y_t, \qquad y_t = y_0 r^{t} \]</div>
+      <p>Interpretación: \(r>1\) crecimiento, \(r<1\) extinción, \(r=1\) equilibrio.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>3. Modelo matricial de dos clases</strong>
+      <div class="eq">\[
+        \begin{pmatrix} X_1(t) \\ X_2(t) \end{pmatrix}
+        =
+        \begin{pmatrix} 0 & \gamma \\ \alpha & \beta \end{pmatrix}
+        \begin{pmatrix} X_1(t-1) \\ X_2(t-1) \end{pmatrix}
+      \]</div>
+      <p>Interpretación de parámetros: \(\alpha\) supervivencia juvenil, \(\beta\) supervivencia adulta, \(\gamma\) fecundidad.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>4. Valores propios y dinámica poblacional</strong>
+      <div class="eq">\[ X(t) = A^{t}X(0) \]</div>
+      <p>Importancia del valor propio dominante \(\lambda_1\): tasa de crecimiento poblacional y estabilidad de la estructura de edades.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>5. Matriz de Leslie</strong>
+      <p>Forma general:</p>
+      <div class="eq">\[
+        L =
+        \begin{pmatrix}
+        f_1 & f_2 & f_3 & \cdots & f_n \\
+        s_1 & 0 & 0 & \cdots & 0 \\
+        0 & s_2 & 0 & \cdots & 0 \\
+        \vdots & & \ddots & & \vdots \\
+        0 & 0 & \cdots & s_{n-1} & 0
+        \end{pmatrix}
+      \]</div>
+      <p>donde \(f_i\) son las fecundidades y \(s_i\) las probabilidades de supervivencia.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>6. Aplicaciones</strong>
+      <p>Resolver alguno de los ejemplos del texto.</p>
+    </div>
+
+    <div class="content-item">
+      <strong>7. Aplicaciones</strong>
+      <ul>
+        <li>Ecología.</li>
+        <li>Demografía.</li>
+        <li>Conservación de especies.</li>
+        <li>Gestión de recursos naturales.</li>
+      </ul>
+    </div>
+
+    <h3>Conceptos que debe dominar</h3>
+    <div class="tags">
+      <span class="tag">Matriz de Leslie</span>
+      <span class="tag">Fecundidad</span>
+      <span class="tag">Supervivencia</span>
+      <span class="tag">Valor propio dominante</span>
+      <span class="tag">Distribución estable de edades</span>
+    </div>
+  </section>
+
+  <div class="divider"><span>Defensa</span></div>
+
+  <div class="questions-box">
+    <h2>Preguntas para la Defensa</h2>
+    <p class="note">Cada estudiante deberá ser capaz de responder, independientemente del tema asignado:</p>
+    <ol>
+      <li>¿Qué fenómeno real describe el modelo?</li>
+      <li>¿Qué representan las variables utilizadas?</li>
+      <li>¿Qué significado tienen los parámetros?</li>
+      <li>¿Cómo se construye la matriz asociada al modelo?</li>
+      <li>¿Qué información proporciona el valor propio dominante?</li>
+      <li>¿Qué ocurre cuando \(t \to \infty\)?</li>
+      <li>¿Cuáles son las principales limitaciones del modelo?</li>
+      <li>Entre varias otras.</li>
+    </ol>
+  </div>
+
+  <div class="flow">
+    <div class="step s1">Cadenas de Markov</div>
+    <div class="arrow">&#8594;</div>
+    <div class="step s2">Comportamiento Asintótico</div>
+    <div class="arrow">&#8594;</div>
+    <div class="step s3">Modelo de Leslie</div>
+  </div>
+  <p class="flow-caption">El álgebra matricial permite modelar y analizar sistemas dinámicos discretos en aplicaciones probabilísticas y biológicas.</p>
+
+  <div class="divider"><span>Evaluación</span></div>
+
+  <section class="rubric-section">
+    <div class="rubric-header">
+      <h2>Rúbrica para la defensa de resultados</h2>
+      <p>Esta rúbrica es común a las tres exposiciones (Cadenas de Markov, Comportamiento Asintótico y Modelo de Leslie) y evalúa tanto el documento/presentación como la defensa oral ante el curso.</p>
+    </div>
+
+    <div class="legend">
+      <span><b>4</b> Excelente</span>
+      <span><b>3</b> Bueno</span>
+      <span><b>2</b> Suficiente</span>
+      <span><b>1</b> Insuficiente</span>
+    </div>
+
+    <div class="table-wrap">
+      <table class="rubric">
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th>Peso</th>
+            <th>Excelente (4)</th>
+            <th>Bueno (3)</th>
+            <th>Suficiente (2)</th>
+            <th>Insuficiente (1)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="criterio">Comprensión conceptual del modelo</td>
+            <td class="peso">20%</td>
+            <td>Explica con precisión el fenómeno modelado, sus supuestos y limitaciones, y lo relaciona con la teoría del curso.</td>
+            <td>Explica correctamente el modelo y sus supuestos, con alguna imprecisión menor.</td>
+            <td>Describe el modelo de forma básica, con conceptos algo confusos o incompletos.</td>
+            <td>No logra explicar el fenómeno modelado ni sus supuestos.</td>
+          </tr>
+          <tr>
+            <td class="criterio">Construcción y justificación matemática</td>
+            <td class="peso">15%</td>
+            <td>Construye la matriz o ecuación del modelo correctamente y justifica cada parámetro o entrada.</td>
+            <td>Construye la matriz correctamente, con justificación parcial.</td>
+            <td>Construye la matriz con errores menores o sin justificar del todo.</td>
+            <td>La construcción matemática presenta errores graves o está ausente.</td>
+          </tr>
+          <tr>
+            <td class="criterio">Interpretación de resultados (valor propio, distribución estacionaria, evolución temporal)</td>
+            <td class="peso">20%</td>
+            <td>Interpreta correctamente el comportamiento asintótico y/o el valor propio dominante, conectándolo con el fenómeno real.</td>
+            <td>Interpreta correctamente los resultados principales, con conexión parcial al fenómeno real.</td>
+            <td>Identifica los resultados pero la interpretación es superficial.</td>
+            <td>No logra interpretar los resultados obtenidos.</td>
+          </tr>
+          <tr>
+            <td class="criterio">Aplicación práctica desarrollada</td>
+            <td class="peso">15%</td>
+            <td>Desarrolla completamente un ejemplo de aplicación, con cálculos correctos y conclusiones claras.</td>
+            <td>Desarrolla un ejemplo con cálculos correctos pero conclusiones poco desarrolladas.</td>
+            <td>Desarrolla el ejemplo de forma parcial o con errores de cálculo menores.</td>
+            <td>No presenta un ejemplo de aplicación, o este es incorrecto.</td>
+          </tr>
+          <tr>
+            <td class="criterio">Claridad expositiva y manejo del tiempo</td>
+            <td class="peso">10%</td>
+            <td>Exposición clara, ordenada y dentro del tiempo asignado; lenguaje técnico apropiado.</td>
+            <td>Exposición clara, con leves desajustes de tiempo o lenguaje.</td>
+            <td>Exposición con dificultades de organización o de tiempo.</td>
+            <td>Exposición desordenada o fuera del tiempo asignado.</td>
+          </tr>
+          <tr>
+            <td class="criterio">Calidad del material de apoyo (diapositivas, diagramas, notación)</td>
+            <td class="peso">10%</td>
+            <td>Material claro y bien diseñado, con diagramas y notación correctos que facilitan la comprensión.</td>
+            <td>Material adecuado, con pequeñas deficiencias visuales o de notación.</td>
+            <td>Material funcional pero con errores de notación o diseño poco cuidado.</td>
+            <td>Material ausente, confuso o con errores graves de notación.</td>
+          </tr>
+          <tr>
+            <td class="criterio">Defensa oral: respuesta a preguntas</td>
+            <td class="peso">10%</td>
+            <td>Responde con seguridad y precisión a todas las preguntas de la defensa, demostrando dominio del tema.</td>
+            <td>Responde correctamente a la mayoría de las preguntas, con dudas menores.</td>
+            <td>Responde parcialmente, con apoyo del profesor o errores conceptuales.</td>
+            <td>No logra responder las preguntas planteadas en la defensa.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grade-box">
+      <h3>Cálculo de la nota final</h3>
+      <p>Para cada criterio se asigna el nivel alcanzado (1 a 4). El puntaje porcentual se obtiene como:</p>
+      <div class="eq">\[ \text{Puntaje (\%)} = \sum_{i} \left(\frac{\text{nivel}_i}{4}\right) \times \text{peso}_i \]</div>
+      <p>Y, si se desea expresar en la escala chilena de 1,0 a 7,0 sin ajuste de exigencia:</p>
+      <div class="eq">\[ \text{Nota} = 1 + 6 \times \frac{\text{Puntaje (\%)}}{100} \]</div>
+      <p>El factor de exigencia puede ajustarse según los criterios propios de la asignatura.</p>
+    </div>
+  </section>
+
+  <footer>Modelización Discreta · Pauta de Exposición y Rúbrica de Defensa</footer>
+
+</div>
+</body>
+</html>
