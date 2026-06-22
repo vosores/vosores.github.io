@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rúbrica de Presentación Oral - IMA511</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green-50:#EAF3DE;--green-100:#C0DD97;--green-400:#639922;--green-800:#27500A;
+  --blue-50:#E6F1FB;--blue-100:#B5D4F4;--blue-400:#378ADD;--blue-800:#0C447C;
+  --amber-50:#FAEEDA;--amber-100:#FAC775;--amber-400:#EF9F27;--amber-800:#633806;
+  --red-50:#FCEBEB;--red-100:#F7C1C1;--red-400:#E24B4A;--red-800:#791F1F;
+  --gray-50:#F1EFE8;--gray-100:#D3D1C7;--gray-400:#888780;--gray-800:#444441;
+  --teal-50:#E1F5EE;--teal-400:#1D9E75;--teal-800:#085041;
+  --purple-50:#EEEDFE;--purple-400:#7F77DD;--purple-800:#3C3489;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;color:#1a1a1a;background:#f8f7f4;min-height:100vh}
+
+.page{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem}
+
+/* HEADER */
+.inst-bar{background:#1a1a1a;color:#fff;padding:.55rem 1.25rem;border-radius:8px 8px 0 0;display:flex;justify-content:space-between;align-items:center}
+.inst-bar .left{font-size:11px;line-height:1.6;opacity:.85}
+.inst-bar .left strong{opacity:1;font-weight:500}
+.inst-bar .logo-badge{background:#fff;color:#1a1a1a;font-size:10px;font-weight:500;padding:4px 10px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase}
+
+.header-card{background:#fff;border:0.5px solid #ddd;border-top:none;border-radius:0 0 12px 12px;padding:1.5rem 1.5rem 1rem}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+.course-info .subject{font-size:11px;color:#888780;text-transform:uppercase;letter-spacing:.06em;font-weight:500;margin-bottom:.2rem}
+.course-info h1{font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:.15rem}
+.course-info .course-code{font-size:12px;color:#5F5E5A}
+.status-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;background:var(--gray-50);color:var(--gray-800);border:0.5px solid var(--gray-100)}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#ddd}
+.status-dot.active{background:var(--teal-400)}
+
+.fields-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:1rem}
+.field-group label{display:block;font-size:10px;color:#888780;text-transform:uppercase;letter-spacing:.06em;font-weight:500;margin-bottom:4px}
+.field-group input,.field-group select{width:100%;border:0.5px solid #ddd;border-radius:6px;padding:7px 10px;font-size:13px;color:#1a1a1a;background:#fff;font-family:inherit;outline:none;transition:border-color .15s}
+.field-group input:focus,.field-group select:focus{border-color:#378ADD;box-shadow:0 0 0 2px rgba(55,138,221,.12)}
+
+/* SCORE SUMMARY */
+.score-bar{background:#fff;border:0.5px solid #ddd;border-radius:12px;padding:1.25rem 1.5rem;margin:1.25rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1rem;align-items:center}
+.metric{text-align:center}
+.metric .m-label{font-size:10px;color:#888780;text-transform:uppercase;letter-spacing:.06em;font-weight:500;margin-bottom:4px}
+.metric .m-val{font-size:26px;font-weight:500;color:#1a1a1a;line-height:1}
+.metric .m-sub{font-size:11px;color:#888780;margin-top:2px}
+.metric.highlight .m-val{font-size:32px}
+
+.progress-wrap{background:#F1EFE8;border-radius:4px;height:6px;overflow:hidden;margin-top:.5rem}
+.progress-fill{height:100%;border-radius:4px;background:#1D9E75;transition:width .4s ease}
+
+.nota-display{text-align:center;padding:.25rem .5rem;border-radius:8px;border:2px solid transparent;transition:all .3s}
+.nota-display.nd{border-color:#ddd;background:var(--gray-50)}
+.nota-display.n-insuf{border-color:var(--red-400);background:var(--red-50)}
+.nota-display.n-suf{border-color:var(--amber-400);background:var(--amber-50)}
+.nota-display.n-bien{border-color:var(--blue-400);background:var(--blue-50)}
+.nota-display.n-dist{border-color:var(--teal-400);background:var(--teal-50)}
+
+/* DIMENSION HEADERS */
+.dim-header{display:flex;align-items:center;gap:10px;padding:.6rem .9rem;border-radius:8px;margin:1.25rem 0 .5rem;font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase}
+.dim-a{background:var(--purple-50);color:var(--purple-800)}
+.dim-b{background:var(--blue-50);color:var(--blue-800)}
+.dim-c{background:var(--teal-50);color:var(--teal-800)}
+.dim-d{background:var(--amber-50);color:var(--amber-800)}
+.dim-header .dim-pts{margin-left:auto;font-size:10px;opacity:.7}
+.dim-progress{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:10px}
+
+/* CRITERION CARDS */
+.crit-card{background:#fff;border:0.5px solid #e0dfd8;border-radius:10px;margin-bottom:.5rem;overflow:hidden;transition:border-color .15s}
+.crit-card:hover{border-color:#aaa}
+.crit-head{display:flex;align-items:flex-start;gap:.75rem;padding:.85rem 1rem;cursor:default}
+.crit-code{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0;margin-top:1px}
+.ca{background:var(--purple-50);color:var(--purple-800)}
+.cb{background:var(--blue-50);color:var(--blue-800)}
+.cc{background:var(--teal-50);color:var(--teal-800)}
+.cd{background:var(--amber-50);color:var(--amber-800)}
+.crit-text{flex:1}
+.crit-name{font-weight:500;font-size:13px;color:#1a1a1a;margin-bottom:2px}
+.crit-sub{font-size:11px;color:#888780;line-height:1.45}
+.crit-score-display{font-size:18px;font-weight:500;color:#888780;min-width:36px;text-align:right;align-self:center}
+.crit-score-display.scored{color:#1a1a1a}
+
+/* LEVEL SELECTOR */
+.levels-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:.5rem 1rem .85rem 1rem;border-top:0.5px solid #f0efe8}
+.level-btn{border:0.5px solid #e0dfd8;border-radius:7px;padding:8px 6px;cursor:pointer;background:#fff;transition:all .15s;text-align:center;position:relative}
+.level-btn:hover{border-color:#aaa;background:#fafafa}
+.level-btn.selected-4{border-color:var(--green-400);background:var(--green-50)}
+.level-btn.selected-3{border-color:var(--blue-400);background:var(--blue-50)}
+.level-btn.selected-2{border-color:var(--amber-400);background:var(--amber-50)}
+.level-btn.selected-1{border-color:var(--red-400);background:var(--red-50)}
+.lv-label{font-size:10px;font-weight:500;display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.04em}
+.lv4 .lv-label{color:var(--green-800)}
+.lv3 .lv-label{color:var(--blue-800)}
+.lv2 .lv-label{color:var(--amber-800)}
+.lv1 .lv-label{color:var(--red-800)}
+.lv-pts{font-size:16px;font-weight:500;color:#1a1a1a;display:block;margin-bottom:4px}
+.lv-desc{font-size:10px;color:#888780;line-height:1.4;text-align:left}
+
+/* OBSERVATIONS */
+.obs-section{background:#fff;border:0.5px solid #e0dfd8;border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.25rem}
+.obs-section h3{font-size:11px;font-weight:500;color:#888780;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem}
+.obs-section textarea{width:100%;border:0.5px solid #ddd;border-radius:8px;padding:.75rem;font-size:13px;font-family:inherit;color:#1a1a1a;background:#fff;resize:vertical;min-height:80px;outline:none;transition:border-color .15s}
+.obs-section textarea:focus{border-color:#378ADD;box-shadow:0 0 0 2px rgba(55,138,221,.12)}
+
+/* FIRMA */
+.firma-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:1.25rem}
+.firma-box label{font-size:10px;color:#888780;text-transform:uppercase;letter-spacing:.06em;font-weight:500;display:block;margin-bottom:6px}
+.firma-line{border-bottom:0.5px solid #888780;height:44px}
+
+/* ACTIONS */
+.actions{display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;border:0.5px solid #ddd;background:#fff;color:#1a1a1a;font-family:inherit;transition:all .15s}
+.btn:hover{background:#F1EFE8;border-color:#aaa}
+.btn.primary{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.btn.primary:hover{background:#333}
+.btn.danger{color:var(--red-800);border-color:var(--red-100)}
+.btn.danger:hover{background:var(--red-50)}
+.btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+@media print{
+  body{background:#fff}
+  .page{padding:1rem}
+  .actions,.obs-section textarea{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .actions{display:none}
+  .level-btn{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="inst-bar">
+  <div class="left">
+    <strong>Universidad Católica del Maule</strong><br>
+    Facultad de Ciencias Básicas · Depto. Matemática, Física y Estadística
+  </div>
+  <div class="logo-badge">UCM · 2026</div>
+</div>
+
+<div class="header-card">
+  <div class="header-top">
+    <div class="course-info">
+      <div class="subject">Optativo de Profundización</div>
+      <h1>Rúbrica de Presentación Oral</h1>
+      <div class="course-code">Tarea 2 - Volúmenes Finitos · IMA511</div>
+    </div>
+    <div class="status-pill">
+      <div class="status-dot active" id="statusDot"></div>
+      <span id="statusText">En progreso</span>
+    </div>
+  </div>
+  <div class="fields-row">
+    <div class="field-group">
+      <label>Nombre del estudiante</label>
+      <input type="text" id="f-nombre" placeholder="Apellido, Nombre" oninput="updateStatus()">
+    </div>
+    <div class="field-group">
+      <label>RUT</label>
+      <input type="text" id="f-rut" placeholder="12.345.678-9">
+    </div>
+    <div class="field-group">
+      <label>Fecha de evaluación</label>
+      <input type="date" id="f-fecha">
+    </div>
+    <div class="field-group">
+      <label>Evaluador</label>
+      <input type="text" id="f-eval" placeholder="Nombre del docente">
+    </div>
+  </div>
+</div>
+
+<!-- SCORE SUMMARY -->
+<div class="score-bar">
+  <div class="metric">
+    <div class="m-label">Criterios evaluados</div>
+    <div class="m-val" id="critCount">0 / 8</div>
+    <div class="progress-wrap"><div class="progress-fill" id="critProg" style="width:0%"></div></div>
+  </div>
+  <div class="metric">
+    <div class="m-label">Puntaje obtenido</div>
+    <div class="m-val" id="scoreVal">0</div>
+    <div class="m-sub">de 32 puntos</div>
+  </div>
+  <div class="metric">
+    <div class="m-label">Porcentaje</div>
+    <div class="m-val" id="pctVal">0%</div>
+    <div class="progress-wrap"><div class="progress-fill" id="pctProg" style="width:0%"></div></div>
+  </div>
+  <div class="metric highlight">
+    <div class="m-label">Nota final (1.0–7.0)</div>
+    <div class="nota-display nd" id="notaDisplay">
+      <div class="m-val" id="notaVal">-</div>
+      <div class="m-sub" id="notaDesc">sin evaluar</div>
+    </div>
+  </div>
+</div>
+
+<!-- DIMENSION A -->
+<div class="dim-header dim-a">
+  <span>A</span>
+  <span>Dominio matemático</span>
+  <span class="dim-pts" id="dimA-score">0 / 12 pts</span>
+</div>
+
+<div class="crit-card" id="card-A1">
+  <div class="crit-head">
+    <div class="crit-code ca">A1</div>
+    <div class="crit-text">
+      <div class="crit-name">Derivación del esquema FVM</div>
+      <div class="crit-sub">Integración sobre celda, teorema de Gauss, aproximación de flujos y discretización temporal</div>
+    </div>
+    <div class="crit-score-display" id="sc-A1">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('A1',4,this)">
+      <span class="lv-label">Excelente</span>
+      <span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Explica cada paso con precisión. Justifica las aproximaciones sin titubear.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('A1',3,this)">
+      <span class="lv-label">Logrado</span>
+      <span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Presenta los pasos correctamente con alguna imprecisión menor que corrige solo.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('A1',2,this)">
+      <span class="lv-label">Parcial</span>
+      <span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Presenta la idea general pero omite pasos relevantes o comete errores que no detecta.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('A1',1,this)">
+      <span class="lv-label">Insuficiente</span>
+      <span class="lv-pts">1 pt</span>
+      <span class="lv-desc">No logra explicar la derivación o confunde conceptos fundamentales.</span>
+    </button>
+  </div>
+</div>
+
+<div class="crit-card" id="card-A2">
+  <div class="crit-head">
+    <div class="crit-code ca">A2</div>
+    <div class="crit-text">
+      <div class="crit-name">Sistema matricial</div>
+      <div class="crit-sub">Identificación de bloques A₁₁, A₁₂, A₂₁, A₂₂, estructura dispersa y condiciones de borde</div>
+    </div>
+    <div class="crit-score-display" id="sc-A2">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('A2',4,this)">
+      <span class="lv-label">Excelente</span><span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Identifica y explica todos los bloques del sistema y el rol de las condiciones de borde.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('A2',3,this)">
+      <span class="lv-label">Logrado</span><span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Identifica la mayoría de los bloques con una confusión menor en su interpretación.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('A2',2,this)">
+      <span class="lv-label">Parcial</span><span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Reconoce que existe un sistema matricial pero no logra identificar su estructura.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('A2',1,this)">
+      <span class="lv-label">Insuficiente</span><span class="lv-pts">1 pt</span>
+      <span class="lv-desc">No puede explicar el sistema matricial.</span>
+    </button>
+  </div>
+</div>
+
+<div class="crit-card" id="card-A3">
+  <div class="crit-head">
+    <div class="crit-code ca">A3</div>
+    <div class="crit-text">
+      <div class="crit-name">Esquema semi-implícito</div>
+      <div class="crit-sub">Separación lineal/no lineal, estabilidad y justificación del método</div>
+    </div>
+    <div class="crit-score-display" id="sc-A3">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('A3',4,this)">
+      <span class="lv-label">Excelente</span><span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Explica con precisión qué términos se evalúan en tₙ₊₁ y tₙ, y justifica el split de estabilidad.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('A3',3,this)">
+      <span class="lv-label">Logrado</span><span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Comprende el concepto semi-implícito con alguna imprecisión en la justificación.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('A3',2,this)">
+      <span class="lv-label">Parcial</span><span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Menciona partes implícitas y explícitas pero no explica el criterio de separación.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('A3',1,this)">
+      <span class="lv-label">Insuficiente</span><span class="lv-pts">1 pt</span>
+      <span class="lv-desc">Confunde esquema implícito con semi-implícito.</span>
+    </button>
+  </div>
+</div>
+
+<!-- DIMENSION B -->
+<div class="dim-header dim-b">
+  <span>B</span>
+  <span>Implementación computacional</span>
+  <span class="dim-pts" id="dimB-score">0 / 8 pts</span>
+</div>
+
+<div class="crit-card" id="card-B1">
+  <div class="crit-head">
+    <div class="crit-code cb">B1</div>
+    <div class="crit-text">
+      <div class="crit-name">Construcción de la malla y operador Δₕ</div>
+      <div class="crit-sub">MeshPy, transmisibilidades τ_σ, significado geométrico de m(σ) y d_σ</div>
+    </div>
+    <div class="crit-score-display" id="sc-B1">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('B1',4,this)">
+      <span class="lv-label">Excelente</span><span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Explica la malla triangular y el operador Lₕ; define τ_σ geométricamente con claridad.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('B1',3,this)">
+      <span class="lv-label">Logrado</span><span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Explica la construcción con algún detalle omitido en la definición de τ_σ.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('B1',2,this)">
+      <span class="lv-label">Parcial</span><span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Describe superficialmente la malla; tiene dificultad para explicar τ_σ o el ensamble de Lₕ.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('B1',1,this)">
+      <span class="lv-label">Insuficiente</span><span class="lv-pts">1 pt</span>
+      <span class="lv-desc">No puede explicar cómo se construyó el operador discreto.</span>
+    </button>
+  </div>
+</div>
+
+<div class="crit-card" id="card-B2">
+  <div class="crit-head">
+    <div class="crit-code cb">B2</div>
+    <div class="crit-text">
+      <div class="crit-name">Resolución del sistema lineal</div>
+      <div class="crit-sub">Ensamble por paso de tiempo, uso de solver disperso, eficiencia computacional</div>
+    </div>
+    <div class="crit-score-display" id="sc-B2">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('B2',4,this)">
+      <span class="lv-label">Excelente</span><span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Explica el loop temporal, la actualización del RHS y el uso de LU disperso con criterio de eficiencia.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('B2',3,this)">
+      <span class="lv-label">Logrado</span><span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Describe el procedimiento correctamente con alguna imprecisión en la estrategia del solver.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('B2',2,this)">
+      <span class="lv-label">Parcial</span><span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Sabe que se resuelve un sistema lineal por paso de tiempo pero no explica cómo.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('B2',1,this)">
+      <span class="lv-label">Insuficiente</span><span class="lv-pts">1 pt</span>
+      <span class="lv-desc">No puede explicar la implementación del loop temporal.</span>
+    </button>
+  </div>
+</div>
+
+<!-- DIMENSION C -->
+<div class="dim-header dim-c">
+  <span>C</span>
+  <span>Resultados y análisis</span>
+  <span class="dim-pts" id="dimC-score">0 / 8 pts</span>
+</div>
+
+<div class="crit-card" id="card-C1">
+  <div class="crit-head">
+    <div class="crit-code cc">C1</div>
+    <div class="crit-text">
+      <div class="crit-name">Análisis de error y convergencia</div>
+      <div class="crit-sub">Error ‖e‖∞, orden de convergencia, experimento de refinamiento de malla</div>
+    </div>
+    <div class="crit-score-display" id="sc-C1">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('C1',4,this)">
+      <span class="lv-label">Excelente</span><span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Presenta tabla de errores, estima el orden de convergencia e interpreta el resultado respecto a la teoría.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('C1',3,this)">
+      <span class="lv-label">Logrado</span><span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Muestra los errores y el orden pero la interpretación teórica es superficial.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('C1',2,this)">
+      <span class="lv-label">Parcial</span><span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Calcula el error pero no realiza análisis de convergencia sistemático.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('C1',1,this)">
+      <span class="lv-label">Insuficiente</span><span class="lv-pts">1 pt</span>
+      <span class="lv-desc">No presenta análisis de error o los resultados son incorrectos sin detección.</span>
+    </button>
+  </div>
+</div>
+
+<div class="crit-card" id="card-C2">
+  <div class="crit-head">
+    <div class="crit-code cc">C2</div>
+    <div class="crit-text">
+      <div class="crit-name">Interpretación de la simulación GL</div>
+      <div class="crit-sub">Estructuras de |A|, vórtices topológicos, puntos donde |A|=0, significado de la fase</div>
+    </div>
+    <div class="crit-score-display" id="sc-C2">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('C2',4,this)">
+      <span class="lv-label">Excelente</span><span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Identifica estructuras, vórtices y puntos nulos de |A| con sustento matemático-físico sólido.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('C2',3,this)">
+      <span class="lv-label">Logrado</span><span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Describe correctamente las estructuras con alguna imprecisión en la interpretación de los vórtices.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('C2',2,this)">
+      <span class="lv-label">Parcial</span><span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Describe lo que se ve en los gráficos sin conectarlo con la física o matemática subyacente.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('C2',1,this)">
+      <span class="lv-label">Insuficiente</span><span class="lv-pts">1 pt</span>
+      <span class="lv-desc">No logra interpretar los resultados de la simulación.</span>
+    </button>
+  </div>
+</div>
+
+<!-- DIMENSION D -->
+<div class="dim-header dim-d">
+  <span>D</span>
+  <span>Comunicación oral</span>
+  <span class="dim-pts" id="dimD-score">0 / 8 pts</span>
+</div>
+
+<div class="crit-card" id="card-D1">
+  <div class="crit-head">
+    <div class="crit-code cd">D1</div>
+    <div class="crit-text">
+      <div class="crit-name">Claridad y estructura expositiva</div>
+      <div class="crit-sub">Organización lógica, uso del tiempo, hilo conductor desde el modelo hasta los resultados</div>
+    </div>
+    <div class="crit-score-display" id="sc-D1">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('D1',4,this)">
+      <span class="lv-label">Excelente</span><span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Presentación organizada, fluida y dentro del tiempo. Conduce al evaluador sin pérdida de hilo.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('D1',3,this)">
+      <span class="lv-label">Logrado</span><span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Presentación clara con algún desvío o problema de tiempo menor.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('D1',2,this)">
+      <span class="lv-label">Parcial</span><span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Presentación desorganizada o fuera del tiempo; hay saltos que dificultan el seguimiento.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('D1',1,this)">
+      <span class="lv-label">Insuficiente</span><span class="lv-pts">1 pt</span>
+      <span class="lv-desc">No logra estructurar una exposición coherente.</span>
+    </button>
+  </div>
+</div>
+
+<div class="crit-card" id="card-D2">
+  <div class="crit-head">
+    <div class="crit-code cd">D2</div>
+    <div class="crit-text">
+      <div class="crit-name">Respuesta a preguntas</div>
+      <div class="crit-sub">Capacidad de defensa, profundidad y honestidad ante lo desconocido</div>
+    </div>
+    <div class="crit-score-display" id="sc-D2">-</div>
+  </div>
+  <div class="levels-row">
+    <button class="level-btn lv4" onclick="select('D2',4,this)">
+      <span class="lv-label">Excelente</span><span class="lv-pts">4 pts</span>
+      <span class="lv-desc">Responde con precisión, argumenta con fundamentos y reconoce honestamente los límites de su conocimiento.</span>
+    </button>
+    <button class="level-btn lv3" onclick="select('D2',3,this)">
+      <span class="lv-label">Logrado</span><span class="lv-pts">3 pts</span>
+      <span class="lv-desc">Responde bien la mayoría de las preguntas; alguna respuesta vaga o incompleta.</span>
+    </button>
+    <button class="level-btn lv2" onclick="select('D2',2,this)">
+      <span class="lv-label">Parcial</span><span class="lv-pts">2 pts</span>
+      <span class="lv-desc">Responde solo preguntas directas o muy guiadas; evade las que implican profundidad.</span>
+    </button>
+    <button class="level-btn lv1" onclick="select('D2',1,this)">
+      <span class="lv-label">Insuficiente</span><span class="lv-pts">1 pt</span>
+      <span class="lv-desc">No puede responder las preguntas o inventa respuestas incorrectas.</span>
+    </button>
+  </div>
+</div>
+
+<!-- OBSERVACIONES -->
+<div class="obs-section">
+  <h3>Observaciones del evaluador</h3>
+  <textarea id="obs" placeholder="Ingrese observaciones, fortalezas o aspectos a mejorar..."></textarea>
+</div>
+
+<!-- FIRMAS -->
+<div class="firma-section">
+  <div class="firma-box">
+    <label>Firma del evaluador</label>
+    <div class="firma-line"></div>
+  </div>
+  <div class="firma-box">
+    <label>Firma del estudiante (conformidad)</label>
+    <div class="firma-line"></div>
+  </div>
+  <div class="firma-box">
+    <label>Fecha y hora de evaluación</label>
+    <div class="firma-line"></div>
+  </div>
+</div>
+
+<!-- ACCIONES -->
+<div class="actions">
+  <button class="btn primary" onclick="window.print()">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Imprimir / guardar PDF
+  </button>
+  <button class="btn" onclick="resetAll()">
+    <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.36"/></svg>
+    Reiniciar
+  </button>
+</div>
+
+</div>
+
+<script>
+const scores = {A1:0,A2:0,A3:0,B1:0,B2:0,C1:0,C2:0,D1:0,D2:0};
+const dims = {
+  A:['A1','A2','A3'],
+  B:['B1','B2'],
+  C:['C1','C2'],
+  D:['D1','D2']
+};
+
+function select(id, pts, btn){
+  scores[id] = pts;
+  const card = document.getElementById('card-'+id);
+  card.querySelectorAll('.level-btn').forEach(b => {
+    b.classList.remove('selected-4','selected-3','selected-2','selected-1');
+  });
+  btn.classList.add('selected-'+pts);
+  const disp = document.getElementById('sc-'+id);
+  disp.textContent = pts+' / 4';
+  disp.classList.add('scored');
+  recalc();
+}
+
+function recalc(){
+  let total = 0;
+  let evaluated = 0;
+  Object.entries(scores).forEach(([k,v])=>{if(v>0){total+=v;evaluated++}});
+
+  Object.entries(dims).forEach(([dim,crits])=>{
+    let dimScore = 0;
+    crits.forEach(c => dimScore += scores[c]);
+    const max = crits.length * 4;
+    document.getElementById('dim'+dim+'-score').textContent = dimScore+' / '+max+' pts';
+  });
+
+  document.getElementById('critCount').textContent = evaluated+' / 8';
+  document.getElementById('critProg').style.width = Math.round(evaluated/8*100)+'%';
+  document.getElementById('scoreVal').textContent = total;
+  const pct = evaluated>0 ? Math.round(total/32*100) : 0;
+  document.getElementById('pctVal').textContent = pct+'%';
+  document.getElementById('pctProg').style.width = pct+'%';
+
+  const nd = document.getElementById('notaDisplay');
+  const nv = document.getElementById('notaVal');
+  const ns = document.getElementById('notaDesc');
+  nd.className = 'nota-display';
+
+  if(evaluated < 8){
+    nv.textContent = '-';
+    ns.textContent = 'sin completar';
+    nd.classList.add('nd');
+  } else {
+    const nota = 1 + 6*(total/32);
+    nv.textContent = nota.toFixed(1);
+    if(nota < 4.0){nd.classList.add('n-insuf');ns.textContent='Insuficiente'}
+    else if(nota < 5.5){nd.classList.add('n-suf');ns.textContent='Suficiente'}
+    else if(nota < 6.5){nd.classList.add('n-bien');ns.textContent='Bien'}
+    else{nd.classList.add('n-dist');ns.textContent='Distinción'}
+  }
+  updateStatus();
+}
+
+function updateStatus(){
+  const evaluated = Object.values(scores).filter(v=>v>0).length;
+  const dot = document.getElementById('statusDot');
+  const txt = document.getElementById('statusText');
+  const nombre = document.getElementById('f-nombre').value.trim();
+  if(evaluated===8){
+    dot.style.background='#1D9E75';
+    txt.textContent='Evaluación completa';
+  } else if(evaluated>0||nombre){
+    dot.style.background='#EF9F27';
+    txt.textContent='En progreso';
+  } else {
+    dot.style.background='#ddd';
+    txt.textContent='Sin iniciar';
+  }
+}
+
+function resetAll(){
+  if(!confirm('¿Reiniciar todos los puntajes?')) return;
+  Object.keys(scores).forEach(k=>scores[k]=0);
+  document.querySelectorAll('.level-btn').forEach(b=>{
+    b.classList.remove('selected-4','selected-3','selected-2','selected-1');
+  });
+  document.querySelectorAll('.crit-score-display').forEach(d=>{
+    d.textContent='-';d.classList.remove('scored');
+  });
+  ['A','B','C','D'].forEach(d=>{
+    const crits = dims[d];
+    document.getElementById('dim'+d+'-score').textContent='0 / '+(crits.length*4)+' pts';
+  });
+  document.getElementById('critCount').textContent='0 / 8';
+  document.getElementById('critProg').style.width='0%';
+  document.getElementById('scoreVal').textContent='0';
+  document.getElementById('pctVal').textContent='0%';
+  document.getElementById('pctProg').style.width='0%';
+  const nd=document.getElementById('notaDisplay');
+  nd.className='nota-display nd';
+  document.getElementById('notaVal').textContent='-';
+  document.getElementById('notaDesc').textContent='sin evaluar';
+  document.getElementById('obs').value='';
+  updateStatus();
+}
+
+document.getElementById('f-fecha').valueAsDate = new Date();
+</script>
+</body>
+</html>
