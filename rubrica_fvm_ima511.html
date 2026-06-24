@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rúbrica de Presentación Oral - IMA511</title>
+<title>Rúbrica de Presentación Oral — IMA511</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -135,7 +135,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
     <strong>Universidad Católica del Maule</strong><br>
     Facultad de Ciencias Básicas · Depto. Matemática, Física y Estadística
   </div>
-  <div class="logo-badge">UCM · 2026</div>
+  <div class="logo-badge">UCM · 2025</div>
 </div>
 
 <div class="header-card">
@@ -143,7 +143,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
     <div class="course-info">
       <div class="subject">Optativo de Profundización</div>
       <h1>Rúbrica de Presentación Oral</h1>
-      <div class="course-code">Tarea 2 - Volúmenes Finitos · IMA511</div>
+      <div class="course-code">Tarea 2 — Volúmenes Finitos · IMA511</div>
     </div>
     <div class="status-pill">
       <div class="status-dot active" id="statusDot"></div>
@@ -174,13 +174,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
 <div class="score-bar">
   <div class="metric">
     <div class="m-label">Criterios evaluados</div>
-    <div class="m-val" id="critCount">0 / 8</div>
+    <div class="m-val" id="critCount">0 / 9</div>
     <div class="progress-wrap"><div class="progress-fill" id="critProg" style="width:0%"></div></div>
   </div>
   <div class="metric">
     <div class="m-label">Puntaje obtenido</div>
     <div class="m-val" id="scoreVal">0</div>
-    <div class="m-sub">de 32 puntos</div>
+    <div class="m-sub" id="scoreMax">de 36 puntos</div>
   </div>
   <div class="metric">
     <div class="m-label">Porcentaje</div>
@@ -190,7 +190,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
   <div class="metric highlight">
     <div class="m-label">Nota final (1.0–7.0)</div>
     <div class="nota-display nd" id="notaDisplay">
-      <div class="m-val" id="notaVal">-</div>
+      <div class="m-val" id="notaVal">—</div>
       <div class="m-sub" id="notaDesc">sin evaluar</div>
     </div>
   </div>
@@ -210,7 +210,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Derivación del esquema FVM</div>
       <div class="crit-sub">Integración sobre celda, teorema de Gauss, aproximación de flujos y discretización temporal</div>
     </div>
-    <div class="crit-score-display" id="sc-A1">-</div>
+    <div class="crit-score-display" id="sc-A1">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('A1',4,this)">
@@ -243,7 +243,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Sistema matricial</div>
       <div class="crit-sub">Identificación de bloques A₁₁, A₁₂, A₂₁, A₂₂, estructura dispersa y condiciones de borde</div>
     </div>
-    <div class="crit-score-display" id="sc-A2">-</div>
+    <div class="crit-score-display" id="sc-A2">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('A2',4,this)">
@@ -272,7 +272,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Esquema semi-implícito</div>
       <div class="crit-sub">Separación lineal/no lineal, estabilidad y justificación del método</div>
     </div>
-    <div class="crit-score-display" id="sc-A3">-</div>
+    <div class="crit-score-display" id="sc-A3">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('A3',4,this)">
@@ -308,7 +308,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Construcción de la malla y operador Δₕ</div>
       <div class="crit-sub">MeshPy, transmisibilidades τ_σ, significado geométrico de m(σ) y d_σ</div>
     </div>
-    <div class="crit-score-display" id="sc-B1">-</div>
+    <div class="crit-score-display" id="sc-B1">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('B1',4,this)">
@@ -337,7 +337,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Resolución del sistema lineal</div>
       <div class="crit-sub">Ensamble por paso de tiempo, uso de solver disperso, eficiencia computacional</div>
     </div>
-    <div class="crit-score-display" id="sc-B2">-</div>
+    <div class="crit-score-display" id="sc-B2">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('B2',4,this)">
@@ -373,7 +373,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Análisis de error y convergencia</div>
       <div class="crit-sub">Error ‖e‖∞, orden de convergencia, experimento de refinamiento de malla</div>
     </div>
-    <div class="crit-score-display" id="sc-C1">-</div>
+    <div class="crit-score-display" id="sc-C1">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('C1',4,this)">
@@ -402,7 +402,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Interpretación de la simulación GL</div>
       <div class="crit-sub">Estructuras de |A|, vórtices topológicos, puntos donde |A|=0, significado de la fase</div>
     </div>
-    <div class="crit-score-display" id="sc-C2">-</div>
+    <div class="crit-score-display" id="sc-C2">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('C2',4,this)">
@@ -438,7 +438,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Claridad y estructura expositiva</div>
       <div class="crit-sub">Organización lógica, uso del tiempo, hilo conductor desde el modelo hasta los resultados</div>
     </div>
-    <div class="crit-score-display" id="sc-D1">-</div>
+    <div class="crit-score-display" id="sc-D1">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('D1',4,this)">
@@ -467,7 +467,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-siz
       <div class="crit-name">Respuesta a preguntas</div>
       <div class="crit-sub">Capacidad de defensa, profundidad y honestidad ante lo desconocido</div>
     </div>
-    <div class="crit-score-display" id="sc-D2">-</div>
+    <div class="crit-score-display" id="sc-D2">—</div>
   </div>
   <div class="levels-row">
     <button class="level-btn lv4" onclick="select('D2',4,this)">
@@ -559,10 +559,13 @@ function recalc(){
     document.getElementById('dim'+dim+'-score').textContent = dimScore+' / '+max+' pts';
   });
 
-  document.getElementById('critCount').textContent = evaluated+' / 8';
-  document.getElementById('critProg').style.width = Math.round(evaluated/8*100)+'%';
+  const TOTAL_CRITS = Object.keys(scores).length;
+  const MAX_PTS = TOTAL_CRITS * 4;
+  document.getElementById('critCount').textContent = evaluated+' / '+TOTAL_CRITS;
+  document.getElementById('critProg').style.width = Math.round(evaluated/TOTAL_CRITS*100)+'%';
   document.getElementById('scoreVal').textContent = total;
-  const pct = evaluated>0 ? Math.round(total/32*100) : 0;
+  document.getElementById('scoreMax').textContent = MAX_PTS+' puntos';
+  const pct = evaluated>0 ? Math.round(total/MAX_PTS*100) : 0;
   document.getElementById('pctVal').textContent = pct+'%';
   document.getElementById('pctProg').style.width = pct+'%';
 
@@ -571,12 +574,12 @@ function recalc(){
   const ns = document.getElementById('notaDesc');
   nd.className = 'nota-display';
 
-  if(evaluated < 8){
-    nv.textContent = '-';
+  if(evaluated < TOTAL_CRITS){
+    nv.textContent = '—';
     ns.textContent = 'sin completar';
     nd.classList.add('nd');
   } else {
-    const nota = 1 + 6*(total/32);
+    const nota = 1 + 6*(total/MAX_PTS);
     nv.textContent = nota.toFixed(1);
     if(nota < 4.0){nd.classList.add('n-insuf');ns.textContent='Insuficiente'}
     else if(nota < 5.5){nd.classList.add('n-suf');ns.textContent='Suficiente'}
@@ -591,7 +594,8 @@ function updateStatus(){
   const dot = document.getElementById('statusDot');
   const txt = document.getElementById('statusText');
   const nombre = document.getElementById('f-nombre').value.trim();
-  if(evaluated===8){
+  const TOTAL = Object.keys(scores).length;
+  if(evaluated===TOTAL){
     dot.style.background='#1D9E75';
     txt.textContent='Evaluación completa';
   } else if(evaluated>0||nombre){
@@ -610,20 +614,20 @@ function resetAll(){
     b.classList.remove('selected-4','selected-3','selected-2','selected-1');
   });
   document.querySelectorAll('.crit-score-display').forEach(d=>{
-    d.textContent='-';d.classList.remove('scored');
+    d.textContent='—';d.classList.remove('scored');
   });
   ['A','B','C','D'].forEach(d=>{
     const crits = dims[d];
     document.getElementById('dim'+d+'-score').textContent='0 / '+(crits.length*4)+' pts';
   });
-  document.getElementById('critCount').textContent='0 / 8';
+  document.getElementById('critCount').textContent='0 / 9';
   document.getElementById('critProg').style.width='0%';
   document.getElementById('scoreVal').textContent='0';
   document.getElementById('pctVal').textContent='0%';
   document.getElementById('pctProg').style.width='0%';
   const nd=document.getElementById('notaDisplay');
   nd.className='nota-display nd';
-  document.getElementById('notaVal').textContent='-';
+  document.getElementById('notaVal').textContent='—';
   document.getElementById('notaDesc').textContent='sin evaluar';
   document.getElementById('obs').value='';
   updateStatus();
